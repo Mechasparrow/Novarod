@@ -42,6 +42,8 @@ func _fixed_process(delta):
 			jump_timer = 0
 		
 		jump_timer += delta
+		
+		
 	
 	
 	var motion = velocity * delta
