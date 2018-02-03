@@ -10,7 +10,7 @@ source_file="res://_Assets/Art/Ground_Surface_Reg.png"
 source_md5="0a89772189911a50f114e869442aad17"
 
 dest_files=[ "res://.import/Ground_Surface_Reg.png-25679847769f92a247c66c08309eac53.stex" ]
-dest_md5="893cf8fdd9078a5858bf33973a8c47d4"
+dest_md5="8a53160ae689978a5d403256b509b554"
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
