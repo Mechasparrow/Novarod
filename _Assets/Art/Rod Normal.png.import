@@ -10,16 +10,16 @@ source_file="res://_Assets/Art/Rod Normal.png"
 source_md5="2e18345d447e557d318819113efe72c5"
 
 dest_files=[ "res://.import/Rod Normal.png-5763017ac54c5a5e53ea9f2814565b06.stex" ]
-dest_md5="f7592ef64a3fcddc373a7abdbf5620b6"
+dest_md5="20932bd766a78fd30607b6364924ad40"
 
 [params]
 
-compress/mode=0
+compress/mode=3
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
