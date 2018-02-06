@@ -26,7 +26,10 @@ var prev_jump_pressed = false
 
 var health = 3
 
-signal health_changed
+signal health_changed(health)
+
+func _ready():
+	emit_signal("health_changed", health)
 
 func _physics_process(delta):
 	# Create forces

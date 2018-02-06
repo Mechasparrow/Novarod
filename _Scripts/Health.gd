@@ -4,19 +4,14 @@ extends Node2D
 # var a = 2
 # var b = "textvar"
 
-var health = 0
-
 func _ready():
 	# Called every time the node is added to the scene.
 	# Initialization here
-	
-	var health = get_node("../Player").get("health")
-	display_health(health)
 	pass
 
 func display_health(health):
 	
-	var hearts = get_tree().get_nodes_in_group("heart")
+	var hearts = get_children()
 	print (len(hearts))
 	
 	var cnt = 0
@@ -37,7 +32,5 @@ func display_health(health):
 	# Update game logic here.
 #	pass
 
-func on_player_health_changed():
-	
-	var health = get_node("../Player").get("health")
+func on_player_health_changed(health):
 	display_health(health)
