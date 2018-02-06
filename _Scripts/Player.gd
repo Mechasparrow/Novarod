@@ -32,6 +32,9 @@ func _ready():
 	emit_signal("health_changed", health)
 
 func _physics_process(delta):
+	
+	
+	
 	# Create forces
 	var force = Vector2(0, GRAVITY)
 	
@@ -80,3 +83,37 @@ func _physics_process(delta):
 	
 	on_air_time += delta
 	prev_jump_pressed = jump
+
+	var k_collision = null
+
+
+	var touched_node = ""
+	
+	#Collide collision
+	k_collision = move_and_collide(Vector2(0,1));
+	if not k_collision == null:
+		touched_node = k_collision.collider.get_name()
+		check_collided_node(touched_node)
+
+	# Slide collision
+	if (get_slide_count() > 0):
+		k_collision = get_slide_collision(0)
+		
+	if not k_collision == null:
+		touched_node = k_collision.collider.get_name()
+		check_collided_node(touched_node)
+		
+func respawn():
+	
+	position = Vector2(100,400)
+		
+		
+func check_collided_node(node_name):
+	print (node_name)
+	
+	if (node_name == "Hazard"):
+		print ("thats bad")
+		respawn()
+	
+	pass
+	
