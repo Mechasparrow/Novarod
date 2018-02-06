@@ -10,20 +10,20 @@ source_file="res://_Assets/Art/heart_0.png"
 source_md5="4c63e6ef38abaf0a377ffc89e94c4378"
 
 dest_files=[ "res://.import/heart_0.png-68c351fc5cf9cfa74987a2d9ec4df9d2.stex" ]
-dest_md5="df98483560281e4bf5c03bc8ce40c5d8"
+dest_md5="8cb9752eb5ada59134300cbd106e9a44"
 
 [params]
 
-compress/mode=0
+compress/mode=3
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
-process/fix_alpha_border=true
+process/fix_alpha_border=false
 process/premult_alpha=false
 process/HDR_as_SRGB=false
 stream=false
