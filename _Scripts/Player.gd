@@ -24,6 +24,9 @@ var jumping = false
 
 var prev_jump_pressed = false
 
+var health = 3
+
+signal health_changed
 
 func _physics_process(delta):
 	# Create forces
