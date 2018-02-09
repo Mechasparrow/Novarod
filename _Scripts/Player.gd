@@ -26,6 +26,8 @@ var prev_jump_pressed = false
 
 var health = 3
 
+onready var anim = get_node("AnimatedSprite")
+
 signal health_changed(health)
 
 func _ready():
@@ -46,14 +48,21 @@ func _physics_process(delta):
 	
 	if walk_left:
 		if velocity.x <= WALK_MIN_SPEED and velocity.x > -WALK_MAX_SPEED:
+			anim.flip_h = true
 			force.x -= WALK_FORCE
 			stop = false
 	elif walk_right:
 		if velocity.x >= -WALK_MIN_SPEED and velocity.x < WALK_MAX_SPEED:
+			anim.flip_h = false
 			force.x += WALK_FORCE
 			stop = false
 	
+	if not stop:
+		if (anim.is_playing() == false or anim.animation == "still"):
+			anim.play("move")
+	
 	if stop:
+		
 		var vsign = sign(velocity.x)
 		var vlen = abs(velocity.x)
 		
@@ -68,6 +77,11 @@ func _physics_process(delta):
 	# Integrate velocity into motion and move
 	velocity = move_and_slide(velocity, Vector2(0, -1))
 	
+	if (velocity == Vector2(0,0)):
+		anim.stop()
+		if (anim.is_playing() == false):
+			anim.play("still")
+	
 	if is_on_floor():
 		on_air_time = 0
 		
@@ -80,6 +94,7 @@ func _physics_process(delta):
 		# Makes controls more snappy.
 		velocity.y = -JUMP_SPEED
 		jumping = true
+		anim.play("jump")
 	
 	on_air_time += delta
 	prev_jump_pressed = jump
