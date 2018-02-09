@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Ground_Surface_Reg.png-25679847769f92a247c66c08309eac53.stex"
+path="res://.import/stone_block.png-8c58582ddb7fa7dab548274c8c56ecd0.stex"
 
 [deps]
 
-source_file="res://_Assets/Art/Ground_Surface_Reg.png"
-source_md5="0a89772189911a50f114e869442aad17"
+source_file="res://_Assets/Art/stone_block.png"
+source_md5="71c04fe1c6401f07cfd65213de13691e"
 
-dest_files=[ "res://.import/Ground_Surface_Reg.png-25679847769f92a247c66c08309eac53.stex" ]
-dest_md5="6aca9cfc4103468bddb28cea912e95ca"
+dest_files=[ "res://.import/stone_block.png-8c58582ddb7fa7dab548274c8c56ecd0.stex" ]
+dest_md5="0ebaadf143db677bff717ba817529762"
 
 [params]
 

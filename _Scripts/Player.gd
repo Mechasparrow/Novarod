@@ -88,6 +88,7 @@ func _physics_process(delta):
 	if jumping and velocity.y > 0:
 		# If falling, no longer jumping
 		jumping = false
+		anim.play("still")
 	
 	if on_air_time < JUMP_MAX_AIRBORNE_TIME and jump and not prev_jump_pressed and not jumping:
 		# Jump must also be allowed to happen if the character left the floor a little bit ago.
@@ -129,7 +130,6 @@ func respawn():
 		
 		
 func check_collided_node(node_name):
-	print (node_name)
 	
 	if (node_name == "Hazard"):
 		print ("thats bad")

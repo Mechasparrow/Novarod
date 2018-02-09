@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Ground_Surface_Reg.png-25679847769f92a247c66c08309eac53.stex"
+path="res://.import/Goal_block_rod.png-e8c853c26e346fe700177d12bcd88656.stex"
 
 [deps]
 
-source_file="res://_Assets/Art/Ground_Surface_Reg.png"
-source_md5="0a89772189911a50f114e869442aad17"
+source_file="res://_Assets/Art/Goal_block_rod.png"
+source_md5="530159ab252d539fdbeab4639a2fbeaa"
 
-dest_files=[ "res://.import/Ground_Surface_Reg.png-25679847769f92a247c66c08309eac53.stex" ]
-dest_md5="6aca9cfc4103468bddb28cea912e95ca"
+dest_files=[ "res://.import/Goal_block_rod.png-e8c853c26e346fe700177d12bcd88656.stex" ]
+dest_md5="3d794b03f4e676f45816c6d777820cbc"
 
 [params]
 
