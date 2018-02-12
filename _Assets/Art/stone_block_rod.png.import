@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Lava_1.png-d9a03ee15df84f286ac9a306f192a645.stex"
+path="res://.import/stone_block_rod.png-520feb32cf9a02f536779b9418178cd3.stex"
 
 [deps]
 
-source_file="res://_Assets/Art/Lava_1.png"
-source_md5="3d4fef0c44dc507ce474090a330ad43a"
+source_file="res://_Assets/Art/stone_block_rod.png"
+source_md5="46ba35e7c26a0b8791689c4a55931c58"
 
-dest_files=[ "res://.import/Lava_1.png-d9a03ee15df84f286ac9a306f192a645.stex" ]
-dest_md5="0498cb473a72f02847e2e76ac6197d0b"
+dest_files=[ "res://.import/stone_block_rod.png-520feb32cf9a02f536779b9418178cd3.stex" ]
+dest_md5="d00d439fa8f4317a14792d7fea1450c7"
 
 [params]
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Lava_1.png-d9a03ee15df84f286ac9a306f192a645.stex"
+path="res://.import/chest0.png-3fd7beb9a0a1735b4a34876e11f68dbc.stex"
 
 [deps]
 
-source_file="res://_Assets/Art/Lava_1.png"
-source_md5="3d4fef0c44dc507ce474090a330ad43a"
+source_file="res://_Assets/Art/Spritesheets/Chest/chest0.png"
+source_md5="f00bb765473d735da900fc6d09782b26"
 
-dest_files=[ "res://.import/Lava_1.png-d9a03ee15df84f286ac9a306f192a645.stex" ]
-dest_md5="0498cb473a72f02847e2e76ac6197d0b"
+dest_files=[ "res://.import/chest0.png-3fd7beb9a0a1735b4a34876e11f68dbc.stex" ]
+dest_md5="3eefc6aac50f91a81acfeb99a907f01e"
 
 [params]
 
