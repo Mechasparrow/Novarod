@@ -4,7 +4,7 @@ extends Node
 # var a = 2
 # var b = "textvar"
 
-onready var win_text = get_node("Win Text")
+onready var win_text = get_node("HUD/Win Text")
 
 func _ready():
 	# Called every time the node is added to the scene.
