@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://_Scripts/level_script.gd" type="Script" id=1]
 [ext_resource path="res://_Scripts/Chest.gd" type="Script" id=2]
@@ -8,21 +8,17 @@
 [ext_resource path="res://_Tileset/hazards.tres" type="TileSet" id=6]
 [ext_resource path="res://_Assets/Art/stone_block.png" type="Texture" id=7]
 [ext_resource path="res://_Assets/Art/Goal_block_rod.png" type="Texture" id=8]
-[ext_resource path="res://_Scripts/Coin.gd" type="Script" id=9]
-[ext_resource path="res://_Assets/Art/Spritesheets/Gold_Coin/gold_coin0.png" type="Texture" id=10]
-[ext_resource path="res://_Assets/Art/Spritesheets/Gold_Coin/gold_coin1.png" type="Texture" id=11]
-[ext_resource path="res://_Assets/Art/Spritesheets/Gold_Coin/gold_coin2.png" type="Texture" id=12]
-[ext_resource path="res://_Assets/Art/Spritesheets/Gold_Coin/gold_coin3.png" type="Texture" id=13]
-[ext_resource path="res://_Assets/Art/Spritesheets/Gold_Coin/gold_coin4.png" type="Texture" id=14]
-[ext_resource path="res://_Scripts/Sign.gd" type="Script" id=15]
-[ext_resource path="res://_Assets/Art/Sign_Post.png" type="Texture" id=16]
-[ext_resource path="res://_Scripts/Player.gd" type="Script" id=17]
-[ext_resource path="res://_Assets/Art/Spritesheets/Rod/rod3.png" type="Texture" id=18]
-[ext_resource path="res://_Assets/Art/Spritesheets/Rod/rod0.png" type="Texture" id=19]
-[ext_resource path="res://_Assets/Art/Spritesheets/Rod/rod1.png" type="Texture" id=20]
-[ext_resource path="res://_Assets/Art/Spritesheets/Rod/rod2.png" type="Texture" id=21]
-[ext_resource path="res://_Scripts/Health.gd" type="Script" id=22]
-[ext_resource path="res://_Assets/Art/heart_0.png" type="Texture" id=23]
+[ext_resource path="res://_Prefab/Coin.tscn" type="PackedScene" id=9]
+[ext_resource path="res://_Scripts/Sign.gd" type="Script" id=10]
+[ext_resource path="res://_Assets/Art/Sign_Post.png" type="Texture" id=11]
+[ext_resource path="res://_Scripts/Player.gd" type="Script" id=12]
+[ext_resource path="res://_Assets/Art/Spritesheets/Rod/rod3.png" type="Texture" id=13]
+[ext_resource path="res://_Assets/Art/Spritesheets/Rod/rod0.png" type="Texture" id=14]
+[ext_resource path="res://_Assets/Art/Spritesheets/Rod/rod1.png" type="Texture" id=15]
+[ext_resource path="res://_Assets/Art/Spritesheets/Rod/rod2.png" type="Texture" id=16]
+[ext_resource path="res://_Scripts/CoinsHUD.gd" type="Script" id=17]
+[ext_resource path="res://_Scripts/Health.gd" type="Script" id=18]
+[ext_resource path="res://_Assets/Art/heart_0.png" type="Texture" id=19]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -53,20 +49,6 @@ extents = Vector2( 58.0563, 10 )
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[sub_resource type="SpriteFrames" id=4]
-
-animations = [ {
-"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ) ],
-"loop": true,
-"name": "default",
-"speed": 5.0
-} ]
-
-[sub_resource type="RectangleShape2D" id=5]
-
-custom_solver_bias = 0.0
-extents = Vector2( 15.2657, 12.8192 )
-
 [sub_resource type="RectangleShape2D" id=10]
 
 custom_solver_bias = 0.0
@@ -80,17 +62,17 @@ extents = Vector2( 13.1362, 11.3937 )
 [sub_resource type="SpriteFrames" id=7]
 
 animations = [ {
-"frames": [ ExtResource( 18 ) ],
+"frames": [ ExtResource( 13 ) ],
 "loop": true,
 "name": "jump",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 18 ) ],
+"frames": [ ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 13 ) ],
 "loop": true,
 "name": "move",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 19 ) ],
+"frames": [ ExtResource( 14 ) ],
 "loop": true,
 "name": "still",
 "speed": 5.0
@@ -241,33 +223,15 @@ __meta__ = {
 
 editor/display_folded = true
 
-[node name="Coin" type="Area2D" parent="Coins" index="0"]
+[node name="Coin" parent="Coins" index="0" instance=ExtResource( 9 )]
 
-position = Vector2( 338, 347 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-audio_bus_override = false
-audio_bus_name = "Master"
-script = ExtResource( 9 )
+[node name="Coin2" parent="Coins" index="1" instance=ExtResource( 9 )]
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Coins/Coin" index="0"]
-
-scale = Vector2( 2.5, 2.5 )
-frames = SubResource( 4 )
-animation = "default"
-_sections_unfolded = [ "Transform" ]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Coins/Coin" index="1"]
-
-position = Vector2( 0, 1.19165 )
-shape = SubResource( 5 )
-_sections_unfolded = [ "Transform" ]
+position = Vector2( 391.446, 375.393 )
 
 [node name="Signs" type="Node2D" parent="." index="6"]
 
+editor/display_folded = true
 position = Vector2( 97.7842, 416.212 )
 
 [node name="Sign2" type="Area2D" parent="Signs" index="0"]
@@ -280,12 +244,12 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-script = ExtResource( 15 )
+script = ExtResource( 10 )
 
 [node name="Sprite" type="Sprite" parent="Signs/Sign2" index="0"]
 
 scale = Vector2( 4, 4 )
-texture = ExtResource( 16 )
+texture = ExtResource( 11 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Panel" type="Panel" parent="Signs/Sign2" index="1"]
@@ -345,12 +309,12 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-script = ExtResource( 15 )
+script = ExtResource( 10 )
 
 [node name="Sprite" type="Sprite" parent="Signs/Sign" index="0"]
 
 scale = Vector2( 4, 4 )
-texture = ExtResource( 16 )
+texture = ExtResource( 11 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Panel" type="Panel" parent="Signs/Sign" index="1"]
@@ -409,7 +373,7 @@ input_pickable = false
 collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
-script = ExtResource( 17 )
+script = ExtResource( 12 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -461,19 +425,45 @@ __meta__ = {
 
 [node name="HUD" type="CanvasLayer" parent="." index="8"]
 
-editor/display_folded = true
 layer = 1
 offset = Vector2( 0, 0 )
 rotation = 0.0
 scale = Vector2( 1, 1 )
 transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
-[node name="Health" type="Node2D" parent="HUD" index="0"]
+[node name="Coins" type="Node2D" parent="HUD" index="0"]
+
+script = ExtResource( 17 )
+
+[node name="Label" type="Label" parent="HUD/Coins" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 883.0
+margin_top = 6.0
+margin_right = 923.0
+margin_bottom = 20.0
+rect_scale = Vector2( 2, 2 )
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Coins:"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "custom_fonts" ]
+
+[node name="Health" type="Node2D" parent="HUD" index="1"]
 
 editor/display_folded = true
 position = Vector2( 25.4641, 16.4908 )
 scale = Vector2( 2, 2 )
-script = ExtResource( 22 )
+script = ExtResource( 18 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="Heart_1" type="TextureRect" parent="HUD/Health" index="0" groups=[
@@ -491,7 +481,7 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 23 )
+texture = ExtResource( 19 )
 stretch_mode = 6
 _sections_unfolded = [ "Hint", "Visibility" ]
 
@@ -511,7 +501,7 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 23 )
+texture = ExtResource( 19 )
 stretch_mode = 6
 _sections_unfolded = [ "Hint", "Margin", "Rect" ]
 
@@ -531,11 +521,11 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 23 )
+texture = ExtResource( 19 )
 stretch_mode = 6
 _sections_unfolded = [ "Hint", "Margin", "Rect" ]
 
-[node name="Win Text" type="Label" parent="HUD" index="1"]
+[node name="Win Text" type="Label" parent="HUD" index="2"]
 
 visible = false
 modulate = Color( 0, 0, 0, 1 )
@@ -560,7 +550,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "Visibility", "custom_colors", "custom_fonts" ]
 
-[node name="Popup" type="Popup" parent="HUD" index="2"]
+[node name="PopupPanel" type="PopupPanel" parent="HUD" index="3"]
 
 visible = false
 anchor_left = 0.0
@@ -575,6 +565,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 popup_exclusive = false
+_sections_unfolded = [ "Rect", "Visibility" ]
 
 [connection signal="body_entered" from="Chest" to="Chest" method="on_body_enter"]
 
