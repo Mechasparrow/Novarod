@@ -35,7 +35,8 @@ func _ready():
 
 func _physics_process(delta):
 	
-	
+	var player_props = get_node("/root/playerinfo")
+	print (player_props.coins)
 	
 	# Create forces
 	var force = Vector2(0, GRAVITY)
