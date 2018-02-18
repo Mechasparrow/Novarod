@@ -6,7 +6,6 @@ extends Area2D
 
 onready var powerup = get_node("Powerup").get_children()[0].name
 
-var opened = false
 
 func _ready():
 	# Called every time the node is added to the scene.
@@ -27,7 +26,6 @@ func on_body_enter( body ):
 	
 	if (body.name == "Player"):
 		anim.animation = "Open"
-		opened = true
 		print ("recieved powerup!")
 		print ("powerup")
 		get_node("/root/playerinfo").power_up = powerup
@@ -37,4 +35,5 @@ func on_body_enter( body ):
 func on_body_exit( body ):
 
 	if (body.name == "Player"):
+		anim.animation = "Close"
 		return

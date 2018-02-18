@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://_Scripts/level_script.gd" type="Script" id=1]
 [ext_resource path="res://_Scripts/Chest.gd" type="Script" id=2]
@@ -6,17 +6,17 @@
 [ext_resource path="res://_Assets/Art/Spritesheets/Chest/chest1.png" type="Texture" id=4]
 [ext_resource path="res://_Tileset/normal_world.tres" type="TileSet" id=5]
 [ext_resource path="res://_Tileset/hazards.tres" type="TileSet" id=6]
-[ext_resource path="res://_Assets/Art/stone_block.png" type="Texture" id=7]
-[ext_resource path="res://_Assets/Art/Goal_block_rod.png" type="Texture" id=8]
-[ext_resource path="res://_Prefab/Coin.tscn" type="PackedScene" id=9]
-[ext_resource path="res://_Scripts/Sign.gd" type="Script" id=10]
-[ext_resource path="res://_Assets/Art/Sign_Post.png" type="Texture" id=11]
-[ext_resource path="res://_Scripts/Player.gd" type="Script" id=12]
-[ext_resource path="res://_Assets/Art/Spritesheets/Rod/rod3.png" type="Texture" id=13]
-[ext_resource path="res://_Assets/Art/Spritesheets/Rod/rod0.png" type="Texture" id=14]
-[ext_resource path="res://_Assets/Art/Spritesheets/Rod/rod1.png" type="Texture" id=15]
-[ext_resource path="res://_Assets/Art/Spritesheets/Rod/rod2.png" type="Texture" id=16]
-[ext_resource path="res://_Scripts/CoinsHUD.gd" type="Script" id=17]
+[ext_resource path="res://_Assets/Art/Goal_block_rod.png" type="Texture" id=7]
+[ext_resource path="res://_Prefab/Coin.tscn" type="PackedScene" id=8]
+[ext_resource path="res://_Scripts/Sign.gd" type="Script" id=9]
+[ext_resource path="res://_Assets/Art/Sign_Post.png" type="Texture" id=10]
+[ext_resource path="res://_Scripts/Player.gd" type="Script" id=11]
+[ext_resource path="res://_Assets/Art/Spritesheets/Rod/rod3.png" type="Texture" id=12]
+[ext_resource path="res://_Assets/Art/Spritesheets/Rod/rod0.png" type="Texture" id=13]
+[ext_resource path="res://_Assets/Art/Spritesheets/Rod/rod1.png" type="Texture" id=14]
+[ext_resource path="res://_Assets/Art/Spritesheets/Rod/rod2.png" type="Texture" id=15]
+[ext_resource path="res://_Scripts/CoinsHUD.gd" type="Script" id=16]
+[ext_resource path="res://_Scripts/PowerupHUD.gd" type="Script" id=17]
 [ext_resource path="res://_Scripts/Timer.gd" type="Script" id=18]
 [ext_resource path="res://_Scripts/Health.gd" type="Script" id=19]
 [ext_resource path="res://_Assets/Art/heart_0.png" type="Texture" id=20]
@@ -40,11 +40,6 @@ animations = [ {
 custom_solver_bias = 0.0
 extents = Vector2( 27.1404, 15.3611 )
 
-[sub_resource type="RectangleShape2D" id=9]
-
-custom_solver_bias = 0.0
-extents = Vector2( 58.0563, 10 )
-
 [sub_resource type="RectangleShape2D" id=8]
 
 custom_solver_bias = 0.0
@@ -63,17 +58,17 @@ extents = Vector2( 13.1362, 11.3937 )
 [sub_resource type="SpriteFrames" id=7]
 
 animations = [ {
-"frames": [ ExtResource( 13 ) ],
+"frames": [ ExtResource( 12 ) ],
 "loop": true,
 "name": "jump",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 13 ) ],
+"frames": [ ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 12 ) ],
 "loop": true,
 "name": "move",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 14 ) ],
+"frames": [ ExtResource( 13 ) ],
 "loop": true,
 "name": "still",
 "speed": 5.0
@@ -85,7 +80,7 @@ script = ExtResource( 1 )
 
 [node name="Chests" type="Node2D" parent="." index="0"]
 
-[node name="Chest" type="Area2D" parent="Chests" index="0"]
+[node name="chest_speed" type="Area2D" parent="Chests" index="0"]
 
 editor/display_folded = true
 position = Vector2( 397.142, 865.27 )
@@ -101,7 +96,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Chests/Chest" index="0"]
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Chests/chest_speed" index="0"]
 
 scale = Vector2( 4, 4 )
 frames = SubResource( 11 )
@@ -112,7 +107,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Chests/Chest" index="1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chests/chest_speed" index="1"]
 
 position = Vector2( -6.10352e-05, 14.5953 )
 shape = SubResource( 12 )
@@ -120,11 +115,63 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Powerup" type="Node2D" parent="Chests/Chest" index="2"]
+[node name="Powerup" type="Node2D" parent="Chests/chest_speed" index="2"]
 
-[node name="speed_up" type="Node2D" parent="Chests/Chest/Powerup" index="0"]
+__meta__ = {
+"_edit_lock_": true
+}
 
-[node name="Chest2" type="Area2D" parent="Chests" index="1"]
+[node name="speed_up" type="Node2D" parent="Chests/chest_speed/Powerup" index="0"]
+
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="chest_speed2" type="Area2D" parent="Chests" index="1"]
+
+editor/display_folded = true
+position = Vector2( 980.151, 346.42 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 2 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Chests/chest_speed2" index="0"]
+
+scale = Vector2( 4, 4 )
+frames = SubResource( 11 )
+animation = "Close"
+playing = true
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chests/chest_speed2" index="1"]
+
+position = Vector2( -6.10352e-05, 14.5953 )
+shape = SubResource( 12 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Powerup" type="Node2D" parent="Chests/chest_speed2" index="2"]
+
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="speed_up" type="Node2D" parent="Chests/chest_speed2/Powerup" index="0"]
+
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="chest_super_speed" type="Area2D" parent="Chests" index="2"]
 
 editor/display_folded = true
 position = Vector2( 2104.42, 863.91 )
@@ -137,7 +184,7 @@ audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 2 )
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Chests/Chest2" index="0"]
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Chests/chest_super_speed" index="0"]
 
 scale = Vector2( 4, 4 )
 frames = SubResource( 11 )
@@ -148,7 +195,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Chests/Chest2" index="1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chests/chest_super_speed" index="1"]
 
 position = Vector2( -6.10352e-05, 14.5953 )
 shape = SubResource( 12 )
@@ -156,20 +203,21 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Powerup" type="Node2D" parent="Chests/Chest2" index="2"]
+[node name="Powerup" type="Node2D" parent="Chests/chest_super_speed" index="2"]
 
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="super_speed_up" type="Node2D" parent="Chests/Chest2/Powerup" index="0"]
+[node name="super_speed_up" type="Node2D" parent="Chests/chest_super_speed/Powerup" index="0"]
 
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Chest3" type="Area2D" parent="Chests" index="2"]
+[node name="chest_jump_up" type="Area2D" parent="Chests" index="3"]
 
+editor/display_folded = true
 position = Vector2( 2915.37, 992.034 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -180,7 +228,7 @@ audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 2 )
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Chests/Chest3" index="0"]
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Chests/chest_jump_up" index="0"]
 
 scale = Vector2( 4, 4 )
 frames = SubResource( 11 )
@@ -191,7 +239,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Chests/Chest3" index="1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chests/chest_jump_up" index="1"]
 
 position = Vector2( -6.10352e-05, 14.5953 )
 shape = SubResource( 12 )
@@ -199,13 +247,57 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Powerup" type="Node2D" parent="Chests/Chest3" index="2"]
+[node name="Powerup" type="Node2D" parent="Chests/chest_jump_up" index="2"]
 
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="jump_up" type="Node2D" parent="Chests/Chest3/Powerup" index="0"]
+[node name="jump_up" type="Node2D" parent="Chests/chest_jump_up/Powerup" index="0"]
+
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="chest_jump_up2" type="Area2D" parent="Chests" index="4"]
+
+editor/display_folded = true
+position = Vector2( 661.437, 481.552 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 2 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Chests/chest_jump_up2" index="0"]
+
+scale = Vector2( 4, 4 )
+frames = SubResource( 11 )
+animation = "Close"
+playing = true
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chests/chest_jump_up2" index="1"]
+
+position = Vector2( -6.10352e-05, 14.5953 )
+shape = SubResource( 12 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Powerup" type="Node2D" parent="Chests/chest_jump_up2" index="2"]
+
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="jump_up" type="Node2D" parent="Chests/chest_jump_up2/Powerup" index="0"]
 
 __meta__ = {
 "_edit_lock_": true
@@ -261,32 +353,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Platform" type="StaticBody2D" parent="." index="3"]
-
-editor/display_folded = true
-position = Vector2( 461.897, 265.025 )
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform" index="0"]
-
-shape = SubResource( 9 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Sprite" type="Sprite" parent="Platform" index="1"]
-
-position = Vector2( -0.261248, 0 )
-scale = Vector2( 6.98276, 1 )
-texture = ExtResource( 7 )
-
-[node name="Goal" type="Area2D" parent="." index="4"]
+[node name="Goal" type="Area2D" parent="." index="3"]
 
 editor/display_folded = true
 position = Vector2( 3045.98, 701.101 )
@@ -301,7 +368,7 @@ audio_bus_name = "Master"
 [node name="Sprite" type="Sprite" parent="Goal" index="0"]
 
 scale = Vector2( 4, 4 )
-texture = ExtResource( 8 )
+texture = ExtResource( 7 )
 _sections_unfolded = [ "Transform", "Z Index" ]
 __meta__ = {
 "_edit_lock_": true
@@ -316,17 +383,45 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Coins" type="Node2D" parent="." index="5"]
+[node name="Coins" type="Node2D" parent="." index="4"]
 
-editor/display_folded = true
+[node name="Coin" parent="Coins" index="0" instance=ExtResource( 8 )]
 
-[node name="Coin" parent="Coins" index="0" instance=ExtResource( 9 )]
+position = Vector2( 1446.45, 478.566 )
 
-[node name="Coin2" parent="Coins" index="1" instance=ExtResource( 9 )]
+[node name="Coin3" parent="Coins" index="1" instance=ExtResource( 8 )]
 
-position = Vector2( 391.446, 375.393 )
+position = Vector2( 1574.76, 860.73 )
 
-[node name="Signs" type="Node2D" parent="." index="6"]
+[node name="Coin4" parent="Coins" index="2" instance=ExtResource( 8 )]
+
+position = Vector2( 1644.5, 860.73 )
+
+[node name="Coin5" parent="Coins" index="3" instance=ExtResource( 8 )]
+
+position = Vector2( 2269.35, 869.098 )
+
+[node name="Coin6" parent="Coins" index="4" instance=ExtResource( 8 )]
+
+position = Vector2( 2350.25, 818.887 )
+
+[node name="Coin7" parent="Coins" index="5" instance=ExtResource( 8 )]
+
+position = Vector2( 2428.36, 816.097 )
+
+[node name="Coin8" parent="Coins" index="6" instance=ExtResource( 8 )]
+
+position = Vector2( 2520.41, 860.73 )
+
+[node name="Coin9" parent="Coins" index="7" instance=ExtResource( 8 )]
+
+position = Vector2( 2520.41, 860.73 )
+
+[node name="Coin2" parent="Coins" index="8" instance=ExtResource( 8 )]
+
+position = Vector2( 1326.24, 434.385 )
+
+[node name="Signs" type="Node2D" parent="." index="5"]
 
 editor/display_folded = true
 position = Vector2( 97.7842, 416.212 )
@@ -341,12 +436,12 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 
 [node name="Sprite" type="Sprite" parent="Signs/Sign2" index="0"]
 
 scale = Vector2( 4, 4 )
-texture = ExtResource( 11 )
+texture = ExtResource( 10 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Panel" type="Panel" parent="Signs/Sign2" index="1"]
@@ -406,12 +501,12 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 
 [node name="Sprite" type="Sprite" parent="Signs/Sign" index="0"]
 
 scale = Vector2( 4, 4 )
-texture = ExtResource( 11 )
+texture = ExtResource( 10 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Panel" type="Panel" parent="Signs/Sign" index="1"]
@@ -461,15 +556,16 @@ position = Vector2( 0.713486, -12.4823 )
 scale = Vector2( 1, 0.942137 )
 shape = SubResource( 10 )
 
-[node name="Player" type="KinematicBody2D" parent="." index="7"]
+[node name="Player" type="KinematicBody2D" parent="." index="6"]
 
+editor/display_folded = true
 position = Vector2( 207.5, 332.402 )
 scale = Vector2( 6.5625, 6.5625 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
-script = ExtResource( 12 )
+script = ExtResource( 11 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -519,7 +615,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="HUD" type="CanvasLayer" parent="." index="8"]
+[node name="HUD" type="CanvasLayer" parent="." index="7"]
 
 layer = 1
 offset = Vector2( 0, 0 )
@@ -543,7 +639,8 @@ size_flags_vertical = 1
 
 [node name="Coins" type="Node2D" parent="HUD" index="1"]
 
-script = ExtResource( 17 )
+editor/display_folded = true
+script = ExtResource( 16 )
 
 [node name="Label" type="Label" parent="HUD/Coins" index="0"]
 
@@ -568,8 +665,36 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
 
-[node name="Timer" type="Node2D" parent="HUD" index="2"]
+[node name="Powerup" type="Node2D" parent="HUD" index="2"]
 
+position = Vector2( 586.236, 13.3615 )
+script = ExtResource( 17 )
+
+[node name="Label" type="Label" parent="HUD/Powerup" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 30.0
+margin_top = 31.0
+margin_right = 89.0
+margin_bottom = 45.0
+rect_scale = Vector2( 2, 2 )
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Powerup:"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect" ]
+
+[node name="Timer" type="Node2D" parent="HUD" index="3"]
+
+editor/display_folded = true
 script = ExtResource( 18 )
 
 [node name="Label" type="Label" parent="HUD/Timer" index="0"]
@@ -593,7 +718,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="Health" type="Node2D" parent="HUD" index="3"]
+[node name="Health" type="Node2D" parent="HUD" index="4"]
 
 editor/display_folded = true
 position = Vector2( 25.4641, 12.4908 )
@@ -660,7 +785,7 @@ texture = ExtResource( 20 )
 stretch_mode = 6
 _sections_unfolded = [ "Hint", "Margin", "Rect" ]
 
-[node name="Win Text" type="Label" parent="HUD" index="4"]
+[node name="Win Text" type="Label" parent="HUD" index="5"]
 
 visible = false
 modulate = Color( 0, 0, 0, 1 )
@@ -685,7 +810,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "Visibility", "custom_colors", "custom_fonts" ]
 
-[node name="PopupPanel" type="PopupPanel" parent="HUD" index="5"]
+[node name="PopupPanel" type="PopupPanel" parent="HUD" index="6"]
 
 visible = false
 anchor_left = 0.0
@@ -702,17 +827,25 @@ size_flags_vertical = 1
 popup_exclusive = false
 _sections_unfolded = [ "Rect", "Visibility" ]
 
-[connection signal="body_entered" from="Chests/Chest" to="Chests/Chest" method="on_body_enter"]
+[connection signal="body_entered" from="Chests/chest_speed" to="Chests/chest_speed" method="on_body_enter"]
 
-[connection signal="body_exited" from="Chests/Chest" to="Chests/Chest" method="on_body_exit"]
+[connection signal="body_exited" from="Chests/chest_speed" to="Chests/chest_speed" method="on_body_exit"]
 
-[connection signal="body_entered" from="Chests/Chest2" to="Chests/Chest2" method="on_body_enter"]
+[connection signal="body_entered" from="Chests/chest_speed2" to="Chests/chest_speed2" method="on_body_enter"]
 
-[connection signal="body_exited" from="Chests/Chest2" to="Chests/Chest2" method="on_body_exit"]
+[connection signal="body_exited" from="Chests/chest_speed2" to="Chests/chest_speed2" method="on_body_exit"]
 
-[connection signal="body_entered" from="Chests/Chest3" to="Chests/Chest3" method="on_body_enter"]
+[connection signal="body_entered" from="Chests/chest_super_speed" to="Chests/chest_super_speed" method="on_body_enter"]
 
-[connection signal="body_exited" from="Chests/Chest3" to="Chests/Chest3" method="on_body_exit"]
+[connection signal="body_exited" from="Chests/chest_super_speed" to="Chests/chest_super_speed" method="on_body_exit"]
+
+[connection signal="body_entered" from="Chests/chest_jump_up" to="Chests/chest_jump_up" method="on_body_enter"]
+
+[connection signal="body_exited" from="Chests/chest_jump_up" to="Chests/chest_jump_up" method="on_body_exit"]
+
+[connection signal="body_entered" from="Chests/chest_jump_up2" to="Chests/chest_jump_up2" method="on_body_enter"]
+
+[connection signal="body_exited" from="Chests/chest_jump_up2" to="Chests/chest_jump_up2" method="on_body_exit"]
 
 [connection signal="body_entered" from="Goal" to="." method="on_goal_enter"]
 

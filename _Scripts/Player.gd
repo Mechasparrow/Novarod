@@ -144,10 +144,13 @@ func check_powerups():
 	if (power_up == null):
 		default_props()
 	elif (power_up == "speed_up"):
+		default_props()
 		WALK_MAX_SPEED = 500
 	elif (power_up == "super_speed_up"):
+		default_props()
 		WALK_MAX_SPEED = 800
 	elif (power_up == "jump_up"):
+		default_props()
 		JUMP_SPEED = 600
 		
 	pass
