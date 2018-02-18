@@ -24,19 +24,16 @@ var jumping = false
 
 var prev_jump_pressed = false
 
-var health = 3
-
 onready var anim = get_node("AnimatedSprite")
 
-signal health_changed(health)
-
 func _ready():
-	emit_signal("health_changed", health)
+	
+	var current_health = get_node("/root/playerinfo").health
+	set_physics_process(true)
 
 func _physics_process(delta):
 	
 	var player_props = get_node("/root/playerinfo")
-	print (player_props.coins)
 	
 	# Create forces
 	var force = Vector2(0, GRAVITY)
@@ -141,5 +138,7 @@ func check_collided_node(node_name):
 
 func take_damage(damage):
 	
-	health = health - damage
-	emit_signal("health_changed", health)
+	var current_health = get_node("/root/playerinfo").health
+	
+	var new_health = current_health - damage
+	get_node("/root/playerinfo").health = new_health

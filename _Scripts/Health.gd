@@ -9,10 +9,15 @@ func _ready():
 	# Initialization here
 	pass
 
+func _process(delta):
+	
+	var current_health = get_node("/root/playerinfo").health
+	
+	display_health(current_health)
+
 func display_health(health):
 	
 	var hearts = get_children()
-	print (len(hearts))
 	
 	var cnt = 0
 	for heart in hearts:
