@@ -8,15 +8,15 @@ const GRAVITY = 500.0 # pixels/second/second
 
 # Angle in degrees towards either side that the player can consider "floor"
 const FLOOR_ANGLE_TOLERANCE = 40
-const WALK_FORCE = 600
-const WALK_MIN_SPEED = 10
-const WALK_MAX_SPEED = 200
-const STOP_FORCE = 1300
-const JUMP_SPEED = 300
-const JUMP_MAX_AIRBORNE_TIME = 0.2
+var WALK_FORCE = 600
+var WALK_MIN_SPEED = 10
+var  WALK_MAX_SPEED = 200
+var STOP_FORCE = 1300
+var JUMP_SPEED = 300
+var JUMP_MAX_AIRBORNE_TIME = 0.2
 
-const SLIDE_STOP_VELOCITY = 1.0 # one pixel/second
-const SLIDE_STOP_MIN_TRAVEL = 1.0 # one pixel
+var SLIDE_STOP_VELOCITY = 1.0 # one pixel/second
+var SLIDE_STOP_MIN_TRAVEL = 1.0 # one pixel
 
 var velocity = Vector2()
 var on_air_time = 100
@@ -29,6 +29,8 @@ onready var anim = get_node("AnimatedSprite")
 func _ready():
 	
 	var current_health = get_node("/root/playerinfo").health
+	
+	check_powerups()
 	set_physics_process(true)
 
 func _physics_process(delta):
@@ -120,7 +122,33 @@ func _physics_process(delta):
 		if touched_node == "":
 			touched_node = k_collision.collider.get_name()
 			check_collided_node(touched_node)
-		
+
+	#Check up
+	check_powerups()
+
+func default_props():
+	WALK_FORCE = 600
+	WALK_MIN_SPEED = 10
+	WALK_MAX_SPEED = 200
+	STOP_FORCE = 1300
+	JUMP_SPEED = 300
+	JUMP_MAX_AIRBORNE_TIME = 0.2
+	
+	SLIDE_STOP_VELOCITY = 1.0 # one pixel/second
+	SLIDE_STOP_MIN_TRAVEL = 1.0
+
+func check_powerups():
+	
+	var power_up = get_node("/root/playerinfo").power_up
+	
+	if (power_up == null):
+		default_props()
+	elif (power_up == "speed_up"):
+		WALK_FORCE = 600
+		WALK_MIN_SPEED = 10
+		WALK_MAX_SPEED = 500
+	
+	pass
 		
 func respawn():
 	

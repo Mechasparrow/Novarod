@@ -4,7 +4,7 @@ extends Area2D
 # var a = 2
 # var b = "textvar"
 
-onready var powerup = get_node("Powerup").get_children()[0]
+onready var powerup = get_node("Powerup").get_children()[0].name
 
 var opened = false
 
@@ -12,7 +12,7 @@ func _ready():
 	# Called every time the node is added to the scene.
 	# Initialization here
 	
-	print (powerup.name)
+	print (powerup)
 	
 	pass
 
@@ -29,6 +29,7 @@ func on_body_enter( body ):
 		anim.animation = "Open"
 		opened = true
 		print ("recieved powerup!")
+		print ("powerup")
 		get_node("/root/playerinfo").power_up = powerup
 		return
 
