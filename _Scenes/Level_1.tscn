@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://_Scripts/level_script.gd" type="Script" id=1]
 [ext_resource path="res://_Scripts/Chest.gd" type="Script" id=2]
@@ -17,8 +17,9 @@
 [ext_resource path="res://_Assets/Art/Spritesheets/Rod/rod1.png" type="Texture" id=15]
 [ext_resource path="res://_Assets/Art/Spritesheets/Rod/rod2.png" type="Texture" id=16]
 [ext_resource path="res://_Scripts/CoinsHUD.gd" type="Script" id=17]
-[ext_resource path="res://_Scripts/Health.gd" type="Script" id=18]
-[ext_resource path="res://_Assets/Art/heart_0.png" type="Texture" id=19]
+[ext_resource path="res://_Scripts/Timer.gd" type="Script" id=18]
+[ext_resource path="res://_Scripts/Health.gd" type="Script" id=19]
+[ext_resource path="res://_Assets/Art/heart_0.png" type="Texture" id=20]
 
 [sub_resource type="SpriteFrames" id=11]
 
@@ -86,6 +87,7 @@ script = ExtResource( 1 )
 
 [node name="Chest" type="Area2D" parent="Chests" index="0"]
 
+editor/display_folded = true
 position = Vector2( 397.142, 865.27 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -95,6 +97,9 @@ angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Chests/Chest" index="0"]
 
@@ -119,6 +124,93 @@ __meta__ = {
 
 [node name="speed_up" type="Node2D" parent="Chests/Chest/Powerup" index="0"]
 
+[node name="Chest2" type="Area2D" parent="Chests" index="1"]
+
+editor/display_folded = true
+position = Vector2( 2104.42, 863.91 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 2 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Chests/Chest2" index="0"]
+
+scale = Vector2( 4, 4 )
+frames = SubResource( 11 )
+animation = "Close"
+playing = true
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chests/Chest2" index="1"]
+
+position = Vector2( -6.10352e-05, 14.5953 )
+shape = SubResource( 12 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Powerup" type="Node2D" parent="Chests/Chest2" index="2"]
+
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="super_speed_up" type="Node2D" parent="Chests/Chest2/Powerup" index="0"]
+
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Chest3" type="Area2D" parent="Chests" index="2"]
+
+position = Vector2( 2915.37, 992.034 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 2 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Chests/Chest3" index="0"]
+
+scale = Vector2( 4, 4 )
+frames = SubResource( 11 )
+animation = "Close"
+playing = true
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chests/Chest3" index="1"]
+
+position = Vector2( -6.10352e-05, 14.5953 )
+shape = SubResource( 12 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Powerup" type="Node2D" parent="Chests/Chest3" index="2"]
+
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="jump_up" type="Node2D" parent="Chests/Chest3/Powerup" index="0"]
+
+__meta__ = {
+"_edit_lock_": true
+}
+
 [node name="Ground" type="TileMap" parent="." index="1"]
 
 scale = Vector2( 4, 4 )
@@ -138,7 +230,7 @@ collision_layer = 1
 collision_mask = 1
 occluder_light_mask = 1
 format = 1
-tile_data = PoolIntArray( 393230, 0, 0, 393231, 0, 0, 458753, 0, 0, 458754, 0, 0, 458755, 0, 0, 458756, 0, 0, 458757, 0, 0, 458765, 0, 0, 458766, 1, 0, 458767, 1, 0, 458768, 0, 0, 589818, 0, 0, 589819, 0, 0, 524288, 0, 0, 524289, 1, 0, 524290, 1, 0, 524291, 1, 0, 524292, 1, 0, 524293, 1, 0, 524294, 0, 0, 524295, 0, 0, 524296, 0, 0, 524297, 0, 0, 524298, 0, 0, 524299, 0, 0, 524300, 0, 0, 524301, 1, 0, 524302, 1, 0, 524303, 1, 0, 524304, 1, 0, 655354, 1, 0, 655355, 1, 0, 589824, 1, 0, 589825, 1, 0, 589826, 1, 0, 589827, 1, 0, 589828, 1, 0, 589829, 1, 0, 589830, 1, 0, 589831, 1, 0, 589832, 1, 0, 589833, 1, 0, 589834, 1, 0, 589835, 1, 0, 589836, 1, 0, 589837, 1, 0, 589838, 1, 0, 589839, 1, 0, 589840, 1, 0, 720890, 2, 0, 720891, 2, 0, 655360, 2, 0, 655361, 2, 0, 655362, 2, 0, 655363, 2, 0, 655364, 2, 0, 655365, 2, 0, 655366, 2, 0, 655367, 2, 0, 655368, 2, 0, 655369, 2, 0, 655370, 2, 0, 655371, 2, 0, 655372, 2, 0, 655373, 2, 0, 655374, 2, 0, 655375, 2, 0, 655376, 2, 0, 786426, 2, 0, 786427, 2, 0, 720896, 2, 0, 720897, 2, 0, 720898, 2, 0, 720899, 2, 0, 720900, 2, 0, 720901, 2, 0, 720902, 2, 0, 720903, 2, 0, 720904, 2, 0, 720905, 2, 0, 720906, 2, 0, 720907, 2, 0, 720908, 2, 0, 720909, 2, 0, 720910, 2, 0, 720911, 2, 0, 720912, 2, 0, 851962, 2, 0, 851963, 2, 0, 917498, 2, 0, 917499, 2, 0, 983034, 2, 0, 983035, 2, 0, 983036, 3, 0, 983037, 3, 0, 983038, 3, 0, 983039, 3, 0, 917504, 3, 0, 917505, 3, 0, 917506, 3, 0, 917507, 3, 0, 917508, 3, 0, 917509, 3, 0, 917510, 3, 0, 917511, 3, 0, 917512, 3, 0, 917513, 3, 0, 917514, 3, 0, 917515, 3, 0, 917516, 3, 0, 917517, 3, 0, 917518, 3, 0, 917519, 3, 0, 917520, 3, 0, 917521, 3, 0, 917527, 3, 0, 917528, 3, 0, 917529, 3, 0, 917530, 3, 0, 917535, 3, 0, 917536, 3, 0, 917537, 3, 0, 917538, 3, 0, 917543, 3, 0, 917544, 3, 0, 917545, 3, 0, 917546, 3, 0, 917552, 3, 0, 917553, 3, 0, 1048571, 2, 0, 1048572, 2, 0, 1048573, 2, 0, 1048574, 2, 0, 1048575, 2, 0, 983040, 2, 0, 983041, 2, 0, 983042, 2, 0, 983043, 2, 0, 983044, 2, 0, 983045, 2, 0, 983046, 2, 0, 983047, 2, 0, 983048, 2, 0, 983049, 2, 0, 983050, 2, 0, 983051, 2, 0, 983052, 2, 0, 983053, 2, 0, 983054, 2, 0, 983055, 2, 0, 983056, 2, 0, 983057, 2, 0, 983087, 3, 0, 983090, 3, 0 )
+tile_data = PoolIntArray( 393230, 0, 0, 393231, 0, 0, 458753, 0, 0, 458754, 0, 0, 458755, 0, 0, 458756, 0, 0, 458757, 0, 0, 458765, 0, 0, 458766, 1, 0, 458767, 1, 0, 458768, 0, 0, 589818, 0, 0, 589819, 0, 0, 524288, 0, 0, 524289, 1, 0, 524290, 1, 0, 524291, 1, 0, 524292, 1, 0, 524293, 1, 0, 524294, 0, 0, 524295, 0, 0, 524296, 0, 0, 524297, 0, 0, 524298, 0, 0, 524299, 0, 0, 524300, 0, 0, 524301, 1, 0, 524302, 1, 0, 524303, 1, 0, 524304, 1, 0, 655354, 1, 0, 655355, 1, 0, 589824, 1, 0, 589825, 1, 0, 589826, 1, 0, 589827, 1, 0, 589828, 1, 0, 589829, 1, 0, 589830, 1, 0, 589831, 1, 0, 589832, 1, 0, 589833, 1, 0, 589834, 1, 0, 589835, 1, 0, 589836, 1, 0, 589837, 1, 0, 589838, 1, 0, 589839, 1, 0, 589840, 1, 0, 720890, 2, 0, 720891, 2, 0, 655360, 2, 0, 655361, 2, 0, 655362, 2, 0, 655363, 2, 0, 655364, 2, 0, 655365, 2, 0, 655366, 2, 0, 655367, 2, 0, 655368, 2, 0, 655369, 2, 0, 655370, 2, 0, 655371, 2, 0, 655372, 2, 0, 655373, 2, 0, 655374, 2, 0, 655375, 2, 0, 655376, 2, 0, 786426, 2, 0, 786427, 2, 0, 720896, 2, 0, 720897, 2, 0, 720898, 2, 0, 720899, 2, 0, 720900, 2, 0, 720901, 2, 0, 720902, 2, 0, 720903, 2, 0, 720904, 2, 0, 720905, 2, 0, 720906, 2, 0, 720907, 2, 0, 720908, 2, 0, 720909, 2, 0, 720910, 2, 0, 720911, 2, 0, 720912, 2, 0, 851962, 2, 0, 851963, 2, 0, 917498, 2, 0, 917499, 2, 0, 983034, 2, 0, 983035, 2, 0, 983036, 3, 0, 983037, 3, 0, 983038, 3, 0, 983039, 3, 0, 917504, 3, 0, 917505, 3, 0, 917506, 3, 0, 917507, 3, 0, 917508, 3, 0, 917509, 3, 0, 917510, 3, 0, 917511, 3, 0, 917512, 3, 0, 917513, 3, 0, 917514, 3, 0, 917515, 3, 0, 917516, 3, 0, 917517, 3, 0, 917518, 3, 0, 917519, 3, 0, 917520, 3, 0, 917521, 3, 0, 917527, 3, 0, 917528, 3, 0, 917529, 3, 0, 917530, 3, 0, 917535, 3, 0, 917536, 3, 0, 917537, 3, 0, 917538, 3, 0, 917539, 3, 0, 917543, 3, 0, 917544, 3, 0, 917545, 3, 0, 917546, 3, 0, 917552, 3, 0, 917553, 3, 0, 1048571, 2, 0, 1048572, 2, 0, 1048573, 2, 0, 1048574, 2, 0, 1048575, 2, 0, 983040, 2, 0, 983041, 2, 0, 983042, 2, 0, 983043, 2, 0, 983044, 2, 0, 983045, 2, 0, 983046, 2, 0, 983047, 2, 0, 983048, 2, 0, 983049, 2, 0, 983050, 2, 0, 983051, 2, 0, 983052, 2, 0, 983053, 2, 0, 983054, 2, 0, 983055, 2, 0, 983056, 2, 0, 983057, 2, 0, 983087, 3, 0, 983090, 3, 0, 1048621, 3, 0, 1048622, 3, 0 )
 _sections_unfolded = [ "Cell", "Collision", "Transform" ]
 __meta__ = {
 "_edit_lock_": true
@@ -197,7 +289,7 @@ texture = ExtResource( 7 )
 [node name="Goal" type="Area2D" parent="." index="4"]
 
 editor/display_folded = true
-position = Vector2( 3143.96, 851.836 )
+position = Vector2( 3045.98, 701.101 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -435,9 +527,22 @@ rotation = 0.0
 scale = Vector2( 1, 1 )
 transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
-[node name="Coins" type="Node2D" parent="HUD" index="0"]
+[node name="Background" type="Panel" parent="HUD" index="0"]
 
-editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 1024.0
+margin_bottom = 86.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+
+[node name="Coins" type="Node2D" parent="HUD" index="1"]
+
 script = ExtResource( 17 )
 
 [node name="Label" type="Label" parent="HUD/Coins" index="0"]
@@ -456,18 +561,44 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Coins:"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "Rect", "custom_fonts" ]
+_sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
 
-[node name="Health" type="Node2D" parent="HUD" index="1"]
+[node name="Timer" type="Node2D" parent="HUD" index="2"]
 
-position = Vector2( 25.4641, 16.4908 )
-scale = Vector2( 2, 2 )
 script = ExtResource( 18 )
+
+[node name="Label" type="Label" parent="HUD/Timer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 359.0
+margin_top = 4.0
+margin_right = 399.0
+margin_bottom = 18.0
+rect_scale = Vector2( 2, 2 )
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Time:"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Health" type="Node2D" parent="HUD" index="3"]
+
+editor/display_folded = true
+position = Vector2( 25.4641, 12.4908 )
+scale = Vector2( 2, 2 )
+script = ExtResource( 19 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="Heart_1" type="TextureRect" parent="HUD/Health" index="0" groups=[
@@ -485,7 +616,7 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 19 )
+texture = ExtResource( 20 )
 stretch_mode = 6
 _sections_unfolded = [ "Hint", "Visibility" ]
 
@@ -505,7 +636,7 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 19 )
+texture = ExtResource( 20 )
 stretch_mode = 6
 _sections_unfolded = [ "Hint", "Margin", "Rect" ]
 
@@ -525,11 +656,11 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 19 )
+texture = ExtResource( 20 )
 stretch_mode = 6
 _sections_unfolded = [ "Hint", "Margin", "Rect" ]
 
-[node name="Win Text" type="Label" parent="HUD" index="2"]
+[node name="Win Text" type="Label" parent="HUD" index="4"]
 
 visible = false
 modulate = Color( 0, 0, 0, 1 )
@@ -554,7 +685,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "Visibility", "custom_colors", "custom_fonts" ]
 
-[node name="PopupPanel" type="PopupPanel" parent="HUD" index="3"]
+[node name="PopupPanel" type="PopupPanel" parent="HUD" index="5"]
 
 visible = false
 anchor_left = 0.0
@@ -574,6 +705,14 @@ _sections_unfolded = [ "Rect", "Visibility" ]
 [connection signal="body_entered" from="Chests/Chest" to="Chests/Chest" method="on_body_enter"]
 
 [connection signal="body_exited" from="Chests/Chest" to="Chests/Chest" method="on_body_exit"]
+
+[connection signal="body_entered" from="Chests/Chest2" to="Chests/Chest2" method="on_body_enter"]
+
+[connection signal="body_exited" from="Chests/Chest2" to="Chests/Chest2" method="on_body_exit"]
+
+[connection signal="body_entered" from="Chests/Chest3" to="Chests/Chest3" method="on_body_enter"]
+
+[connection signal="body_exited" from="Chests/Chest3" to="Chests/Chest3" method="on_body_exit"]
 
 [connection signal="body_entered" from="Goal" to="." method="on_goal_enter"]
 

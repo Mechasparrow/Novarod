@@ -144,10 +144,12 @@ func check_powerups():
 	if (power_up == null):
 		default_props()
 	elif (power_up == "speed_up"):
-		WALK_FORCE = 600
-		WALK_MIN_SPEED = 10
 		WALK_MAX_SPEED = 500
-	
+	elif (power_up == "super_speed_up"):
+		WALK_MAX_SPEED = 800
+	elif (power_up == "jump_up"):
+		JUMP_SPEED = 600
+		
 	pass
 		
 func respawn():
