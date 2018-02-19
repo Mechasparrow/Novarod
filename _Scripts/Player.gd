@@ -4,7 +4,7 @@ extends KinematicBody2D
 # This demo shows how to build a kinematic controller.
 
 # Member variables
-const GRAVITY = 500.0 # pixels/second/second
+const GRAVITY = 700.0 # pixels/second/second
 
 # Angle in degrees towards either side that the player can consider "floor"
 const FLOOR_ANGLE_TOLERANCE = 40
@@ -125,6 +125,10 @@ func _physics_process(delta):
 
 	#Check up
 	check_powerups()
+	
+	if (get_node("/root/playerinfo").respawn == true):
+		respawn()
+	
 
 func default_props():
 	WALK_FORCE = 600
@@ -157,8 +161,9 @@ func check_powerups():
 		
 func respawn():
 	
-	position = Vector2(100,400)
-		
+	position = get_node("/root/playerinfo").spawn_point
+	get_node("/root/playerinfo").timer = 0
+	get_node("/root/playerinfo").respawn = false	
 		
 func check_collided_node(node_name):
 	

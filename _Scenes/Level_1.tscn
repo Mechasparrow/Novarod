@@ -1,9 +1,9 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://_Scripts/level_script.gd" type="Script" id=1]
-[ext_resource path="res://_Scripts/Chest.gd" type="Script" id=2]
-[ext_resource path="res://_Assets/Art/Spritesheets/Chest/chest0.png" type="Texture" id=3]
-[ext_resource path="res://_Assets/Art/Spritesheets/Chest/chest1.png" type="Texture" id=4]
+[ext_resource path="res://_Prefab/Powerup_Chests/chest_speed.tscn" type="PackedScene" id=2]
+[ext_resource path="res://_Prefab/Powerup_Chests/chest_super_speed.tscn" type="PackedScene" id=3]
+[ext_resource path="res://_Prefab/Powerup_Chests/chest_jump_up.tscn" type="PackedScene" id=4]
 [ext_resource path="res://_Tileset/normal_world.tres" type="TileSet" id=5]
 [ext_resource path="res://_Tileset/hazards.tres" type="TileSet" id=6]
 [ext_resource path="res://_Assets/Art/Goal_block_rod.png" type="Texture" id=7]
@@ -20,25 +20,6 @@
 [ext_resource path="res://_Scripts/Timer.gd" type="Script" id=18]
 [ext_resource path="res://_Scripts/Health.gd" type="Script" id=19]
 [ext_resource path="res://_Assets/Art/heart_0.png" type="Texture" id=20]
-
-[sub_resource type="SpriteFrames" id=11]
-
-animations = [ {
-"frames": [ ExtResource( 3 ) ],
-"loop": true,
-"name": "Close",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 4 ) ],
-"loop": true,
-"name": "Open",
-"speed": 5.0
-} ]
-
-[sub_resource type="RectangleShape2D" id=12]
-
-custom_solver_bias = 0.0
-extents = Vector2( 27.1404, 15.3611 )
 
 [sub_resource type="RectangleShape2D" id=8]
 
@@ -74,234 +55,26 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[node name="World" type="Node" index="0"]
+[node name="World" type="Node"]
 
 script = ExtResource( 1 )
+reset_position = Vector2( 100, 400 )
 
 [node name="Chests" type="Node2D" parent="." index="0"]
 
-[node name="chest_speed" type="Area2D" parent="Chests" index="0"]
+[node name="chest_speed" parent="Chests" index="0" instance=ExtResource( 2 )]
 
-editor/display_folded = true
-position = Vector2( 397.142, 865.27 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-audio_bus_override = false
-audio_bus_name = "Master"
-script = ExtResource( 2 )
-__meta__ = {
-"_edit_lock_": true
-}
+[node name="chest_speed2" parent="Chests" index="1" instance=ExtResource( 2 )]
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Chests/chest_speed" index="0"]
+position = Vector2( 968.993, 343.63 )
 
-scale = Vector2( 4, 4 )
-frames = SubResource( 11 )
-animation = "Close"
-playing = true
-_sections_unfolded = [ "Transform" ]
-__meta__ = {
-"_edit_lock_": true
-}
+[node name="chest_super_speed" parent="Chests" index="2" instance=ExtResource( 3 )]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Chests/chest_speed" index="1"]
+[node name="chest_jump_up" parent="Chests" index="3" instance=ExtResource( 4 )]
 
-position = Vector2( -6.10352e-05, 14.5953 )
-shape = SubResource( 12 )
-__meta__ = {
-"_edit_lock_": true
-}
+[node name="chest_jump_up2" parent="Chests" index="4" instance=ExtResource( 4 )]
 
-[node name="Powerup" type="Node2D" parent="Chests/chest_speed" index="2"]
-
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="speed_up" type="Node2D" parent="Chests/chest_speed/Powerup" index="0"]
-
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="chest_speed2" type="Area2D" parent="Chests" index="1"]
-
-editor/display_folded = true
-position = Vector2( 980.151, 346.42 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-audio_bus_override = false
-audio_bus_name = "Master"
-script = ExtResource( 2 )
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Chests/chest_speed2" index="0"]
-
-scale = Vector2( 4, 4 )
-frames = SubResource( 11 )
-animation = "Close"
-playing = true
-_sections_unfolded = [ "Transform" ]
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Chests/chest_speed2" index="1"]
-
-position = Vector2( -6.10352e-05, 14.5953 )
-shape = SubResource( 12 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Powerup" type="Node2D" parent="Chests/chest_speed2" index="2"]
-
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="speed_up" type="Node2D" parent="Chests/chest_speed2/Powerup" index="0"]
-
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="chest_super_speed" type="Area2D" parent="Chests" index="2"]
-
-editor/display_folded = true
-position = Vector2( 2104.42, 863.91 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-audio_bus_override = false
-audio_bus_name = "Master"
-script = ExtResource( 2 )
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Chests/chest_super_speed" index="0"]
-
-scale = Vector2( 4, 4 )
-frames = SubResource( 11 )
-animation = "Close"
-playing = true
-_sections_unfolded = [ "Transform" ]
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Chests/chest_super_speed" index="1"]
-
-position = Vector2( -6.10352e-05, 14.5953 )
-shape = SubResource( 12 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Powerup" type="Node2D" parent="Chests/chest_super_speed" index="2"]
-
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="super_speed_up" type="Node2D" parent="Chests/chest_super_speed/Powerup" index="0"]
-
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="chest_jump_up" type="Area2D" parent="Chests" index="3"]
-
-editor/display_folded = true
-position = Vector2( 2915.37, 992.034 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-audio_bus_override = false
-audio_bus_name = "Master"
-script = ExtResource( 2 )
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Chests/chest_jump_up" index="0"]
-
-scale = Vector2( 4, 4 )
-frames = SubResource( 11 )
-animation = "Close"
-playing = true
-_sections_unfolded = [ "Transform" ]
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Chests/chest_jump_up" index="1"]
-
-position = Vector2( -6.10352e-05, 14.5953 )
-shape = SubResource( 12 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Powerup" type="Node2D" parent="Chests/chest_jump_up" index="2"]
-
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="jump_up" type="Node2D" parent="Chests/chest_jump_up/Powerup" index="0"]
-
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="chest_jump_up2" type="Area2D" parent="Chests" index="4"]
-
-editor/display_folded = true
-position = Vector2( 661.437, 481.552 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-audio_bus_override = false
-audio_bus_name = "Master"
-script = ExtResource( 2 )
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Chests/chest_jump_up2" index="0"]
-
-scale = Vector2( 4, 4 )
-frames = SubResource( 11 )
-animation = "Close"
-playing = true
-_sections_unfolded = [ "Transform" ]
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Chests/chest_jump_up2" index="1"]
-
-position = Vector2( -6.10352e-05, 14.5953 )
-shape = SubResource( 12 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Powerup" type="Node2D" parent="Chests/chest_jump_up2" index="2"]
-
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="jump_up" type="Node2D" parent="Chests/chest_jump_up2/Powerup" index="0"]
-
-__meta__ = {
-"_edit_lock_": true
-}
+position = Vector2( 622.386, 473.184 )
 
 [node name="Ground" type="TileMap" parent="." index="1"]
 
@@ -384,6 +157,8 @@ __meta__ = {
 }
 
 [node name="Coins" type="Node2D" parent="." index="4"]
+
+editor/display_folded = true
 
 [node name="Coin" parent="Coins" index="0" instance=ExtResource( 8 )]
 
@@ -558,7 +333,6 @@ shape = SubResource( 10 )
 
 [node name="Player" type="KinematicBody2D" parent="." index="6"]
 
-editor/display_folded = true
 position = Vector2( 207.5, 332.402 )
 scale = Vector2( 6.5625, 6.5625 )
 input_pickable = false
@@ -610,7 +384,7 @@ drag_margin_bottom = 0.2
 editor_draw_screen = true
 editor_draw_limits = false
 editor_draw_drag_margin = false
-_sections_unfolded = [ "Smoothing" ]
+_sections_unfolded = [ "Drag Margin", "Editor", "Limit", "Smoothing" ]
 __meta__ = {
 "_edit_lock_": true
 }
@@ -785,9 +559,25 @@ texture = ExtResource( 20 )
 stretch_mode = 6
 _sections_unfolded = [ "Hint", "Margin", "Rect" ]
 
-[node name="Win Text" type="Label" parent="HUD" index="5"]
+[node name="Win_Pop_Up" type="PopupPanel" parent="HUD" index="5"]
 
 visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 40.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+popup_exclusive = false
+_sections_unfolded = [ "Rect", "Visibility" ]
+
+[node name="Win Text" type="Label" parent="HUD/Win_Pop_Up" index="0"]
+
 modulate = Color( 0, 0, 0, 1 )
 self_modulate = Color( 0, 0, 0, 1 )
 anchor_left = 0.0
@@ -810,42 +600,28 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "Visibility", "custom_colors", "custom_fonts" ]
 
-[node name="PopupPanel" type="PopupPanel" parent="HUD" index="6"]
+[node name="Time_Stop" type="Label" parent="HUD/Win_Pop_Up" index="1"]
 
-visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 40.0
-margin_bottom = 40.0
+margin_left = 464.0
+margin_top = 351.0
+margin_right = 569.0
+margin_bottom = 365.0
+rect_scale = Vector2( 1.5, 1.5 )
 rect_pivot_offset = Vector2( 0, 0 )
-mouse_filter = 0
+mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
-size_flags_vertical = 1
-popup_exclusive = false
-_sections_unfolded = [ "Rect", "Visibility" ]
-
-[connection signal="body_entered" from="Chests/chest_speed" to="Chests/chest_speed" method="on_body_enter"]
-
-[connection signal="body_exited" from="Chests/chest_speed" to="Chests/chest_speed" method="on_body_exit"]
-
-[connection signal="body_entered" from="Chests/chest_speed2" to="Chests/chest_speed2" method="on_body_enter"]
-
-[connection signal="body_exited" from="Chests/chest_speed2" to="Chests/chest_speed2" method="on_body_exit"]
-
-[connection signal="body_entered" from="Chests/chest_super_speed" to="Chests/chest_super_speed" method="on_body_enter"]
-
-[connection signal="body_exited" from="Chests/chest_super_speed" to="Chests/chest_super_speed" method="on_body_exit"]
-
-[connection signal="body_entered" from="Chests/chest_jump_up" to="Chests/chest_jump_up" method="on_body_enter"]
-
-[connection signal="body_exited" from="Chests/chest_jump_up" to="Chests/chest_jump_up" method="on_body_exit"]
-
-[connection signal="body_entered" from="Chests/chest_jump_up2" to="Chests/chest_jump_up2" method="on_body_enter"]
-
-[connection signal="body_exited" from="Chests/chest_jump_up2" to="Chests/chest_jump_up2" method="on_body_exit"]
+size_flags_vertical = 4
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "You ended at ___"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Hint", "custom_colors" ]
 
 [connection signal="body_entered" from="Goal" to="." method="on_goal_enter"]
 
