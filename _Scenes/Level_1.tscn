@@ -55,7 +55,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[node name="World" type="Node"]
+[node name="World" type="Node" index="0"]
 
 script = ExtResource( 1 )
 reset_position = Vector2( 100, 400 )
