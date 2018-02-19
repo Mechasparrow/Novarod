@@ -2,6 +2,7 @@ extends Node
 
 var health = 3
 var coins = 0
+var coins_r = 0
 var level = 0
 var power_up = null
 
@@ -13,6 +14,7 @@ func reset_player_info():
 	
 	health = 3
 	coins = 0
+	coins_r = 0
 	level = 0
 	power_up = null
 	
