@@ -1,14 +1,16 @@
 extends Node
 
-var health = 3
-var coins = 0
-var coins_r = 0
-var level = 0
-var power_up = null
+var health
+var coins
+var coins_r
+var level
+var gem_amnt
+var power_up
 
-var timer = 0
-var respawn = false
-var spawn_point = Vector2(0,0)
+var timer
+var respawn
+var spawn_point
+var gems
 
 func reset_player_info():
 	
@@ -16,6 +18,8 @@ func reset_player_info():
 	coins = 0
 	coins_r = 0
 	level = 0
+	gems = []
+	gem_amnt = 4
 	power_up = null
 	
 	timer = 0

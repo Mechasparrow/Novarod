@@ -15,6 +15,7 @@ func _ready():
 	# Called every time the node is added to the scene.
 	# Initialization here
 	
+	get_node("/root/playerinfo").reset_player_info()
 	get_node("/root/playerinfo").spawn_point = reset_position
 	
 	pass
@@ -25,6 +26,13 @@ func _process(delta):
 
 	var reset_button_hit = Input.is_action_pressed("reset_button")
 
+	var collected_gems = get_node("/root/playerinfo").gems
+	var gem_amnt = get_node("/root/playerinfo").gem_amnt
+
+	if (len(collected_gems) >= gem_amnt and level_end == false):
+		level_end = true
+		level_stop()
+
 	if (reset_button_hit):
 		current_time = 0
 		get_node("/root/playerinfo").reset_player_info()
@@ -33,7 +41,6 @@ func _process(delta):
 	if (level_end == false): 
 		current_time+= delta
 		get_node("/root/playerinfo").timer = current_time
-		print (current_time)
 	else:
 		print ("LEVEL END")
 
@@ -48,9 +55,3 @@ func level_stop():
 	
 	win_popup_time.text = "You ended at %.2f" % current_time 
 	
-
-func on_goal_enter( body ):
-	if (body.name == "Player"):
-		level_stop()
-			
-	pass # replace with function body

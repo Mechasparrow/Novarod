@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://_Scripts/level_script.gd" type="Script" id=1]
 [ext_resource path="res://_Prefab/Powerup_Chests/chest_speed.tscn" type="PackedScene" id=2]
@@ -6,27 +6,25 @@
 [ext_resource path="res://_Prefab/Powerup_Chests/chest_jump_up.tscn" type="PackedScene" id=4]
 [ext_resource path="res://_Tileset/normal_world.tres" type="TileSet" id=5]
 [ext_resource path="res://_Tileset/hazards.tres" type="TileSet" id=6]
-[ext_resource path="res://_Assets/Art/Goal_block_rod.png" type="Texture" id=7]
-[ext_resource path="res://_Prefab/Coins/Coin.tscn" type="PackedScene" id=8]
-[ext_resource path="res://_Prefab/Coins/red_coin.tscn" type="PackedScene" id=9]
-[ext_resource path="res://_Scripts/Sign.gd" type="Script" id=10]
-[ext_resource path="res://_Assets/Art/Sign_Post.png" type="Texture" id=11]
-[ext_resource path="res://_Scripts/Player.gd" type="Script" id=12]
-[ext_resource path="res://_Assets/Art/Spritesheets/Rod/rod3.png" type="Texture" id=13]
-[ext_resource path="res://_Assets/Art/Spritesheets/Rod/rod0.png" type="Texture" id=14]
-[ext_resource path="res://_Assets/Art/Spritesheets/Rod/rod1.png" type="Texture" id=15]
-[ext_resource path="res://_Assets/Art/Spritesheets/Rod/rod2.png" type="Texture" id=16]
-[ext_resource path="res://_Scripts/CoinsHUD.gd" type="Script" id=17]
-[ext_resource path="res://_Scripts/CoinsRHUD.gd" type="Script" id=18]
-[ext_resource path="res://_Scripts/PowerupHUD.gd" type="Script" id=19]
-[ext_resource path="res://_Scripts/Timer.gd" type="Script" id=20]
-[ext_resource path="res://_Scripts/Health.gd" type="Script" id=21]
-[ext_resource path="res://_Assets/Art/heart_0.png" type="Texture" id=22]
-
-[sub_resource type="RectangleShape2D" id=1]
-
-custom_solver_bias = 0.0
-extents = Vector2( 10, 10 )
+[ext_resource path="res://_Prefab/gems/gem_red.tscn" type="PackedScene" id=7]
+[ext_resource path="res://_Prefab/gems/gem_blue.tscn" type="PackedScene" id=8]
+[ext_resource path="res://_Prefab/gems/gem_green.tscn" type="PackedScene" id=9]
+[ext_resource path="res://_Prefab/gems/gem_brown.tscn" type="PackedScene" id=10]
+[ext_resource path="res://_Prefab/Coins/Coin.tscn" type="PackedScene" id=11]
+[ext_resource path="res://_Prefab/Coins/red_coin.tscn" type="PackedScene" id=12]
+[ext_resource path="res://_Scripts/Sign.gd" type="Script" id=13]
+[ext_resource path="res://_Assets/Art/Sign_Post.png" type="Texture" id=14]
+[ext_resource path="res://_Scripts/Player.gd" type="Script" id=15]
+[ext_resource path="res://_Assets/Art/Spritesheets/Rod/rod3.png" type="Texture" id=16]
+[ext_resource path="res://_Assets/Art/Spritesheets/Rod/rod0.png" type="Texture" id=17]
+[ext_resource path="res://_Assets/Art/Spritesheets/Rod/rod1.png" type="Texture" id=18]
+[ext_resource path="res://_Assets/Art/Spritesheets/Rod/rod2.png" type="Texture" id=19]
+[ext_resource path="res://_Scripts/CoinsHUD.gd" type="Script" id=20]
+[ext_resource path="res://_Scripts/CoinsRHUD.gd" type="Script" id=21]
+[ext_resource path="res://_Scripts/PowerupHUD.gd" type="Script" id=22]
+[ext_resource path="res://_Scripts/Timer.gd" type="Script" id=23]
+[ext_resource path="res://_Scripts/Health.gd" type="Script" id=24]
+[ext_resource path="res://_Assets/Art/heart_0.png" type="Texture" id=25]
 
 [sub_resource type="RectangleShape2D" id=2]
 
@@ -41,23 +39,23 @@ extents = Vector2( 13.1362, 11.3937 )
 [sub_resource type="SpriteFrames" id=4]
 
 animations = [ {
-"frames": [ ExtResource( 13 ) ],
+"frames": [ ExtResource( 16 ) ],
 "loop": true,
 "name": "jump",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 13 ) ],
+"frames": [ ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 16 ) ],
 "loop": true,
 "name": "move",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 14 ) ],
+"frames": [ ExtResource( 17 ) ],
 "loop": true,
 "name": "still",
 "speed": 5.0
 } ]
 
-[node name="World" type="Node" index="0"]
+[node name="World" type="Node"]
 
 script = ExtResource( 1 )
 reset_position = Vector2( 100, 400 )
@@ -130,95 +128,75 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Goal" type="Area2D" parent="." index="3"]
+[node name="Gems" type="Node2D" parent="." index="3"]
 
-editor/display_folded = true
-position = Vector2( 3045.98, 701.101 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-audio_bus_override = false
-audio_bus_name = "Master"
+[node name="gem_red" parent="Gems" index="0" instance=ExtResource( 7 )]
 
-[node name="Sprite" type="Sprite" parent="Goal" index="0"]
+[node name="gem_blue" parent="Gems" index="1" instance=ExtResource( 8 )]
 
-scale = Vector2( 4, 4 )
-texture = ExtResource( 7 )
-_sections_unfolded = [ "Transform", "Z Index" ]
-__meta__ = {
-"_edit_lock_": true
-}
+[node name="gem_green" parent="Gems" index="2" instance=ExtResource( 9 )]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Goal" index="1"]
-
-scale = Vector2( 3.5, 3.5 )
-shape = SubResource( 1 )
-_sections_unfolded = [ "Transform" ]
-__meta__ = {
-"_edit_lock_": true
-}
+[node name="gem_brown" parent="Gems" index="3" instance=ExtResource( 10 )]
 
 [node name="Coins" type="Node2D" parent="." index="4"]
 
-editor/display_folded = true
-
-[node name="Coin" parent="Coins" index="0" instance=ExtResource( 8 )]
+[node name="Coin" parent="Coins" index="0" instance=ExtResource( 11 )]
 
 position = Vector2( 1446.45, 478.566 )
 
-[node name="Coin3" parent="Coins" index="1" instance=ExtResource( 8 )]
+[node name="Coin3" parent="Coins" index="1" instance=ExtResource( 11 )]
 
 position = Vector2( 1574.76, 860.73 )
 
-[node name="Coin4" parent="Coins" index="2" instance=ExtResource( 8 )]
+[node name="Coin4" parent="Coins" index="2" instance=ExtResource( 11 )]
 
 position = Vector2( 1644.5, 860.73 )
 
-[node name="Coin5" parent="Coins" index="3" instance=ExtResource( 8 )]
+[node name="Coin5" parent="Coins" index="3" instance=ExtResource( 11 )]
 
 position = Vector2( 2269.35, 869.098 )
 
-[node name="Coin6" parent="Coins" index="4" instance=ExtResource( 8 )]
+[node name="Coin6" parent="Coins" index="4" instance=ExtResource( 11 )]
 
 position = Vector2( 2350.25, 818.887 )
 
-[node name="Coin7" parent="Coins" index="5" instance=ExtResource( 8 )]
+[node name="Coin7" parent="Coins" index="5" instance=ExtResource( 11 )]
 
 position = Vector2( 2428.36, 816.097 )
 
-[node name="Coin8" parent="Coins" index="6" instance=ExtResource( 8 )]
+[node name="Coin8" parent="Coins" index="6" instance=ExtResource( 11 )]
 
 position = Vector2( 2520.41, 860.73 )
 
-[node name="Coin9" parent="Coins" index="7" instance=ExtResource( 8 )]
+[node name="Coin9" parent="Coins" index="7" instance=ExtResource( 11 )]
 
 position = Vector2( 2520.41, 860.73 )
 
-[node name="Coin2" parent="Coins" index="8" instance=ExtResource( 8 )]
+[node name="Coin2" parent="Coins" index="8" instance=ExtResource( 11 )]
 
 position = Vector2( 1326.24, 434.385 )
 
 [node name="Coins_R" type="Node2D" parent="." index="5"]
 
-[node name="Coin_R" parent="Coins_R" index="0" instance=ExtResource( 9 )]
+editor/display_folded = true
+
+[node name="Coin_R" parent="Coins_R" index="0" instance=ExtResource( 12 )]
 
 position = Vector2( 1122.67, 796.702 )
 
-[node name="Coin_R2" parent="Coins_R" index="1" instance=ExtResource( 9 )]
+[node name="Coin_R2" parent="Coins_R" index="1" instance=ExtResource( 12 )]
 
 position = Vector2( 1120.81, 704.171 )
 
-[node name="Coin_R3" parent="Coins_R" index="2" instance=ExtResource( 9 )]
+[node name="Coin_R3" parent="Coins_R" index="2" instance=ExtResource( 12 )]
 
 position = Vector2( 1120.81, 607.938 )
 
-[node name="Coin_R4" parent="Coins_R" index="3" instance=ExtResource( 9 )]
+[node name="Coin_R4" parent="Coins_R" index="3" instance=ExtResource( 12 )]
 
 position = Vector2( 1120.81, 520.959 )
 
-[node name="Coin_R5" parent="Coins_R" index="4" instance=ExtResource( 9 )]
+[node name="Coin_R5" parent="Coins_R" index="4" instance=ExtResource( 12 )]
 
 position = Vector2( 1120.81, 520.959 )
 
@@ -237,12 +215,12 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-script = ExtResource( 10 )
+script = ExtResource( 13 )
 
 [node name="Sprite" type="Sprite" parent="Signs/Sign2" index="0"]
 
 scale = Vector2( 4, 4 )
-texture = ExtResource( 11 )
+texture = ExtResource( 14 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Panel" type="Panel" parent="Signs/Sign2" index="1"]
@@ -302,12 +280,12 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-script = ExtResource( 10 )
+script = ExtResource( 13 )
 
 [node name="Sprite" type="Sprite" parent="Signs/Sign" index="0"]
 
 scale = Vector2( 4, 4 )
-texture = ExtResource( 11 )
+texture = ExtResource( 14 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Panel" type="Panel" parent="Signs/Sign" index="1"]
@@ -365,7 +343,7 @@ input_pickable = false
 collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
-script = ExtResource( 12 )
+script = ExtResource( 15 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -441,7 +419,7 @@ size_flags_vertical = 1
 [node name="Coins" type="Node2D" parent="HUD" index="1"]
 
 editor/display_folded = true
-script = ExtResource( 17 )
+script = ExtResource( 20 )
 
 [node name="Label" type="Label" parent="HUD/Coins" index="0"]
 
@@ -470,7 +448,7 @@ _sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
 
 editor/display_folded = true
 position = Vector2( 0, 25.0581 )
-script = ExtResource( 18 )
+script = ExtResource( 21 )
 
 [node name="Label" type="Label" parent="HUD/Coins_R" index="0"]
 
@@ -498,7 +476,7 @@ _sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
 [node name="Powerup" type="Node2D" parent="HUD" index="3"]
 
 position = Vector2( 586.236, 13.3615 )
-script = ExtResource( 19 )
+script = ExtResource( 22 )
 
 [node name="Label" type="Label" parent="HUD/Powerup" index="0"]
 
@@ -525,7 +503,7 @@ _sections_unfolded = [ "Rect" ]
 [node name="Timer" type="Node2D" parent="HUD" index="4"]
 
 editor/display_folded = true
-script = ExtResource( 20 )
+script = ExtResource( 23 )
 
 [node name="Label" type="Label" parent="HUD/Timer" index="0"]
 
@@ -553,7 +531,7 @@ max_lines_visible = -1
 editor/display_folded = true
 position = Vector2( 25.4641, 12.4908 )
 scale = Vector2( 2, 2 )
-script = ExtResource( 21 )
+script = ExtResource( 24 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="Heart_1" type="TextureRect" parent="HUD/Health" index="0" groups=[
@@ -571,7 +549,7 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 22 )
+texture = ExtResource( 25 )
 stretch_mode = 6
 _sections_unfolded = [ "Hint", "Visibility" ]
 
@@ -591,7 +569,7 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 22 )
+texture = ExtResource( 25 )
 stretch_mode = 6
 _sections_unfolded = [ "Hint", "Margin", "Rect" ]
 
@@ -611,7 +589,7 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 22 )
+texture = ExtResource( 25 )
 stretch_mode = 6
 _sections_unfolded = [ "Hint", "Margin", "Rect" ]
 
@@ -679,8 +657,6 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Hint", "custom_colors" ]
-
-[connection signal="body_entered" from="Goal" to="." method="on_goal_enter"]
 
 [connection signal="body_entered" from="Signs/Sign2" to="Signs/Sign2" method="on_body_enter"]
 
