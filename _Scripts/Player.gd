@@ -21,10 +21,13 @@ var SLIDE_STOP_MIN_TRAVEL = 1.0 # one pixel
 var velocity = Vector2()
 var on_air_time = 100
 var jumping = false
+var sliding = false
+var dir = "right"
 
 var prev_jump_pressed = false
 
 onready var anim = get_node("AnimatedSprite")
+onready var serious_anim = get_node("AnimationPlayer")
 
 func _ready():
 	
@@ -43,17 +46,64 @@ func _physics_process(delta):
 	var walk_left = Input.is_action_pressed("move_left")
 	var walk_right = Input.is_action_pressed("move_right")
 	var jump = Input.is_action_pressed("jump")
+	var slide = Input.is_action_pressed("slide")
+	var rotating = false
+	var getup = Input.is_action_pressed("getup")
+
+	if (sliding == true and is_on_floor() == false):
+		WALK_MAX_SPEED += 400
+		print (WALK_MAX_SPEED)
+	
+	
+	if (slide == true and sliding == false and not is_on_floor()):
+		sliding = true
+		
+		if (dir == "right"):
+			serious_anim.play("Slide_Right") 
+		elif (dir == "left"):
+
+			serious_anim.play("Slide_Left")
+	
+	if (sliding == true and getup == true and is_on_floor()):
+		sliding = false
+		
+		if (dir == "right"):
+			serious_anim.play_backwards("Slide_Right")
+		elif (dir == "left"):
+
+			serious_anim.play_backwards("Slide_Left")
+			
+		
 	
 	var stop = true
 	
 	if walk_left:
 		if velocity.x <= WALK_MIN_SPEED and velocity.x > -WALK_MAX_SPEED:
-			anim.flip_h = true
+			
+			if (not serious_anim.assigned_animation == "Slide_Left"):
+				anim.flip_h = true
+				dir = "left"
+				
+				
+				
+				if (sliding):
+					anim.flip_h = false
+					anim.flip_v = true
+				else:
+					anim.flip_v = false
+			
 			force.x -= WALK_FORCE
 			stop = false
 	elif walk_right:
 		if velocity.x >= -WALK_MIN_SPEED and velocity.x < WALK_MAX_SPEED:
 			anim.flip_h = false
+			dir = "right"
+			
+			if (sliding):
+				anim.flip_v = false
+			else:
+				anim.flip_v = false
+			
 			force.x += WALK_FORCE
 			stop = false
 	
@@ -84,6 +134,7 @@ func _physics_process(delta):
 	
 	if is_on_floor():
 		on_air_time = 0
+	
 		
 	if jumping and velocity.y > 0:
 		# If falling, no longer jumping
@@ -95,6 +146,8 @@ func _physics_process(delta):
 		# Makes controls more snappy.
 		velocity.y = -JUMP_SPEED
 		jumping = true
+		
+		
 		anim.play("jump")
 	
 	on_air_time += delta
@@ -161,9 +214,14 @@ func check_powerups():
 		
 func respawn():
 	
+	anim.play("still")
+	sliding = false
+	rotation = 0
 	position = get_node("/root/playerinfo").spawn_point
 	get_node("/root/playerinfo").timer = 0
-	get_node("/root/playerinfo").respawn = false	
+	get_node("/root/playerinfo").respawn = false
+
+
 		
 func check_collided_node(node_name):
 	
