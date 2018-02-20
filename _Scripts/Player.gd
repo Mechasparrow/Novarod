@@ -48,7 +48,10 @@ func _physics_process(delta):
 	var jump = Input.is_action_pressed("jump")
 	var slide = Input.is_action_pressed("slide")
 	var rotating = false
+	var weird_anim = false
 	var getup = Input.is_action_pressed("getup")
+
+	weird_anim = serious_anim.assigned_animation == "Slide_Left" or serious_anim.assigned_animation == "Slide_Right"
 
 	if (sliding == true and is_on_floor() == false):
 		WALK_MAX_SPEED += 400
@@ -69,10 +72,11 @@ func _physics_process(delta):
 		
 		if (dir == "right"):
 			serious_anim.play_backwards("Slide_Right")
+			anim.play("still")
 		elif (dir == "left"):
 
 			serious_anim.play_backwards("Slide_Left")
-			
+			anim.play("still")
 		
 	
 	var stop = true
@@ -80,32 +84,26 @@ func _physics_process(delta):
 	if walk_left:
 		if velocity.x <= WALK_MIN_SPEED and velocity.x > -WALK_MAX_SPEED:
 			
-			if (not serious_anim.assigned_animation == "Slide_Left"):
-				anim.flip_h = true
-				dir = "left"
-				
-				
-				
-				if (sliding):
-					anim.flip_h = false
-					anim.flip_v = true
-				else:
-					anim.flip_v = false
+			anim.flip_h = true
+			dir = "left"
 			
 			force.x -= WALK_FORCE
 			stop = false
+			
+			if (serious_anim.is_playing() == false and sliding == true):
+				rotation_degrees = -90
+			
 	elif walk_right:
 		if velocity.x >= -WALK_MIN_SPEED and velocity.x < WALK_MAX_SPEED:
+			
 			anim.flip_h = false
 			dir = "right"
 			
-			if (sliding):
-				anim.flip_v = false
-			else:
-				anim.flip_v = false
-			
 			force.x += WALK_FORCE
 			stop = false
+			
+			if (serious_anim.is_playing() == false and sliding == true):
+				rotation_degrees = 90
 	
 	if not stop:
 		if (anim.is_playing() == false or anim.animation == "still"):
