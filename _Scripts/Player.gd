@@ -8,19 +8,21 @@ const GRAVITY = 700.0 # pixels/second/second
 
 # Angle in degrees towards either side that the player can consider "floor"
 const FLOOR_ANGLE_TOLERANCE = 40
-var WALK_FORCE = 600
-var WALK_MIN_SPEED = 10
-var  WALK_MAX_SPEED = 200
-var STOP_FORCE = 1300
-var JUMP_SPEED = 300
-var JUMP_MAX_AIRBORNE_TIME = 0.2
+var WALK_FORCE
+var WALK_MIN_SPEED
+var WALK_MAX_SPEED
+var STOP_FORCE
+var JUMP_SPEED
+var JUMP_MAX_AIRBORNE_TIME
 
-var SLIDE_STOP_VELOCITY = 1.0 # one pixel/second
-var SLIDE_STOP_MIN_TRAVEL = 1.0 # one pixel
+var SLIDE_STOP_VELOCITY
+var SLIDE_STOP_MIN_TRAVEL
 
 var velocity = Vector2()
 var on_air_time = 100
+var on_air_time_wall = 100
 var jumping = false
+var wall_jumping = false
 var sliding = false
 var dir = "right"
 
@@ -133,22 +135,33 @@ func _physics_process(delta):
 	if is_on_floor():
 		on_air_time = 0
 	
+	if is_on_wall():
+		on_air_time_wall = 0
+		on_air_time = 0
 		
 	if jumping and velocity.y > 0:
 		# If falling, no longer jumping
 		jumping = false
+		wall_jumping = false
 		anim.play("still")
 	
 	if on_air_time < JUMP_MAX_AIRBORNE_TIME and jump and not prev_jump_pressed and not jumping:
 		# Jump must also be allowed to happen if the character left the floor a little bit ago.
 		# Makes controls more snappy.
 		velocity.y = -JUMP_SPEED
+			
 		jumping = true
-		
-		
+
+		if (on_air_time_wall < JUMP_MAX_AIRBORNE_TIME and not wall_jumping):
+			if (dir == "left"):
+				velocity.x = JUMP_SPEED
+			elif (dir == "right"):
+				velocity.x = -JUMP_SPEED
+				
 		anim.play("jump")
 	
 	on_air_time += delta
+	on_air_time_wall += delta
 	prev_jump_pressed = jump
 
 	var k_collision = null
@@ -216,7 +229,6 @@ func respawn():
 	sliding = false
 	rotation = 0
 	position = get_node("/root/playerinfo").spawn_point
-	get_node("/root/playerinfo").timer = 0
 	get_node("/root/playerinfo").respawn = false
 
 
