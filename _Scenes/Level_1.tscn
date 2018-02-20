@@ -26,17 +26,17 @@
 [ext_resource path="res://_Scripts/Health.gd" type="Script" id=24]
 [ext_resource path="res://_Assets/Art/heart_0.png" type="Texture" id=25]
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 27.2451, 19.5441 )
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=2]
 
 custom_solver_bias = 0.0
 extents = Vector2( 13.1362, 11.3937 )
 
-[sub_resource type="SpriteFrames" id=4]
+[sub_resource type="SpriteFrames" id=3]
 
 animations = [ {
 "frames": [ ExtResource( 16 ) ],
@@ -55,7 +55,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[node name="World" type="Node" index="0"]
+[node name="World" type="Node"]
 
 script = ExtResource( 1 )
 reset_position = Vector2( 100, 400 )
@@ -139,6 +139,8 @@ __meta__ = {
 [node name="gem_brown" parent="Gems" index="3" instance=ExtResource( 10 )]
 
 [node name="Coins" type="Node2D" parent="." index="4"]
+
+editor/display_folded = true
 
 [node name="Coin" parent="Coins" index="0" instance=ExtResource( 11 )]
 
@@ -268,7 +270,7 @@ _sections_unfolded = [ "Rect", "custom_styles" ]
 
 position = Vector2( 0.713486, -12.4823 )
 scale = Vector2( 1, 0.942137 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="Sign" type="Area2D" parent="Signs" index="1"]
 
@@ -333,10 +335,11 @@ _sections_unfolded = [ "Rect", "custom_styles" ]
 
 position = Vector2( 0.713486, -12.4823 )
 scale = Vector2( 1, 0.942137 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="Player" type="KinematicBody2D" parent="." index="7"]
 
+editor/display_folded = true
 position = Vector2( 207.5, 332.402 )
 scale = Vector2( 6.5625, 6.5625 )
 input_pickable = false
@@ -352,12 +355,12 @@ __meta__ = {
 
 position = Vector2( 0, 1.47014 )
 scale = Vector2( 0.152381, 0.569021 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Player" index="1"]
 
-frames = SubResource( 4 )
+frames = SubResource( 3 )
 animation = "still"
 playing = true
 __meta__ = {
@@ -395,7 +398,6 @@ __meta__ = {
 
 [node name="HUD" type="CanvasLayer" parent="." index="8"]
 
-editor/display_folded = true
 layer = 1
 offset = Vector2( 0, 0 )
 rotation = 0.0

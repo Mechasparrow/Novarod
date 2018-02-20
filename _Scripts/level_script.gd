@@ -8,6 +8,7 @@ onready var win_popup = get_node("HUD/Win_Pop_Up")
 onready var win_popup_time = get_node("HUD/Win_Pop_Up/Time_Stop")
 
 var level_end = false
+var lost = false
 
 export var reset_position = Vector2(100,400)
 
@@ -23,20 +24,24 @@ func _ready():
 func _process(delta):
 
 	var current_time = get_node("/root/playerinfo").timer
+	var current_health = get_node("/root/playerinfo").health
 
 	var reset_button_hit = Input.is_action_pressed("reset_button")
 
 	var collected_gems = get_node("/root/playerinfo").gems
 	var gem_amnt = get_node("/root/playerinfo").gem_amnt
 
+	if (current_health <= 0):
+		lost = true
+		
+
 	if (len(collected_gems) >= gem_amnt and level_end == false):
 		level_end = true
 		level_stop()
 
 	if (reset_button_hit):
-		current_time = 0
-		get_node("/root/playerinfo").reset_player_info()
-		get_tree().reload_current_scene()
+		lost = true
+		
 
 	if (level_end == false): 
 		current_time+= delta
@@ -44,7 +49,10 @@ func _process(delta):
 	else:
 		print ("LEVEL END")
 
-	pass
+	if (lost == true):
+		current_time = 0
+		get_node("/root/playerinfo").reset_player_info()
+		get_tree().reload_current_scene()
 
 
 func level_stop():

@@ -12,6 +12,9 @@ var respawn
 var spawn_point
 var gems
 
+func set_checkpoint(pos):
+	spawn_point = pos
+
 func reset_player_info():
 	
 	health = 3

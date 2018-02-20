@@ -22,6 +22,7 @@ func _physics_process(delta):
 		print (body.name)
 		if (body.name == "Player" and collected == false):
 			collected = true
+			get_node("/root/playerinfo").set_checkpoint(position)
 			get_node("/root/playerinfo").gems.append(name)
 			hide()
 			
