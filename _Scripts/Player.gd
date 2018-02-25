@@ -14,7 +14,7 @@ var WALK_MAX_SPEED
 var STOP_FORCE
 var JUMP_SPEED
 var JUMP_MAX_AIRBORNE_TIME
-
+var SLIDING_DURATION
 var SLIDE_STOP_VELOCITY
 var SLIDE_STOP_MIN_TRAVEL
 
@@ -24,12 +24,14 @@ var on_air_time_wall = 100
 var jumping = false
 var wall_jumping = false
 var sliding = false
+var sliding_time = 0
 var dir = "right"
-
+var getting_up = false
 var prev_jump_pressed = false
 
 onready var anim = get_node("AnimatedSprite")
 onready var serious_anim = get_node("AnimationPlayer")
+onready var hitbox = get_node("Hitbox")
 
 func _ready():
 	
@@ -49,29 +51,27 @@ func _physics_process(delta):
 	var walk_right = Input.is_action_pressed("move_right")
 	var jump = Input.is_action_pressed("jump")
 	var slide = Input.is_action_pressed("slide")
-	var rotating = false
-	var weird_anim = false
-	var getup = Input.is_action_pressed("getup")
-
-	weird_anim = serious_anim.assigned_animation == "Slide_Left" or serious_anim.assigned_animation == "Slide_Right"
-
+	
 	if (sliding == true and is_on_floor() == false):
 		WALK_MAX_SPEED += 400
-		print (WALK_MAX_SPEED)
 	
-	
+	if (sliding == true and is_on_floor() == true):
+		sliding_time += delta
+		WALK_MAX_SPEED += 200
+
+			
 	if (slide == true and sliding == false and not is_on_floor()):
 		sliding = true
+		sliding_time = 0
 		
 		if (dir == "right"):
 			serious_anim.play("Slide_Right") 
 		elif (dir == "left"):
-
 			serious_anim.play("Slide_Left")
 	
-	if (sliding == true and getup == true and is_on_floor()):
-		sliding = false
-		
+	if (sliding == true and is_on_floor() and not getting_up and (sliding_time > SLIDING_DURATION or jump)):
+		getting_up = true
+
 		if (dir == "right"):
 			serious_anim.play_backwards("Slide_Right")
 			anim.play("still")
@@ -80,7 +80,11 @@ func _physics_process(delta):
 			serious_anim.play_backwards("Slide_Left")
 			anim.play("still")
 		
-	
+			
+	if (getting_up and not serious_anim.is_playing()):
+		getting_up = false
+		sliding = false
+			
 	var stop = true
 	
 	if walk_left:
@@ -108,7 +112,7 @@ func _physics_process(delta):
 				rotation_degrees = 90
 	
 	if not stop:
-		if (anim.is_playing() == false or anim.animation == "still"):
+		if (anim.is_playing() == false or anim.animation == "still" and sliding == false):
 			anim.play("move")
 	
 	if stop:
@@ -135,7 +139,7 @@ func _physics_process(delta):
 	if is_on_floor():
 		on_air_time = 0
 	
-	if is_on_wall():
+	if is_on_wall() and not is_on_floor():
 		on_air_time_wall = 0
 		on_air_time = 0
 		
@@ -143,9 +147,11 @@ func _physics_process(delta):
 		# If falling, no longer jumping
 		jumping = false
 		wall_jumping = false
-		anim.play("still")
+		
+		if (sliding == false):
+			anim.play("still")
 	
-	if on_air_time < JUMP_MAX_AIRBORNE_TIME and jump and not prev_jump_pressed and not jumping:
+	if on_air_time < JUMP_MAX_AIRBORNE_TIME and jump and not prev_jump_pressed and not jumping and not sliding:
 		# Jump must also be allowed to happen if the character left the floor a little bit ago.
 		# Makes controls more snappy.
 		velocity.y = -JUMP_SPEED
@@ -170,22 +176,11 @@ func _physics_process(delta):
 	var touched_node = ""
 	
 	#Collide collision
-	k_collision = move_and_collide(Vector2(0,1));
-	if not k_collision == null:
-		
-		if touched_node == "":
-			touched_node = k_collision.collider.get_name()
-			check_collided_node(touched_node)
-
-	# Slide collision
-	if (get_slide_count() > 0):
-		k_collision = get_slide_collision(0)
-		
-	if not k_collision == null:
-		
-		if touched_node == "":
-			touched_node = k_collision.collider.get_name()
-			check_collided_node(touched_node)
+	var hit_bodies = hitbox.get_overlapping_bodies()
+	
+	for body in hit_bodies:
+		if (body.name != name):
+			check_collided_body(body)
 
 	#Check up
 	check_powerups()
@@ -198,6 +193,7 @@ func default_props():
 	WALK_FORCE = 600
 	WALK_MIN_SPEED = 10
 	WALK_MAX_SPEED = 200
+	SLIDING_DURATION = 0.25
 	STOP_FORCE = 1300
 	JUMP_SPEED = 400
 	JUMP_MAX_AIRBORNE_TIME = 0.2
@@ -227,18 +223,26 @@ func respawn():
 	
 	anim.play("still")
 	sliding = false
+	getting_up = false
 	rotation = 0
 	position = get_node("/root/playerinfo").spawn_point
 	get_node("/root/playerinfo").respawn = false
 
 
 		
-func check_collided_node(node_name):
+func check_collided_body(body):
+	
+	var node_name = body.name	
 	
 	if (node_name == "Hazard"):
-		print ("thats bad")
 		respawn()
 		take_damage(1)	
+	
+	if (body.is_in_group("enemy")):
+		respawn()
+		take_damage(1)
+	
+	
 	pass
 	
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://_Scripts/level_script.gd" type="Script" id=1]
 [ext_resource path="res://_Prefab/Powerup_Chests/chest_speed.tscn" type="PackedScene" id=2]
@@ -16,21 +16,23 @@
 [ext_resource path="res://_Assets/Art/Sign_Post.png" type="Texture" id=14]
 [ext_resource path="res://_Fonts/imported_fonts/pixel_font.tres" type="DynamicFont" id=15]
 [ext_resource path="res://_Prefab/Door.tscn" type="PackedScene" id=16]
-[ext_resource path="res://_Scripts/Player.gd" type="Script" id=17]
-[ext_resource path="res://_Assets/Art/Spritesheets/Rod/Sliding/sprite_0.png" type="Texture" id=18]
-[ext_resource path="res://_Assets/Art/Spritesheets/Rod/Sliding/sprite_1.png" type="Texture" id=19]
-[ext_resource path="res://_Assets/Art/Spritesheets/Rod/rod3.png" type="Texture" id=20]
-[ext_resource path="res://_Assets/Art/Spritesheets/Rod/rod0.png" type="Texture" id=21]
-[ext_resource path="res://_Assets/Art/Spritesheets/Rod/rod1.png" type="Texture" id=22]
-[ext_resource path="res://_Assets/Art/Spritesheets/Rod/rod2.png" type="Texture" id=23]
-[ext_resource path="res://_Scripts/CoinsHUD.gd" type="Script" id=24]
-[ext_resource path="res://_Scripts/CoinsRHUD.gd" type="Script" id=25]
-[ext_resource path="res://_Scripts/PowerupHUD.gd" type="Script" id=26]
-[ext_resource path="res://_Scripts/Timer.gd" type="Script" id=27]
-[ext_resource path="res://_Scripts/Health.gd" type="Script" id=28]
-[ext_resource path="res://_Assets/Art/heart_0.png" type="Texture" id=29]
-[ext_resource path="res://_Fonts/Roboto-Regular.ttf" type="DynamicFontData" id=30]
-[ext_resource path="res://_Fonts/Munro.ttf" type="DynamicFontData" id=31]
+[ext_resource path="res://_Prefab/Enemies/Enemy_01.tscn" type="PackedScene" id=17]
+[ext_resource path="res://_Scripts/Player.gd" type="Script" id=18]
+[ext_resource path="res://_Assets/Art/Spritesheets/Rod/Sliding/sprite_0.png" type="Texture" id=19]
+[ext_resource path="res://_Assets/Art/Spritesheets/Rod/Sliding/sprite_1.png" type="Texture" id=20]
+[ext_resource path="res://_Assets/Art/Spritesheets/Rod/rod3.png" type="Texture" id=21]
+[ext_resource path="res://_Assets/Art/Spritesheets/Rod/rod0.png" type="Texture" id=22]
+[ext_resource path="res://_Assets/Art/Spritesheets/Rod/rod1.png" type="Texture" id=23]
+[ext_resource path="res://_Assets/Art/Spritesheets/Rod/rod2.png" type="Texture" id=24]
+[ext_resource path="res://_Scripts/CoinsHUD.gd" type="Script" id=25]
+[ext_resource path="res://_Scripts/CoinsRHUD.gd" type="Script" id=26]
+[ext_resource path="res://_Scripts/PowerupHUD.gd" type="Script" id=27]
+[ext_resource path="res://_Scripts/Timer.gd" type="Script" id=28]
+[ext_resource path="res://_Scripts/Health.gd" type="Script" id=29]
+[ext_resource path="res://_Assets/Art/heart_0.png" type="Texture" id=30]
+[ext_resource path="res://_Fonts/Roboto-Regular.ttf" type="DynamicFontData" id=31]
+[ext_resource path="res://_Fonts/Munro.ttf" type="DynamicFontData" id=32]
+[ext_resource path="res://_Prefab/Enemies/enemy_ai_marker.tscn" type="PackedScene" id=33]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -40,9 +42,9 @@ extents = Vector2( 27.2451, 19.5441 )
 [sub_resource type="Animation" id=2]
 
 resource_name = "Slide_Left"
-length = 0.5
+length = 0.25
 loop = false
-step = 0.1
+step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("CollisionShape2D:rotation_degrees")
 tracks/0/interp = 1
@@ -50,7 +52,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = false
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
+"times": PoolRealArray( 0, 0.25 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ 0.0, 90.0 ]
@@ -62,7 +64,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = false
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.5 ),
+"times": PoolRealArray( 0, 0.25 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ 0.0, 90.0 ]
@@ -74,7 +76,7 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = false
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.5 ),
+"times": PoolRealArray( 0, 0.25 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Vector2( 0, 1.5 ), Vector2( -1.47548, -0.00534058 ) ]
@@ -86,7 +88,7 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 0.5 ),
+"times": PoolRealArray( 0, 0.25 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ "still", "slide" ]
@@ -110,7 +112,7 @@ tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 0, 0.5 ),
+"times": PoolRealArray( 0, 0.25 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ 0.0, -90.0 ]
@@ -122,7 +124,7 @@ tracks/6/loop_wrap = true
 tracks/6/imported = false
 tracks/6/enabled = true
 tracks/6/keys = {
-"times": PoolRealArray( 0, 0.5 ),
+"times": PoolRealArray( 0, 0.25 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ false, false ]
@@ -134,7 +136,7 @@ tracks/7/loop_wrap = true
 tracks/7/imported = false
 tracks/7/enabled = true
 tracks/7/keys = {
-"times": PoolRealArray( 0, 0.5 ),
+"times": PoolRealArray( 0, 0.25 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ true, true ]
@@ -143,9 +145,9 @@ tracks/7/keys = {
 [sub_resource type="Animation" id=3]
 
 resource_name = "Slide_Right"
-length = 0.5
+length = 0.25
 loop = false
-step = 0.1
+step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("CollisionShape2D:rotation_degrees")
 tracks/0/interp = 1
@@ -153,7 +155,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = false
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
+"times": PoolRealArray( 0, 0.25 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ 0.0, 90.0 ]
@@ -165,7 +167,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = false
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.5 ),
+"times": PoolRealArray( 0, 0.25 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ 0.0, 90.0 ]
@@ -177,7 +179,7 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = false
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.5 ),
+"times": PoolRealArray( 0, 0.25 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Vector2( 0, 1.5 ), Vector2( -1.47548, -0.00534058 ) ]
@@ -189,7 +191,7 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 0.5 ),
+"times": PoolRealArray( 0, 0.25 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ "still", "slide" ]
@@ -201,7 +203,7 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0, 0.5 ),
+"times": PoolRealArray( 0, 0.25 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ 0.0, 90.0 ]
@@ -213,7 +215,7 @@ tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 0, 0.5 ),
+"times": PoolRealArray( 0, 0.25 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ 0.0, 90.0 ]
@@ -225,7 +227,7 @@ tracks/6/loop_wrap = true
 tracks/6/imported = false
 tracks/6/enabled = true
 tracks/6/keys = {
-"times": PoolRealArray( 0, 0.5 ),
+"times": PoolRealArray( 0, 0.25 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ false, false ]
@@ -237,7 +239,7 @@ tracks/7/loop_wrap = true
 tracks/7/imported = false
 tracks/7/enabled = true
 tracks/7/keys = {
-"times": PoolRealArray( 0, 0.5 ),
+"times": PoolRealArray( 0, 0.25 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ false, false ]
@@ -258,34 +260,35 @@ extents = Vector2( 13.2239, 8.48843 )
 [sub_resource type="SpriteFrames" id=6]
 
 animations = [ {
-"frames": [ ExtResource( 18 ), ExtResource( 19 ) ],
+"frames": [ ExtResource( 19 ), ExtResource( 20 ) ],
 "loop": true,
 "name": "slide",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 20 ) ],
+"frames": [ ExtResource( 21 ) ],
 "loop": true,
 "name": "jump",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 20 ) ],
+"frames": [ ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 21 ) ],
 "loop": true,
 "name": "move",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 21 ) ],
+"frames": [ ExtResource( 22 ) ],
 "loop": true,
 "name": "still",
 "speed": 5.0
 } ]
+_sections_unfolded = [ "Resource" ]
 
 [sub_resource type="DynamicFont" id=7]
 
 size = 128
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 31 )
-fallback/0 = ExtResource( 30 )
+font_data = ExtResource( 32 )
+fallback/0 = ExtResource( 31 )
 _sections_unfolded = [ "Font/fallback", "Settings" ]
 
 [sub_resource type="DynamicFont" id=8]
@@ -293,8 +296,8 @@ _sections_unfolded = [ "Font/fallback", "Settings" ]
 size = 32
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 31 )
-fallback/0 = ExtResource( 30 )
+font_data = ExtResource( 32 )
+fallback/0 = ExtResource( 31 )
 _sections_unfolded = [ "Font/fallback", "Settings" ]
 
 [sub_resource type="DynamicFont" id=9]
@@ -302,11 +305,11 @@ _sections_unfolded = [ "Font/fallback", "Settings" ]
 size = 24
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 31 )
-fallback/0 = ExtResource( 30 )
+font_data = ExtResource( 32 )
+fallback/0 = ExtResource( 31 )
 _sections_unfolded = [ "Font/fallback", "Settings" ]
 
-[node name="World" type="Node" index="0"]
+[node name="World" type="Node"]
 
 script = ExtResource( 1 )
 reset_position = Vector2( 100, 400 )
@@ -590,20 +593,20 @@ shape = SubResource( 1 )
 
 [node name="Door" parent="." index="7" instance=ExtResource( 16 )]
 
-[node name="Player" type="KinematicBody2D" parent="." index="8"]
+[node name="Enemy_01" parent="." index="8" instance=ExtResource( 17 )]
 
-editor/display_folded = true
-position = Vector2( 207.5, 332.402 )
+position = Vector2( 768.854, 840.408 )
+
+[node name="Player" type="KinematicBody2D" parent="." index="9"]
+
+position = Vector2( 212.022, 368.578 )
 scale = Vector2( 6.5625, 6.5625 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
-script = ExtResource( 17 )
+script = ExtResource( 18 )
 _sections_unfolded = [ "Transform" ]
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Player" index="0"]
 
@@ -622,8 +625,29 @@ blend_times = [  ]
 scale = Vector2( 0.152381, 0.76395 )
 shape = SubResource( 5 )
 _sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Player" index="2"]
+[node name="Hitbox" type="Area2D" parent="Player" index="2"]
+
+scale = Vector2( 1, 1 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Player/Hitbox" index="0"]
+
+position = Vector2( 0.00638752, 0.0467586 )
+scale = Vector2( 0.16592, 0.781215 )
+shape = SubResource( 5 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Player" index="3"]
 
 position = Vector2( 0, -1.45268 )
 frames = SubResource( 6 )
@@ -633,10 +657,6 @@ _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
 }
-
-[node name="Node2D" type="Node2D" parent="Player" index="3"]
-
-scale = Vector2( 0.152381, 0.76395 )
 
 [node name="Camera" type="Camera2D" parent="Player" index="4"]
 
@@ -667,7 +687,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="HUD" type="CanvasLayer" parent="." index="9"]
+[node name="HUD" type="CanvasLayer" parent="." index="10"]
 
 editor/display_folded = true
 layer = 1
@@ -693,7 +713,7 @@ size_flags_vertical = 1
 [node name="Coins" type="Node2D" parent="HUD" index="1"]
 
 editor/display_folded = true
-script = ExtResource( 24 )
+script = ExtResource( 25 )
 
 [node name="Label" type="Label" parent="HUD/Coins" index="0"]
 
@@ -721,7 +741,7 @@ _sections_unfolded = [ "Rect", "custom_fonts" ]
 
 editor/display_folded = true
 position = Vector2( 0, 25.0581 )
-script = ExtResource( 25 )
+script = ExtResource( 26 )
 
 [node name="Label" type="Label" parent="HUD/Coins_R" index="0"]
 
@@ -750,7 +770,7 @@ _sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
 
 editor/display_folded = true
 position = Vector2( 586.236, 13.3615 )
-script = ExtResource( 26 )
+script = ExtResource( 27 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Label" type="Label" parent="HUD/Powerup" index="0"]
@@ -778,7 +798,7 @@ _sections_unfolded = [ "Rect", "custom_fonts" ]
 [node name="Timer" type="Node2D" parent="HUD" index="4"]
 
 editor/display_folded = true
-script = ExtResource( 27 )
+script = ExtResource( 28 )
 
 [node name="Label" type="Label" parent="HUD/Timer" index="0"]
 
@@ -807,7 +827,7 @@ _sections_unfolded = [ "Rect", "custom_fonts" ]
 editor/display_folded = true
 position = Vector2( 25.4641, 12.4908 )
 scale = Vector2( 2, 2 )
-script = ExtResource( 28 )
+script = ExtResource( 29 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="Heart_1" type="TextureRect" parent="HUD/Health" index="0" groups=[
@@ -825,7 +845,7 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 29 )
+texture = ExtResource( 30 )
 stretch_mode = 6
 _sections_unfolded = [ "Hint", "Visibility" ]
 
@@ -845,7 +865,7 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 29 )
+texture = ExtResource( 30 )
 stretch_mode = 6
 _sections_unfolded = [ "Hint", "Margin", "Rect" ]
 
@@ -865,7 +885,7 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 29 )
+texture = ExtResource( 30 )
 stretch_mode = 6
 _sections_unfolded = [ "Hint", "Margin", "Rect" ]
 
@@ -955,6 +975,12 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Hint", "Rect", "custom_colors", "custom_fonts" ]
+
+[node name="enemy_ai_marker" parent="." index="11" instance=ExtResource( 33 )]
+
+[node name="enemy_ai_marker2" parent="." index="12" instance=ExtResource( 33 )]
+
+position = Vector2( 414.521, 1.50732 )
 
 [connection signal="body_entered" from="Signs/Sign2" to="Signs/Sign2" method="on_body_enter"]
 
