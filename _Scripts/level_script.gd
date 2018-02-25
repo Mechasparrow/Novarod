@@ -6,6 +6,7 @@ extends Node
 
 onready var win_popup = get_node("HUD/Win_Pop_Up")
 onready var win_popup_time = get_node("HUD/Win_Pop_Up/Time_Stop")
+onready var end_door = get_node("Door")
 
 var level_end = false
 var lost = false
@@ -30,12 +31,18 @@ func _process(delta):
 
 	var collected_gems = get_node("/root/playerinfo").gems
 	var gem_amnt = get_node("/root/playerinfo").gem_amnt
+	var gems_collected = len(collected_gems) >= gem_amnt
+	var enter_door = Input.is_action_pressed("interact")
 
 	if (current_health <= 0):
 		lost = true
 		
+	if (gems_collected and end_door.player_here):
+		end_door.open_door()
+	else:
+		end_door.close_door()
 
-	if (len(collected_gems) >= gem_amnt and level_end == false):
+	if (gems_collected and end_door.player_here == true and level_end == false and enter_door):
 		level_end = true
 		level_stop()
 

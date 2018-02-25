@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://_Scripts/level_script.gd" type="Script" id=1]
 [ext_resource path="res://_Prefab/Powerup_Chests/chest_speed.tscn" type="PackedScene" id=2]
@@ -14,26 +14,30 @@
 [ext_resource path="res://_Prefab/Coins/red_coin.tscn" type="PackedScene" id=12]
 [ext_resource path="res://_Scripts/Sign.gd" type="Script" id=13]
 [ext_resource path="res://_Assets/Art/Sign_Post.png" type="Texture" id=14]
-[ext_resource path="res://_Scripts/Player.gd" type="Script" id=15]
-[ext_resource path="res://_Assets/Art/Spritesheets/Rod/Sliding/sprite_0.png" type="Texture" id=16]
-[ext_resource path="res://_Assets/Art/Spritesheets/Rod/Sliding/sprite_1.png" type="Texture" id=17]
-[ext_resource path="res://_Assets/Art/Spritesheets/Rod/rod3.png" type="Texture" id=18]
-[ext_resource path="res://_Assets/Art/Spritesheets/Rod/rod0.png" type="Texture" id=19]
-[ext_resource path="res://_Assets/Art/Spritesheets/Rod/rod1.png" type="Texture" id=20]
-[ext_resource path="res://_Assets/Art/Spritesheets/Rod/rod2.png" type="Texture" id=21]
-[ext_resource path="res://_Scripts/CoinsHUD.gd" type="Script" id=22]
-[ext_resource path="res://_Scripts/CoinsRHUD.gd" type="Script" id=23]
-[ext_resource path="res://_Scripts/PowerupHUD.gd" type="Script" id=24]
-[ext_resource path="res://_Scripts/Timer.gd" type="Script" id=25]
-[ext_resource path="res://_Scripts/Health.gd" type="Script" id=26]
-[ext_resource path="res://_Assets/Art/heart_0.png" type="Texture" id=27]
+[ext_resource path="res://_Fonts/imported_fonts/pixel_font.tres" type="DynamicFont" id=15]
+[ext_resource path="res://_Prefab/Door.tscn" type="PackedScene" id=16]
+[ext_resource path="res://_Scripts/Player.gd" type="Script" id=17]
+[ext_resource path="res://_Assets/Art/Spritesheets/Rod/Sliding/sprite_0.png" type="Texture" id=18]
+[ext_resource path="res://_Assets/Art/Spritesheets/Rod/Sliding/sprite_1.png" type="Texture" id=19]
+[ext_resource path="res://_Assets/Art/Spritesheets/Rod/rod3.png" type="Texture" id=20]
+[ext_resource path="res://_Assets/Art/Spritesheets/Rod/rod0.png" type="Texture" id=21]
+[ext_resource path="res://_Assets/Art/Spritesheets/Rod/rod1.png" type="Texture" id=22]
+[ext_resource path="res://_Assets/Art/Spritesheets/Rod/rod2.png" type="Texture" id=23]
+[ext_resource path="res://_Scripts/CoinsHUD.gd" type="Script" id=24]
+[ext_resource path="res://_Scripts/CoinsRHUD.gd" type="Script" id=25]
+[ext_resource path="res://_Scripts/PowerupHUD.gd" type="Script" id=26]
+[ext_resource path="res://_Scripts/Timer.gd" type="Script" id=27]
+[ext_resource path="res://_Scripts/Health.gd" type="Script" id=28]
+[ext_resource path="res://_Assets/Art/heart_0.png" type="Texture" id=29]
+[ext_resource path="res://_Fonts/Roboto-Regular.ttf" type="DynamicFontData" id=30]
+[ext_resource path="res://_Fonts/Munro.ttf" type="DynamicFontData" id=31]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 27.2451, 19.5441 )
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=2]
 
 resource_name = "Slide_Left"
 length = 0.5
@@ -136,7 +140,7 @@ tracks/7/keys = {
 "values": [ true, true ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=3]
 
 resource_name = "Slide_Right"
 length = 0.5
@@ -239,41 +243,68 @@ tracks/7/keys = {
 "values": [ false, false ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=4]
 
 resource_name = "Upright"
 length = 1.0
 loop = false
 step = 0.1
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=5]
 
 custom_solver_bias = 0.0
 extents = Vector2( 13.2239, 8.48843 )
 
-[sub_resource type="SpriteFrames" id=3]
+[sub_resource type="SpriteFrames" id=6]
 
 animations = [ {
-"frames": [ ExtResource( 16 ), ExtResource( 17 ) ],
+"frames": [ ExtResource( 18 ), ExtResource( 19 ) ],
 "loop": true,
 "name": "slide",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 18 ) ],
+"frames": [ ExtResource( 20 ) ],
 "loop": true,
 "name": "jump",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 18 ) ],
+"frames": [ ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 20 ) ],
 "loop": true,
 "name": "move",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 19 ) ],
+"frames": [ ExtResource( 21 ) ],
 "loop": true,
 "name": "still",
 "speed": 5.0
 } ]
+
+[sub_resource type="DynamicFont" id=7]
+
+size = 128
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 31 )
+fallback/0 = ExtResource( 30 )
+_sections_unfolded = [ "Font/fallback", "Settings" ]
+
+[sub_resource type="DynamicFont" id=8]
+
+size = 32
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 31 )
+fallback/0 = ExtResource( 30 )
+_sections_unfolded = [ "Font/fallback", "Settings" ]
+
+[sub_resource type="DynamicFont" id=9]
+
+size = 24
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 31 )
+fallback/0 = ExtResource( 30 )
+_sections_unfolded = [ "Font/fallback", "Settings" ]
 
 [node name="World" type="Node" index="0"]
 
@@ -471,22 +502,22 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 16.0
-margin_top = 24.0
-margin_right = 86.0
-margin_bottom = 72.0
-rect_scale = Vector2( 2, 2 )
+margin_left = 8.0
+margin_top = 21.0
+margin_right = 164.0
+margin_bottom = 89.0
 rect_pivot_offset = Vector2( 0, 0 )
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
+custom_fonts/font = ExtResource( 15 )
 text = "Start the adventure"
 autowrap = true
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "Rect", "custom_styles" ]
+_sections_unfolded = [ "Rect", "custom_fonts" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Signs/Sign2" index="2"]
 
@@ -496,7 +527,6 @@ shape = SubResource( 1 )
 
 [node name="Sign" type="Area2D" parent="Signs" index="1"]
 
-editor/display_folded = true
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -536,22 +566,21 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 18.0
-margin_top = 34.0
-margin_right = 79.0
-margin_bottom = 50.0
-rect_scale = Vector2( 2, 2 )
+margin_left = 19.0
+margin_top = 40.0
+margin_right = 133.0
+margin_bottom = 97.0
 rect_pivot_offset = Vector2( 0, 0 )
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
+custom_fonts/font = ExtResource( 15 )
 text = "Go down"
-autowrap = true
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "Rect", "custom_styles" ]
+_sections_unfolded = [ "Rect", "custom_fonts", "custom_styles" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Signs/Sign" index="2"]
 
@@ -559,7 +588,9 @@ position = Vector2( 0.713486, -12.4823 )
 scale = Vector2( 1, 0.942137 )
 shape = SubResource( 1 )
 
-[node name="Player" type="KinematicBody2D" parent="." index="7"]
+[node name="Door" parent="." index="7" instance=ExtResource( 16 )]
+
+[node name="Player" type="KinematicBody2D" parent="." index="8"]
 
 editor/display_folded = true
 position = Vector2( 207.5, 332.402 )
@@ -568,7 +599,7 @@ input_pickable = false
 collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
-script = ExtResource( 15 )
+script = ExtResource( 17 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
@@ -581,22 +612,21 @@ autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/Slide_Left = SubResource( 7 )
-anims/Slide_Right = SubResource( 4 )
-anims/Upright = SubResource( 6 )
+anims/Slide_Left = SubResource( 2 )
+anims/Slide_Right = SubResource( 3 )
+anims/Upright = SubResource( 4 )
 blend_times = [  ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player" index="1"]
 
 scale = Vector2( 0.152381, 0.76395 )
-shape = SubResource( 2 )
+shape = SubResource( 5 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Player" index="2"]
 
 position = Vector2( 0, -1.45268 )
-scale = Vector2( 1, 1 )
-frames = SubResource( 3 )
+frames = SubResource( 6 )
 animation = "still"
 playing = true
 _sections_unfolded = [ "Transform" ]
@@ -637,8 +667,9 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="HUD" type="CanvasLayer" parent="." index="8"]
+[node name="HUD" type="CanvasLayer" parent="." index="9"]
 
+editor/display_folded = true
 layer = 1
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -662,7 +693,7 @@ size_flags_vertical = 1
 [node name="Coins" type="Node2D" parent="HUD" index="1"]
 
 editor/display_folded = true
-script = ExtResource( 22 )
+script = ExtResource( 24 )
 
 [node name="Label" type="Label" parent="HUD/Coins" index="0"]
 
@@ -672,26 +703,25 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 883.0
 margin_top = 6.0
-margin_right = 923.0
-margin_bottom = 20.0
-rect_scale = Vector2( 2, 2 )
+margin_right = 1099.0
+margin_bottom = 101.0
 rect_pivot_offset = Vector2( 0, 0 )
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = ExtResource( 15 )
 text = "Coins:"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
+_sections_unfolded = [ "Rect", "custom_fonts" ]
 
 [node name="Coins_R" type="Node2D" parent="HUD" index="2"]
 
 editor/display_folded = true
 position = Vector2( 0, 25.0581 )
-script = ExtResource( 23 )
+script = ExtResource( 25 )
 
 [node name="Label" type="Label" parent="HUD/Coins_R" index="0"]
 
@@ -701,14 +731,14 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 913.0
 margin_top = 6.0
-margin_right = 964.0
-margin_bottom = 20.0
-rect_scale = Vector2( 2, 2 )
+margin_right = 1001.0
+margin_bottom = 127.0
 rect_pivot_offset = Vector2( 0, 0 )
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
+custom_fonts/font = ExtResource( 15 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "R:"
 percent_visible = 1.0
@@ -720,7 +750,8 @@ _sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
 
 editor/display_folded = true
 position = Vector2( 586.236, 13.3615 )
-script = ExtResource( 24 )
+script = ExtResource( 26 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="Label" type="Label" parent="HUD/Powerup" index="0"]
 
@@ -730,24 +761,24 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 30.0
 margin_top = 31.0
-margin_right = 89.0
-margin_bottom = 45.0
-rect_scale = Vector2( 2, 2 )
+margin_right = 520.0
+margin_bottom = 152.0
 rect_pivot_offset = Vector2( 0, 0 )
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
+custom_fonts/font = ExtResource( 15 )
 text = "Powerup:"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "Rect" ]
+_sections_unfolded = [ "Rect", "custom_fonts" ]
 
 [node name="Timer" type="Node2D" parent="HUD" index="4"]
 
 editor/display_folded = true
-script = ExtResource( 25 )
+script = ExtResource( 27 )
 
 [node name="Label" type="Label" parent="HUD/Timer" index="0"]
 
@@ -758,23 +789,25 @@ anchor_bottom = 0.0
 margin_left = 359.0
 margin_top = 4.0
 margin_right = 399.0
-margin_bottom = 18.0
-rect_scale = Vector2( 2, 2 )
+margin_bottom = 20.0
 rect_pivot_offset = Vector2( 0, 0 )
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
+custom_fonts/font = ExtResource( 15 )
 text = "Time:"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+_sections_unfolded = [ "Rect", "custom_fonts" ]
 
 [node name="Health" type="Node2D" parent="HUD" index="5"]
 
+editor/display_folded = true
 position = Vector2( 25.4641, 12.4908 )
 scale = Vector2( 2, 2 )
-script = ExtResource( 26 )
+script = ExtResource( 28 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="Heart_1" type="TextureRect" parent="HUD/Health" index="0" groups=[
@@ -792,7 +825,7 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 27 )
+texture = ExtResource( 29 )
 stretch_mode = 6
 _sections_unfolded = [ "Hint", "Visibility" ]
 
@@ -812,7 +845,7 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 27 )
+texture = ExtResource( 29 )
 stretch_mode = 6
 _sections_unfolded = [ "Hint", "Margin", "Rect" ]
 
@@ -832,12 +865,14 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 27 )
+texture = ExtResource( 29 )
 stretch_mode = 6
 _sections_unfolded = [ "Hint", "Margin", "Rect" ]
 
 [node name="Win_Pop_Up" type="PopupPanel" parent="HUD" index="6"]
 
+editor/display_folded = true
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -858,16 +893,16 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 263.0
-margin_top = 218.0
-margin_right = 315.0
-margin_bottom = 232.0
-rect_scale = Vector2( 10, 10 )
+margin_left = 316.0
+margin_top = 229.0
+margin_right = 718.0
+margin_bottom = 350.0
 rect_pivot_offset = Vector2( 0, 0 )
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
+custom_fonts/font = SubResource( 7 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "You Win"
 percent_visible = 1.0
@@ -881,22 +916,22 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 464.0
-margin_top = 351.0
-margin_right = 569.0
-margin_bottom = 365.0
-rect_scale = Vector2( 1.5, 1.5 )
+margin_left = 403.0
+margin_top = 339.0
+margin_right = 647.0
+margin_bottom = 370.0
 rect_pivot_offset = Vector2( 0, 0 )
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
+custom_fonts/font = SubResource( 8 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "You ended at ___"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "Hint", "custom_colors" ]
+_sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
 
 [node name="restart" type="Label" parent="HUD/Win_Pop_Up" index="2"]
 
@@ -904,22 +939,22 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 447.0
-margin_top = 404.0
-margin_right = 560.0
-margin_bottom = 418.0
-rect_scale = Vector2( 1.5, 1.5 )
+margin_left = 424.0
+margin_top = 496.0
+margin_right = 667.0
+margin_bottom = 527.0
 rect_pivot_offset = Vector2( 0, 0 )
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
+custom_fonts/font = SubResource( 9 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Press R to Restart"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "Hint", "custom_colors" ]
+_sections_unfolded = [ "Hint", "Rect", "custom_colors", "custom_fonts" ]
 
 [connection signal="body_entered" from="Signs/Sign2" to="Signs/Sign2" method="on_body_enter"]
 
