@@ -309,7 +309,7 @@ font_data = ExtResource( 32 )
 fallback/0 = ExtResource( 31 )
 _sections_unfolded = [ "Font/fallback", "Settings" ]
 
-[node name="World" type="Node"]
+[node name="World" type="Node" index="0"]
 
 script = ExtResource( 1 )
 reset_position = Vector2( 100, 400 )
@@ -631,7 +631,7 @@ __meta__ = {
 
 [node name="Hitbox" type="Area2D" parent="Player" index="2"]
 
-scale = Vector2( 1, 1 )
+editor/display_folded = true
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -686,6 +686,10 @@ _sections_unfolded = [ "Drag Margin", "Editor", "Limit", "Smoothing" ]
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="WeaponHolder" type="Node2D" parent="Player" index="5"]
+
+_sections_unfolded = [ "Transform" ]
 
 [node name="HUD" type="CanvasLayer" parent="." index="10"]
 
@@ -978,9 +982,11 @@ _sections_unfolded = [ "Hint", "Rect", "custom_colors", "custom_fonts" ]
 
 [node name="enemy_ai_marker" parent="." index="11" instance=ExtResource( 33 )]
 
+position = Vector2( -767.255, 6.80188 )
+
 [node name="enemy_ai_marker2" parent="." index="12" instance=ExtResource( 33 )]
 
-position = Vector2( 414.521, 1.50732 )
+position = Vector2( 625.38, 6.94885 )
 
 [connection signal="body_entered" from="Signs/Sign2" to="Signs/Sign2" method="on_body_enter"]
 

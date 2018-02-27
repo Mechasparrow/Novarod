@@ -33,16 +33,23 @@ onready var anim = get_node("AnimatedSprite")
 onready var serious_anim = get_node("AnimationPlayer")
 onready var hitbox = get_node("Hitbox")
 
+onready var player_info = get_node("/root/playerinfo")
+onready var weapon_holder = get_node("WeaponHolder")
+onready var weapon = null
+
 func _ready():
 	
-	var current_health = get_node("/root/playerinfo").health
+	player_info.reset_player_info()
 	
+	var current_health = player_info.health
+	
+	check_weapons()
 	check_powerups()
 	set_physics_process(true)
 
 func _physics_process(delta):
 	
-	var player_props = get_node("/root/playerinfo")
+	var player_props = player_info
 	
 	# Create forces
 	var force = Vector2(0, GRAVITY)
@@ -51,6 +58,16 @@ func _physics_process(delta):
 	var walk_right = Input.is_action_pressed("move_right")
 	var jump = Input.is_action_pressed("jump")
 	var slide = Input.is_action_pressed("slide")
+	var interact = Input.is_action_pressed("interact")
+	
+	if (interact and not (weapon == null) and not sliding and not jumping):
+		
+		if (dir == "right"):
+			weapon.position.x = 5
+		elif (dir == "left"):
+			weapon.position.x = -5
+		
+		weapon.attack(dir)
 	
 	if (sliding == true and is_on_floor() == false):
 		WALK_MAX_SPEED += 400
@@ -185,7 +202,7 @@ func _physics_process(delta):
 	#Check up
 	check_powerups()
 	
-	if (get_node("/root/playerinfo").respawn == true):
+	if (player_info.respawn == true):
 		respawn()
 	
 
@@ -201,9 +218,14 @@ func default_props():
 	SLIDE_STOP_VELOCITY = 1.0 # one pixel/second
 	SLIDE_STOP_MIN_TRAVEL = 1.0
 
+func check_weapons():
+	if (player_info.has_weapon() == true):
+		weapon = player_info.get_current_weapon().instance()
+		weapon_holder.add_child(weapon)
+
 func check_powerups():
 	
-	var power_up = get_node("/root/playerinfo").power_up
+	var power_up = player_info.power_up
 	
 	if (power_up == null):
 		default_props()
@@ -225,10 +247,8 @@ func respawn():
 	sliding = false
 	getting_up = false
 	rotation = 0
-	position = get_node("/root/playerinfo").spawn_point
-	get_node("/root/playerinfo").respawn = false
-
-
+	position = player_info.spawn_point
+	player_info.respawn = false
 		
 func check_collided_body(body):
 	
@@ -248,7 +268,7 @@ func check_collided_body(body):
 
 func take_damage(damage):
 	
-	var current_health = get_node("/root/playerinfo").health
+	var current_health = player_info.health
 	
 	var new_health = current_health - damage
-	get_node("/root/playerinfo").health = new_health
+	player_info.health = new_health

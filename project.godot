@@ -17,6 +17,7 @@ config/icon="res://icon.png"
 [autoload]
 
 playerinfo="*res://_Scripts/playerinfo.gd"
+weapons="*res://_Scripts/weapons.gd"
 
 [input]
 

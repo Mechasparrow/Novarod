@@ -12,6 +12,20 @@ var respawn
 var spawn_point
 var gems
 
+var current_weapon
+
+func has_weapon():
+	if get_current_weapon() == null:
+		return false
+	else:
+		return true
+
+func get_current_weapon():
+	return current_weapon
+	
+func set_current_weapon(weapon):
+	current_weapon = weapon
+
 func set_checkpoint(pos):
 	spawn_point = pos
 
@@ -24,7 +38,7 @@ func reset_player_info():
 	gems = []
 	gem_amnt = 4
 	power_up = null
-	
+	current_weapon = get_node("/root/weapons").weapons[0]
 	timer = 0
 	respawn = false
 	spawn_point = Vector2(0,0)

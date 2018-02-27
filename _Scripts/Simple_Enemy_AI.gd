@@ -18,6 +18,13 @@ var STOP_FORCE
 var dir
 var hit_marker = false
 
+var hit = false
+var knockback_vel = Vector2(0,0)
+var cooldown_duration = 0.5
+var cooldown_timer = 0
+
+var health = 3
+
 func _ready():
 	# Called every time the node is added to the scene.
 	# Initialization here
@@ -89,12 +96,32 @@ func _physics_process(delta):
 			anim.play("still")
 	
 	var areas = hitbox.get_overlapping_areas()
+	var bodies = hitbox.get_overlapping_bodies()
 	
 	if (len(areas) == 0):
 		hit_marker = false
 	
+	for body in bodies:
+		if body.name == "Hazard":
+			die()
+	
+	# HIT COOLDOWN
+	if (hit == true and cooldown_timer < cooldown_duration):
+		velocity += knockback_vel * delta
+		cooldown_timer += delta
+	
+	if (cooldown_timer > cooldown_duration):
+		hit = false
+	
 	for area in areas:
 		var hit_a_marker = false
+		
+		if (area.is_in_group("weapon")):
+			
+			if (hit == false):
+				handle_attack(area)
+				cooldown_timer = 0
+				hit = true
 		
 		if (area.is_in_group("enemy_marker")):
 			hit_a_marker = true
@@ -107,6 +134,47 @@ func _physics_process(delta):
 					dir = "left"
 					
 		hit_marker = hit_a_marker
+	
+	#check health
+	display_health(health)
+	
+	if health <= 0:
+		die()
+	
+	pass
+
+func die():
+	queue_free()
+
+func handle_attack(weapon):
+	var dir = weapon.attack_dir
+	var knockback = weapon.knockback_factor
+	
+	if (dir == "left"):
+		knockback_vel = Vector2(-knockback, 0)
+	elif (dir == "right"):
+		knockback_vel = Vector2(knockback, 0)
+			
+	health -= 1
+	
+	print (str(knockback))
+	print (str(dir))
+	print ("HIT")
+
+func display_health(health):
+	
+	var health_display = get_node("Hearts")
+	
+	var hearts = health_display.get_children()
+	
+	var cnt = 0
+	for heart in hearts:
+		cnt += 1
+		
+		if (cnt > health):
+			heart.hide()
+		else:
+			heart.show()
 	
 	pass
 

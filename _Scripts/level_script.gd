@@ -17,7 +17,6 @@ func _ready():
 	# Called every time the node is added to the scene.
 	# Initialization here
 	
-	get_node("/root/playerinfo").reset_player_info()
 	get_node("/root/playerinfo").spawn_point = reset_position
 	
 	pass

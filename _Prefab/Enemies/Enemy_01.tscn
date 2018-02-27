@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://_Scripts/Simple_Enemy_AI.gd" type="Script" id=1]
 [ext_resource path="res://_Assets/Art/Spritesheets/Enemies/enemy_one/enemy1_2.png" type="Texture" id=2]
 [ext_resource path="res://_Assets/Art/Spritesheets/Enemies/enemy_one/enemy1_0.png" type="Texture" id=3]
 [ext_resource path="res://_Assets/Art/Spritesheets/Enemies/enemy_one/enemy1_1.png" type="Texture" id=4]
 [ext_resource path="res://_Assets/Art/Spritesheets/Enemies/enemy_one/enemy1_3.png" type="Texture" id=5]
+[ext_resource path="res://_Assets/Art/heart_0.png" type="Texture" id=6]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -35,7 +36,7 @@ extents = Vector2( 23.9791, 48.6542 )
 custom_solver_bias = 0.0
 extents = Vector2( 29.3318, 41.5622 )
 
-[node name="Enemy_01" type="KinematicBody2D" index="0" groups=[
+[node name="Enemy_01" type="KinematicBody2D" groups=[
 "enemy",
 ]]
 
@@ -77,5 +78,22 @@ audio_bus_name = "Master"
 position = Vector2( 0, 5.84068 )
 scale = Vector2( 1, 1.13107 )
 shape = SubResource( 3 )
+
+[node name="Hearts" type="Node2D" parent="." index="3"]
+
+[node name="Heart" type="Sprite" parent="Hearts" index="0"]
+
+position = Vector2( -18.9127, -58.3591 )
+texture = ExtResource( 6 )
+
+[node name="Heart2" type="Sprite" parent="Hearts" index="1"]
+
+position = Vector2( 0.540344, -57.8188 )
+texture = ExtResource( 6 )
+
+[node name="Heart3" type="Sprite" parent="Hearts" index="2"]
+
+position = Vector2( 19.4531, -57.8188 )
+texture = ExtResource( 6 )
 
 
