@@ -1,12 +1,29 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://_Scripts/Door.gd" type="Script" id=1]
 [ext_resource path="res://_Animations/_Frames/door_frames.tres" type="SpriteFrames" id=2]
+[ext_resource path="res://_Assets/Art/Spritesheets/Door/lock_0.png" type="Texture" id=3]
+[ext_resource path="res://_Assets/Art/Spritesheets/Door/lock_1.png" type="Texture" id=4]
 
-[sub_resource type="RectangleShape2D" id=10]
+[sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 10, 61.0761 )
+
+[sub_resource type="SpriteFrames" id=2]
+
+animations = [ {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "Unlocked",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "Locked",
+"speed": 5.0
+} ]
+_sections_unfolded = [ "Resource" ]
 
 [node name="Door" type="Area2D"]
 
@@ -35,6 +52,15 @@ __meta__ = {
 
 position = Vector2( 23.9877, 3.94012 )
 scale = Vector2( 3.26609, 0.969336 )
-shape = SubResource( 10 )
+shape = SubResource( 1 )
+
+[node name="DoorLock" type="AnimatedSprite" parent="." index="2"]
+
+position = Vector2( 24.9776, -94.0801 )
+scale = Vector2( 3, 3 )
+frames = SubResource( 2 )
+animation = "Locked"
+playing = true
+_sections_unfolded = [ "Transform" ]
 
 

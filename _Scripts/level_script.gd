@@ -36,6 +36,9 @@ func _process(delta):
 	if (current_health <= 0):
 		lost = true
 		
+	if (gems_collected):
+		end_door.unlock_door()
+		
 	if (gems_collected and end_door.player_here):
 		end_door.open_door()
 	else:
