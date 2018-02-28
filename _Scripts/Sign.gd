@@ -14,11 +14,12 @@ func _ready():
 #	# Update game logic here.
 #	pass
 
+onready var popup = get_node("CanvasLayer/PopupPanel")
 
 func on_body_enter( body ):
 	
 	if (body.name == "Player"):
-		get_node("Panel").show()
+		popup.popup()
 	
 	pass # replace with function body
 
@@ -26,6 +27,6 @@ func on_body_enter( body ):
 func on_body_exit( body ):
 	
 	if (body.name == "Player"):
-		get_node("Panel").hide()
-	
+		popup.hide()
+		
 	pass # replace with function body

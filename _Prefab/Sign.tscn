@@ -1,12 +1,23 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://_Scripts/Sign.gd" type="Script" id=1]
 [ext_resource path="res://_Assets/Art/Sign_Post.png" type="Texture" id=2]
+[ext_resource path="res://_Fonts/Roboto-Regular.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://_Fonts/Munro.ttf" type="DynamicFontData" id=4]
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 27.2451, 19.5441 )
+
+[sub_resource type="DynamicFont" id=2]
+
+size = 48
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 4 )
+fallback/0 = ExtResource( 3 )
+_sections_unfolded = [ "Font/fallback", "Settings" ]
 
 [node name="Sign" type="Area2D"]
 
@@ -26,52 +37,65 @@ scale = Vector2( 4, 4 )
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Panel" type="Panel" parent="." index="1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
-visible = false
+position = Vector2( 0.713486, -12.4823 )
+scale = Vector2( 1, 0.942137 )
+shape = SubResource( 1 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="2"]
+
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+
+[node name="PopupPanel" type="PopupPanel" parent="CanvasLayer" index="0"]
+
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = -74.0
-margin_top = -165.0
-margin_right = 76.0
-margin_bottom = -58.0
+margin_left = 62.0
+margin_top = 470.0
+margin_right = 967.0
+margin_bottom = 579.0
 rect_pivot_offset = Vector2( 0, 0 )
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-_sections_unfolded = [ "Visibility" ]
+popup_exclusive = false
 
-[node name="Label" type="Label" parent="Panel" index="0"]
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/PopupPanel" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 18.0
-margin_top = 34.0
-margin_right = 79.0
-margin_bottom = 50.0
-rect_scale = Vector2( 2, 2 )
+margin_left = 242.0
+margin_top = 30.0
+margin_right = 648.0
+margin_bottom = 108.0
 rect_pivot_offset = Vector2( 0, 0 )
-mouse_filter = 2
+rect_clip_content = true
+mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
-size_flags_vertical = 4
-text = "Go down"
-autowrap = true
+size_flags_vertical = 1
+custom_fonts/normal_font = SubResource( 2 )
+bbcode_enabled = false
+bbcode_text = ""
+visible_characters = -1
 percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Rect", "custom_styles" ]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]
-
-position = Vector2( 0.713486, -12.4823 )
-scale = Vector2( 1, 0.942137 )
-shape = SubResource( 3 )
+meta_underlined = true
+tab_size = 4
+text = "Welcome to the land"
+scroll_active = true
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
 
 [connection signal="body_entered" from="." to="." method="on_body_enter"]
 
