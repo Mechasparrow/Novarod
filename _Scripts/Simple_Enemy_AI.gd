@@ -22,6 +22,9 @@ var hit = false
 var knockback_vel = Vector2(0,0)
 var cooldown_duration = 0.5
 var cooldown_timer = 0
+var knockback_duration = 0.1
+var knockback_timer = 0
+var knockedback = false
 
 var health = 3
 
@@ -107,11 +110,21 @@ func _physics_process(delta):
 	
 	# HIT COOLDOWN
 	if (hit == true and cooldown_timer < cooldown_duration):
-		velocity += knockback_vel * delta
+		
 		cooldown_timer += delta
+	
+	if (knockedback == true and knockback_timer < knockback_duration):
+		velocity += knockback_vel * 15 *  delta
+		knockback_timer += delta
+	
+	if (knockedback == true and knockback_timer > knockback_duration):
+		velocity.x = 0
+		knockedback = false
 	
 	if (cooldown_timer > cooldown_duration):
 		hit = false
+	
+	#KNOCKBACK
 	
 	for area in areas:
 		var hit_a_marker = false
@@ -122,6 +135,8 @@ func _physics_process(delta):
 				handle_attack(area)
 				cooldown_timer = 0
 				hit = true
+				knockback_timer = 0
+				knockedback = true
 		
 		if (area.is_in_group("enemy_marker")):
 			hit_a_marker = true

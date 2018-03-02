@@ -4,7 +4,7 @@ extends KinematicBody2D
 # This demo shows how to build a kinematic controller.
 
 # Member variables
-const GRAVITY = 700.0 # pixels/second/second
+var GRAVITY # pixels/second/second
 
 # Angle in degrees towards either side that the player can consider "floor"
 const FLOOR_ANGLE_TOLERANCE = 40
@@ -37,6 +37,8 @@ onready var player_info = get_node("/root/playerinfo")
 onready var weapon_holder = get_node("WeaponHolder")
 onready var weapon = null
 
+var in_water = false
+
 func _ready():
 	
 	player_info.reset_player_info()
@@ -50,6 +52,25 @@ func _ready():
 func _physics_process(delta):
 	
 	var player_props = player_info
+	
+	#Collide (Tiles) collision
+	var tile_areas = hitbox.get_overlapping_areas()
+	
+	for area in tile_areas:
+		if (area.name != hitbox.name):
+			if (area.is_in_group("Water")):
+				if (in_water == false):
+					in_water = true
+					velocity.y/=4
+					
+				GRAVITY = 100.0
+				WALK_FORCE = 100
+				JUMP_SPEED = 300
+	
+	if (len(tile_areas) == 0):
+		in_water = false
+	
+	print (WALK_MAX_SPEED)
 	
 	# Create forces
 	var force = Vector2(0, GRAVITY)
@@ -186,11 +207,6 @@ func _physics_process(delta):
 	on_air_time += delta
 	on_air_time_wall += delta
 	prev_jump_pressed = jump
-
-	var k_collision = null
-
-
-	var touched_node = ""
 	
 	#Collide collision
 	var hit_bodies = hitbox.get_overlapping_bodies()
@@ -214,7 +230,7 @@ func default_props():
 	STOP_FORCE = 1300
 	JUMP_SPEED = 400
 	JUMP_MAX_AIRBORNE_TIME = 0.2
-	
+	GRAVITY = 700.0
 	SLIDE_STOP_VELOCITY = 1.0 # one pixel/second
 	SLIDE_STOP_MIN_TRAVEL = 1.0
 
