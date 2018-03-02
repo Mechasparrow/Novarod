@@ -9,7 +9,7 @@ const GRAVITY = 700.0
 onready var anim = get_node("AnimatedSprite")
 onready var hitbox = get_node("Hitbox")
 
-var velocity = Vector2(0,0)
+var velocity = Vector2(200,0)
 
 var WALK_FORCE
 var WALK_MIN_SPEED
@@ -17,6 +17,8 @@ var WALK_MAX_SPEED
 var STOP_FORCE
 var dir
 var hit_marker = false
+
+var enemy_knockback = 1000
 
 var hit = false
 var knockback_vel = Vector2(0,0)
@@ -121,7 +123,7 @@ func _physics_process(delta):
 		velocity.x = 0
 		knockedback = false
 	
-	if (cooldown_timer > cooldown_duration):
+	if (hit == true and cooldown_timer > cooldown_duration):
 		hit = false
 	
 	#KNOCKBACK

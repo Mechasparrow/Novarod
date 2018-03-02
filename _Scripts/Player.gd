@@ -37,6 +37,16 @@ onready var player_info = get_node("/root/playerinfo")
 onready var weapon_holder = get_node("WeaponHolder")
 onready var weapon = null
 
+# For combat mechanics
+var player_hit = false
+var hit_cooldown_duration = 0.5
+var hit_timer = 0
+
+var knockbacked = false
+var knockback_vel = Vector2(0,0)
+var knockback_timer = 0
+var knockback_duration = 0.1
+
 var in_water = false
 
 func _ready():
@@ -208,6 +218,24 @@ func _physics_process(delta):
 	on_air_time_wall += delta
 	prev_jump_pressed = jump
 	
+	
+	#Handle Regular Enemy attack
+	if (knockbacked == true and knockback_timer < knockback_duration):
+		knockback_timer += delta
+		velocity += knockback_vel * 15 * delta
+	
+	if (knockbacked == true and knockback_timer > knockback_duration):
+		velocity.x = 0
+		knockbacked = false
+	
+	
+	if (player_hit == true and hit_timer < hit_cooldown_duration):
+		hit_timer += delta
+		
+	if (player_hit == true and hit_timer > hit_cooldown_duration):
+		player_hit = false
+	
+	
 	#Collide collision
 	var hit_bodies = hitbox.get_overlapping_bodies()
 	
@@ -275,8 +303,22 @@ func check_collided_body(body):
 		take_damage(1)	
 	
 	if (body.is_in_group("enemy")):
-		respawn()
-		take_damage(1)
+		if (player_hit) == false:
+			
+			player_hit = true
+			
+			var enemy = body
+			
+			if (enemy.dir == "left"):
+				knockback_vel = Vector2(-enemy.enemy_knockback, 0)
+			elif (enemy.dir == "right"):
+				knockback_vel = Vector2(enemy.enemy_knockback, 0)
+			
+			knockbacked = true
+			knockback_timer = 0
+			
+			hit_timer = 0
+			take_damage(1)
 	
 	
 	pass

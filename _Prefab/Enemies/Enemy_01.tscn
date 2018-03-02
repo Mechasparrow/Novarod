@@ -36,8 +36,9 @@ extents = Vector2( 23.9791, 48.6542 )
 custom_solver_bias = 0.0
 extents = Vector2( 29.3318, 41.5622 )
 
-[node name="Enemy_01" type="KinematicBody2D" groups=[
+[node name="Enemy_01" type="KinematicBody2D" index="0" groups=[
 "enemy",
+"reg_enemy",
 ]]
 
 position = Vector2( 722.089, 377.765 )
@@ -63,7 +64,9 @@ scale = Vector2( 1, 0.864156 )
 shape = SubResource( 2 )
 _sections_unfolded = [ "Transform", "Z Index" ]
 
-[node name="Hitbox" type="Area2D" parent="." index="2"]
+[node name="Hitbox" type="Area2D" parent="." index="2" groups=[
+"Enemy_Hitbox",
+]]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
