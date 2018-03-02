@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=2]
+[gd_scene load_steps=49 format=2]
 
 [ext_resource path="res://_Scripts/level_script.gd" type="Script" id=1]
 [ext_resource path="res://_Prefab/Powerup_Chests/chest_speed.tscn" type="PackedScene" id=2]
@@ -7,34 +7,37 @@
 [ext_resource path="res://_Tileset/normal_world.tres" type="TileSet" id=5]
 [ext_resource path="res://_Tileset/hazards.tres" type="TileSet" id=6]
 [ext_resource path="res://_Assets/Art/Rod_Water.png" type="Texture" id=7]
-[ext_resource path="res://_Prefab/gems/gem_red.tscn" type="PackedScene" id=8]
-[ext_resource path="res://_Prefab/gems/gem_blue.tscn" type="PackedScene" id=9]
-[ext_resource path="res://_Prefab/gems/gem_green.tscn" type="PackedScene" id=10]
-[ext_resource path="res://_Prefab/gems/gem_brown.tscn" type="PackedScene" id=11]
-[ext_resource path="res://_Prefab/Coins/Coin.tscn" type="PackedScene" id=12]
-[ext_resource path="res://_Prefab/Coins/red_coin.tscn" type="PackedScene" id=13]
-[ext_resource path="res://_Prefab/Sign.tscn" type="PackedScene" id=14]
-[ext_resource path="res://_Scripts/Sign.gd" type="Script" id=15]
-[ext_resource path="res://_Assets/Art/Sign_Post.png" type="Texture" id=16]
-[ext_resource path="res://_Fonts/Roboto-Regular.ttf" type="DynamicFontData" id=17]
-[ext_resource path="res://_Fonts/Munro.ttf" type="DynamicFontData" id=18]
-[ext_resource path="res://_Prefab/Door.tscn" type="PackedScene" id=19]
-[ext_resource path="res://_Prefab/Enemies/Enemy_01.tscn" type="PackedScene" id=20]
-[ext_resource path="res://_Scripts/Player.gd" type="Script" id=21]
-[ext_resource path="res://_Assets/Art/Spritesheets/Rod/Sliding/sprite_0.png" type="Texture" id=22]
-[ext_resource path="res://_Assets/Art/Spritesheets/Rod/Sliding/sprite_1.png" type="Texture" id=23]
-[ext_resource path="res://_Assets/Art/Spritesheets/Rod/rod3.png" type="Texture" id=24]
-[ext_resource path="res://_Assets/Art/Spritesheets/Rod/rod0.png" type="Texture" id=25]
-[ext_resource path="res://_Assets/Art/Spritesheets/Rod/rod1.png" type="Texture" id=26]
-[ext_resource path="res://_Assets/Art/Spritesheets/Rod/rod2.png" type="Texture" id=27]
-[ext_resource path="res://_Scripts/CoinsHUD.gd" type="Script" id=28]
-[ext_resource path="res://_Fonts/imported_fonts/pixel_font.tres" type="DynamicFont" id=29]
-[ext_resource path="res://_Scripts/CoinsRHUD.gd" type="Script" id=30]
-[ext_resource path="res://_Scripts/PowerupHUD.gd" type="Script" id=31]
-[ext_resource path="res://_Scripts/Timer.gd" type="Script" id=32]
-[ext_resource path="res://_Scripts/Health.gd" type="Script" id=33]
-[ext_resource path="res://_Assets/Art/heart_0.png" type="Texture" id=34]
-[ext_resource path="res://_Prefab/Enemies/enemy_ai_marker.tscn" type="PackedScene" id=35]
+[ext_resource path="res://_Assets/Art/Trees/tree_0.png" type="Texture" id=8]
+[ext_resource path="res://_Assets/Art/Trees/tree_1.png" type="Texture" id=9]
+[ext_resource path="res://_Assets/Art/Trees/tree_2.png" type="Texture" id=10]
+[ext_resource path="res://_Prefab/gems/gem_red.tscn" type="PackedScene" id=11]
+[ext_resource path="res://_Prefab/gems/gem_blue.tscn" type="PackedScene" id=12]
+[ext_resource path="res://_Prefab/gems/gem_green.tscn" type="PackedScene" id=13]
+[ext_resource path="res://_Prefab/gems/gem_brown.tscn" type="PackedScene" id=14]
+[ext_resource path="res://_Prefab/Coins/Coin.tscn" type="PackedScene" id=15]
+[ext_resource path="res://_Prefab/Coins/red_coin.tscn" type="PackedScene" id=16]
+[ext_resource path="res://_Prefab/Sign.tscn" type="PackedScene" id=17]
+[ext_resource path="res://_Scripts/Sign.gd" type="Script" id=18]
+[ext_resource path="res://_Assets/Art/Sign_Post.png" type="Texture" id=19]
+[ext_resource path="res://_Fonts/Roboto-Regular.ttf" type="DynamicFontData" id=20]
+[ext_resource path="res://_Fonts/Munro.ttf" type="DynamicFontData" id=21]
+[ext_resource path="res://_Prefab/Door.tscn" type="PackedScene" id=22]
+[ext_resource path="res://_Prefab/Enemies/Enemy_01.tscn" type="PackedScene" id=23]
+[ext_resource path="res://_Scripts/Player.gd" type="Script" id=24]
+[ext_resource path="res://_Assets/Art/Spritesheets/Rod/Sliding/sprite_0.png" type="Texture" id=25]
+[ext_resource path="res://_Assets/Art/Spritesheets/Rod/Sliding/sprite_1.png" type="Texture" id=26]
+[ext_resource path="res://_Assets/Art/Spritesheets/Rod/rod3.png" type="Texture" id=27]
+[ext_resource path="res://_Assets/Art/Spritesheets/Rod/rod0.png" type="Texture" id=28]
+[ext_resource path="res://_Assets/Art/Spritesheets/Rod/rod1.png" type="Texture" id=29]
+[ext_resource path="res://_Assets/Art/Spritesheets/Rod/rod2.png" type="Texture" id=30]
+[ext_resource path="res://_Scripts/CoinsHUD.gd" type="Script" id=31]
+[ext_resource path="res://_Fonts/imported_fonts/pixel_font.tres" type="DynamicFont" id=32]
+[ext_resource path="res://_Scripts/CoinsRHUD.gd" type="Script" id=33]
+[ext_resource path="res://_Scripts/PowerupHUD.gd" type="Script" id=34]
+[ext_resource path="res://_Scripts/Timer.gd" type="Script" id=35]
+[ext_resource path="res://_Scripts/Health.gd" type="Script" id=36]
+[ext_resource path="res://_Assets/Art/heart_0.png" type="Texture" id=37]
+[ext_resource path="res://_Prefab/Enemies/enemy_ai_marker.tscn" type="PackedScene" id=38]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -46,8 +49,8 @@ extents = Vector2( 27.2451, 19.5441 )
 size = 48
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 18 )
-fallback/0 = ExtResource( 17 )
+font_data = ExtResource( 21 )
+fallback/0 = ExtResource( 20 )
 _sections_unfolded = [ "Font/fallback", "Settings" ]
 
 [sub_resource type="Animation" id=3]
@@ -268,22 +271,22 @@ extents = Vector2( 13.2239, 8.48843 )
 [sub_resource type="SpriteFrames" id=7]
 
 animations = [ {
-"frames": [ ExtResource( 22 ), ExtResource( 23 ) ],
+"frames": [ ExtResource( 25 ), ExtResource( 26 ) ],
 "loop": true,
 "name": "slide",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 24 ) ],
+"frames": [ ExtResource( 27 ) ],
 "loop": true,
 "name": "jump",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 24 ) ],
+"frames": [ ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 27 ) ],
 "loop": true,
 "name": "move",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 25 ) ],
+"frames": [ ExtResource( 28 ) ],
 "loop": true,
 "name": "still",
 "speed": 5.0
@@ -295,8 +298,8 @@ _sections_unfolded = [ "Resource" ]
 size = 128
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 18 )
-fallback/0 = ExtResource( 17 )
+font_data = ExtResource( 21 )
+fallback/0 = ExtResource( 20 )
 _sections_unfolded = [ "Font/fallback", "Settings" ]
 
 [sub_resource type="DynamicFont" id=9]
@@ -304,8 +307,8 @@ _sections_unfolded = [ "Font/fallback", "Settings" ]
 size = 32
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 18 )
-fallback/0 = ExtResource( 17 )
+font_data = ExtResource( 21 )
+fallback/0 = ExtResource( 20 )
 _sections_unfolded = [ "Font/fallback", "Settings" ]
 
 [sub_resource type="DynamicFont" id=10]
@@ -313,8 +316,8 @@ _sections_unfolded = [ "Font/fallback", "Settings" ]
 size = 24
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 18 )
-fallback/0 = ExtResource( 17 )
+font_data = ExtResource( 21 )
+fallback/0 = ExtResource( 20 )
 _sections_unfolded = [ "Font/fallback", "Settings" ]
 
 [node name="World" type="Node" index="0"]
@@ -341,6 +344,8 @@ position = Vector2( 968.993, 343.63 )
 position = Vector2( 622.386, 473.184 )
 
 [node name="Tiles" type="Node2D" parent="." index="1"]
+
+editor/display_folded = true
 
 [node name="Ground" type="TileMap" parent="Tiles" index="0"]
 
@@ -394,6 +399,7 @@ __meta__ = {
 
 [node name="Water" type="Node2D" parent="Tiles" index="2"]
 
+editor/display_folded = true
 modulate = Color( 1, 1, 1, 0.588235 )
 z_index = 2
 _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
@@ -738,53 +744,78 @@ __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="Trees" type="Node2D" parent="Tiles" index="3"]
+
+[node name="Sprite" type="Sprite" parent="Tiles/Trees" index="0"]
+
+position = Vector2( 118, 368 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Sprite2" type="Sprite" parent="Tiles/Trees" index="1"]
+
+position = Vector2( 189, 352 )
+scale = Vector2( 6, 6 )
+texture = ExtResource( 9 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Sprite3" type="Sprite" parent="Tiles/Trees" index="2"]
+
+position = Vector2( 740.225, 416.892 )
+scale = Vector2( 6, 6 )
+texture = ExtResource( 10 )
+_sections_unfolded = [ "Transform" ]
+
 [node name="Gems" type="Node2D" parent="." index="2"]
 
 editor/display_folded = true
 
-[node name="gem_red" parent="Gems" index="0" instance=ExtResource( 8 )]
+[node name="gem_red" parent="Gems" index="0" instance=ExtResource( 11 )]
 
-[node name="gem_blue" parent="Gems" index="1" instance=ExtResource( 9 )]
+[node name="gem_blue" parent="Gems" index="1" instance=ExtResource( 12 )]
 
-[node name="gem_green" parent="Gems" index="2" instance=ExtResource( 10 )]
+[node name="gem_green" parent="Gems" index="2" instance=ExtResource( 13 )]
 
-[node name="gem_brown" parent="Gems" index="3" instance=ExtResource( 11 )]
+[node name="gem_brown" parent="Gems" index="3" instance=ExtResource( 14 )]
 
 [node name="Coins" type="Node2D" parent="." index="3"]
 
-[node name="Coin" parent="Coins" index="0" instance=ExtResource( 12 )]
+editor/display_folded = true
+
+[node name="Coin" parent="Coins" index="0" instance=ExtResource( 15 )]
 
 position = Vector2( 1446.45, 478.566 )
 
-[node name="Coin3" parent="Coins" index="1" instance=ExtResource( 12 )]
+[node name="Coin3" parent="Coins" index="1" instance=ExtResource( 15 )]
 
 position = Vector2( 1574.76, 860.73 )
 
-[node name="Coin4" parent="Coins" index="2" instance=ExtResource( 12 )]
+[node name="Coin4" parent="Coins" index="2" instance=ExtResource( 15 )]
 
 position = Vector2( 1644.5, 860.73 )
 
-[node name="Coin5" parent="Coins" index="3" instance=ExtResource( 12 )]
+[node name="Coin5" parent="Coins" index="3" instance=ExtResource( 15 )]
 
 position = Vector2( 2269.35, 869.098 )
 
-[node name="Coin6" parent="Coins" index="4" instance=ExtResource( 12 )]
+[node name="Coin6" parent="Coins" index="4" instance=ExtResource( 15 )]
 
 position = Vector2( 2350.25, 818.887 )
 
-[node name="Coin7" parent="Coins" index="5" instance=ExtResource( 12 )]
+[node name="Coin7" parent="Coins" index="5" instance=ExtResource( 15 )]
 
 position = Vector2( 2428.36, 816.097 )
 
-[node name="Coin8" parent="Coins" index="6" instance=ExtResource( 12 )]
+[node name="Coin8" parent="Coins" index="6" instance=ExtResource( 15 )]
 
 position = Vector2( 2520.41, 860.73 )
 
-[node name="Coin9" parent="Coins" index="7" instance=ExtResource( 12 )]
+[node name="Coin9" parent="Coins" index="7" instance=ExtResource( 15 )]
 
 position = Vector2( 2520.41, 860.73 )
 
-[node name="Coin2" parent="Coins" index="8" instance=ExtResource( 12 )]
+[node name="Coin2" parent="Coins" index="8" instance=ExtResource( 15 )]
 
 position = Vector2( 1326.24, 434.385 )
 
@@ -792,23 +823,23 @@ position = Vector2( 1326.24, 434.385 )
 
 editor/display_folded = true
 
-[node name="Coin_R" parent="Coins_R" index="0" instance=ExtResource( 13 )]
+[node name="Coin_R" parent="Coins_R" index="0" instance=ExtResource( 16 )]
 
 position = Vector2( 1122.67, 796.702 )
 
-[node name="Coin_R2" parent="Coins_R" index="1" instance=ExtResource( 13 )]
+[node name="Coin_R2" parent="Coins_R" index="1" instance=ExtResource( 16 )]
 
 position = Vector2( 1120.81, 704.171 )
 
-[node name="Coin_R3" parent="Coins_R" index="2" instance=ExtResource( 13 )]
+[node name="Coin_R3" parent="Coins_R" index="2" instance=ExtResource( 16 )]
 
 position = Vector2( 1120.81, 607.938 )
 
-[node name="Coin_R4" parent="Coins_R" index="3" instance=ExtResource( 13 )]
+[node name="Coin_R4" parent="Coins_R" index="3" instance=ExtResource( 16 )]
 
 position = Vector2( 1120.81, 520.959 )
 
-[node name="Coin_R5" parent="Coins_R" index="4" instance=ExtResource( 13 )]
+[node name="Coin_R5" parent="Coins_R" index="4" instance=ExtResource( 16 )]
 
 position = Vector2( 1120.81, 520.959 )
 
@@ -817,7 +848,7 @@ position = Vector2( 1120.81, 520.959 )
 editor/display_folded = true
 position = Vector2( 97.7842, 416.212 )
 
-[node name="Sign" parent="Signs" index="0" instance=ExtResource( 14 )]
+[node name="Sign" parent="Signs" index="0" instance=ExtResource( 17 )]
 
 position = Vector2( -121.01, 63.8032 )
 
@@ -831,12 +862,12 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-script = ExtResource( 15 )
+script = ExtResource( 18 )
 
 [node name="Sprite" type="Sprite" parent="Signs/Sign2" index="0"]
 
 scale = Vector2( 4, 4 )
-texture = ExtResource( 16 )
+texture = ExtResource( 19 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Signs/Sign2" index="1"]
@@ -900,21 +931,22 @@ scroll_following = false
 selection_enabled = false
 override_selected_font_color = false
 
-[node name="Door" parent="." index="6" instance=ExtResource( 19 )]
+[node name="Door" parent="." index="6" instance=ExtResource( 22 )]
 
-[node name="Enemy_01" parent="." index="7" instance=ExtResource( 20 )]
+[node name="Enemy_01" parent="." index="7" instance=ExtResource( 23 )]
 
 position = Vector2( 768.854, 840.408 )
 
 [node name="Player" type="KinematicBody2D" parent="." index="8"]
 
+editor/display_folded = true
 position = Vector2( 212.022, 368.578 )
 scale = Vector2( 6.5625, 6.5625 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
-script = ExtResource( 21 )
+script = ExtResource( 24 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Player" index="0"]
@@ -1026,7 +1058,7 @@ size_flags_vertical = 1
 [node name="Coins" type="Node2D" parent="HUD" index="1"]
 
 editor/display_folded = true
-script = ExtResource( 28 )
+script = ExtResource( 31 )
 
 [node name="Label" type="Label" parent="HUD/Coins" index="0"]
 
@@ -1043,7 +1075,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 29 )
+custom_fonts/font = ExtResource( 32 )
 text = "Coins:"
 percent_visible = 1.0
 lines_skipped = 0
@@ -1054,7 +1086,7 @@ _sections_unfolded = [ "Rect", "custom_fonts" ]
 
 editor/display_folded = true
 position = Vector2( 0, 25.0581 )
-script = ExtResource( 30 )
+script = ExtResource( 33 )
 
 [node name="Label" type="Label" parent="HUD/Coins_R" index="0"]
 
@@ -1071,7 +1103,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 29 )
+custom_fonts/font = ExtResource( 32 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "R:"
 percent_visible = 1.0
@@ -1083,7 +1115,7 @@ _sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
 
 editor/display_folded = true
 position = Vector2( 586.236, 13.3615 )
-script = ExtResource( 31 )
+script = ExtResource( 34 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Label" type="Label" parent="HUD/Powerup" index="0"]
@@ -1101,7 +1133,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 29 )
+custom_fonts/font = ExtResource( 32 )
 text = "Powerup:"
 percent_visible = 1.0
 lines_skipped = 0
@@ -1111,7 +1143,7 @@ _sections_unfolded = [ "Rect", "custom_fonts" ]
 [node name="Timer" type="Node2D" parent="HUD" index="4"]
 
 editor/display_folded = true
-script = ExtResource( 32 )
+script = ExtResource( 35 )
 
 [node name="Label" type="Label" parent="HUD/Timer" index="0"]
 
@@ -1128,7 +1160,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 29 )
+custom_fonts/font = ExtResource( 32 )
 text = "Time:"
 percent_visible = 1.0
 lines_skipped = 0
@@ -1140,7 +1172,7 @@ _sections_unfolded = [ "Rect", "custom_fonts" ]
 editor/display_folded = true
 position = Vector2( 25.4641, 12.4908 )
 scale = Vector2( 2, 2 )
-script = ExtResource( 33 )
+script = ExtResource( 36 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="Heart_1" type="TextureRect" parent="HUD/Health" index="0" groups=[
@@ -1158,7 +1190,7 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 34 )
+texture = ExtResource( 37 )
 stretch_mode = 6
 _sections_unfolded = [ "Hint", "Visibility" ]
 
@@ -1178,7 +1210,7 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 34 )
+texture = ExtResource( 37 )
 stretch_mode = 6
 _sections_unfolded = [ "Hint", "Margin", "Rect" ]
 
@@ -1198,7 +1230,7 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 34 )
+texture = ExtResource( 37 )
 stretch_mode = 6
 _sections_unfolded = [ "Hint", "Margin", "Rect" ]
 
@@ -1289,13 +1321,13 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Hint", "Rect", "custom_colors", "custom_fonts" ]
 
-[node name="enemy_ai_marker" parent="." index="10" instance=ExtResource( 35 )]
+[node name="enemy_ai_marker" parent="." index="10" instance=ExtResource( 38 )]
 
-position = Vector2( -767.255, 6.80188 )
+position = Vector2( -732.01, 14.3545 )
 
-[node name="enemy_ai_marker2" parent="." index="11" instance=ExtResource( 35 )]
+[node name="enemy_ai_marker2" parent="." index="11" instance=ExtResource( 38 )]
 
-position = Vector2( 625.38, 6.94885 )
+position = Vector2( 538.135, 6.94885 )
 
 [connection signal="body_entered" from="Signs/Sign2" to="Signs/Sign2" method="on_body_enter"]
 
