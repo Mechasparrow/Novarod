@@ -309,9 +309,9 @@ func check_collided_body(body):
 			
 			var enemy = body
 			
-			if (enemy.dir == "left"):
+			if (dir == "right"):
 				knockback_vel = Vector2(-enemy.enemy_knockback, 0)
-			elif (enemy.dir == "right"):
+			elif (dir == "left"):
 				knockback_vel = Vector2(enemy.enemy_knockback, 0)
 			
 			knockbacked = true
