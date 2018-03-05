@@ -972,7 +972,6 @@ __meta__ = {
 
 [node name="Hitbox" type="Area2D" parent="Player" index="2"]
 
-editor/display_folded = true
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -1028,7 +1027,12 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="ClimbSprite" type="Sprite" parent="Player" index="5"]
+[node name="WeaponHolder" type="Node2D" parent="Player" index="5"]
+
+position = Vector2( 0.202187, 0.152382 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="ClimbSprite" type="Sprite" parent="Player" index="6"]
 
 visible = false
 position = Vector2( -4, 1.5 )

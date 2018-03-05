@@ -12,6 +12,7 @@ var WALK_FORCE
 var WALK_MIN_SPEED
 var WALK_MAX_SPEED
 var STOP_FORCE
+var SLIDE_FACTOR
 var JUMP_SPEED
 var JUMP_MAX_AIRBORNE_TIME
 var SLIDING_DURATION
@@ -117,6 +118,12 @@ func _physics_process(delta):
 			
 	if (slide == true and sliding == false and not is_on_floor()):
 		sliding = true
+		
+		if (dir == "left"):
+			velocity.x -= WALK_FORCE * 1
+		elif (dir == "right"):
+			velocity.x += WALK_FORCE * 1
+		
 		sliding_time = 0
 		
 		if (dir == "right"):
@@ -148,7 +155,9 @@ func _physics_process(delta):
 			anim.flip_h = true
 			dir = "left"
 			
-			force.x -= WALK_FORCE
+			if (sliding == false):
+				force.x -= WALK_FORCE
+			
 			stop = false
 			
 			if (serious_anim.is_playing() == false and sliding == true):
@@ -160,7 +169,8 @@ func _physics_process(delta):
 			anim.flip_h = false
 			dir = "right"
 			
-			force.x += WALK_FORCE
+			if (sliding == false):
+				force.x += WALK_FORCE
 			stop = false
 			
 			if (serious_anim.is_playing() == false and sliding == true):
@@ -175,7 +185,11 @@ func _physics_process(delta):
 		var vsign = sign(velocity.x)
 		var vlen = abs(velocity.x)
 		
-		vlen -= STOP_FORCE * delta
+		if (sliding == false):
+			vlen -= STOP_FORCE * delta
+		elif (sliding == true):
+			vlen -= STOP_FORCE * delta * SLIDE_FACTOR
+		
 		if vlen < 0:
 			vlen = 0
 		
@@ -287,6 +301,7 @@ func default_props():
 	WALK_MAX_SPEED = 200
 	SLIDING_DURATION = 0.25
 	STOP_FORCE = 1300
+	SLIDE_FACTOR = 0.8
 	JUMP_SPEED = 400
 	JUMP_MAX_AIRBORNE_TIME = 0.2
 	GRAVITY = 700.0
