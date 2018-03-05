@@ -32,6 +32,7 @@ var prev_jump_pressed = false
 onready var anim = get_node("AnimatedSprite")
 onready var serious_anim = get_node("AnimationPlayer")
 onready var hitbox = get_node("Hitbox")
+onready var climb_sprite = get_node("ClimbSprite")
 
 onready var player_info = get_node("/root/playerinfo")
 onready var weapon_holder = get_node("WeaponHolder")
@@ -47,6 +48,9 @@ var knockback_vel = Vector2(0,0)
 var knockback_timer = 0
 var knockback_duration = 0.1
 
+var wall_jump_notify_timer = 0
+var notify_duration = 0.2
+
 var in_water = false
 
 func _ready():
@@ -54,6 +58,9 @@ func _ready():
 	player_info.reset_player_info()
 	
 	var current_health = player_info.health
+	
+	# make sure the notification for wall jump initially not visible
+	climb_sprite.visible = false
 	
 	check_weapons()
 	check_powerups()
@@ -186,10 +193,30 @@ func _physics_process(delta):
 	
 	if is_on_floor():
 		on_air_time = 0
+
 	
 	if is_on_wall() and not is_on_floor():
 		on_air_time_wall = 0
 		on_air_time = 0
+		
+		if not sliding:
+			
+			climb_sprite.visible = true
+			wall_jump_notify_timer = 0
+			
+	if (wall_jump_notify_timer < notify_duration and climb_sprite.visible == true):
+		wall_jump_notify_timer += delta
+	
+	if (wall_jump_notify_timer > notify_duration and climb_sprite.visible == true):
+		climb_sprite.visible = false		
+		
+	## Wall jump notifier code
+	if (dir == "left"):
+		climb_sprite.position.x = 4
+		climb_sprite.flip_h = false
+	elif (dir == "right"):
+		climb_sprite.position.x = -4
+		climb_sprite.flip_h = true
 		
 	if jumping and velocity.y > 0:
 		# If falling, no longer jumping
@@ -209,8 +236,12 @@ func _physics_process(delta):
 		if (on_air_time_wall < JUMP_MAX_AIRBORNE_TIME and not wall_jumping):
 			if (dir == "left"):
 				velocity.x = JUMP_SPEED
+				dir = "right"
+				anim.flip_h = false
 			elif (dir == "right"):
 				velocity.x = -JUMP_SPEED
+				dir = "left"
+				anim.flip_h = true
 				
 		anim.play("jump")
 	
@@ -293,6 +324,7 @@ func respawn():
 	rotation = 0
 	position = player_info.spawn_point
 	player_info.respawn = false
+	velocity = Vector2(0,0)
 		
 func check_collided_body(body):
 	
