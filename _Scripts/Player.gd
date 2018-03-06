@@ -49,8 +49,14 @@ var knockback_vel = Vector2(0,0)
 var knockback_timer = 0
 var knockback_duration = 0.1
 
+## For Wall Jumping notification
 var wall_jump_notify_timer = 0
 var notify_duration = 0.2
+
+## For Icy
+var iced = false
+var iced_timer = 0
+var iced_duration = 0.2
 
 var in_water = false
 
@@ -70,6 +76,14 @@ func _ready():
 func _physics_process(delta):
 	
 	var player_props = player_info
+	
+	# Check if iced
+	if (iced == true and iced_timer < iced_duration):
+		STOP_FORCE = STOP_FORCE / 6
+		iced_timer += delta
+	elif (iced == true and iced_timer > iced_duration):
+		iced = false
+		print ("not iced")
 	
 	#Collide (Tiles) collision
 	var tile_areas = hitbox.get_overlapping_areas()
@@ -344,6 +358,11 @@ func respawn():
 func check_collided_body(body):
 	
 	var node_name = body.name	
+	
+	if (body.is_in_group("Ice")):
+		print ("icey")
+		iced = true
+		iced_timer = 0
 	
 	if (node_name == "Hazard"):
 		respawn()

@@ -5,9 +5,9 @@
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 8.22056, 8.07575 )
+extents = Vector2( 8, 8 )
 
-[node name="Ice" type="StaticBody2D" groups=[
+[node name="Ice" type="StaticBody2D" index="0" groups=[
 "Ice",
 ]]
 

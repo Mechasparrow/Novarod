@@ -10,7 +10,7 @@
 [ext_resource path="res://_Assets/Art/Trees/tree_0.png" type="Texture" id=8]
 [ext_resource path="res://_Assets/Art/Trees/tree_1.png" type="Texture" id=9]
 [ext_resource path="res://_Assets/Art/Trees/tree_2.png" type="Texture" id=10]
-[ext_resource path="res://_Assets/Art/Rod_Ice.png" type="Texture" id=11]
+[ext_resource path="res://_Tileset/tileset_scene/ice.tscn" type="PackedScene" id=11]
 [ext_resource path="res://_Prefab/gems/gem_red.tscn" type="PackedScene" id=12]
 [ext_resource path="res://_Prefab/gems/gem_blue.tscn" type="PackedScene" id=13]
 [ext_resource path="res://_Prefab/gems/gem_green.tscn" type="PackedScene" id=14]
@@ -22,31 +22,27 @@
 [ext_resource path="res://_Assets/Art/Sign_Post.png" type="Texture" id=20]
 [ext_resource path="res://_Fonts/Roboto-Regular.ttf" type="DynamicFontData" id=21]
 [ext_resource path="res://_Fonts/Munro.ttf" type="DynamicFontData" id=22]
-[ext_resource path="res://_Prefab/Door.tscn" type="PackedScene" id=23]
-[ext_resource path="res://_Prefab/Enemies/Enemy_01.tscn" type="PackedScene" id=24]
-[ext_resource path="res://_Scripts/Player.gd" type="Script" id=25]
-[ext_resource path="res://_Assets/Art/Spritesheets/Rod/Sliding/sprite_0.png" type="Texture" id=26]
-[ext_resource path="res://_Assets/Art/Spritesheets/Rod/Sliding/sprite_1.png" type="Texture" id=27]
-[ext_resource path="res://_Assets/Art/Spritesheets/Rod/rod3.png" type="Texture" id=28]
-[ext_resource path="res://_Assets/Art/Spritesheets/Rod/rod0.png" type="Texture" id=29]
-[ext_resource path="res://_Assets/Art/Spritesheets/Rod/rod1.png" type="Texture" id=30]
-[ext_resource path="res://_Assets/Art/Spritesheets/Rod/rod2.png" type="Texture" id=31]
-[ext_resource path="res://_Assets/Art/Spritesheets/Rod/rod_climb.png" type="Texture" id=32]
-[ext_resource path="res://_Scripts/CoinsHUD.gd" type="Script" id=33]
-[ext_resource path="res://_Fonts/imported_fonts/pixel_font.tres" type="DynamicFont" id=34]
-[ext_resource path="res://_Scripts/CoinsRHUD.gd" type="Script" id=35]
-[ext_resource path="res://_Scripts/PowerupHUD.gd" type="Script" id=36]
-[ext_resource path="res://_Scripts/Timer.gd" type="Script" id=37]
-[ext_resource path="res://_Scripts/Health.gd" type="Script" id=38]
-[ext_resource path="res://_Assets/Art/heart_0.png" type="Texture" id=39]
-[ext_resource path="res://_Prefab/Enemies/enemy_ai_marker.tscn" type="PackedScene" id=40]
+[ext_resource path="res://_Prefab/Platforms/Platform_Reg.tscn" type="PackedScene" id=23]
+[ext_resource path="res://_Prefab/Door.tscn" type="PackedScene" id=24]
+[ext_resource path="res://_Prefab/Enemies/Enemy_01.tscn" type="PackedScene" id=25]
+[ext_resource path="res://_Scripts/Player.gd" type="Script" id=26]
+[ext_resource path="res://_Assets/Art/Spritesheets/Rod/Sliding/sprite_0.png" type="Texture" id=27]
+[ext_resource path="res://_Assets/Art/Spritesheets/Rod/Sliding/sprite_1.png" type="Texture" id=28]
+[ext_resource path="res://_Assets/Art/Spritesheets/Rod/rod3.png" type="Texture" id=29]
+[ext_resource path="res://_Assets/Art/Spritesheets/Rod/rod0.png" type="Texture" id=30]
+[ext_resource path="res://_Assets/Art/Spritesheets/Rod/rod1.png" type="Texture" id=31]
+[ext_resource path="res://_Assets/Art/Spritesheets/Rod/rod2.png" type="Texture" id=32]
+[ext_resource path="res://_Assets/Art/Spritesheets/Rod/rod_climb.png" type="Texture" id=33]
+[ext_resource path="res://_Scripts/CoinsHUD.gd" type="Script" id=34]
+[ext_resource path="res://_Fonts/imported_fonts/pixel_font.tres" type="DynamicFont" id=35]
+[ext_resource path="res://_Scripts/CoinsRHUD.gd" type="Script" id=36]
+[ext_resource path="res://_Scripts/PowerupHUD.gd" type="Script" id=37]
+[ext_resource path="res://_Scripts/Timer.gd" type="Script" id=38]
+[ext_resource path="res://_Scripts/Health.gd" type="Script" id=39]
+[ext_resource path="res://_Assets/Art/heart_0.png" type="Texture" id=40]
+[ext_resource path="res://_Prefab/Enemies/enemy_ai_marker.tscn" type="PackedScene" id=41]
 
 [sub_resource type="RectangleShape2D" id=1]
-
-custom_solver_bias = 0.0
-extents = Vector2( 8.22056, 8.07575 )
-
-[sub_resource type="RectangleShape2D" id=11]
 
 custom_solver_bias = 0.0
 extents = Vector2( 27.2451, 19.5441 )
@@ -278,22 +274,22 @@ extents = Vector2( 13.2239, 8.48843 )
 [sub_resource type="SpriteFrames" id=7]
 
 animations = [ {
-"frames": [ ExtResource( 26 ), ExtResource( 27 ) ],
+"frames": [ ExtResource( 27 ), ExtResource( 28 ) ],
 "loop": true,
 "name": "slide",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 28 ) ],
+"frames": [ ExtResource( 29 ) ],
 "loop": true,
 "name": "jump",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 28 ) ],
+"frames": [ ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ), ExtResource( 29 ) ],
 "loop": true,
 "name": "move",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 29 ) ],
+"frames": [ ExtResource( 30 ) ],
 "loop": true,
 "name": "still",
 "speed": 5.0
@@ -352,6 +348,8 @@ position = Vector2( 622.386, 473.184 )
 
 [node name="Tiles" type="Node2D" parent="." index="1"]
 
+editor/display_folded = true
+
 [node name="Ground" type="TileMap" parent="Tiles" index="0"]
 
 scale = Vector2( 4, 4 )
@@ -371,7 +369,7 @@ collision_layer = 1
 collision_mask = 1
 occluder_light_mask = 1
 format = 1
-tile_data = PoolIntArray( 393230, 0, 0, 393231, 0, 0, 458753, 0, 0, 458754, 0, 0, 458755, 0, 0, 458756, 0, 0, 458757, 0, 0, 458765, 0, 0, 458766, 1, 0, 458767, 1, 0, 458768, 0, 0, 589818, 0, 0, 589819, 0, 0, 589822, 0, 0, 589823, 0, 0, 524288, 0, 0, 524289, 1, 0, 524290, 1, 0, 524291, 1, 0, 524292, 1, 0, 524293, 1, 0, 524294, 0, 0, 524295, 0, 0, 524296, 0, 0, 524297, 0, 0, 524298, 0, 0, 524299, 0, 0, 524300, 0, 0, 524301, 1, 0, 524302, 1, 0, 524303, 1, 0, 524304, 1, 0, 655354, 1, 0, 655355, 1, 0, 655358, 1, 0, 655359, 1, 0, 589824, 1, 0, 589825, 1, 0, 589826, 1, 0, 589827, 1, 0, 589828, 1, 0, 589829, 1, 0, 589830, 1, 0, 589831, 1, 0, 589832, 1, 0, 589833, 1, 0, 589834, 1, 0, 589835, 1, 0, 589836, 1, 0, 589837, 1, 0, 589838, 1, 0, 589839, 1, 0, 589840, 1, 0, 720890, 2, 0, 720891, 2, 0, 720894, 2, 0, 720895, 2, 0, 655360, 2, 0, 655361, 2, 0, 655362, 2, 0, 655363, 2, 0, 655364, 2, 0, 655365, 2, 0, 655366, 2, 0, 655367, 2, 0, 655368, 2, 0, 655369, 2, 0, 655370, 2, 0, 655371, 2, 0, 655372, 2, 0, 655373, 2, 0, 655374, 2, 0, 655375, 2, 0, 655376, 2, 0, 786426, 2, 0, 786427, 2, 0, 786430, 2, 0, 786431, 2, 0, 720896, 2, 0, 720897, 2, 0, 720898, 2, 0, 720899, 2, 0, 720900, 2, 0, 720901, 2, 0, 720902, 2, 0, 720903, 2, 0, 720904, 2, 0, 720905, 2, 0, 720906, 2, 0, 720907, 2, 0, 720908, 2, 0, 720909, 2, 0, 720910, 2, 0, 720911, 2, 0, 720912, 2, 0, 851962, 2, 0, 851963, 2, 0, 917498, 2, 0, 917499, 2, 0, 983034, 2, 0, 983035, 2, 0, 983036, 3, 0, 983037, 3, 0, 983038, 3, 0, 983039, 3, 0, 917504, 3, 0, 917505, 3, 0, 917506, 3, 0, 917507, 3, 0, 917508, 3, 0, 917509, 3, 0, 917510, 3, 0, 917511, 3, 0, 917512, 3, 0, 917513, 3, 0, 917514, 3, 0, 917515, 3, 0, 917516, 3, 0, 917517, 3, 0, 917518, 3, 0, 917519, 3, 0, 917520, 3, 0, 917521, 3, 0, 917527, 3, 0, 917528, 3, 0, 917529, 3, 0, 917530, 3, 0, 917535, 3, 0, 917536, 3, 0, 917537, 3, 0, 917538, 3, 0, 917539, 3, 0, 917543, 3, 0, 917544, 3, 0, 917545, 3, 0, 917546, 3, 0, 917552, 3, 0, 917553, 3, 0, 1048571, 2, 0, 1048572, 2, 0, 1048573, 2, 0, 1048574, 2, 0, 1048575, 2, 0, 983040, 2, 0, 983041, 2, 0, 983042, 2, 0, 983043, 2, 0, 983044, 2, 0, 983045, 2, 0, 983046, 2, 0, 983047, 2, 0, 983048, 2, 0, 983049, 2, 0, 983050, 2, 0, 983051, 2, 0, 983052, 2, 0, 983053, 2, 0, 983054, 2, 0, 983055, 2, 0, 983056, 2, 0, 983057, -1610612733, 0, 983063, -1073741821, 0, 983087, 3, 0, 983090, 3, 0, 1048593, 2, 0, 1048594, 3, 0, 1048595, 3, 0, 1048596, 3, 0, 1048597, 3, 0, 1048598, 3, 0, 1048599, 2, 0, 1048621, 3, 0, 1048622, 3, 0 )
+tile_data = PoolIntArray( 393230, 0, 0, 393231, 0, 0, 458753, 0, 0, 458754, 0, 0, 458755, 0, 0, 458756, 0, 0, 458757, 0, 0, 458765, 0, 0, 458766, 1, 0, 458767, 1, 0, 458768, 0, 0, 589818, 0, 0, 589819, 0, 0, 589822, 0, 0, 589823, 0, 0, 524288, 0, 0, 524289, 1, 0, 524290, 1, 0, 524291, 1, 0, 524292, 1, 0, 524293, 1, 0, 524294, 0, 0, 524295, 0, 0, 524296, 0, 0, 524297, 0, 0, 524298, 0, 0, 524299, 0, 0, 524300, 0, 0, 524301, 1, 0, 524302, 1, 0, 524303, 1, 0, 524304, 1, 0, 655354, 1, 0, 655355, 1, 0, 655358, 1, 0, 655359, 1, 0, 589824, 1, 0, 589825, 1, 0, 589826, 1, 0, 589827, 1, 0, 589828, 1, 0, 589829, 1, 0, 589830, 1, 0, 589831, 1, 0, 589832, 1, 0, 589833, 1, 0, 589834, 1, 0, 589835, 1, 0, 589836, 1, 0, 589837, 1, 0, 589838, 1, 0, 589839, 1, 0, 589840, 1, 0, 589877, -1610612733, 0, 720890, 2, 0, 720891, 2, 0, 720894, 2, 0, 720895, 2, 0, 655360, 2, 0, 655361, 2, 0, 655362, 2, 0, 655363, 2, 0, 655364, 2, 0, 655365, 2, 0, 655366, 2, 0, 655367, 2, 0, 655368, 2, 0, 655369, 2, 0, 655370, 2, 0, 655371, 2, 0, 655372, 2, 0, 655373, 2, 0, 655374, 2, 0, 655375, 2, 0, 655376, 2, 0, 655413, -1610612733, 0, 786426, 2, 0, 786427, 2, 0, 786430, 2, 0, 786431, 2, 0, 720896, 2, 0, 720897, 2, 0, 720898, 2, 0, 720899, 2, 0, 720900, 2, 0, 720901, 2, 0, 720902, 2, 0, 720903, 2, 0, 720904, 2, 0, 720905, 2, 0, 720906, 2, 0, 720907, 2, 0, 720908, 2, 0, 720909, 2, 0, 720910, 2, 0, 720911, 2, 0, 720912, 2, 0, 720949, -1610612733, 0, 851962, 2, 0, 851963, 2, 0, 786485, -1610612733, 0, 917498, 2, 0, 917499, 2, 0, 983034, 2, 0, 983035, 2, 0, 983036, 3, 0, 983037, 3, 0, 983038, 3, 0, 983039, 3, 0, 917504, 3, 0, 917505, 3, 0, 917506, 3, 0, 917507, 3, 0, 917508, 3, 0, 917509, 3, 0, 917510, 3, 0, 917511, 3, 0, 917512, 3, 0, 917513, 3, 0, 917514, 3, 0, 917515, 3, 0, 917516, 3, 0, 917517, 3, 0, 917518, 3, 0, 917519, 3, 0, 917520, 3, 0, 917521, 3, 0, 917527, 3, 0, 917528, 3, 0, 917529, 3, 0, 917530, 3, 0, 917535, 3, 0, 917536, 3, 0, 917537, 3, 0, 917538, 3, 0, 917539, 3, 0, 917543, 3, 0, 917544, 3, 0, 917545, 3, 0, 917546, 3, 0, 917552, 3, 0, 917553, 3, 0, 1048571, 2, 0, 1048572, 2, 0, 1048573, 2, 0, 1048574, 2, 0, 1048575, 2, 0, 983040, 2, 0, 983041, 2, 0, 983042, 2, 0, 983043, 2, 0, 983044, 2, 0, 983045, 2, 0, 983046, 2, 0, 983047, 2, 0, 983048, 2, 0, 983049, 2, 0, 983050, 2, 0, 983051, 2, 0, 983052, 2, 0, 983053, 2, 0, 983054, 2, 0, 983055, 2, 0, 983056, 2, 0, 983057, -1610612733, 0, 983063, -1073741821, 0, 983087, 3, 0, 983090, 3, 0, 1048593, 2, 0, 1048594, 3, 0, 1048595, 3, 0, 1048596, 3, 0, 1048597, 3, 0, 1048598, 3, 0, 1048599, 2, 0, 1048621, 3, 0, 1048622, 3, 0 )
 _sections_unfolded = [ "Cell", "Collision", "Transform" ]
 __meta__ = {
 "_edit_lock_": true
@@ -396,7 +394,7 @@ collision_layer = 1
 collision_mask = 1
 occluder_light_mask = 1
 format = 1
-tile_data = PoolIntArray( 458758, 2, 0, 458759, 2, 0, 524294, 0, 0, 524295, 0, 0, 786454, 2, 0, 786455, 2, 0, 786456, 2, 0, 786457, 2, 0, 917496, 2, 0, 917497, 2, 0, 917498, 2, 0, 917499, 2, 0, 851990, 2, 0, 851991, 2, 0, 851992, 2, 0, 851993, 2, 0, 983032, 2, 0, 983033, 2, 0, 983034, 2, 0, 983035, 2, 0, 917526, 2, 0, 917527, 2, 0, 917528, 2, 0, 917529, 2, 0, 1048568, 2, 0, 1048569, 2, 0, 1048570, 2, 0, 1048571, 2, 0, 1179632, 0, 0, 1179633, 0, 0, 1179634, 0, 0, 1179635, 0, 0, 1179636, 0, 0, 1179637, 0, 0, 1179638, 0, 0, 1179639, 0, 0, 1179640, 0, 0, 1179641, 0, 0, 1179642, 0, 0, 1179643, 0, 0, 1179644, 0, 0, 1179645, 0, 0, 1179646, 0, 0, 1179647, 0, 0, 1114112, 0, 0, 1114113, 0, 0, 1114114, 0, 0, 1114115, 0, 0, 1114116, 0, 0, 1114117, 0, 0, 1114118, 0, 0, 1114119, 0, 0, 1114120, 0, 0, 1114121, 0, 0, 1114122, 0, 0, 1114123, 0, 0, 1114124, 0, 0, 1114125, 0, 0, 1114126, 0, 0, 1114127, 0, 0, 1114128, 0, 0, 1114129, 0, 0, 1114130, 0, 0, 1114131, 0, 0, 1114132, 0, 0, 1114133, 0, 0, 1114134, 0, 0, 1114135, 0, 0, 1114136, 0, 0, 1114137, 0, 0, 1114138, 0, 0, 1114139, 0, 0, 1114140, 0, 0, 1114141, 0, 0, 1114142, 0, 0, 1114143, 0, 0, 1114144, 0, 0, 1114145, 0, 0, 1114146, 0, 0, 1114147, 0, 0, 1114148, 0, 0, 1114149, 0, 0, 1114150, 0, 0, 1114151, 0, 0, 1114152, 0, 0, 1114153, 0, 0, 1114154, 0, 0, 1114155, 0, 0, 1114156, 0, 0, 1114157, 0, 0, 1114158, 0, 0, 1114159, 0, 0, 1114160, 0, 0, 1114161, 0, 0, 1114162, 0, 0, 1114163, 0, 0, 1114164, 0, 0, 1114165, 0, 0, 1114166, 0, 0, 1114167, 0, 0, 1114168, 0, 0, 1245168, 0, 0, 1245169, 0, 0, 1245170, 0, 0, 1245171, 0, 0, 1245172, 0, 0, 1245173, 0, 0, 1245174, 0, 0, 1245175, 0, 0, 1245176, 0, 0, 1245177, 0, 0, 1245178, 0, 0, 1245179, 0, 0, 1245180, 0, 0, 1245181, 0, 0, 1245182, 0, 0, 1245183, 0, 0, 1179648, 0, 0, 1179649, 0, 0, 1179650, 0, 0, 1179651, 0, 0, 1179652, 0, 0, 1179653, 0, 0, 1179654, 0, 0, 1179655, 0, 0, 1179656, 0, 0, 1179657, 0, 0, 1179658, 0, 0, 1179659, 0, 0, 1179660, 0, 0, 1179661, 0, 0, 1179662, 0, 0, 1179663, 0, 0, 1179664, 0, 0, 1179665, 0, 0, 1179666, 0, 0, 1179667, 0, 0, 1179668, 0, 0, 1179669, 0, 0, 1179670, 0, 0, 1179671, 0, 0, 1179672, 0, 0, 1179673, 0, 0, 1179674, 0, 0, 1179675, 0, 0, 1179676, 0, 0, 1179677, 0, 0, 1179678, 0, 0, 1179679, 0, 0, 1179680, 0, 0, 1179681, 0, 0, 1179682, 0, 0, 1179683, 0, 0, 1179684, 0, 0, 1179685, 0, 0, 1179686, 0, 0, 1179687, 0, 0, 1179688, 0, 0, 1179689, 0, 0, 1179690, 0, 0, 1179691, 0, 0, 1179692, 0, 0, 1179693, 0, 0, 1179694, 0, 0, 1179695, 0, 0, 1179696, 0, 0, 1179697, 0, 0, 1179698, 0, 0, 1179699, 0, 0, 1179700, 0, 0, 1179701, 0, 0, 1179702, 0, 0, 1179703, 0, 0, 1179704, 0, 0 )
+tile_data = PoolIntArray( 458758, 2, 0, 458759, 2, 0, 524294, 0, 0, 524295, 0, 0, 589876, -1073741823, 0, 655412, -1073741823, 0, 720948, -1073741823, 0, 786454, 2, 0, 786455, 2, 0, 786456, 2, 0, 786457, 2, 0, 786484, -1073741823, 0, 917496, 2, 0, 917497, 2, 0, 917498, 2, 0, 917499, 2, 0, 851990, 2, 0, 851991, 2, 0, 851992, 2, 0, 851993, 2, 0, 983032, 2, 0, 983033, 2, 0, 983034, 2, 0, 983035, 2, 0, 917526, 2, 0, 917527, 2, 0, 917528, 2, 0, 917529, 2, 0, 1048568, 2, 0, 1048569, 2, 0, 1048570, 2, 0, 1048571, 2, 0, 1179632, 0, 0, 1179633, 0, 0, 1179634, 0, 0, 1179635, 0, 0, 1179636, 0, 0, 1179637, 0, 0, 1179638, 0, 0, 1179639, 0, 0, 1179640, 0, 0, 1179641, 0, 0, 1179642, 0, 0, 1179643, 0, 0, 1179644, 0, 0, 1179645, 0, 0, 1179646, 0, 0, 1179647, 0, 0, 1114112, 0, 0, 1114113, 0, 0, 1114114, 0, 0, 1114115, 0, 0, 1114116, 0, 0, 1114117, 0, 0, 1114118, 0, 0, 1114119, 0, 0, 1114120, 0, 0, 1114121, 0, 0, 1114122, 0, 0, 1114123, 0, 0, 1114124, 0, 0, 1114125, 0, 0, 1114126, 0, 0, 1114127, 0, 0, 1114128, 0, 0, 1114129, 0, 0, 1114130, 0, 0, 1114131, 0, 0, 1114132, 0, 0, 1114133, 0, 0, 1114134, 0, 0, 1114135, 0, 0, 1114136, 0, 0, 1114137, 0, 0, 1114138, 0, 0, 1114139, 0, 0, 1114140, 0, 0, 1114141, 0, 0, 1114142, 0, 0, 1114143, 0, 0, 1114144, 0, 0, 1114145, 0, 0, 1114146, 0, 0, 1114147, 0, 0, 1114148, 0, 0, 1114149, 0, 0, 1114150, 0, 0, 1114151, 0, 0, 1114152, 0, 0, 1114153, 0, 0, 1114154, 0, 0, 1114155, 0, 0, 1114156, 0, 0, 1114157, 0, 0, 1114158, 0, 0, 1114159, 0, 0, 1114160, 0, 0, 1114161, 0, 0, 1114162, 0, 0, 1114163, 0, 0, 1114164, 0, 0, 1114165, 0, 0, 1114166, 0, 0, 1114167, 0, 0, 1114168, 0, 0, 1245168, 0, 0, 1245169, 0, 0, 1245170, 0, 0, 1245171, 0, 0, 1245172, 0, 0, 1245173, 0, 0, 1245174, 0, 0, 1245175, 0, 0, 1245176, 0, 0, 1245177, 0, 0, 1245178, 0, 0, 1245179, 0, 0, 1245180, 0, 0, 1245181, 0, 0, 1245182, 0, 0, 1245183, 0, 0, 1179648, 0, 0, 1179649, 0, 0, 1179650, 0, 0, 1179651, 0, 0, 1179652, 0, 0, 1179653, 0, 0, 1179654, 0, 0, 1179655, 0, 0, 1179656, 0, 0, 1179657, 0, 0, 1179658, 0, 0, 1179659, 0, 0, 1179660, 0, 0, 1179661, 0, 0, 1179662, 0, 0, 1179663, 0, 0, 1179664, 0, 0, 1179665, 0, 0, 1179666, 0, 0, 1179667, 0, 0, 1179668, 0, 0, 1179669, 0, 0, 1179670, 0, 0, 1179671, 0, 0, 1179672, 0, 0, 1179673, 0, 0, 1179674, 0, 0, 1179675, 0, 0, 1179676, 0, 0, 1179677, 0, 0, 1179678, 0, 0, 1179679, 0, 0, 1179680, 0, 0, 1179681, 0, 0, 1179682, 0, 0, 1179683, 0, 0, 1179684, 0, 0, 1179685, 0, 0, 1179686, 0, 0, 1179687, 0, 0, 1179688, 0, 0, 1179689, 0, 0, 1179690, 0, 0, 1179691, 0, 0, 1179692, 0, 0, 1179693, 0, 0, 1179694, 0, 0, 1179695, 0, 0, 1179696, 0, 0, 1179697, 0, 0, 1179698, 0, 0, 1179699, 0, 0, 1179700, 0, 0, 1179701, 0, 0, 1179702, 0, 0, 1179703, 0, 0, 1179704, 0, 0 )
 _sections_unfolded = [ "Cell", "Collision", "Transform" ]
 __meta__ = {
 "_edit_lock_": true
@@ -776,133 +774,21 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Ice" type="Node2D" parent="Tiles" index="4"]
 
-[node name="Ice2" type="StaticBody2D" parent="Tiles/Ice" index="0" groups=[
-"Ice",
-]]
+[node name="Ice" parent="Tiles/Ice" index="0" instance=ExtResource( 11 )]
 
-editor/display_folded = true
-position = Vector2( 1824, 928 )
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-
-[node name="Sprite" type="Sprite" parent="Tiles/Ice/Ice2" index="0"]
-
-scale = Vector2( 4, 4 )
-texture = ExtResource( 11 )
-_sections_unfolded = [ "Transform" ]
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Tiles/Ice/Ice2" index="1"]
-
-scale = Vector2( 4, 4 )
-shape = SubResource( 1 )
-_sections_unfolded = [ "Transform" ]
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Ice3" type="StaticBody2D" parent="Tiles/Ice" index="1" groups=[
-"Ice",
-]]
-
-editor/display_folded = true
-position = Vector2( 1888, 928 )
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-
-[node name="Sprite" type="Sprite" parent="Tiles/Ice/Ice3" index="0"]
-
-scale = Vector2( 4, 4 )
-texture = ExtResource( 11 )
-_sections_unfolded = [ "Transform" ]
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Tiles/Ice/Ice3" index="1"]
-
-scale = Vector2( 4, 4 )
-shape = SubResource( 1 )
-_sections_unfolded = [ "Transform" ]
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Ice4" type="StaticBody2D" parent="Tiles/Ice" index="2" groups=[
-"Ice",
-]]
-
-editor/display_folded = true
-position = Vector2( 1952, 928 )
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-
-[node name="Sprite" type="Sprite" parent="Tiles/Ice/Ice4" index="0"]
-
-scale = Vector2( 4, 4 )
-texture = ExtResource( 11 )
-_sections_unfolded = [ "Transform" ]
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Tiles/Ice/Ice4" index="1"]
-
-scale = Vector2( 4, 4 )
-shape = SubResource( 1 )
-_sections_unfolded = [ "Transform" ]
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Ice5" type="StaticBody2D" parent="Tiles/Ice" index="3" groups=[
-"Ice",
-]]
-
-editor/display_folded = true
 position = Vector2( 1760, 928 )
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
 
-[node name="Sprite" type="Sprite" parent="Tiles/Ice/Ice5" index="0"]
+[node name="Ice2" parent="Tiles/Ice" index="1" instance=ExtResource( 11 )]
 
-scale = Vector2( 4, 4 )
-texture = ExtResource( 11 )
-_sections_unfolded = [ "Transform" ]
-__meta__ = {
-"_edit_lock_": true
-}
+position = Vector2( 1824, 928 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Tiles/Ice/Ice5" index="1"]
+[node name="Ice3" parent="Tiles/Ice" index="2" instance=ExtResource( 11 )]
 
-scale = Vector2( 4, 4 )
-shape = SubResource( 1 )
-_sections_unfolded = [ "Transform" ]
-__meta__ = {
-"_edit_lock_": true
-}
+position = Vector2( 1888, 928 )
+
+[node name="Ice4" parent="Tiles/Ice" index="3" instance=ExtResource( 11 )]
+
+position = Vector2( 1952, 928 )
 
 [node name="Gems" type="Node2D" parent="." index="2"]
 
@@ -1011,7 +897,7 @@ _sections_unfolded = [ "Transform" ]
 
 position = Vector2( 0.713486, -12.4823 )
 scale = Vector2( 1, 0.942137 )
-shape = SubResource( 11 )
+shape = SubResource( 1 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Signs/Sign2" index="2"]
 
@@ -1068,13 +954,19 @@ scroll_following = false
 selection_enabled = false
 override_selected_font_color = false
 
-[node name="Door" parent="." index="6" instance=ExtResource( 23 )]
+[node name="Platforms" type="Node2D" parent="." index="6"]
 
-[node name="Enemy_01" parent="." index="7" instance=ExtResource( 24 )]
+[node name="Platform" parent="Platforms" index="0" instance=ExtResource( 23 )]
+
+position = Vector2( 2400, 1056 )
+
+[node name="Door" parent="." index="7" instance=ExtResource( 24 )]
+
+[node name="Enemy_01" parent="." index="8" instance=ExtResource( 25 )]
 
 position = Vector2( 768.854, 840.408 )
 
-[node name="Player" type="KinematicBody2D" parent="." index="8"]
+[node name="Player" type="KinematicBody2D" parent="." index="9"]
 
 editor/display_folded = true
 position = Vector2( 212.022, 368.578 )
@@ -1083,7 +975,7 @@ input_pickable = false
 collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
-script = ExtResource( 25 )
+script = ExtResource( 26 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Player" index="0"]
@@ -1174,12 +1066,11 @@ _sections_unfolded = [ "Transform" ]
 visible = false
 position = Vector2( -4, 1.5 )
 scale = Vector2( 0.25334, 0.25 )
-texture = ExtResource( 32 )
+texture = ExtResource( 33 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="HUD" type="CanvasLayer" parent="." index="9"]
+[node name="HUD" type="CanvasLayer" parent="." index="10"]
 
-editor/display_folded = true
 layer = 1
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -1203,7 +1094,7 @@ size_flags_vertical = 1
 [node name="Coins" type="Node2D" parent="HUD" index="1"]
 
 editor/display_folded = true
-script = ExtResource( 33 )
+script = ExtResource( 34 )
 
 [node name="Label" type="Label" parent="HUD/Coins" index="0"]
 
@@ -1220,7 +1111,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 34 )
+custom_fonts/font = ExtResource( 35 )
 text = "Coins:"
 percent_visible = 1.0
 lines_skipped = 0
@@ -1231,7 +1122,7 @@ _sections_unfolded = [ "Rect", "custom_fonts" ]
 
 editor/display_folded = true
 position = Vector2( 0, 25.0581 )
-script = ExtResource( 35 )
+script = ExtResource( 36 )
 
 [node name="Label" type="Label" parent="HUD/Coins_R" index="0"]
 
@@ -1248,7 +1139,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 34 )
+custom_fonts/font = ExtResource( 35 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "R:"
 percent_visible = 1.0
@@ -1260,7 +1151,7 @@ _sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
 
 editor/display_folded = true
 position = Vector2( 586.236, 13.3615 )
-script = ExtResource( 36 )
+script = ExtResource( 37 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Label" type="Label" parent="HUD/Powerup" index="0"]
@@ -1278,7 +1169,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 34 )
+custom_fonts/font = ExtResource( 35 )
 text = "Powerup:"
 percent_visible = 1.0
 lines_skipped = 0
@@ -1288,7 +1179,7 @@ _sections_unfolded = [ "Rect", "custom_fonts" ]
 [node name="Timer" type="Node2D" parent="HUD" index="4"]
 
 editor/display_folded = true
-script = ExtResource( 37 )
+script = ExtResource( 38 )
 
 [node name="Label" type="Label" parent="HUD/Timer" index="0"]
 
@@ -1305,7 +1196,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 34 )
+custom_fonts/font = ExtResource( 35 )
 text = "Time:"
 percent_visible = 1.0
 lines_skipped = 0
@@ -1317,7 +1208,7 @@ _sections_unfolded = [ "Rect", "custom_fonts" ]
 editor/display_folded = true
 position = Vector2( 25.4641, 12.4908 )
 scale = Vector2( 2, 2 )
-script = ExtResource( 38 )
+script = ExtResource( 39 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="Heart_1" type="TextureRect" parent="HUD/Health" index="0" groups=[
@@ -1335,7 +1226,7 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 39 )
+texture = ExtResource( 40 )
 stretch_mode = 6
 _sections_unfolded = [ "Hint", "Visibility" ]
 
@@ -1355,7 +1246,7 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 39 )
+texture = ExtResource( 40 )
 stretch_mode = 6
 _sections_unfolded = [ "Hint", "Margin", "Rect" ]
 
@@ -1375,7 +1266,7 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 39 )
+texture = ExtResource( 40 )
 stretch_mode = 6
 _sections_unfolded = [ "Hint", "Margin", "Rect" ]
 
@@ -1466,11 +1357,11 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Hint", "Rect", "custom_colors", "custom_fonts" ]
 
-[node name="enemy_ai_marker" parent="." index="10" instance=ExtResource( 40 )]
+[node name="enemy_ai_marker" parent="." index="11" instance=ExtResource( 41 )]
 
 position = Vector2( -732.01, 14.3545 )
 
-[node name="enemy_ai_marker2" parent="." index="11" instance=ExtResource( 40 )]
+[node name="enemy_ai_marker2" parent="." index="12" instance=ExtResource( 41 )]
 
 position = Vector2( 538.135, 6.94885 )
 
