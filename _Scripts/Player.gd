@@ -105,6 +105,7 @@ func _physics_process(delta):
 	print (WALK_MAX_SPEED)
 	
 	# Create forces
+	
 	var force = Vector2(0, GRAVITY)
 	
 	var walk_left = Input.is_action_pressed("move_left")
