@@ -10,7 +10,7 @@ source_file="res://_Assets/Art/Spritesheets/Rod-Birdo/birdo_0.png"
 source_md5="006a660b0ab2ae50a1442458cf4de61d"
 
 dest_files=[ "res://.import/birdo_0.png-a6760cddab1bdc19f8e1f90e6446c08b.stex" ]
-dest_md5="3571e64c462b80c72a8a99dfbe7a3708"
+dest_md5="c91ea9c9d4f890931c0681acf411f60c"
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
@@ -28,5 +28,5 @@ process/premult_alpha=false
 process/HDR_as_SRGB=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0
