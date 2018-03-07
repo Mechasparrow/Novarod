@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=2]
+[gd_scene load_steps=57 format=2]
 
 [ext_resource path="res://_Scripts/level_script.gd" type="Script" id=1]
 [ext_resource path="res://_Prefab/Powerup_Chests/chest_speed.tscn" type="PackedScene" id=2]
@@ -43,7 +43,9 @@
 [ext_resource path="res://_Scripts/Timer.gd" type="Script" id=41]
 [ext_resource path="res://_Scripts/Health.gd" type="Script" id=42]
 [ext_resource path="res://_Assets/Art/heart_0.png" type="Texture" id=43]
-[ext_resource path="res://_Prefab/Enemies/enemy_ai_marker.tscn" type="PackedScene" id=44]
+[ext_resource path="res://_Scripts/Inventory.gd" type="Script" id=44]
+[ext_resource path="res://_Assets/Art/Inventory_Square.png" type="Texture" id=45]
+[ext_resource path="res://_Prefab/Enemies/enemy_ai_marker.tscn" type="PackedScene" id=46]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -326,7 +328,7 @@ font_data = ExtResource( 22 )
 fallback/0 = ExtResource( 21 )
 _sections_unfolded = [ "Font/fallback", "Settings" ]
 
-[node name="World" type="Node" index="0"]
+[node name="World" type="Node"]
 
 script = ExtResource( 1 )
 reset_position = Vector2( 100, 400 )
@@ -1085,7 +1087,6 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="HUD" type="CanvasLayer" parent="." index="11"]
 
-editor/display_folded = true
 layer = 1
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -1372,11 +1373,55 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Hint", "Rect", "custom_colors", "custom_fonts" ]
 
-[node name="enemy_ai_marker" parent="." index="12" instance=ExtResource( 44 )]
+[node name="Inventory" type="Node2D" parent="HUD" index="7"]
+
+position = Vector2( 272, 64 )
+script = ExtResource( 44 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="TextureRect" type="TextureRect" parent="HUD/Inventory" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -7.0
+margin_top = -40.0
+margin_right = 9.0
+margin_bottom = -24.0
+rect_scale = Vector2( 3, 3 )
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 45 )
+stretch_mode = 0
+_sections_unfolded = [ "Rect" ]
+
+[node name="WeaponItem" type="TextureRect" parent="HUD/Inventory" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -1.0
+margin_top = -34.0
+margin_right = 15.0
+margin_bottom = -18.0
+rect_scale = Vector2( 2.3, 2.3 )
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+stretch_mode = 0
+
+[node name="enemy_ai_marker" parent="." index="12" instance=ExtResource( 46 )]
 
 position = Vector2( -732.01, 14.3545 )
 
-[node name="enemy_ai_marker2" parent="." index="13" instance=ExtResource( 44 )]
+[node name="enemy_ai_marker2" parent="." index="13" instance=ExtResource( 46 )]
 
 position = Vector2( 538.135, 6.94885 )
 
