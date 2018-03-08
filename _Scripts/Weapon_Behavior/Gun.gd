@@ -8,7 +8,13 @@ var attacking = false
 var attacking_duration = 0.2
 var attacking_timer = 0
 
+var can_shoot = false
+var shoot_timer = 0
+var shooting_duration = 0.5
+
 var offset = 7
+
+onready var bullet = preload("res://_Prefab/Projectiles/Player_Bullet.tscn")
 
 func _ready():
 	# Called every time the node is added to the scene.
@@ -30,9 +36,16 @@ func attack(dir):
 		get_node("Sprite").flip_h = false
 
 	## TODO Add projectile spawning here!
-
-
-
+	if (can_shoot == true):
+		
+		var new_bullet = bullet.instance()
+		get_tree().get_root().get_node("World").add_child(new_bullet)
+		new_bullet.global_position = global_position
+		new_bullet.shoot(dir, 500)
+		
+		can_shoot = false
+		shoot_timer = 0
+		
 	##
 
 func update_orientation(dir):
@@ -49,6 +62,11 @@ func _process(delta):
 	elif (attacking == false):
 		hide()
 
+	if (can_shoot == false and shoot_timer < shooting_duration):
+		shoot_timer += delta
+
+	if (can_shoot == false and shoot_timer > shooting_duration):
+		can_shoot = true
 
 	if (attacking_timer < attacking_duration and attacking == true):
 		attacking_timer+=delta

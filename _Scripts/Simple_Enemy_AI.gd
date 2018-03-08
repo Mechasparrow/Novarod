@@ -128,6 +128,19 @@ func _physics_process(delta):
 	
 	#KNOCKBACK
 	
+	for body in bodies:
+		
+		if (body.is_in_group("bullet")):
+			
+			if (hit == false):
+				handle_attack(body)
+				cooldown_timer = 0
+				hit = true
+				knockback_timer = 0
+				knockedback = true
+		
+		pass
+	
 	for area in areas:
 		var hit_a_marker = false
 		

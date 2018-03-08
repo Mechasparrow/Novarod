@@ -3,7 +3,6 @@
 [ext_resource path="res://_Scripts/Weapon_Behavior/Sword.gd" type="Script" id=1]
 [ext_resource path="res://_Assets/Art/Weapons/sword_01.png" type="Texture" id=2]
 
-
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
@@ -70,7 +69,7 @@ tracks/1/keys = {
 "values": [ true, false ]
 }
 
-[node name="Sword" type="Area2D" index="0" groups=[
+[node name="Sword" type="Area2D" groups=[
 "weapon",
 ]]
 

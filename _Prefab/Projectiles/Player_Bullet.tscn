@@ -53,4 +53,19 @@ _sections_unfolded = [ "Transform" ]
 build_mode = 0
 polygon = PoolVector2Array( 9.79123, 8.02827, -15.8539, 8.13295, -15.7492, -7.7775, 9.47721, -7.67282, 14.0829, 0.282399 )
 
+[node name="Hitbox" type="Area2D" parent="." index="2"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Hitbox" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( 9.79123, 8.02827, -15.8539, 8.13295, -15.7492, -7.7775, 9.47721, -7.67282, 14.0829, 0.282399 )
+
 
