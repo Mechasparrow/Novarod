@@ -22,7 +22,7 @@ func has_weapon():
 
 func get_current_weapon():
 	return current_weapon
-	
+
 func set_current_weapon(weapon):
 	current_weapon = weapon
 
@@ -30,7 +30,7 @@ func set_checkpoint(pos):
 	spawn_point = pos
 
 func reset_player_info():
-	
+
 	health = 3
 	coins = 0
 	coins_r = 0

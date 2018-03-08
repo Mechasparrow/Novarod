@@ -2,14 +2,14 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/sword_01.png-288192185eeaed5a93b8e1fab48c34bb.stex"
+path="res://.import/sword_01.png-89d39f481cebbb73f14f9b876e3ed079.stex"
 
 [deps]
 
-source_file="res://_Assets/Art/sword_01.png"
+source_file="res://_Assets/Art/Weapons/sword_01.png"
 source_md5="9ae4520d8b1bcf09a385af9c8ed6773b"
 
-dest_files=[ "res://.import/sword_01.png-288192185eeaed5a93b8e1fab48c34bb.stex" ]
+dest_files=[ "res://.import/sword_01.png-89d39f481cebbb73f14f9b876e3ed079.stex" ]
 dest_md5="dc1c2355ef503f0400abf94425230a84"
 
 [params]

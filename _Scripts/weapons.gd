@@ -9,10 +9,13 @@ var weapons = []
 func _ready():
 	# Called every time the node is added to the scene.
 	# Initialization here
-	
+
 	var sword = load("res://_Prefab/Weapons/Sword.tscn")
 	weapons.append(sword)
-	
+
+	var gun = load("res://_Prefab/Weapons/Player_Gun.tscn")
+	weapons.append(gun)
+
 	pass
 
 #func _process(delta):
