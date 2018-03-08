@@ -1,0 +1,56 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://_Scripts/Weapon_Behavior/Player_Bullet.gd" type="Script" id=1]
+[ext_resource path="res://_Assets/Art/Spritesheets/Player_Projectile/player_bullet_0.png" type="Texture" id=2]
+[ext_resource path="res://_Assets/Art/Spritesheets/Player_Projectile/player_bullet_1.png" type="Texture" id=3]
+[ext_resource path="res://_Assets/Art/Spritesheets/Player_Projectile/player_bullet_2.png" type="Texture" id=4]
+[ext_resource path="res://_Assets/Art/Spritesheets/Player_Projectile/player_bullet_3.png" type="Texture" id=5]
+
+[sub_resource type="SpriteFrames" id=1]
+
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="Player_Bullet" type="RigidBody2D" index="0" groups=[
+"bullet",
+"player_projectile",
+]]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+mode = 0
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+linear_velocity = Vector2( 0, 0 )
+linear_damp = -1.0
+angular_velocity = 0.0
+angular_damp = -1.0
+script = ExtResource( 1 )
+_sections_unfolded = [ "Angular", "Linear", "Pickable", "Transform" ]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="." index="0"]
+
+scale = Vector2( 2, 2 )
+frames = SubResource( 1 )
+animation = "default"
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( 9.79123, 8.02827, -15.8539, 8.13295, -15.7492, -7.7775, 9.47721, -7.67282, 14.0829, 0.282399 )
+
+

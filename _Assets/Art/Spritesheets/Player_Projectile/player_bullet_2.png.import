@@ -10,7 +10,7 @@ source_file="res://_Assets/Art/Spritesheets/Player_Projectile/player_bullet_2.pn
 source_md5="c855728e4d1a0d877cfc8e13144dfc28"
 
 dest_files=[ "res://.import/player_bullet_2.png-bb047af8cdce9bb971cea0ee66a2a0d1.stex" ]
-dest_md5="dfdcfd1fd082b3b370a25eaab495fdad"
+dest_md5="02676b7638b21d75e77f2b1f804e0a0e"
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
@@ -28,5 +28,5 @@ process/premult_alpha=false
 process/HDR_as_SRGB=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0

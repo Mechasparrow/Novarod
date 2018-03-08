@@ -9,6 +9,7 @@ var attack_dir = null
 var attacking = false
 
 var offset = 5
+var damage = 1
 
 onready var anim = get_node("AnimationPlayer")
 
