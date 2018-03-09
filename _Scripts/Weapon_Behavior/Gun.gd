@@ -41,6 +41,13 @@ func attack(dir):
 		var new_bullet = bullet.instance()
 		get_tree().get_root().get_node("World").add_child(new_bullet)
 		new_bullet.global_position = global_position
+		
+		# Adds an offset so it is not on top of player_gun
+		if (dir == "left"):
+			new_bullet.position.x -= 40
+		elif (dir == "right"):
+			new_bullet.position.x += 40
+		
 		new_bullet.shoot(dir, 500)
 		
 		can_shoot = false

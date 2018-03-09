@@ -85,7 +85,6 @@ func _physics_process(delta):
 		iced_timer += delta
 	elif (iced == true and iced_timer > iced_duration):
 		iced = false
-		print ("not iced")
 
 	#Collide (Tiles) collision
 	var tile_areas = hitbox.get_overlapping_areas()
@@ -103,8 +102,6 @@ func _physics_process(delta):
 
 	if (len(tile_areas) == 0):
 		in_water = false
-
-	print (WALK_MAX_SPEED)
 
 	# Create forces
 
@@ -338,6 +335,11 @@ func default_props():
 
 func check_weapons():
 	if (player_info.has_weapon() == true):
+		
+		if (weapon != null):
+			weapon.queue_free()
+			weapon = null
+			
 		weapon = player_info.get_current_weapon().instance()
 		weapon_holder.add_child(weapon)
 
@@ -374,7 +376,6 @@ func check_collided_body(body):
 	var node_name = body.name
 
 	if (body.is_in_group("Ice")):
-		print ("icey")
 		iced = true
 		iced_timer = 0
 

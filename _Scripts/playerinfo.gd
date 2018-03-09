@@ -38,7 +38,7 @@ func reset_player_info():
 	gems = []
 	gem_amnt = 4
 	power_up = null
-	current_weapon = get_node("/root/weapons").weapons[1]
+	current_weapon = null
 	timer = 0
 	respawn = false
 	spawn_point = Vector2(0,0)
