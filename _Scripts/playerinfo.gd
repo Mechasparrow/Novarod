@@ -1,6 +1,7 @@
 extends Node
 
 var health
+var max_health
 var coins
 var coins_r
 var level
@@ -31,8 +32,9 @@ func set_checkpoint(pos):
 	spawn_point = pos
 
 func reset_player_info():
-
-	health = 3
+	
+	max_health = 3
+	health = max_health
 	coins = 0
 	coins_r = 0
 	level = 0

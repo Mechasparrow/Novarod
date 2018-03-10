@@ -9,6 +9,7 @@ func _ready():
 	# Initialization here
 	pass
 
+
 func _process(delta):
 	
 	var current_health = get_node("/root/playerinfo").health
@@ -17,19 +18,11 @@ func _process(delta):
 
 func display_health(health):
 	
-	var hearts = get_children()
-	
-	var cnt = 0
-	for heart in hearts:
-		cnt += 1
-		
-		if (cnt > health):
-			heart.hide()
-		else:
-			heart.show()
-		
-		
-	
+	print (health)
+
+	var max_health = get_node("/root/playerinfo").max_health
+
+	get_node("TextureProgress").value = (100/max_health)*health
 	pass
 
 #func _process(delta):

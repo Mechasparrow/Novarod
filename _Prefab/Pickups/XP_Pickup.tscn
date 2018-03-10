@@ -13,7 +13,7 @@ extents = Vector2( 7, 7 )
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[node name="XP_Pickup" type="RigidBody2D" index="0"]
+[node name="XP_Pickup" type="RigidBody2D"]
 
 input_pickable = false
 collision_layer = 2
@@ -34,7 +34,7 @@ linear_damp = -1.0
 angular_velocity = 0.0
 angular_damp = -1.0
 script = ExtResource( 1 )
-_sections_unfolded = [ "Collision" ]
+_sections_unfolded = [ "Collision", "Transform" ]
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
