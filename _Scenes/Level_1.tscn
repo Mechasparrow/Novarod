@@ -33,10 +33,10 @@
 [ext_resource path="res://_Scripts/Player.gd" type="Script" id=31]
 [ext_resource path="res://_Assets/Art/Spritesheets/Rod/Sliding/sprite_0.png" type="Texture" id=32]
 [ext_resource path="res://_Assets/Art/Spritesheets/Rod/Sliding/sprite_1.png" type="Texture" id=33]
-[ext_resource path="res://_Assets/Art/Spritesheets/Rod/rod0.png" type="Texture" id=34]
-[ext_resource path="res://_Assets/Art/Spritesheets/Rod/rod1.png" type="Texture" id=35]
-[ext_resource path="res://_Assets/Art/Spritesheets/Rod/rod2.png" type="Texture" id=36]
-[ext_resource path="res://_Assets/Art/Spritesheets/Rod/rod3.png" type="Texture" id=37]
+[ext_resource path="res://_Assets/Art/Spritesheets/Rod/rod3.png" type="Texture" id=34]
+[ext_resource path="res://_Assets/Art/Spritesheets/Rod/rod0.png" type="Texture" id=35]
+[ext_resource path="res://_Assets/Art/Spritesheets/Rod/rod1.png" type="Texture" id=36]
+[ext_resource path="res://_Assets/Art/Spritesheets/Rod/rod2.png" type="Texture" id=37]
 [ext_resource path="res://_Assets/Art/Spritesheets/Rod/rod_climb.png" type="Texture" id=38]
 [ext_resource path="res://_Scripts/CoinsHUD.gd" type="Script" id=39]
 [ext_resource path="res://_Fonts/imported_fonts/pixel_font.tres" type="DynamicFont" id=40]
@@ -286,19 +286,19 @@ animations = [ {
 "name": "slide",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 34 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 37 ) ],
+"frames": [ ExtResource( 34 ) ],
+"loop": true,
+"name": "jump",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 35 ), ExtResource( 36 ), ExtResource( 37 ), ExtResource( 34 ) ],
 "loop": true,
 "name": "move",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 34 ) ],
+"frames": [ ExtResource( 35 ) ],
 "loop": true,
 "name": "still",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 37 ) ],
-"loop": true,
-"name": "jump",
 "speed": 5.0
 } ]
 _sections_unfolded = [ "Resource" ]
@@ -330,7 +330,7 @@ font_data = ExtResource( 22 )
 fallback/0 = ExtResource( 21 )
 _sections_unfolded = [ "Font/fallback", "Settings" ]
 
-[node name="World" type="Node" index="0"]
+[node name="World" type="Node"]
 
 script = ExtResource( 1 )
 reset_position = Vector2( 100, 400 )
@@ -355,8 +355,6 @@ position = Vector2( 622.386, 473.184 )
 
 [node name="Tiles" type="Node2D" parent="." index="1"]
 
-editor/display_folded = true
-
 [node name="Ground" type="TileMap" parent="Tiles" index="0"]
 
 scale = Vector2( 4, 4 )
@@ -372,7 +370,7 @@ cell_clip_uv = false
 collision_use_kinematic = false
 collision_friction = 1.0
 collision_bounce = 0.0
-collision_layer = 1
+collision_layer = 3
 collision_mask = 1
 occluder_light_mask = 1
 format = 1
@@ -928,6 +926,7 @@ margin_top = 470.0
 margin_right = 967.0
 margin_bottom = 579.0
 rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
@@ -1124,6 +1123,7 @@ anchor_bottom = 0.0
 margin_right = 1024.0
 margin_bottom = 86.0
 rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
@@ -1145,6 +1145,7 @@ margin_top = 6.0
 margin_right = 1099.0
 margin_bottom = 101.0
 rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
@@ -1173,6 +1174,7 @@ margin_top = 6.0
 margin_right = 1001.0
 margin_bottom = 127.0
 rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
@@ -1203,6 +1205,7 @@ margin_top = 31.0
 margin_right = 520.0
 margin_bottom = 152.0
 rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
@@ -1230,6 +1233,7 @@ margin_top = 4.0
 margin_right = 399.0
 margin_bottom = 20.0
 rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
@@ -1260,6 +1264,7 @@ anchor_bottom = 0.0
 margin_right = 32.0
 margin_bottom = 32.0
 rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
 mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
@@ -1280,6 +1285,7 @@ margin_left = 36.0
 margin_right = 68.0
 margin_bottom = 32.0
 rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
 mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
@@ -1300,6 +1306,7 @@ margin_left = 72.0
 margin_right = 104.0
 margin_bottom = 32.0
 rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
 mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
@@ -1319,6 +1326,7 @@ anchor_bottom = 0.0
 margin_right = 1021.0
 margin_bottom = 601.0
 rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
@@ -1337,6 +1345,7 @@ margin_top = 229.0
 margin_right = 718.0
 margin_bottom = 350.0
 rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
@@ -1360,6 +1369,7 @@ margin_top = 339.0
 margin_right = 647.0
 margin_bottom = 370.0
 rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
@@ -1383,6 +1393,7 @@ margin_top = 496.0
 margin_right = 667.0
 margin_bottom = 527.0
 rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
@@ -1413,6 +1424,7 @@ margin_right = 9.0
 margin_bottom = -24.0
 rect_scale = Vector2( 3, 3 )
 rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
 mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
@@ -1433,6 +1445,7 @@ margin_right = 15.0
 margin_bottom = -18.0
 rect_scale = Vector2( 2.3, 2.3 )
 rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
 mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1

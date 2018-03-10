@@ -1,24 +1,20 @@
-extends Area2D
+extends RigidBody2D
 
 # class member variables go here, for example:
 # var a = 2
 # var b = "textvar"
 
-onready var animator = get_node("AnimationPlayer")
+onready var xp_hitbox = get_node("Hitbox")
 
 func _ready():
 	# Called every time the node is added to the scene.
 	# Initialization here
-	
-	animator.play("Bobin")
-
 
 	pass
 
-func _process(delta):
-
-	var bodies = get_overlapping_bodies()
-	var areas =get_overlapping_areas()
+func _physics_process(delta):
+	var bodies = xp_hitbox.get_overlapping_bodies() + get_colliding_bodies()
+	var areas = xp_hitbox.get_overlapping_areas()
 
 	var colliders = bodies + areas
 
@@ -30,7 +26,3 @@ func _process(delta):
 			player_props.xp += 1
 			queue_free()
 			pass
-
-	pass
-
-
