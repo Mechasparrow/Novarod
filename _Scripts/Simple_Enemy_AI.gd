@@ -30,6 +30,11 @@ var knockedback = false
 
 var health = 3
 
+var xp_drop = true
+var xp = 1
+
+onready var xp_pickup = preload("res://_Prefab/Pickups/XP_Pickup.tscn")
+
 func _ready():
 	# Called every time the node is added to the scene.
 	# Initialization here
@@ -174,6 +179,17 @@ func _physics_process(delta):
 	pass
 
 func die():
+	
+	## Spawn Drops
+	
+	var xp_pickup_node = xp_pickup.instance()
+	get_tree().get_root().get_node("World").add_child(xp_pickup_node)
+	xp_pickup_node.global_position = global_position
+	xp_pickup_node.scale = Vector2(1,1)
+	
+	## End Code
+	
+	
 	queue_free()
 
 func handle_attack(weapon):
