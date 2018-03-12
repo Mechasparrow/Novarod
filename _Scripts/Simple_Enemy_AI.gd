@@ -20,6 +20,9 @@ var hit_marker = false
 
 var enemy_knockback = 1000
 
+var ai_movement_timer = 0
+var ai_movement_cooldown = 1
+
 var hit = false
 var knockback_vel = Vector2(0,0)
 var cooldown_duration = 0.5
@@ -56,6 +59,18 @@ func _physics_process(delta):
 	
 	var walk_left
 	var walk_right
+	
+	ai_movement_timer += delta
+	
+	if (ai_movement_timer > ai_movement_cooldown):
+		var random_range = rand_range(0,1)
+		WALK_MAX_SPEED = rand_range(200, 1000)
+		if (random_range <= 0.5):
+			dir = "left"
+		else:
+			dir = "right"
+		
+		ai_movement_timer = 0 
 	
 	if (dir == "left"):
 		walk_left = true
@@ -164,8 +179,13 @@ func _physics_process(delta):
 			if (hit_marker == false):
 				hit_marker = true
 				if (dir == "left"):
+					ai_movement_timer = 0
+					WALK_MAX_SPEED = 200
 					dir = "right"
 				elif (dir == "right"):
+					position.x -= 30
+					ai_movement_timer = 0
+					WALK_MAX_SPEED = 200
 					dir = "left"
 					
 		hit_marker = hit_a_marker

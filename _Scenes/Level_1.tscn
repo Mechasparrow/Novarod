@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=2]
+[gd_scene load_steps=62 format=2]
 
 [ext_resource path="res://_Scripts/level_script.gd" type="Script" id=1]
 [ext_resource path="res://_Prefab/Powerup_Chests/chest_speed.tscn" type="PackedScene" id=2]
@@ -63,6 +63,61 @@ use_filter = false
 font_data = ExtResource( 22 )
 fallback/0 = ExtResource( 21 )
 _sections_unfolded = [ "Font/fallback", "Settings" ]
+
+[sub_resource type="GDScript" id=12]
+
+script/source = "extends Area2D
+
+# class member variables go here, for example:
+# var a = 2
+# var b = \"textvar\"
+
+var weapon
+var weapon_texture
+
+onready var animator = get_node(\"AnimationPlayer\")
+
+func _ready():
+	# Called every time the node is added to the scene.
+	# Initialization here
+	
+	var sword_prefab = get_node(\"/root/weapons\").weapons[1]
+	var sword = sword_prefab.instance()
+	var sword_texture = sword.get_node(\"Sprite\").texture
+	
+	set_weapon(sword_prefab, sword_texture)
+	
+	animator.play(\"Bobin\")
+	
+	
+	pass
+
+func set_weapon(wpn, weapon_txtre):
+	weapon = wpn
+	weapon_texture = weapon_txtre
+	get_node(\"WeaponHolder/WeaponSprite\").texture = weapon_texture
+	
+	pass
+
+func _process(delta):
+
+	var bodies = get_overlapping_bodies()
+	var areas =get_overlapping_areas()
+	
+	var colliders = bodies + areas
+	
+	for collider in colliders:
+		if (collider.is_in_group(\"player\")):
+			var player = collider
+			var player_props = player.player_info
+			player_props.set_current_weapon(weapon)
+			player.check_weapons()
+			queue_free()
+
+	pass
+	
+
+"
 
 [sub_resource type="Animation" id=3]
 
@@ -340,7 +395,7 @@ font_data = ExtResource( 22 )
 fallback/0 = ExtResource( 21 )
 _sections_unfolded = [ "Font/fallback", "Settings" ]
 
-[node name="World" type="Node" index="0"]
+[node name="World" type="Node"]
 
 script = ExtResource( 1 )
 reset_position = Vector2( 100, 400 )
@@ -364,8 +419,6 @@ position = Vector2( 968.993, 343.63 )
 position = Vector2( 622.386, 473.184 )
 
 [node name="Tiles" type="Node2D" parent="." index="1"]
-
-editor/display_folded = true
 
 [node name="Ground" type="TileMap" parent="Tiles" index="0"]
 
@@ -419,7 +472,6 @@ __meta__ = {
 
 [node name="Water" type="Node2D" parent="Tiles" index="2"]
 
-editor/display_folded = true
 modulate = Color( 1, 1, 1, 0.588235 )
 z_index = 2
 _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
@@ -986,7 +1038,7 @@ position = Vector2( 1840, 656 )
 
 [node name="Platform_Reg2" parent="Platforms" index="2" instance=ExtResource( 25 )]
 
-position = Vector2( 2160, 336 )
+position = Vector2( 2704, 432 )
 
 [node name="Pickups" type="Node2D" parent="." index="7"]
 
@@ -997,6 +1049,7 @@ _sections_unfolded = [ "Transform" ]
 
 position = Vector2( -14.6286, 73.1429 )
 scale = Vector2( 0.1, 0.1 )
+script = SubResource( 12 )
 
 [node name="Door" parent="." index="8" instance=ExtResource( 27 )]
 
@@ -1250,6 +1303,7 @@ _sections_unfolded = [ "Rect", "custom_fonts" ]
 
 [node name="Health" type="Node2D" parent="HUD" index="5"]
 
+editor/display_folded = true
 position = Vector2( 25.4641, 12.4908 )
 scale = Vector2( 2, 2 )
 script = ExtResource( 43 )
@@ -1488,13 +1542,9 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 stretch_mode = 0
 
-[node name="enemy_ai_marker" parent="." index="13" instance=ExtResource( 49 )]
+[node name="enemy_ai_marker2" parent="." index="13" instance=ExtResource( 49 )]
 
-position = Vector2( -732.01, 14.3545 )
-
-[node name="enemy_ai_marker2" parent="." index="14" instance=ExtResource( 49 )]
-
-position = Vector2( 538.135, 6.94885 )
+position = Vector2( 539.135, 6.94885 )
 
 [connection signal="body_entered" from="Signs/Sign2" to="Signs/Sign2" method="on_body_enter"]
 

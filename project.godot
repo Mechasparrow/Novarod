@@ -19,6 +19,11 @@ config/icon="res://icon.png"
 playerinfo="*res://_Scripts/playerinfo.gd"
 weapons="*res://_Scripts/weapons.gd"
 
+[display]
+
+window/stretch/mode="2d"
+window/stretch/aspect="keep"
+
 [input]
 
 move_left=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777231,"unicode":0,"echo":false,"script":null)
