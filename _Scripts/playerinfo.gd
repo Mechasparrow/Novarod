@@ -5,7 +5,6 @@ var max_health
 var coins
 var coins_r
 var level
-var gem_amnt
 var power_up
 
 var timer
@@ -45,7 +44,6 @@ func reset_player_info():
 	max_xp = 5
 	xp = 0
 	lvl = 0
-	gem_amnt = 4
 	power_up = null
 	current_weapon = null
 	timer = 0

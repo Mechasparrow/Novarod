@@ -20,8 +20,9 @@ func _ready():
 func _process(delta):
 	
 	var collected_gems = player_info.gems
+	var gem_amnt = len(get_tree().get_nodes_in_group("gem"))
 	
-	if (len(collected_gems) >= player_info.gem_amnt):
+	if (len(collected_gems) >= gem_amnt):
 		gems_collected = true
 	else:
 		gems_collected = false

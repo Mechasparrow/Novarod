@@ -29,7 +29,10 @@ func _process(delta):
 	var reset_button_hit = Input.is_action_pressed("reset_button")
 
 	var collected_gems = get_node("/root/playerinfo").gems
-	var gem_amnt = get_node("/root/playerinfo").gem_amnt
+	
+	
+	var gem_amnt = len(get_tree().get_nodes_in_group("gem"))
+	
 	var gems_collected = len(collected_gems) >= gem_amnt
 	var enter_door = Input.is_action_pressed("interact")
 
