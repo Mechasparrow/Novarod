@@ -43,8 +43,8 @@ func _process(delta):
 		var body_position = body.position
 		
 		if (dir == "left"):
-			body_position.x -= speed * delta
+			body_position.x -= speed * delta * 1.5
 			
 		elif (dir == "right"):
-			body_position.x += speed * delta
+			body_position.x += speed * delta * 1.5
 	

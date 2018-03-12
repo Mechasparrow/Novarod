@@ -38,14 +38,14 @@ func _process(delta):
 
 
 	var platform_bodies = platform_hitbox.get_overlapping_bodies()
-
+	print (platform_bodies)
 	for body in platform_bodies:
-		if (body.name == "Player"):
-			var body_position = body.position
-
+		print (body.name)
+		if (body.is_in_group("player")):	
+			var player = body
 			if (dir == "up"):
-				body_position.y -= speed * delta
-	
+				
+				pass
 			elif (dir == "down"):
-				body_position.y += speed * delta
-
+				player.position.y += speed * delta * 1.5
+				pass

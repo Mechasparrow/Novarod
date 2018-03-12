@@ -976,8 +976,6 @@ override_selected_font_color = false
 
 [node name="Platforms" type="Node2D" parent="." index="6"]
 
-editor/display_folded = true
-
 [node name="Platform" parent="Platforms" index="0" instance=ExtResource( 23 )]
 
 position = Vector2( 1456, 576 )
@@ -1337,9 +1335,9 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 99.0
-margin_top = 18.0
+margin_top = 19.0
 margin_right = 122.0
-margin_bottom = 34.0
+margin_bottom = 35.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
