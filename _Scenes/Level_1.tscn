@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=2]
+[gd_scene load_steps=54 format=2]
 
 [ext_resource path="res://_Scripts/level_script.gd" type="Script" id=1]
 [ext_resource path="res://_Prefab/Powerup_Chests/chest_speed.tscn" type="PackedScene" id=2]
@@ -31,28 +31,21 @@
 [ext_resource path="res://_Prefab/Enemies/Enemy_02.tscn" type="PackedScene" id=29]
 [ext_resource path="res://_Prefab/Enemies/enemy_ai_marker.tscn" type="PackedScene" id=30]
 [ext_resource path="res://_Prefab/NPC/Birdo-NPC.tscn" type="PackedScene" id=31]
-[ext_resource path="res://_Scripts/Player.gd" type="Script" id=32]
-[ext_resource path="res://_Assets/Art/Spritesheets/Rod/Sliding/sprite_0.png" type="Texture" id=33]
-[ext_resource path="res://_Assets/Art/Spritesheets/Rod/Sliding/sprite_1.png" type="Texture" id=34]
-[ext_resource path="res://_Assets/Art/Spritesheets/Rod/rod0.png" type="Texture" id=35]
-[ext_resource path="res://_Assets/Art/Spritesheets/Rod/rod1.png" type="Texture" id=36]
-[ext_resource path="res://_Assets/Art/Spritesheets/Rod/rod2.png" type="Texture" id=37]
-[ext_resource path="res://_Assets/Art/Spritesheets/Rod/rod3.png" type="Texture" id=38]
-[ext_resource path="res://_Assets/Art/Spritesheets/Rod/rod_climb.png" type="Texture" id=39]
-[ext_resource path="res://_Scripts/CoinsHUD.gd" type="Script" id=40]
-[ext_resource path="res://_Fonts/imported_fonts/pixel_font.tres" type="DynamicFont" id=41]
-[ext_resource path="res://_Scripts/CoinsRHUD.gd" type="Script" id=42]
-[ext_resource path="res://_Scripts/PowerupHUD.gd" type="Script" id=43]
-[ext_resource path="res://_Scripts/Timer.gd" type="Script" id=44]
-[ext_resource path="res://_Scripts/Health.gd" type="Script" id=45]
-[ext_resource path="res://_Assets/Art/Health_Bar.png" type="Texture" id=46]
-[ext_resource path="res://_Scripts/XP.gd" type="Script" id=47]
-[ext_resource path="res://_Assets/Art/XP_Bar.png" type="Texture" id=48]
-[ext_resource path="res://_Scripts/Inventory.gd" type="Script" id=49]
-[ext_resource path="res://_Assets/Art/Inventory_Square.png" type="Texture" id=50]
-[ext_resource path="res://_Scripts/Lock.gd" type="Script" id=51]
-[ext_resource path="res://_Assets/Art/Spritesheets/Door/lock_1.png" type="Texture" id=52]
-[ext_resource path="res://_Assets/Art/Spritesheets/Door/lock_0.png" type="Texture" id=53]
+[ext_resource path="res://_Prefab/Players/Player.tscn" type="PackedScene" id=32]
+[ext_resource path="res://_Scripts/CoinsHUD.gd" type="Script" id=33]
+[ext_resource path="res://_Fonts/imported_fonts/pixel_font.tres" type="DynamicFont" id=34]
+[ext_resource path="res://_Scripts/CoinsRHUD.gd" type="Script" id=35]
+[ext_resource path="res://_Scripts/PowerupHUD.gd" type="Script" id=36]
+[ext_resource path="res://_Scripts/Timer.gd" type="Script" id=37]
+[ext_resource path="res://_Scripts/Health.gd" type="Script" id=38]
+[ext_resource path="res://_Assets/Art/Health_Bar.png" type="Texture" id=39]
+[ext_resource path="res://_Scripts/XP.gd" type="Script" id=40]
+[ext_resource path="res://_Assets/Art/XP_Bar.png" type="Texture" id=41]
+[ext_resource path="res://_Scripts/Inventory.gd" type="Script" id=42]
+[ext_resource path="res://_Assets/Art/Inventory_Square.png" type="Texture" id=43]
+[ext_resource path="res://_Scripts/Lock.gd" type="Script" id=44]
+[ext_resource path="res://_Assets/Art/Spritesheets/Door/lock_1.png" type="Texture" id=45]
+[ext_resource path="res://_Assets/Art/Spritesheets/Door/lock_0.png" type="Texture" id=46]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -123,246 +116,6 @@ func _process(delta):
 
 "
 
-[sub_resource type="Animation" id=4]
-
-length = 0.25
-loop = false
-step = 0.05
-tracks/0/type = "value"
-tracks/0/path = NodePath("CollisionShape2D:rotation_degrees")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = false
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.25 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 0.0, 90.0 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("AnimatedSprite:rotation_degrees")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = false
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.25 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 0.0, 90.0 ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("CollisionShape2D:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = false
-tracks/2/keys = {
-"times": PoolRealArray( 0, 0.25 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 0, 1.5 ), Vector2( -1.47548, -0.00534058 ) ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("AnimatedSprite:animation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0, 0.25 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ "still", "slide" ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("..:rotation_degrees")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 0.0 ]
-}
-tracks/5/type = "value"
-tracks/5/path = NodePath(".:rotation_degrees")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/keys = {
-"times": PoolRealArray( 0, 0.25 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 0.0, -90.0 ]
-}
-tracks/6/type = "value"
-tracks/6/path = NodePath("AnimatedSprite:flip_v")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/keys = {
-"times": PoolRealArray( 0, 0.25 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ false, false ]
-}
-tracks/7/type = "value"
-tracks/7/path = NodePath("AnimatedSprite:flip_h")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/keys = {
-"times": PoolRealArray( 0, 0.25 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ true, true ]
-}
-
-[sub_resource type="Animation" id=5]
-
-length = 0.25
-loop = false
-step = 0.05
-tracks/0/type = "value"
-tracks/0/path = NodePath("CollisionShape2D:rotation_degrees")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = false
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.25 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 0.0, 90.0 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("AnimatedSprite:rotation_degrees")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = false
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.25 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 0.0, 90.0 ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("CollisionShape2D:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = false
-tracks/2/keys = {
-"times": PoolRealArray( 0, 0.25 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 0, 1.5 ), Vector2( -1.47548, -0.00534058 ) ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("AnimatedSprite:animation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0, 0.25 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ "still", "slide" ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("..:rotation_degrees")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
-"times": PoolRealArray( 0, 0.25 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 0.0, 90.0 ]
-}
-tracks/5/type = "value"
-tracks/5/path = NodePath(".:rotation_degrees")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/keys = {
-"times": PoolRealArray( 0, 0.25 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 0.0, 90.0 ]
-}
-tracks/6/type = "value"
-tracks/6/path = NodePath("AnimatedSprite:flip_h")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/keys = {
-"times": PoolRealArray( 0, 0.25 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ false, false ]
-}
-tracks/7/type = "value"
-tracks/7/path = NodePath("AnimatedSprite:flip_v")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/keys = {
-"times": PoolRealArray( 0, 0.25 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ false, false ]
-}
-
-[sub_resource type="Animation" id=6]
-
-length = 1.0
-loop = false
-step = 0.1
-
-[sub_resource type="RectangleShape2D" id=7]
-
-custom_solver_bias = 0.0
-extents = Vector2( 13.2239, 8.48843 )
-
-[sub_resource type="SpriteFrames" id=8]
-
-animations = [ {
-"frames": [ ExtResource( 33 ), ExtResource( 34 ) ],
-"loop": true,
-"name": "slide",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 35 ), ExtResource( 36 ), ExtResource( 37 ), ExtResource( 38 ) ],
-"loop": true,
-"name": "move",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 35 ) ],
-"loop": true,
-"name": "still",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 38 ) ],
-"loop": true,
-"name": "jump",
-"speed": 5.0
-} ]
-_sections_unfolded = [ "Resource" ]
-
 [sub_resource type="DynamicFont" id=9]
 
 size = 14
@@ -399,7 +152,7 @@ font_data = ExtResource( 22 )
 fallback/0 = ExtResource( 21 )
 _sections_unfolded = [ "Font/fallback", "Settings" ]
 
-[node name="World" type="Node" index="0"]
+[node name="World" type="Node"]
 
 script = ExtResource( 1 )
 reset_position = Vector2( 100, 400 )
@@ -1093,113 +846,11 @@ position = Vector2( -1168, -528 )
 
 [node name="Birdo-NPC" parent="." index="11" instance=ExtResource( 31 )]
 
-[node name="Player" type="KinematicBody2D" parent="." index="12" groups=[
-"player",
-]]
-
-editor/display_folded = true
-position = Vector2( 212.022, 368.578 )
-scale = Vector2( 6.5625, 6.5625 )
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-collision/safe_margin = 0.08
-script = ExtResource( 32 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Player" index="0"]
-
-root_node = NodePath("..")
-autoplay = ""
-playback_process_mode = 1
-playback_default_blend_time = 0.0
-playback_speed = 1.0
-anims/Slide_Left = SubResource( 4 )
-anims/Slide_Right = SubResource( 5 )
-anims/Upright = SubResource( 6 )
-blend_times = [  ]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" index="1"]
-
-scale = Vector2( 0.152381, 0.76395 )
-shape = SubResource( 7 )
-_sections_unfolded = [ "Transform" ]
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Hitbox" type="Area2D" parent="Player" index="2"]
-
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-audio_bus_override = false
-audio_bus_name = "Master"
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Player/Hitbox" index="0"]
-
-position = Vector2( 0.00638752, 0.0467586 )
-scale = Vector2( 0.16592, 0.781215 )
-shape = SubResource( 7 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Player" index="3"]
-
-position = Vector2( 0, -1.45268 )
-frames = SubResource( 8 )
-animation = "still"
-playing = true
-_sections_unfolded = [ "Transform" ]
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Camera" type="Camera2D" parent="Player" index="4"]
-
-anchor_mode = 1
-rotating = false
-current = true
-zoom = Vector2( 1.2, 1.2 )
-limit_left = -10000000
-limit_top = -10000000
-limit_right = 10000000
-limit_bottom = 10000000
-limit_smoothed = false
-drag_margin_h_enabled = true
-drag_margin_v_enabled = true
-smoothing_enabled = true
-smoothing_speed = 5.0
-offset_v = 0.0
-offset_h = 0.0
-drag_margin_left = 0.2
-drag_margin_top = 0.2
-drag_margin_right = 0.2
-drag_margin_bottom = 0.2
-editor_draw_screen = true
-editor_draw_limits = false
-editor_draw_drag_margin = false
-_sections_unfolded = [ "Drag Margin", "Editor", "Limit", "Smoothing" ]
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="WeaponHolder" type="Node2D" parent="Player" index="5"]
-
-position = Vector2( 0.202187, 0.152382 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="ClimbSprite" type="Sprite" parent="Player" index="6"]
-
-visible = false
-position = Vector2( -4, 1.5 )
-scale = Vector2( 0.25334, 0.25 )
-texture = ExtResource( 39 )
-_sections_unfolded = [ "Transform" ]
+[node name="Player" parent="." index="12" instance=ExtResource( 32 )]
 
 [node name="HUD" type="CanvasLayer" parent="." index="13"]
 
+editor/display_folded = true
 layer = 1
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -1223,7 +874,7 @@ size_flags_vertical = 1
 [node name="Coins" type="Node2D" parent="HUD" index="1"]
 
 editor/display_folded = true
-script = ExtResource( 40 )
+script = ExtResource( 33 )
 
 [node name="Label" type="Label" parent="HUD/Coins" index="0"]
 
@@ -1239,7 +890,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 41 )
+custom_fonts/font = ExtResource( 34 )
 text = "Coins:"
 percent_visible = 1.0
 lines_skipped = 0
@@ -1250,7 +901,7 @@ _sections_unfolded = [ "Rect", "custom_fonts" ]
 
 editor/display_folded = true
 position = Vector2( 0, 25.0581 )
-script = ExtResource( 42 )
+script = ExtResource( 35 )
 
 [node name="Label" type="Label" parent="HUD/Coins_R" index="0"]
 
@@ -1267,7 +918,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 41 )
+custom_fonts/font = ExtResource( 34 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "R:"
 percent_visible = 1.0
@@ -1279,7 +930,7 @@ _sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
 
 editor/display_folded = true
 position = Vector2( 586.236, 13.3615 )
-script = ExtResource( 43 )
+script = ExtResource( 36 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Label" type="Label" parent="HUD/Powerup" index="0"]
@@ -1297,7 +948,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 41 )
+custom_fonts/font = ExtResource( 34 )
 text = "Powerup:"
 percent_visible = 1.0
 lines_skipped = 0
@@ -1307,7 +958,7 @@ _sections_unfolded = [ "Rect", "custom_fonts" ]
 [node name="Timer" type="Node2D" parent="HUD" index="4"]
 
 editor/display_folded = true
-script = ExtResource( 44 )
+script = ExtResource( 37 )
 
 [node name="Label" type="Label" parent="HUD/Timer" index="0"]
 
@@ -1324,7 +975,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 41 )
+custom_fonts/font = ExtResource( 34 )
 text = "Time:"
 percent_visible = 1.0
 lines_skipped = 0
@@ -1336,7 +987,7 @@ _sections_unfolded = [ "Rect", "custom_fonts" ]
 editor/display_folded = true
 position = Vector2( 25.4641, 12.4908 )
 scale = Vector2( 2, 2 )
-script = ExtResource( 45 )
+script = ExtResource( 38 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="TextureProgress" type="TextureProgress" parent="HUD/Health" index="0"]
@@ -1363,7 +1014,7 @@ exp_edit = false
 rounded = false
 texture_under = null
 texture_over = null
-texture_progress = ExtResource( 46 )
+texture_progress = ExtResource( 39 )
 radial_fill_degrees = 360.0
 radial_center_offset = Vector2( 0, 0 )
 nine_patch_stretch = true
@@ -1376,7 +1027,7 @@ _sections_unfolded = [ "Rect", "Textures", "Theme", "Visibility" ]
 editor/display_folded = true
 position = Vector2( 25.4641, 12.4908 )
 scale = Vector2( 2, 2 )
-script = ExtResource( 47 )
+script = ExtResource( 40 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="TextureProgress" type="TextureProgress" parent="HUD/XP" index="0"]
@@ -1403,7 +1054,7 @@ exp_edit = false
 rounded = false
 texture_under = null
 texture_over = null
-texture_progress = ExtResource( 48 )
+texture_progress = ExtResource( 41 )
 radial_fill_degrees = 360.0
 radial_center_offset = Vector2( 0, 0 )
 nine_patch_stretch = true
@@ -1522,8 +1173,9 @@ _sections_unfolded = [ "Hint", "Rect", "custom_colors", "custom_fonts" ]
 
 [node name="Inventory" type="Node2D" parent="HUD" index="8"]
 
+editor/display_folded = true
 position = Vector2( 272, 64 )
-script = ExtResource( 49 )
+script = ExtResource( 42 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="TextureRect" type="TextureRect" parent="HUD/Inventory" index="0"]
@@ -1542,7 +1194,7 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 50 )
+texture = ExtResource( 43 )
 stretch_mode = 0
 _sections_unfolded = [ "Rect" ]
 
@@ -1566,8 +1218,9 @@ stretch_mode = 0
 
 [node name="Lock" type="Node2D" parent="HUD" index="9"]
 
+editor/display_folded = true
 position = Vector2( 368, 32 )
-script = ExtResource( 51 )
+script = ExtResource( 44 )
 
 [node name="Locked" type="TextureRect" parent="HUD/Lock" index="0"]
 
@@ -1583,13 +1236,33 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 52 )
+texture = ExtResource( 45 )
 stretch_mode = 5
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Unlocked" type="TextureRect" parent="HUD/Lock" index="1"]
+[node name="Locked2" type="TextureRect" parent="HUD/Lock" index="1"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 40.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 45 )
+stretch_mode = 5
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Unlocked" type="TextureRect" parent="HUD/Lock" index="2"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -1602,7 +1275,7 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 53 )
+texture = ExtResource( 46 )
 stretch_mode = 5
 __meta__ = {
 "_edit_lock_": true
