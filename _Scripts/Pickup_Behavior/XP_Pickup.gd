@@ -13,7 +13,7 @@ func _ready():
 	pass
 
 func _physics_process(delta):
-	var bodies = xp_hitbox.get_overlapping_bodies() + get_colliding_bodies()
+	var bodies = xp_hitbox.get_overlapping_bodies()
 	var areas = xp_hitbox.get_overlapping_areas()
 
 	var colliders = bodies + areas

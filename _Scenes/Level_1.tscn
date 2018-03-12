@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=2]
+[gd_scene load_steps=61 format=2]
 
 [ext_resource path="res://_Scripts/level_script.gd" type="Script" id=1]
 [ext_resource path="res://_Prefab/Powerup_Chests/chest_speed.tscn" type="PackedScene" id=2]
@@ -32,10 +32,10 @@
 [ext_resource path="res://_Scripts/Player.gd" type="Script" id=30]
 [ext_resource path="res://_Assets/Art/Spritesheets/Rod/Sliding/sprite_0.png" type="Texture" id=31]
 [ext_resource path="res://_Assets/Art/Spritesheets/Rod/Sliding/sprite_1.png" type="Texture" id=32]
-[ext_resource path="res://_Assets/Art/Spritesheets/Rod/rod3.png" type="Texture" id=33]
-[ext_resource path="res://_Assets/Art/Spritesheets/Rod/rod0.png" type="Texture" id=34]
-[ext_resource path="res://_Assets/Art/Spritesheets/Rod/rod1.png" type="Texture" id=35]
-[ext_resource path="res://_Assets/Art/Spritesheets/Rod/rod2.png" type="Texture" id=36]
+[ext_resource path="res://_Assets/Art/Spritesheets/Rod/rod0.png" type="Texture" id=33]
+[ext_resource path="res://_Assets/Art/Spritesheets/Rod/rod1.png" type="Texture" id=34]
+[ext_resource path="res://_Assets/Art/Spritesheets/Rod/rod2.png" type="Texture" id=35]
+[ext_resource path="res://_Assets/Art/Spritesheets/Rod/rod3.png" type="Texture" id=36]
 [ext_resource path="res://_Assets/Art/Spritesheets/Rod/rod_climb.png" type="Texture" id=37]
 [ext_resource path="res://_Scripts/CoinsHUD.gd" type="Script" id=38]
 [ext_resource path="res://_Fonts/imported_fonts/pixel_font.tres" type="DynamicFont" id=39]
@@ -44,9 +44,11 @@
 [ext_resource path="res://_Scripts/Timer.gd" type="Script" id=42]
 [ext_resource path="res://_Scripts/Health.gd" type="Script" id=43]
 [ext_resource path="res://_Assets/Art/Health_Bar.png" type="Texture" id=44]
-[ext_resource path="res://_Scripts/Inventory.gd" type="Script" id=45]
-[ext_resource path="res://_Assets/Art/Inventory_Square.png" type="Texture" id=46]
-[ext_resource path="res://_Prefab/Enemies/enemy_ai_marker.tscn" type="PackedScene" id=47]
+[ext_resource path="res://_Scripts/XP.gd" type="Script" id=45]
+[ext_resource path="res://_Assets/Art/XP_Bar.png" type="Texture" id=46]
+[ext_resource path="res://_Scripts/Inventory.gd" type="Script" id=47]
+[ext_resource path="res://_Assets/Art/Inventory_Square.png" type="Texture" id=48]
+[ext_resource path="res://_Prefab/Enemies/enemy_ai_marker.tscn" type="PackedScene" id=49]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -285,22 +287,31 @@ animations = [ {
 "name": "slide",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 33 ) ],
-"loop": true,
-"name": "jump",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 34 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 33 ) ],
+"frames": [ ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 36 ) ],
 "loop": true,
 "name": "move",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 34 ) ],
+"frames": [ ExtResource( 36 ) ],
+"loop": true,
+"name": "jump",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 33 ) ],
 "loop": true,
 "name": "still",
 "speed": 5.0
 } ]
 _sections_unfolded = [ "Resource" ]
+
+[sub_resource type="DynamicFont" id=11]
+
+size = 14
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 22 )
+fallback/0 = ExtResource( 21 )
+_sections_unfolded = [ "Font/fallback", "Settings" ]
 
 [sub_resource type="DynamicFont" id=8]
 
@@ -1001,7 +1012,6 @@ position = Vector2( 768.854, 840.408 )
 "player",
 ]]
 
-editor/display_folded = true
 position = Vector2( 212.022, 368.578 )
 scale = Vector2( 6.5625, 6.5625 )
 input_pickable = false
@@ -1127,6 +1137,7 @@ size_flags_vertical = 1
 
 [node name="Coins" type="Node2D" parent="HUD" index="1"]
 
+editor/display_folded = true
 script = ExtResource( 38 )
 
 [node name="Label" type="Label" parent="HUD/Coins" index="0"]
@@ -1183,6 +1194,7 @@ _sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
 
 [node name="Powerup" type="Node2D" parent="HUD" index="3"]
 
+editor/display_folded = true
 position = Vector2( 586.236, 13.3615 )
 script = ExtResource( 41 )
 _sections_unfolded = [ "Transform" ]
@@ -1212,6 +1224,7 @@ _sections_unfolded = [ "Rect", "custom_fonts" ]
 
 [node name="Timer" type="Node2D" parent="HUD" index="4"]
 
+editor/display_folded = true
 script = ExtResource( 42 )
 
 [node name="Label" type="Label" parent="HUD/Timer" index="0"]
@@ -1250,10 +1263,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 3.0
+margin_left = -5.0
 margin_top = 2.0
-margin_right = 103.0
-margin_bottom = 22.0
+margin_right = 95.0
+margin_bottom = 12.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -1277,7 +1290,70 @@ stretch_margin_left = 1
 stretch_margin_right = 1
 _sections_unfolded = [ "Rect", "Textures", "Theme", "Visibility" ]
 
-[node name="Win_Pop_Up" type="PopupPanel" parent="HUD" index="6"]
+[node name="XP" type="Node2D" parent="HUD" index="6"]
+
+position = Vector2( 25.4641, 12.4908 )
+scale = Vector2( 2, 2 )
+script = ExtResource( 45 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="TextureProgress" type="TextureProgress" parent="HUD/XP" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -5.0
+margin_top = 18.0
+margin_right = 95.0
+margin_bottom = 28.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+min_value = 0.0
+max_value = 100.0
+step = 1.0
+page = 0.0
+value = 100.0
+exp_edit = false
+rounded = false
+texture_under = null
+texture_over = null
+texture_progress = ExtResource( 46 )
+radial_fill_degrees = 360.0
+radial_center_offset = Vector2( 0, 0 )
+nine_patch_stretch = true
+stretch_margin_left = 1
+stretch_margin_right = 1
+_sections_unfolded = [ "Rect", "Textures", "Theme", "Visibility" ]
+
+[node name="Level" type="Label" parent="HUD/XP" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 99.0
+margin_top = 18.0
+margin_right = 122.0
+margin_bottom = 34.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 11 )
+text = "0"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "custom_fonts" ]
+
+[node name="Win_Pop_Up" type="PopupPanel" parent="HUD" index="7"]
 
 editor/display_folded = true
 visible = false
@@ -1368,10 +1444,10 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Hint", "Rect", "custom_colors", "custom_fonts" ]
 
-[node name="Inventory" type="Node2D" parent="HUD" index="7"]
+[node name="Inventory" type="Node2D" parent="HUD" index="8"]
 
 position = Vector2( 272, 64 )
-script = ExtResource( 45 )
+script = ExtResource( 47 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="TextureRect" type="TextureRect" parent="HUD/Inventory" index="0"]
@@ -1391,7 +1467,7 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 46 )
+texture = ExtResource( 48 )
 stretch_mode = 0
 _sections_unfolded = [ "Rect" ]
 
@@ -1414,11 +1490,11 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 stretch_mode = 0
 
-[node name="enemy_ai_marker" parent="." index="13" instance=ExtResource( 47 )]
+[node name="enemy_ai_marker" parent="." index="13" instance=ExtResource( 49 )]
 
 position = Vector2( -732.01, 14.3545 )
 
-[node name="enemy_ai_marker2" parent="." index="14" instance=ExtResource( 47 )]
+[node name="enemy_ai_marker2" parent="." index="14" instance=ExtResource( 49 )]
 
 position = Vector2( 538.135, 6.94885 )
 

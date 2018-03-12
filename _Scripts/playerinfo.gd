@@ -14,7 +14,10 @@ var spawn_point
 var gems
 
 var current_weapon
+
+var max_xp
 var xp
+var lvl
 
 func has_weapon():
 	if get_current_weapon() == null:
@@ -39,7 +42,9 @@ func reset_player_info():
 	coins_r = 0
 	level = 0
 	gems = []
+	max_xp = 5
 	xp = 0
+	lvl = 0
 	gem_amnt = 4
 	power_up = null
 	current_weapon = null
