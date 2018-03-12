@@ -23,7 +23,6 @@ var velocity = Vector2()
 var on_air_time = 100
 var on_air_time_wall = 100
 var jumping = false
-var jump = false
 
 var wall_jumping = false
 var sliding = false
@@ -111,7 +110,7 @@ func _physics_process(delta):
 
 	var walk_left = Input.is_action_pressed("move_left")
 	var walk_right = Input.is_action_pressed("move_right")
-	jump = Input.is_action_pressed("jump")
+	var jump = Input.is_action_pressed("jump")
 	var slide = Input.is_action_pressed("slide")
 	var interact = Input.is_action_pressed("interact")
 
