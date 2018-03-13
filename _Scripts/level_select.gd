@@ -6,16 +6,7 @@ extends Node
 
 onready var buttons = get_tree().get_nodes_in_group("select_button")
 
-var levels = {
-	"green": {
-		"folder": "Grasslands",
-		"1": "Green_01"
-	},
-	"sandbox": {
-		"folder": "Sandbox",
-		"0": "Level_0"	
-	}
-}
+onready var levels = get_node("/root/level_data").levels
 
 func _ready():
 	# Called every time the node is added to the scene.
@@ -29,8 +20,9 @@ func _process(delta):
 			print ("True")
 			var level = button.level
 			var type = button.type
+		
+			var level_scn = get_node("/root/level_data").generate_level_path(type, level)
 			
-			var lvl_scene = load("res://_Scenes/" + levels[type]["folder"] + "/" + levels[type][str(level)] + ".tscn")
-			get_tree().change_scene_to(lvl_scene)
+			get_tree().change_scene_to(level_scn)
 
 	pass

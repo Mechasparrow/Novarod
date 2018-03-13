@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://_Scripts/level_script.gd" type="Script" id=1]
 [ext_resource path="res://_Prefab/Powerup_Chests/chest_speed.tscn" type="PackedScene" id=2]
@@ -33,6 +33,28 @@
 [ext_resource path="res://_Prefab/NPC/Birdo-NPC.tscn" type="PackedScene" id=31]
 [ext_resource path="res://_Prefab/Players/Player.tscn" type="PackedScene" id=32]
 [ext_resource path="res://_Prefab/HUD.tscn" type="PackedScene" id=33]
+
+[sub_resource type="GDScript" id=4]
+
+script/source = "extends Node2D
+
+# class member variables go here, for example:
+# var a = 2
+# var b = \"textvar\"
+
+var type = \"sandbox\"
+var level = 0
+
+func _ready():
+	# Called every time the node is added to the scene.
+	# Initialization here
+	pass
+
+#func _process(delta):
+#	# Called every frame. Delta is time since last frame.
+#	# Update game logic here.
+#	pass
+"
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -103,12 +125,18 @@ func _process(delta):
 
 "
 
-[node name="World" type="Node"]
+[node name="World" type="Node" index="0" groups=[
+"gem_collect_level",
+]]
 
 script = ExtResource( 1 )
 reset_position = Vector2( 100, 400 )
 
-[node name="Chests" type="Node2D" parent="." index="0"]
+[node name="level_info" type="Node2D" parent="." index="0"]
+
+script = SubResource( 4 )
+
+[node name="Chests" type="Node2D" parent="." index="1"]
 
 editor/display_folded = true
 
@@ -126,7 +154,7 @@ position = Vector2( 968.993, 343.63 )
 
 position = Vector2( 622.386, 473.184 )
 
-[node name="Tiles" type="Node2D" parent="." index="1"]
+[node name="Tiles" type="Node2D" parent="." index="2"]
 
 [node name="Ground" type="TileMap" parent="Tiles" index="0"]
 
@@ -553,7 +581,7 @@ position = Vector2( 1888, 928 )
 
 position = Vector2( 1952, 928 )
 
-[node name="Gems" type="Node2D" parent="." index="2"]
+[node name="Gems" type="Node2D" parent="." index="3"]
 
 editor/display_folded = true
 
@@ -565,7 +593,7 @@ editor/display_folded = true
 
 [node name="gem_brown" parent="Gems" index="3" instance=ExtResource( 15 )]
 
-[node name="Coins" type="Node2D" parent="." index="3"]
+[node name="Coins" type="Node2D" parent="." index="4"]
 
 editor/display_folded = true
 
@@ -605,7 +633,7 @@ position = Vector2( 2520.41, 860.73 )
 
 position = Vector2( 1326.24, 434.385 )
 
-[node name="Coins_R" type="Node2D" parent="." index="4"]
+[node name="Coins_R" type="Node2D" parent="." index="5"]
 
 editor/display_folded = true
 
@@ -629,7 +657,7 @@ position = Vector2( 1120.81, 520.959 )
 
 position = Vector2( 1120.81, 520.959 )
 
-[node name="Signs" type="Node2D" parent="." index="5"]
+[node name="Signs" type="Node2D" parent="." index="6"]
 
 editor/display_folded = true
 position = Vector2( 97.7842, 416.212 )
@@ -718,7 +746,7 @@ scroll_following = false
 selection_enabled = false
 override_selected_font_color = false
 
-[node name="Platforms" type="Node2D" parent="." index="6"]
+[node name="Platforms" type="Node2D" parent="." index="7"]
 
 editor/display_folded = true
 
@@ -734,7 +762,7 @@ position = Vector2( 1296, 848 )
 
 position = Vector2( 2704, 432 )
 
-[node name="Pickups" type="Node2D" parent="." index="7"]
+[node name="Pickups" type="Node2D" parent="." index="8"]
 
 editor/display_folded = true
 scale = Vector2( 6.5625, 6.5625 )
@@ -746,9 +774,9 @@ position = Vector2( -14.6286, 73.1429 )
 scale = Vector2( 0.1, 0.1 )
 script = SubResource( 3 )
 
-[node name="Door" parent="." index="8" instance=ExtResource( 27 )]
+[node name="Door" parent="." index="9" instance=ExtResource( 27 )]
 
-[node name="Enemies" type="Node2D" parent="." index="9"]
+[node name="Enemies" type="Node2D" parent="." index="10"]
 
 editor/display_folded = true
 position = Vector2( 318.166, 383.563 )
@@ -761,7 +789,7 @@ position = Vector2( 450.688, 456.845 )
 
 position = Vector2( 401.834, 0.437012 )
 
-[node name="Enemy_Markers" type="Node2D" parent="." index="10"]
+[node name="Enemy_Markers" type="Node2D" parent="." index="11"]
 
 editor/display_folded = true
 position = Vector2( 272, 64 )
@@ -778,11 +806,11 @@ position = Vector2( 64, -512 )
 
 position = Vector2( -1168, -528 )
 
-[node name="Birdo-NPC" parent="." index="11" instance=ExtResource( 31 )]
+[node name="Birdo-NPC" parent="." index="12" instance=ExtResource( 31 )]
 
-[node name="Player" parent="." index="12" instance=ExtResource( 32 )]
+[node name="Player" parent="." index="13" instance=ExtResource( 32 )]
 
-[node name="HUD" parent="." index="13" instance=ExtResource( 33 )]
+[node name="HUD" parent="." index="14" instance=ExtResource( 33 )]
 
 [connection signal="body_entered" from="Signs/Sign2" to="Signs/Sign2" method="on_body_enter"]
 

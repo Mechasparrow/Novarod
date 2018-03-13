@@ -7,6 +7,8 @@ extends Node
 onready var win_popup = get_node("HUD/Win_Pop_Up")
 onready var win_popup_time = get_node("HUD/Win_Pop_Up/Time_Stop")
 onready var end_door = get_node("Door")
+onready var level_info = get_node("level_info")
+
 var level_complete = false
 
 var level_end = false
@@ -28,6 +30,7 @@ func _process(delta):
 	var current_health = get_node("/root/playerinfo").health
 
 	var reset_button_hit = Input.is_action_pressed("reset_button")
+	var next_level = Input.is_action_pressed("jump")
 
 	if (is_in_group("gem_collect_level")):
 		level_complete = gem_collect_level_complete()
@@ -50,10 +53,19 @@ func _process(delta):
 	if (level_complete and end_door.player_here == true and level_end == false and enter_door):
 		level_end = true
 		level_stop()
+		
 
 	if (reset_button_hit):
 		lost = true
 		
+	if (level_end == true and next_level == true):
+		var type = level_info.type
+		var current_level = level_info.level
+		var nxt_level = current_level + 1
+
+		var level_scn = get_node("/root/level_data").generate_level_path(type, nxt_level)
+		get_tree().change_scene_to(level_scn)
+
 
 	if (level_end == false): 
 		current_time+= delta

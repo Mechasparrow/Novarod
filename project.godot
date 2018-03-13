@@ -18,6 +18,7 @@ config/icon="res://icon.png"
 
 playerinfo="*res://_Scripts/playerinfo.gd"
 weapons="*res://_Scripts/weapons.gd"
+level_data="*res://_Scripts/level_data.gd"
 
 [display]
 
