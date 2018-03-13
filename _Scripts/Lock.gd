@@ -10,6 +10,8 @@ onready var locked_img = get_node("Locked")
 onready var unlocked_img = get_node("Unlocked")
 
 
+var test_passed = false
+
 var gems_collected = false
 
 func _ready():
@@ -19,19 +21,32 @@ func _ready():
 
 func _process(delta):
 	
-	var collected_gems = player_info.gems
-	var gem_amnt = len(get_tree().get_nodes_in_group("gem"))
+	var world = get_tree().get_root().get_node("World")
 	
-	if (len(collected_gems) >= gem_amnt):
-		gems_collected = true
-	else:
-		gems_collected = false
+	if (world.is_in_group("gem_collect_level")):
+		test_passed = gems_collected()
+	elif (world.is_in_group("enemy_kill_level")):
+		test_passed = enemies_killed()
 		
-	if (gems_collected == true):
+	if (test_passed == true):
 		unlocked_img.show()
 		locked_img.hide()
-	elif (gems_collected == false):
+	elif (test_passed == false):
 		unlocked_img.hide()
 		locked_img.show()
 	
 	pass
+	
+func gems_collected():
+	var collected_gems = player_info.gems
+	var gem_amnt = len(get_tree().get_nodes_in_group("gem"))
+	return len(collected_gems) >= gem_amnt
+
+func enemies_killed():
+	var enemies_killed = false
+
+	var enemies = get_tree().get_nodes_in_group("enemy")
+
+	return len(enemies) <= 0
+
+

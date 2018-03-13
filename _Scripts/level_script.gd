@@ -7,6 +7,7 @@ extends Node
 onready var win_popup = get_node("HUD/Win_Pop_Up")
 onready var win_popup_time = get_node("HUD/Win_Pop_Up/Time_Stop")
 onready var end_door = get_node("Door")
+var level_complete = false
 
 var level_end = false
 var lost = false
@@ -28,26 +29,25 @@ func _process(delta):
 
 	var reset_button_hit = Input.is_action_pressed("reset_button")
 
-	var collected_gems = get_node("/root/playerinfo").gems
-	
-	
-	var gem_amnt = len(get_tree().get_nodes_in_group("gem"))
-	
-	var gems_collected = len(collected_gems) >= gem_amnt
+	if (is_in_group("gem_collect_level")):
+		level_complete = gem_collect_level_complete()
+	elif (is_in_group("enemy_kill_level")):
+		level_complete = kill_enemy_level_complete()
+
 	var enter_door = Input.is_action_pressed("interact")
 
 	if (current_health <= 0):
 		lost = true
 		
-	if (gems_collected):
+	if (level_complete):
 		end_door.unlock_door()
 		
-	if (gems_collected and end_door.player_here):
+	if (level_complete and end_door.player_here):
 		end_door.open_door()
 	else:
 		end_door.close_door()
 
-	if (gems_collected and end_door.player_here == true and level_end == false and enter_door):
+	if (level_complete and end_door.player_here == true and level_end == false and enter_door):
 		level_end = true
 		level_stop()
 
@@ -75,3 +75,18 @@ func level_stop():
 	
 	win_popup_time.text = "You ended at %.2f" % current_time 
 	
+func gem_collect_level_complete():
+	var collected_gems = get_node("/root/playerinfo").gems
+	
+	
+	var gem_amnt = len(get_tree().get_nodes_in_group("gem"))
+	
+	var gems_collected = len(collected_gems) >= gem_amnt
+	
+	return gems_collected
+	
+func kill_enemy_level_complete():
+	
+	var enemies = get_tree().get_nodes_in_group("enemy")
+	
+	return len(enemies) <= 0

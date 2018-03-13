@@ -4,7 +4,8 @@ extends Node
 # var a = 2
 # var b = "textvar"
 
-var level_select = preload("res://_Scenes/Level_Select.tscn")
+var level = 1
+var type = "green"
 
 func _ready():
 	# Called every time the node is added to the scene.
@@ -15,13 +16,3 @@ func _ready():
 #	# Called every frame. Delta is time since last frame.
 #	# Update game logic here.
 #	pass
-
-
-
-func exit_btn_press():
-		
-	get_tree().quit()
-
-func start_btn_press():
-	
-	get_tree().change_scene_to(level_select)
