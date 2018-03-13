@@ -125,7 +125,7 @@ func _process(delta):
 
 "
 
-[node name="World" type="Node" index="0" groups=[
+[node name="World" type="Node" groups=[
 "gem_collect_level",
 ]]
 

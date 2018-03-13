@@ -1,98 +1,29 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://_Scripts/level_script.gd" type="Script" id=1]
-[ext_resource path="res://_Tileset/normal_world.tres" type="TileSet" id=2]
-[ext_resource path="res://_Tileset/hazards.tres" type="TileSet" id=3]
-[ext_resource path="res://_Prefab/Door.tscn" type="PackedScene" id=4]
-[ext_resource path="res://_Scripts/CoinsHUD.gd" type="Script" id=5]
-[ext_resource path="res://_Fonts/imported_fonts/pixel_font.tres" type="DynamicFont" id=6]
-[ext_resource path="res://_Scripts/CoinsRHUD.gd" type="Script" id=7]
-[ext_resource path="res://_Scripts/PowerupHUD.gd" type="Script" id=8]
-[ext_resource path="res://_Scripts/Timer.gd" type="Script" id=9]
-[ext_resource path="res://_Scripts/Health.gd" type="Script" id=10]
-[ext_resource path="res://_Assets/Art/Health_Bar.png" type="Texture" id=11]
-[ext_resource path="res://_Scripts/XP.gd" type="Script" id=12]
-[ext_resource path="res://_Assets/Art/XP_Bar.png" type="Texture" id=13]
-[ext_resource path="res://_Fonts/Roboto-Regular.ttf" type="DynamicFontData" id=14]
-[ext_resource path="res://_Fonts/Munro.ttf" type="DynamicFontData" id=15]
-[ext_resource path="res://_Scripts/Inventory.gd" type="Script" id=16]
-[ext_resource path="res://_Assets/Art/Inventory_Square.png" type="Texture" id=17]
-[ext_resource path="res://_Scripts/Lock.gd" type="Script" id=18]
-[ext_resource path="res://_Assets/Art/Spritesheets/Door/lock_1.png" type="Texture" id=19]
-[ext_resource path="res://_Assets/Art/Spritesheets/Door/lock_0.png" type="Texture" id=20]
-[ext_resource path="res://_Prefab/Players/Player.tscn" type="PackedScene" id=21]
+[ext_resource path="res://_Scripts/level_info.gd" type="Script" id=2]
+[ext_resource path="res://_Tileset/normal_world.tres" type="TileSet" id=3]
+[ext_resource path="res://_Tileset/hazards.tres" type="TileSet" id=4]
+[ext_resource path="res://_Prefab/Door.tscn" type="PackedScene" id=5]
+[ext_resource path="res://_Prefab/Players/Player.tscn" type="PackedScene" id=6]
+[ext_resource path="res://_Prefab/HUD.tscn" type="PackedScene" id=7]
 
-[sub_resource type="DynamicFont" id=1]
-
-size = 14
-use_mipmaps = false
-use_filter = false
-font_data = ExtResource( 15 )
-fallback/0 = ExtResource( 14 )
-_sections_unfolded = [ "Font/fallback", "Settings" ]
-
-[sub_resource type="DynamicFont" id=2]
-
-size = 128
-use_mipmaps = false
-use_filter = false
-font_data = ExtResource( 15 )
-fallback/0 = ExtResource( 14 )
-_sections_unfolded = [ "Font/fallback", "Settings" ]
-
-[sub_resource type="DynamicFont" id=3]
-
-size = 32
-use_mipmaps = false
-use_filter = false
-font_data = ExtResource( 15 )
-fallback/0 = ExtResource( 14 )
-_sections_unfolded = [ "Font/fallback", "Settings" ]
-
-[sub_resource type="DynamicFont" id=4]
-
-size = 24
-use_mipmaps = false
-use_filter = false
-font_data = ExtResource( 15 )
-fallback/0 = ExtResource( 14 )
-_sections_unfolded = [ "Font/fallback", "Settings" ]
-
-[node name="World" type="Node" index="0"]
+[node name="World" type="Node" index="0" groups=[
+"gem_collect_level",
+]]
 
 script = ExtResource( 1 )
 reset_position = Vector2( 100, 400 )
 
-[node name="Chests" type="Node2D" parent="." index="0"]
+[node name="level_info" type="Node2D" parent="." index="0"]
 
-[node name="Tiles" type="Node2D" parent="." index="1"]
+script = ExtResource( 2 )
+
+[node name="Chests" type="Node2D" parent="." index="1"]
+
+[node name="Tiles" type="Node2D" parent="." index="2"]
 
 [node name="Ground" type="TileMap" parent="Tiles" index="0"]
-
-scale = Vector2( 4, 4 )
-mode = 0
-tile_set = ExtResource( 2 )
-cell_size = Vector2( 16, 16 )
-cell_quadrant_size = 16
-cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-cell_half_offset = 2
-cell_tile_origin = 0
-cell_y_sort = false
-cell_clip_uv = false
-collision_use_kinematic = false
-collision_friction = 1.0
-collision_bounce = 0.0
-collision_layer = 3
-collision_mask = 1
-occluder_light_mask = 1
-format = 1
-tile_data = PoolIntArray( 458752, 0, 0, 458753, 0, 0, 458754, 0, 0, 458755, 0, 0, 458756, 0, 0, 458757, 0, 0, 458758, 0, 0, 458759, 0, 0, 458760, 0, 0, 458761, 0, 0, 458762, 0, 0, 458763, 0, 0, 524288, 1, 0, 524289, 1, 0, 524290, 1, 0, 524291, 1, 0, 524292, 1, 0, 524293, 1, 0, 524294, 1, 0, 524295, 1, 0, 524296, 1, 0, 524297, 1, 0, 524298, 1, 0, 524299, 1, 0, 589824, 1, 0, 589825, 1, 0, 589826, 1, 0, 589827, 1, 0, 589828, 1, 0, 589829, 1, 0, 589830, 1, 0, 589831, 1, 0, 589832, 1, 0, 589833, 1, 0, 589834, 1, 0, 589835, 1, 0, 655360, 2, 0, 655361, 2, 0, 655362, 2, 0, 655363, 2, 0, 655364, 2, 0, 655365, 2, 0, 655366, 2, 0, 655367, 2, 0, 655368, 2, 0, 655369, 2, 0, 655370, 2, 0, 655371, 2, 0, 720896, 2, 0, 720897, 2, 0, 720898, 2, 0, 720899, 2, 0, 720900, 2, 0, 720901, 2, 0, 720902, 2, 0, 720903, 2, 0, 720904, 2, 0, 720905, 2, 0, 720906, 2, 0, 720907, 2, 0, 720908, 3, 0, 720909, 3, 0, 720910, 3, 0, 720911, 3, 0, 720912, 3, 0, 720913, 3, 0, 720914, 3, 0, 720915, 3, 0, 786432, 2, 0, 786433, 2, 0, 786434, 2, 0, 786435, 2, 0, 786436, 2, 0, 786437, 2, 0, 786438, 2, 0, 786439, 2, 0, 786440, 2, 0, 786441, 2, 0, 786442, 2, 0, 786443, 2, 0, 786444, 2, 0, 786445, 2, 0, 786446, 2, 0, 786447, 2, 0, 786448, 2, 0, 786449, 2, 0, 786450, 2, 0, 786451, 2, 0, 851968, 2, 0, 851969, 2, 0, 851970, 2, 0, 851971, 2, 0, 851972, 2, 0, 851973, 2, 0, 851974, 2, 0, 851975, 2, 0, 851976, 2, 0, 851977, 2, 0, 851978, 2, 0, 851979, 2, 0, 851980, 2, 0, 851981, 2, 0, 851982, 2, 0, 851983, 2, 0, 851984, 2, 0, 851985, 2, 0, 851986, 2, 0, 851987, 2, 0 )
-_sections_unfolded = [ "Cell", "Collision", "Transform" ]
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Hazard" type="TileMap" parent="Tiles" index="1"]
 
 scale = Vector2( 4, 4 )
 mode = 0
@@ -107,11 +38,36 @@ cell_clip_uv = false
 collision_use_kinematic = false
 collision_friction = 1.0
 collision_bounce = 0.0
+collision_layer = 3
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray(  )
+_sections_unfolded = [ "Cell", "Collision", "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Hazard" type="TileMap" parent="Tiles" index="1"]
+
+scale = Vector2( 4, 4 )
+mode = 0
+tile_set = ExtResource( 4 )
+cell_size = Vector2( 16, 16 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
 collision_layer = 1
 collision_mask = 1
 occluder_light_mask = 1
 format = 1
-tile_data = PoolIntArray( 65528, 0, 0, 65529, 0, 0, 131064, 0, 0, 131065, 0, 0, 196600, 0, 0, 196601, 0, 0, 262136, 0, 0, 262137, 0, 0, 327672, 0, 0, 327673, 0, 0, 393208, 0, 0, 393209, 0, 0, 458744, 0, 0, 458745, 0, 0, 524280, 0, 0, 524281, 0, 0, 458758, 2, 0, 458759, 2, 0, 589816, 0, 0, 589817, 0, 0, 655352, 0, 0, 655353, 0, 0, 720888, 0, 0, 720889, 0, 0, 786424, 0, 0, 786425, 0, 0, 851960, 0, 0, 851961, 0, 0, 786454, 2, 0, 786455, 2, 0, 786456, 2, 0, 786457, 2, 0, 917496, 0, 0, 917497, 0, 0, 917498, 0, 0, 917499, 2, 0, 851990, 2, 0, 851991, 2, 0, 851992, 2, 0, 851993, 2, 0, 983032, 2, 0, 983033, 0, 0, 983034, 0, 0, 983035, 0, 0, 983036, 0, 0, 983037, 0, 0, 983038, 0, 0, 983039, 0, 0, 917526, 2, 0, 917527, 2, 0, 917528, 2, 0, 917529, 2, 0, 1048568, 2, 0, 1048569, 0, 0, 1048570, 0, 0, 1048571, 0, 0, 1048572, 0, 0, 1048573, 0, 0, 1048574, 0, 0, 1048575, 0, 0 )
+tile_data = PoolIntArray( 458758, 2, 0, 458759, 2, 0, 786454, 2, 0, 786455, 2, 0, 786456, 2, 0, 786457, 2, 0, 917499, 2, 0, 851990, 2, 0, 851991, 2, 0, 851992, 2, 0, 851993, 2, 0, 917526, 2, 0, 917527, 2, 0, 917528, 2, 0, 917529, 2, 0, 1048568, 2, 0 )
 _sections_unfolded = [ "Cell", "Collision", "Transform" ]
 __meta__ = {
 "_edit_lock_": true
@@ -127,462 +83,37 @@ _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
 [node name="Ice" type="Node2D" parent="Tiles" index="4"]
 
-[node name="Gems" type="Node2D" parent="." index="2"]
+[node name="Gems" type="Node2D" parent="." index="3"]
 
-[node name="Coins" type="Node2D" parent="." index="3"]
+[node name="Coins" type="Node2D" parent="." index="4"]
 
-[node name="Coins_R" type="Node2D" parent="." index="4"]
+[node name="Coins_R" type="Node2D" parent="." index="5"]
 
-[node name="Signs" type="Node2D" parent="." index="5"]
+[node name="Signs" type="Node2D" parent="." index="6"]
 
 position = Vector2( 97.7842, 416.212 )
 
-[node name="Platforms" type="Node2D" parent="." index="6"]
+[node name="Platforms" type="Node2D" parent="." index="7"]
 
-[node name="Pickups" type="Node2D" parent="." index="7"]
+[node name="Pickups" type="Node2D" parent="." index="8"]
 
 scale = Vector2( 6.5625, 6.5625 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Door" parent="." index="8" instance=ExtResource( 4 )]
+[node name="Door" parent="." index="9" instance=ExtResource( 5 )]
 
-[node name="Enemies" type="Node2D" parent="." index="9"]
+[node name="Enemies" type="Node2D" parent="." index="10"]
 
 position = Vector2( 318.166, 383.563 )
 
-[node name="Enemy_Markers" type="Node2D" parent="." index="10"]
+[node name="Enemy_Markers" type="Node2D" parent="." index="11"]
 
 position = Vector2( 272, 64 )
 
-[node name="HUD" type="CanvasLayer" parent="." index="11"]
-
-editor/display_folded = true
-layer = 1
-offset = Vector2( 0, 0 )
-rotation = 0.0
-scale = Vector2( 1, 1 )
-transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-
-[node name="Background" type="Panel" parent="HUD" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 1024.0
-margin_bottom = 86.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-
-[node name="Coins" type="Node2D" parent="HUD" index="1"]
-
-editor/display_folded = true
-script = ExtResource( 5 )
-
-[node name="Label" type="Label" parent="HUD/Coins" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 880.0
-margin_right = 1096.0
-margin_bottom = 95.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-custom_fonts/font = ExtResource( 6 )
-text = "Coins:"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Rect", "custom_fonts" ]
-
-[node name="Coins_R" type="Node2D" parent="HUD" index="2"]
-
-editor/display_folded = true
-position = Vector2( 0, 25.0581 )
-script = ExtResource( 7 )
-
-[node name="Label" type="Label" parent="HUD/Coins_R" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 913.0
-margin_top = 6.0
-margin_right = 1001.0
-margin_bottom = 127.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-custom_fonts/font = ExtResource( 6 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-text = "R:"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
-
-[node name="Powerup" type="Node2D" parent="HUD" index="3"]
-
-editor/display_folded = true
-position = Vector2( 586.236, 13.3615 )
-script = ExtResource( 8 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="Label" type="Label" parent="HUD/Powerup" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 30.0
-margin_top = 31.0
-margin_right = 520.0
-margin_bottom = 152.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-custom_fonts/font = ExtResource( 6 )
-text = "Powerup:"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Rect", "custom_fonts" ]
-
-[node name="Timer" type="Node2D" parent="HUD" index="4"]
-
-editor/display_folded = true
-script = ExtResource( 9 )
-
-[node name="Label" type="Label" parent="HUD/Timer" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 359.0
-margin_top = 4.0
-margin_right = 425.0
-margin_bottom = 35.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-custom_fonts/font = ExtResource( 6 )
-text = "Time:"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Rect", "custom_fonts" ]
-
-[node name="Health" type="Node2D" parent="HUD" index="5"]
-
-editor/display_folded = true
-position = Vector2( 25.4641, 12.4908 )
-scale = Vector2( 2, 2 )
-script = ExtResource( 10 )
-_sections_unfolded = [ "Transform", "Visibility" ]
-
-[node name="TextureProgress" type="TextureProgress" parent="HUD/Health" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = -5.0
-margin_top = 2.0
-margin_right = 95.0
-margin_bottom = 12.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-min_value = 0.0
-max_value = 100.0
-step = 1.0
-page = 0.0
-value = 100.0
-exp_edit = false
-rounded = false
-texture_under = null
-texture_over = null
-texture_progress = ExtResource( 11 )
-radial_fill_degrees = 360.0
-radial_center_offset = Vector2( 0, 0 )
-nine_patch_stretch = true
-stretch_margin_left = 1
-stretch_margin_right = 1
-_sections_unfolded = [ "Rect", "Textures", "Theme", "Visibility" ]
-
-[node name="XP" type="Node2D" parent="HUD" index="6"]
-
-editor/display_folded = true
-position = Vector2( 25.4641, 12.4908 )
-scale = Vector2( 2, 2 )
-script = ExtResource( 12 )
-_sections_unfolded = [ "Transform", "Visibility" ]
-
-[node name="TextureProgress" type="TextureProgress" parent="HUD/XP" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = -5.0
-margin_top = 18.0
-margin_right = 95.0
-margin_bottom = 28.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-min_value = 0.0
-max_value = 100.0
-step = 1.0
-page = 0.0
-value = 100.0
-exp_edit = false
-rounded = false
-texture_under = null
-texture_over = null
-texture_progress = ExtResource( 13 )
-radial_fill_degrees = 360.0
-radial_center_offset = Vector2( 0, 0 )
-nine_patch_stretch = true
-stretch_margin_left = 1
-stretch_margin_right = 1
-_sections_unfolded = [ "Rect", "Textures", "Theme", "Visibility" ]
-
-[node name="Level" type="Label" parent="HUD/XP" index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 99.0
-margin_top = 19.0
-margin_right = 122.0
-margin_bottom = 35.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-custom_fonts/font = SubResource( 1 )
-text = "0"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Rect", "custom_fonts" ]
-
-[node name="Win_Pop_Up" type="PopupPanel" parent="HUD" index="7"]
-
-editor/display_folded = true
-visible = false
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 1021.0
-margin_bottom = 601.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-popup_exclusive = false
-_sections_unfolded = [ "Rect", "Visibility" ]
-
-[node name="Win Text" type="Label" parent="HUD/Win_Pop_Up" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 316.0
-margin_top = 229.0
-margin_right = 718.0
-margin_bottom = 350.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-custom_fonts/font = SubResource( 2 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-text = "You Win"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Rect", "Visibility", "custom_colors", "custom_fonts" ]
-
-[node name="Time_Stop" type="Label" parent="HUD/Win_Pop_Up" index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 403.0
-margin_top = 339.0
-margin_right = 647.0
-margin_bottom = 370.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-custom_fonts/font = SubResource( 3 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-text = "You ended at ___"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
-
-[node name="restart" type="Label" parent="HUD/Win_Pop_Up" index="2"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 424.0
-margin_top = 496.0
-margin_right = 667.0
-margin_bottom = 527.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-custom_fonts/font = SubResource( 4 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-text = "Press R to Restart"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Hint", "Rect", "custom_colors", "custom_fonts" ]
-
-[node name="Inventory" type="Node2D" parent="HUD" index="8"]
-
-position = Vector2( 272, 64 )
-script = ExtResource( 16 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="TextureRect" type="TextureRect" parent="HUD/Inventory" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = -7.0
-margin_top = -40.0
-margin_right = 9.0
-margin_bottom = -24.0
-rect_scale = Vector2( 3, 3 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-texture = ExtResource( 17 )
-stretch_mode = 0
-_sections_unfolded = [ "Rect" ]
-
-[node name="WeaponItem" type="TextureRect" parent="HUD/Inventory" index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = -1.0
-margin_top = -34.0
-margin_right = 15.0
-margin_bottom = -18.0
-rect_scale = Vector2( 2.3, 2.3 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-stretch_mode = 0
-
-[node name="Lock" type="Node2D" parent="HUD" index="9"]
-
-position = Vector2( 368, 32 )
-script = ExtResource( 18 )
-
-[node name="Locked" type="TextureRect" parent="HUD/Lock" index="0"]
-
-visible = false
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 40.0
-margin_bottom = 40.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-texture = ExtResource( 19 )
-stretch_mode = 5
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Unlocked" type="TextureRect" parent="HUD/Lock" index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 40.0
-margin_bottom = 40.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-texture = ExtResource( 20 )
-stretch_mode = 5
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Player" parent="." index="12" instance=ExtResource( 21 )]
+[node name="Player" parent="." index="12" instance=ExtResource( 6 )]
 
 position = Vector2( 192, 288 )
+
+[node name="HUD" parent="." index="13" instance=ExtResource( 7 )]
 
 
