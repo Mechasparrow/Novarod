@@ -8,7 +8,7 @@
 [ext_resource path="res://_Assets/Art/Health_Bar.png" type="Texture" id=6]
 [ext_resource path="res://_Fonts/imported_fonts/pixel_font.tres" type="DynamicFont" id=7]
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=1]
 
 size = 18
 use_mipmaps = false
@@ -17,29 +17,7 @@ font_data = ExtResource( 5 )
 fallback/0 = ExtResource( 4 )
 _sections_unfolded = [ "Font/fallback", "Settings" ]
 
-[sub_resource type="GDScript" id=6]
-
-script/source = "extends Node
-
-# class member variables go here, for example:
-# var a = 2
-# var b = \"textvar\"
-
-var level = 1
-var type = \"red\"
-
-func _ready():
-	# Called every time the node is added to the scene.
-	# Initialization here
-	pass
-
-#func _process(delta):
-#	# Called every frame. Delta is time since last frame.
-#	# Update game logic here.
-#	pass
-"
-
-[sub_resource type="GDScript" id=4]
+[sub_resource type="GDScript" id=2]
 
 script/source = "extends Node
 
@@ -69,6 +47,28 @@ script/source = "extends Node
 # var a = 2
 # var b = \"textvar\"
 
+var level = 1
+var type = \"red\"
+
+func _ready():
+	# Called every time the node is added to the scene.
+	# Initialization here
+	pass
+
+#func _process(delta):
+#	# Called every frame. Delta is time since last frame.
+#	# Update game logic here.
+#	pass
+"
+
+[sub_resource type="GDScript" id=4]
+
+script/source = "extends Node
+
+# class member variables go here, for example:
+# var a = 2
+# var b = \"textvar\"
+
 var level = 0
 var type = \"sandbox\"
 
@@ -83,7 +83,7 @@ func _ready():
 #	pass
 "
 
-[node name="Node" type="Node" index="0"]
+[node name="Node" type="Node"]
 
 script = ExtResource( 1 )
 
@@ -150,14 +150,72 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 1 )
 text = "Level_01"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_fonts" ]
 
-[node name="Fire_Lands" type="Node2D" parent="." index="2"]
+[node name="Green_lands_Btn2" type="Node2D" parent="." index="2"]
+
+position = Vector2( 192, 32 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="TextureButton" type="TextureButton" parent="Green_lands_Btn2" index="0" groups=[
+"select_button",
+]]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 100.0
+margin_bottom = 100.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 2 )
+expand = true
+stretch_mode = 4
+script = SubResource( 2 )
+_sections_unfolded = [ "Hint", "Rect" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Label" type="Label" parent="Green_lands_Btn2" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 16.0
+margin_top = 32.0
+margin_right = 88.0
+margin_bottom = 63.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 1 )
+text = "Level_02"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Hint", "Rect", "custom_fonts" ]
+
+[node name="Fire_Lands" type="Node2D" parent="." index="3"]
 
 position = Vector2( 0, 144 )
 
@@ -187,7 +245,7 @@ group = null
 texture_normal = ExtResource( 6 )
 expand = true
 stretch_mode = 4
-script = SubResource( 6 )
+script = SubResource( 3 )
 _sections_unfolded = [ "Hint", "Textures" ]
 
 [node name="Label" type="Label" parent="Fire_Lands" index="1"]
@@ -206,70 +264,12 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 1 )
 text = "Level_01"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_fonts" ]
-
-[node name="Green_lands_Btn2" type="Node2D" parent="." index="3"]
-
-position = Vector2( 192, 32 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="TextureButton" type="TextureButton" parent="Green_lands_Btn2" index="0" groups=[
-"select_button",
-]]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 100.0
-margin_bottom = 100.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
-texture_normal = ExtResource( 2 )
-expand = true
-stretch_mode = 4
-script = SubResource( 4 )
-_sections_unfolded = [ "Hint", "Rect" ]
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Label" type="Label" parent="Green_lands_Btn2" index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 16.0
-margin_top = 32.0
-margin_right = 88.0
-margin_bottom = 63.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-custom_fonts/font = SubResource( 5 )
-text = "Level_02"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Hint", "Rect", "custom_fonts" ]
 
 [node name="Button" type="Button" parent="." index="4" groups=[
 "select_button",
@@ -298,7 +298,7 @@ group = null
 text = "Sandbox"
 flat = false
 align = 1
-script = SubResource( 3 )
+script = SubResource( 4 )
 _sections_unfolded = [ "custom_fonts" ]
 
 

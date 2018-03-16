@@ -27,6 +27,8 @@ func _process(delta):
 		test_passed = gems_collected()
 	elif (world.is_in_group("enemy_kill_level")):
 		test_passed = enemies_killed()
+	elif (world.is_in_group("coin_collect_level")):
+		test_passed = coins_collected()
 		
 	if (test_passed == true):
 		unlocked_img.show()
@@ -49,4 +51,8 @@ func enemies_killed():
 
 	return len(enemies) <= 0
 
+func coins_collected():
+
+	var coins = get_tree().get_nodes_in_group("reg_coin")
+	return len(coins) <= 0
 

@@ -22,7 +22,7 @@ func _physics_process(delta):
 	for body in bodies:
 		if body.name == "Player" and collected == false:
 			player_info.coins += 1
-			hide()
+			queue_free()
 			collected = true
 
 #func _process(delta):

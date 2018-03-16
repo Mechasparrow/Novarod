@@ -27,7 +27,7 @@ script/source = "extends Node2D
 # var b = \"textvar\"
 
 var type = \"green\"
-var level = 2
+var level = 3
 
 func _ready():
 	# Called every time the node is added to the scene.
@@ -137,6 +137,7 @@ margin_top = 470.0
 margin_right = 976.0
 margin_bottom = 544.0
 rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
@@ -318,6 +319,7 @@ margin_top = 470.0
 margin_right = 967.0
 margin_bottom = 579.0
 rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1

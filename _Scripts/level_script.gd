@@ -36,6 +36,8 @@ func _process(delta):
 		level_complete = gem_collect_level_complete()
 	elif (is_in_group("enemy_kill_level")):
 		level_complete = kill_enemy_level_complete()
+	elif (is_in_group("coin_collect_level")):
+		level_complete = collect_coins_complete()	
 
 	var enter_door = Input.is_action_pressed("interact")
 
@@ -102,3 +104,8 @@ func kill_enemy_level_complete():
 	var enemies = get_tree().get_nodes_in_group("enemy")
 	
 	return len(enemies) <= 0
+	
+func collect_coins_complete():
+	var coins = get_tree().get_nodes_in_group("reg_coin")
+	
+	return len(coins) <= 0

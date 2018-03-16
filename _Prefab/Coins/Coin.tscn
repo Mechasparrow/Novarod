@@ -21,7 +21,9 @@ animations = [ {
 custom_solver_bias = 0.0
 extents = Vector2( 15.2657, 12.8192 )
 
-[node name="Coin" type="Area2D" index="0"]
+[node name="Coin" type="Area2D" groups=[
+"reg_coin",
+]]
 
 position = Vector2( 338, 347 )
 input_pickable = true
