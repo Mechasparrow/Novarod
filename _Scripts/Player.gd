@@ -252,11 +252,11 @@ func _physics_process(delta):
 
 	## Wall jump notifier code
 	if (dir == "left"):
-		climb_sprite.position.x = 4
-		climb_sprite.flip_h = false
-	elif (dir == "right"):
-		climb_sprite.position.x = -4
+		#climb_sprite.position.x = 4
 		climb_sprite.flip_h = true
+	elif (dir == "right"):
+		#climb_sprite.position.x = -4
+		climb_sprite.flip_h = false
 
 	if jumping and velocity.y > 0:
 		# If falling, no longer jumping

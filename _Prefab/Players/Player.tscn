@@ -7,7 +7,7 @@
 [ext_resource path="res://_Assets/Art/Spritesheets/Rod/rod1.png" type="Texture" id=5]
 [ext_resource path="res://_Assets/Art/Spritesheets/Rod/rod2.png" type="Texture" id=6]
 [ext_resource path="res://_Assets/Art/Spritesheets/Rod/rod3.png" type="Texture" id=7]
-[ext_resource path="res://_Assets/Art/Spritesheets/Rod/rod_climb.png" type="Texture" id=8]
+[ext_resource path="res://_Assets/Art/Spritesheets/Scarfs/scarf_colors_2.png" type="Texture" id=8]
 
 [sub_resource type="Animation" id=1]
 
@@ -249,11 +249,10 @@ animations = [ {
 } ]
 _sections_unfolded = [ "Resource" ]
 
-[node name="Player" type="KinematicBody2D" groups=[
+[node name="Player" type="KinematicBody2D" index="0" groups=[
 "player",
 ]]
 
-editor/display_folded = true
 position = Vector2( 212.022, 368.578 )
 scale = Vector2( 6.5625, 6.5625 )
 input_pickable = false
@@ -286,6 +285,7 @@ __meta__ = {
 
 [node name="Hitbox" type="Area2D" parent="." index="2"]
 
+editor/display_folded = true
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -349,8 +349,7 @@ _sections_unfolded = [ "Transform" ]
 [node name="ClimbSprite" type="Sprite" parent="." index="6"]
 
 visible = false
-position = Vector2( -4, 1.5 )
-scale = Vector2( 0.25334, 0.25 )
+position = Vector2( 0, -1.4 )
 texture = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 

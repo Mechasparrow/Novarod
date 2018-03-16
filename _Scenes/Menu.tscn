@@ -22,7 +22,7 @@ font_data = ExtResource( 3 )
 fallback/0 = ExtResource( 2 )
 _sections_unfolded = [ "Font/fallback", "Settings" ]
 
-[node name="Node" type="Node" index="0"]
+[node name="Node" type="Node"]
 
 script = ExtResource( 1 )
 
@@ -37,7 +37,6 @@ margin_top = 161.0
 margin_right = 909.0
 margin_bottom = 198.0
 rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
 focus_mode = 2
 mouse_filter = 0
 mouse_default_cursor_shape = 0
@@ -64,7 +63,6 @@ margin_top = 289.0
 margin_right = 911.0
 margin_bottom = 326.0
 rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
 focus_mode = 2
 mouse_filter = 0
 mouse_default_cursor_shape = 0
