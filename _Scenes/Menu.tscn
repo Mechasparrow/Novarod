@@ -22,7 +22,7 @@ font_data = ExtResource( 3 )
 fallback/0 = ExtResource( 2 )
 _sections_unfolded = [ "Font/fallback", "Settings" ]
 
-[node name="Node" type="Node"]
+[node name="Node" type="Node" index="0"]
 
 script = ExtResource( 1 )
 
