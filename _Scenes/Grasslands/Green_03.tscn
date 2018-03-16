@@ -68,7 +68,7 @@ font_data = ExtResource( 14 )
 fallback/0 = ExtResource( 13 )
 _sections_unfolded = [ "Font/fallback", "Settings" ]
 
-[node name="World" type="Node" index="0" groups=[
+[node name="World" type="Node" groups=[
 "coin_collect_level",
 ]]
 
