@@ -38,6 +38,8 @@ func _process(delta):
 		level_complete = kill_enemy_level_complete()
 	elif (is_in_group("coin_collect_level")):
 		level_complete = collect_coins_complete()	
+	else:
+		level_complete = true
 
 	var enter_door = Input.is_action_pressed("interact")
 

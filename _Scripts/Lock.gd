@@ -29,6 +29,9 @@ func _process(delta):
 		test_passed = enemies_killed()
 	elif (world.is_in_group("coin_collect_level")):
 		test_passed = coins_collected()
+	else:
+		test_passed = true
+	
 		
 	if (test_passed == true):
 		unlocked_img.show()
