@@ -68,7 +68,7 @@ font_data = ExtResource( 14 )
 fallback/0 = ExtResource( 13 )
 _sections_unfolded = [ "Font/fallback", "Settings" ]
 
-[node name="World" type="Node" index="0" groups=[
+[node name="World" type="Node" groups=[
 "gem_collect_level",
 ]]
 
@@ -100,6 +100,7 @@ script = ExtResource( 2 )
 scale = Vector2( 4, 4 )
 frames = SubResource( 2 )
 animation = "default"
+frame = 1
 playing = true
 flip_h = true
 _sections_unfolded = [ "Transform" ]
@@ -136,6 +137,7 @@ margin_top = 470.0
 margin_right = 976.0
 margin_bottom = 544.0
 rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
@@ -315,6 +317,7 @@ margin_top = 470.0
 margin_right = 967.0
 margin_bottom = 579.0
 rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1

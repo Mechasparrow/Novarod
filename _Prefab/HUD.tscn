@@ -53,7 +53,7 @@ font_data = ExtResource( 11 )
 fallback/0 = ExtResource( 10 )
 _sections_unfolded = [ "Font/fallback", "Settings" ]
 
-[node name="HUD" type="CanvasLayer" index="0"]
+[node name="HUD" type="CanvasLayer"]
 
 layer = 1
 offset = Vector2( 0, 0 )
