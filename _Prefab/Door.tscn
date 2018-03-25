@@ -38,7 +38,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[node name="Door" type="Area2D" index="0"]
+[node name="Door" type="Area2D"]
 
 position = Vector2( 318.166, 383.563 )
 input_pickable = true
@@ -83,7 +83,6 @@ position = Vector2( -14.166, -63.563 )
 scale = Vector2( 3, 3 )
 frames = SubResource( 3 )
 animation = "default"
-frame = 1
 playing = true
 _sections_unfolded = [ "Transform" ]
 
