@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://_Scripts/level_script.gd" type="Script" id=1]
 [ext_resource path="res://_Prefab/Powerup_Chests/chest_speed.tscn" type="PackedScene" id=2]
@@ -29,12 +29,15 @@
 [ext_resource path="res://_Prefab/Door.tscn" type="PackedScene" id=27]
 [ext_resource path="res://_Prefab/Enemies/Enemy_01.tscn" type="PackedScene" id=28]
 [ext_resource path="res://_Prefab/Enemies/Enemy_02.tscn" type="PackedScene" id=29]
-[ext_resource path="res://_Prefab/Enemies/enemy_ai_marker.tscn" type="PackedScene" id=30]
-[ext_resource path="res://_Prefab/NPC/Birdo-NPC.tscn" type="PackedScene" id=31]
-[ext_resource path="res://_Prefab/Players/Player.tscn" type="PackedScene" id=32]
-[ext_resource path="res://_Prefab/HUD.tscn" type="PackedScene" id=33]
+[ext_resource path="res://_Scripts/TelePair.gd" type="Script" id=30]
+[ext_resource path="res://_Assets/Art/Spritesheets/Teleporter/teleporter1.png" type="Texture" id=31]
+[ext_resource path="res://_Assets/Art/Spritesheets/Teleporter/teleporter0.png" type="Texture" id=32]
+[ext_resource path="res://_Prefab/Enemies/enemy_ai_marker.tscn" type="PackedScene" id=33]
+[ext_resource path="res://_Prefab/NPC/Birdo-NPC.tscn" type="PackedScene" id=34]
+[ext_resource path="res://_Prefab/Players/Player.tscn" type="PackedScene" id=35]
+[ext_resource path="res://_Prefab/HUD.tscn" type="PackedScene" id=36]
 
-[sub_resource type="GDScript" id=4]
+[sub_resource type="GDScript" id=1]
 
 script/source = "extends Node2D
 
@@ -56,12 +59,12 @@ func _ready():
 #	pass
 "
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=2]
 
 custom_solver_bias = 0.0
 extents = Vector2( 27.2451, 19.5441 )
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=3]
 
 size = 48
 use_mipmaps = false
@@ -70,7 +73,7 @@ font_data = ExtResource( 22 )
 fallback/0 = ExtResource( 21 )
 _sections_unfolded = [ "Font/fallback", "Settings" ]
 
-[sub_resource type="GDScript" id=3]
+[sub_resource type="GDScript" id=4]
 
 script/source = "extends Area2D
 
@@ -125,7 +128,12 @@ func _process(delta):
 
 "
 
-[node name="World" type="Node" groups=[
+[sub_resource type="RectangleShape2D" id=5]
+
+custom_solver_bias = 0.0
+extents = Vector2( 6, 7 )
+
+[node name="World" type="Node" index="0" groups=[
 "gem_collect_level",
 ]]
 
@@ -134,7 +142,7 @@ reset_position = Vector2( 100, 400 )
 
 [node name="level_info" type="Node2D" parent="." index="0"]
 
-script = SubResource( 4 )
+script = SubResource( 1 )
 
 [node name="Chests" type="Node2D" parent="." index="1"]
 
@@ -155,6 +163,8 @@ position = Vector2( 968.993, 343.63 )
 position = Vector2( 622.386, 473.184 )
 
 [node name="Tiles" type="Node2D" parent="." index="2"]
+
+editor/display_folded = true
 
 [node name="Ground" type="TileMap" parent="Tiles" index="0"]
 
@@ -555,6 +565,8 @@ __meta__ = {
 
 [node name="Trees" type="Node2D" parent="Tiles" index="3"]
 
+editor/display_folded = true
+
 [node name="Sprite" parent="Tiles/Trees" index="0" instance=ExtResource( 8 )]
 
 [node name="Sprite2" parent="Tiles/Trees" index="1" instance=ExtResource( 9 )]
@@ -688,7 +700,7 @@ _sections_unfolded = [ "Transform" ]
 
 position = Vector2( 0.713486, -12.4823 )
 scale = Vector2( 1, 0.942137 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Signs/Sign2" index="2"]
 
@@ -733,7 +745,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_fonts/normal_font = SubResource( 2 )
+custom_fonts/normal_font = SubResource( 3 )
 bbcode_enabled = false
 bbcode_text = ""
 visible_characters = -1
@@ -772,7 +784,7 @@ _sections_unfolded = [ "Transform" ]
 
 position = Vector2( -14.6286, 73.1429 )
 scale = Vector2( 0.1, 0.1 )
-script = SubResource( 3 )
+script = SubResource( 4 )
 
 [node name="Door" parent="." index="9" instance=ExtResource( 27 )]
 
@@ -789,28 +801,75 @@ position = Vector2( 450.688, 456.845 )
 
 position = Vector2( 401.834, 0.437012 )
 
-[node name="Enemy_Markers" type="Node2D" parent="." index="11"]
+[node name="Teleporters" type="Node2D" parent="." index="11"]
+
+[node name="TelePair" type="Node2D" parent="Teleporters" index="0"]
+
+position = Vector2( 0, 148 )
+scale = Vector2( 4, 4 )
+script = ExtResource( 30 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="TeleporterOne" type="Area2D" parent="Teleporters/TelePair" index="0"]
+
+position = Vector2( 332, 211 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="Sprite" type="Sprite" parent="Teleporters/TelePair/TeleporterOne" index="0"]
+
+texture = ExtResource( 31 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Teleporters/TelePair/TeleporterOne" index="1"]
+
+shape = SubResource( 5 )
+
+[node name="TeleporterTwo" type="Area2D" parent="Teleporters/TelePair" index="1"]
+
+position = Vector2( 780, 115 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="Sprite2" type="Sprite" parent="Teleporters/TelePair/TeleporterTwo" index="0"]
+
+texture = ExtResource( 32 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Teleporters/TelePair/TeleporterTwo" index="1"]
+
+shape = SubResource( 5 )
+
+[node name="Enemy_Markers" type="Node2D" parent="." index="12"]
 
 editor/display_folded = true
 position = Vector2( 272, 64 )
 
-[node name="enemy_ai_marker2" parent="Enemy_Markers" index="0" instance=ExtResource( 30 )]
+[node name="enemy_ai_marker2" parent="Enemy_Markers" index="0" instance=ExtResource( 33 )]
 
 position = Vector2( 267.135, -57.0512 )
 
-[node name="enemy_ai_marker3" parent="Enemy_Markers" index="1" instance=ExtResource( 30 )]
+[node name="enemy_ai_marker3" parent="Enemy_Markers" index="1" instance=ExtResource( 33 )]
 
 position = Vector2( 64, -512 )
 
-[node name="enemy_ai_marker4" parent="Enemy_Markers" index="2" instance=ExtResource( 30 )]
+[node name="enemy_ai_marker4" parent="Enemy_Markers" index="2" instance=ExtResource( 33 )]
 
 position = Vector2( -1168, -528 )
 
-[node name="Birdo-NPC" parent="." index="12" instance=ExtResource( 31 )]
+[node name="Birdo-NPC" parent="." index="13" instance=ExtResource( 34 )]
 
-[node name="Player" parent="." index="13" instance=ExtResource( 32 )]
+[node name="Player" parent="." index="14" instance=ExtResource( 35 )]
 
-[node name="HUD" parent="." index="14" instance=ExtResource( 33 )]
+[node name="HUD" parent="." index="15" instance=ExtResource( 36 )]
 
 [connection signal="body_entered" from="Signs/Sign2" to="Signs/Sign2" method="on_body_enter"]
 

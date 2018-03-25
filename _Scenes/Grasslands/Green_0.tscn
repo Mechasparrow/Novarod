@@ -46,7 +46,7 @@ font_data = ExtResource( 14 )
 fallback/0 = ExtResource( 13 )
 _sections_unfolded = [ "Font/fallback", "Settings" ]
 
-[node name="World" type="Node" index="0"]
+[node name="World" type="Node"]
 
 script = ExtResource( 1 )
 reset_position = Vector2( 100, 400 )
@@ -114,6 +114,7 @@ margin_top = 470.0
 margin_right = 976.0
 margin_bottom = 544.0
 rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
@@ -153,6 +154,8 @@ _sections_unfolded = [ "custom_fonts" ]
 [node name="Chests" type="Node2D" parent="." index="2"]
 
 [node name="Tiles" type="Node2D" parent="." index="3"]
+
+editor/display_folded = true
 
 [node name="Ground" type="TileMap" parent="Tiles" index="0"]
 
@@ -211,6 +214,8 @@ z_index = 2
 _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
 [node name="Trees" type="Node2D" parent="Tiles" index="3"]
+
+editor/display_folded = true
 
 [node name="Sprite" parent="Tiles/Trees" index="0" instance=ExtResource( 9 )]
 
@@ -276,6 +281,7 @@ margin_top = 470.0
 margin_right = 967.0
 margin_bottom = 579.0
 rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
