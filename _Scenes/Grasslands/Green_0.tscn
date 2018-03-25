@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://_Scripts/level_script.gd" type="Script" id=1]
 [ext_resource path="res://_Scripts/level_info.gd" type="Script" id=2]
@@ -14,9 +14,17 @@
 [ext_resource path="res://_Assets/Art/Sign_Post.png" type="Texture" id=12]
 [ext_resource path="res://_Fonts/Roboto-Regular.ttf" type="DynamicFontData" id=13]
 [ext_resource path="res://_Fonts/Munro.ttf" type="DynamicFontData" id=14]
-[ext_resource path="res://_Prefab/Door.tscn" type="PackedScene" id=15]
-[ext_resource path="res://_Prefab/Players/Player.tscn" type="PackedScene" id=16]
-[ext_resource path="res://_Prefab/HUD.tscn" type="PackedScene" id=17]
+[ext_resource path="res://_Assets/Art/Spritesheets/Keys/left_key_0.png" type="Texture" id=15]
+[ext_resource path="res://_Assets/Art/Spritesheets/Keys/left_key_1.png" type="Texture" id=16]
+[ext_resource path="res://_Assets/Art/Spritesheets/Keys/left_key_2.png" type="Texture" id=17]
+[ext_resource path="res://_Assets/Art/Spritesheets/Keys/left_key_3.png" type="Texture" id=18]
+[ext_resource path="res://_Assets/Art/Spritesheets/Keys/right_key_0.png" type="Texture" id=19]
+[ext_resource path="res://_Assets/Art/Spritesheets/Keys/right_key_1.png" type="Texture" id=20]
+[ext_resource path="res://_Assets/Art/Spritesheets/Keys/right_key_2.png" type="Texture" id=21]
+[ext_resource path="res://_Assets/Art/Spritesheets/Keys/right_key_3.png" type="Texture" id=22]
+[ext_resource path="res://_Prefab/Door.tscn" type="PackedScene" id=23]
+[ext_resource path="res://_Prefab/Players/Player.tscn" type="PackedScene" id=24]
+[ext_resource path="res://_Prefab/HUD.tscn" type="PackedScene" id=25]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -45,6 +53,24 @@ use_filter = false
 font_data = ExtResource( 14 )
 fallback/0 = ExtResource( 13 )
 _sections_unfolded = [ "Font/fallback", "Settings" ]
+
+[sub_resource type="SpriteFrames" id=5]
+
+animations = [ {
+"frames": [ ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=6]
+
+animations = [ {
+"frames": [ ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
 
 [node name="World" type="Node"]
 
@@ -76,7 +102,6 @@ script = ExtResource( 3 )
 scale = Vector2( 4, 4 )
 frames = SubResource( 1 )
 animation = "default"
-frame = 1
 playing = true
 flip_h = true
 _sections_unfolded = [ "Transform" ]
@@ -263,6 +288,7 @@ shape = SubResource( 3 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Signs/Sign" index="2"]
 
+editor/display_folded = true
 layer = 1
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -318,6 +344,25 @@ scroll_following = false
 selection_enabled = false
 override_selected_font_color = false
 
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Signs/Sign/CanvasLayer/PopupPanel" index="1"]
+
+position = Vector2( 63, -43 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 5 )
+animation = "default"
+playing = true
+_sections_unfolded = [ "Transform" ]
+
+[node name="AnimatedSprite2" type="AnimatedSprite" parent="Signs/Sign/CanvasLayer/PopupPanel" index="2"]
+
+position = Vector2( 857, -49 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 6 )
+animation = "default"
+frame = 1
+playing = true
+_sections_unfolded = [ "Transform" ]
+
 [node name="Platforms" type="Node2D" parent="." index="8"]
 
 [node name="Pickups" type="Node2D" parent="." index="9"]
@@ -325,11 +370,11 @@ override_selected_font_color = false
 scale = Vector2( 6.5625, 6.5625 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Door" parent="." index="10" instance=ExtResource( 15 )]
+[node name="Door" parent="." index="10" instance=ExtResource( 23 )]
 
 position = Vector2( 1024, 384 )
 
-[node name="Player" parent="." index="11" instance=ExtResource( 16 )]
+[node name="Player" parent="." index="11" instance=ExtResource( 24 )]
 
 position = Vector2( 224, 192 )
 
@@ -341,7 +386,7 @@ _sections_unfolded = [ "Transform" ]
 
 position = Vector2( 272, 64 )
 
-[node name="HUD" parent="." index="14" instance=ExtResource( 17 )]
+[node name="HUD" parent="." index="14" instance=ExtResource( 25 )]
 
 [connection signal="body_entered" from="Signs/Sign" to="Signs/Sign" method="on_body_enter"]
 

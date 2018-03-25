@@ -6,6 +6,8 @@ extends Area2D
 
 onready var anim = get_node("AnimatedSprite")
 onready var lock_anim = get_node("DoorLock")
+onready var button_anim = get_node("Button_Hint")
+
 var locked = true
 var player_here = false
 
@@ -19,6 +21,8 @@ func is_locked():
 
 func open_door():
 	anim.play("Open")
+	button_anim.show()
+	button_anim.play("default")
 	pass
 
 func unlock_door():
@@ -32,6 +36,7 @@ func lock_door():
 
 func close_door():
 	anim.play("Close")
+	button_anim.hide()
 	pass
 
 func _process(delta):

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/right_key_2.png-2f4a6d52ca7428fbe262cb2a9a0fcb4f.stex"
+path="res://.import/interact_2.png-b5dc011d4ffe2283663622ab17f0aeba.stex"
 
 [deps]
 
-source_file="res://_Assets/Art/Spritesheets/Keys/right_key_2.png"
-source_md5="364a3eac929fb98574167a6f3213f3f2"
+source_file="res://_Assets/Art/Spritesheets/Keys/interact_2.png"
+source_md5="1d968799eb4f745cd88de5bbb465f56c"
 
-dest_files=[ "res://.import/right_key_2.png-2f4a6d52ca7428fbe262cb2a9a0fcb4f.stex" ]
-dest_md5="5749f6b485c060112d5261e3c7797271"
+dest_files=[ "res://.import/interact_2.png-b5dc011d4ffe2283663622ab17f0aeba.stex" ]
+dest_md5="f927bcff3dcf90916e9a59ac6e30313b"
 
 [params]
 
