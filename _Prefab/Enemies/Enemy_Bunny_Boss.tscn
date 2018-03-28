@@ -1,0 +1,115 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://_Scripts/Enemy_Behavior/Bunny_Boss.gd" type="Script" id=1]
+[ext_resource path="res://_Assets/Art/Spritesheets/bunny/evil_bunny_0.png" type="Texture" id=2]
+[ext_resource path="res://_Assets/Art/Spritesheets/bunny/evil_bunny_1.png" type="Texture" id=3]
+[ext_resource path="res://_Assets/Art/heart_0.png" type="Texture" id=4]
+
+[sub_resource type="SpriteFrames" id=1]
+
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "move",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "still",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "jump",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 23.9791, 48.6542 )
+
+[sub_resource type="RectangleShape2D" id=3]
+
+custom_solver_bias = 0.0
+extents = Vector2( 29.3318, 41.5622 )
+
+[node name="Enemy_Bunny_Boss" type="KinematicBody2D" groups=[
+"boss_enemy",
+"reg_enemy",
+"enemy",
+]]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="." index="0"]
+
+scale = Vector2( 6, 6 )
+frames = SubResource( 1 )
+animation = "still"
+playing = true
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+
+position = Vector2( 0, 5.66226 )
+scale = Vector2( 1, 0.864156 )
+shape = SubResource( 2 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="Hitbox" type="Area2D" parent="." index="2" groups=[
+"Enemy_Hitbox",
+]]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" index="0"]
+
+position = Vector2( 0, 5.84068 )
+scale = Vector2( 1, 1.13107 )
+shape = SubResource( 3 )
+
+[node name="Hearts" type="Node2D" parent="." index="3"]
+
+[node name="Heart" type="Sprite" parent="Hearts" index="0"]
+
+position = Vector2( -36, -58 )
+texture = ExtResource( 4 )
+
+[node name="Heart2" type="Sprite" parent="Hearts" index="1"]
+
+position = Vector2( -20, -58 )
+texture = ExtResource( 4 )
+
+[node name="Heart3" type="Sprite" parent="Hearts" index="2"]
+
+position = Vector2( -4, -58 )
+texture = ExtResource( 4 )
+
+[node name="Heart4" type="Sprite" parent="Hearts" index="3"]
+
+position = Vector2( 12, -58 )
+texture = ExtResource( 4 )
+
+[node name="Heart5" type="Sprite" parent="Hearts" index="4"]
+
+position = Vector2( 28, -58 )
+texture = ExtResource( 4 )
+
+[node name="Heart6" type="Sprite" parent="Hearts" index="5"]
+
+position = Vector2( 44, -58 )
+texture = ExtResource( 4 )
+
+

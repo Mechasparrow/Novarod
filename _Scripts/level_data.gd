@@ -7,12 +7,16 @@ extends Node
 var levels = {
 	"green": {
 		"folder": "Grasslands",
-		"count": 4,
+		"count": 8,
 		"0": "Green_0",
 		"1": "Green_01",
 		"2": "Green_02",
 		"3": "Green_03",
-		"4": "Green_04"
+		"4": "Green_04",
+		"5": "Green_05",
+		"6": "Green_06",
+		"7": "Green_07",
+		"8": "Green_Final"
 	},
 	"red": {
 		"folder": "Firelands",

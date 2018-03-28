@@ -1,0 +1,290 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://_Scripts/level_script.gd" type="Script" id=1]
+[ext_resource path="res://_Tileset/normal_world.tres" type="TileSet" id=2]
+[ext_resource path="res://_Tileset/hazards.tres" type="TileSet" id=3]
+[ext_resource path="res://_Prefab/gems/gem_green.tscn" type="PackedScene" id=4]
+[ext_resource path="res://_Prefab/Door.tscn" type="PackedScene" id=5]
+[ext_resource path="res://_Scripts/NPC_Behavior/Birdo.gd" type="Script" id=6]
+[ext_resource path="res://_Assets/Art/Spritesheets/squirrel/squirrel_0.png" type="Texture" id=7]
+[ext_resource path="res://_Assets/Art/Spritesheets/squirrel/squirrel_1.png" type="Texture" id=8]
+[ext_resource path="res://_Assets/Art/Spritesheets/squirrel/squirrel_2.png" type="Texture" id=9]
+[ext_resource path="res://_Assets/Art/Spritesheets/squirrel/squirrel_3.png" type="Texture" id=10]
+[ext_resource path="res://_Fonts/imported_fonts/pixel_font.tres" type="DynamicFont" id=11]
+[ext_resource path="res://_Prefab/Players/Player.tscn" type="PackedScene" id=12]
+[ext_resource path="res://_Prefab/HUD.tscn" type="PackedScene" id=13]
+
+[sub_resource type="GDScript" id=1]
+
+script/source = "extends Node2D
+
+# class member variables go here, for example:
+# var a = 2
+# var b = \"textvar\"
+
+var type = \"green\"
+var level = 6
+
+func _ready():
+	# Called every time the node is added to the scene.
+	# Initialization here
+	pass
+
+#func _process(delta):
+#	# Called every frame. Delta is time since last frame.
+#	# Update game logic here.
+#	pass
+"
+
+[sub_resource type="SpriteFrames" id=2]
+
+animations = [ {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "moving",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=3]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
+[node name="World" type="Node" groups=[
+"gem_collect_level",
+]]
+
+script = ExtResource( 1 )
+reset_position = Vector2( 100, 400 )
+
+[node name="level_info" type="Node2D" parent="." index="0"]
+
+script = SubResource( 1 )
+
+[node name="Chests" type="Node2D" parent="." index="1"]
+
+[node name="Tiles" type="Node2D" parent="." index="2"]
+
+editor/display_folded = true
+
+[node name="Ground" type="TileMap" parent="Tiles" index="0"]
+
+scale = Vector2( 4, 4 )
+mode = 0
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 16, 16 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 3
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( 458752, 0, 0, 458753, 0, 0, 458754, 0, 0, 458755, 0, 0, 458756, 0, 0, 458757, 0, 0, 458758, 0, 0, 458759, 0, 0, 458760, 0, 0, 458761, 0, 0, 458762, 0, 0, 458763, 0, 0, 458766, 0, 0, 458767, 0, 0, 458768, 0, 0, 458769, 0, 0, 524288, 1, 0, 524289, 1, 0, 524290, 1, 0, 524291, 1, 0, 524292, 1, 0, 524293, 1, 0, 524294, 1, 0, 524295, 1, 0, 524296, 1, 0, 524297, 1, 0, 524298, 1, 0, 524299, 1, 0, 524302, 1, 0, 524303, 1, 0, 524304, 1, 0, 524305, 1, 0, 589824, 1, 0, 589825, 1, 0, 589826, 1, 0, 589827, 1, 0, 589828, 1, 0, 589829, 1, 0, 589830, 1, 0, 589831, 1, 0, 589832, 1, 0, 589833, 1, 0, 589834, 1, 0, 589835, 1, 0, 589838, 1, 0, 589839, 1, 0, 589840, 1, 0, 589841, 1, 0, 655371, 1, 0, 655374, 1, 0, 655375, 1, 0, 655376, 1, 0, 655377, 1, 0, 720907, 1, 0, 720910, 1, 0, 720911, 1, 0, 720912, 1, 0, 720913, 1, 0, 786444, 1, 0, 786445, 1, 0 )
+_sections_unfolded = [ "Cell", "Collision", "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Hazard" type="TileMap" parent="Tiles" index="1"]
+
+scale = Vector2( 4, 4 )
+mode = 0
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 16, 16 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( 458758, 2, 0, 458759, 2, 0, 786454, 2, 0, 786455, 2, 0, 786456, 2, 0, 786457, 2, 0, 917499, 2, 0, 851990, 2, 0, 851991, 2, 0, 851992, 2, 0, 851993, 2, 0, 917526, 2, 0, 917527, 2, 0, 917528, 2, 0, 917529, 2, 0, 1048568, 2, 0 )
+_sections_unfolded = [ "Cell", "Collision", "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Water" type="Node2D" parent="Tiles" index="2"]
+
+modulate = Color( 1, 1, 1, 0.588235 )
+z_index = 2
+_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
+
+[node name="Trees" type="Node2D" parent="Tiles" index="3"]
+
+[node name="Ice" type="Node2D" parent="Tiles" index="4"]
+
+[node name="Gems" type="Node2D" parent="." index="3"]
+
+editor/display_folded = true
+
+[node name="gem_green" parent="Gems" index="0" instance=ExtResource( 4 )]
+
+position = Vector2( 832, 704 )
+
+[node name="Coins" type="Node2D" parent="." index="4"]
+
+[node name="Coins_R" type="Node2D" parent="." index="5"]
+
+[node name="Signs" type="Node2D" parent="." index="6"]
+
+position = Vector2( 97.7842, 416.212 )
+
+[node name="Platforms" type="Node2D" parent="." index="7"]
+
+[node name="Pickups" type="Node2D" parent="." index="8"]
+
+scale = Vector2( 6.5625, 6.5625 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Door" parent="." index="9" instance=ExtResource( 5 )]
+
+[node name="Enemies" type="Node2D" parent="." index="10"]
+
+position = Vector2( 318.166, 383.563 )
+
+[node name="Enemy_Markers" type="Node2D" parent="." index="11"]
+
+position = Vector2( 272, 64 )
+
+[node name="NPC" type="Node2D" parent="." index="12"]
+
+[node name="Squirrel_NPC" type="Area2D" parent="NPC" index="0"]
+
+position = Vector2( 656, 416 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 6 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="NPC/Squirrel_NPC" index="0"]
+
+scale = Vector2( 4, 4 )
+frames = SubResource( 2 )
+animation = "default"
+playing = true
+flip_h = true
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC/Squirrel_NPC" index="1"]
+
+scale = Vector2( 2.5, 2.5 )
+shape = SubResource( 3 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="NPC/Squirrel_NPC" index="2"]
+
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+
+[node name="Popup" type="PopupPanel" parent="NPC/Squirrel_NPC/CanvasLayer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 62.0
+margin_top = 470.0
+margin_right = 976.0
+margin_bottom = 544.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+popup_exclusive = false
+
+[node name="Label" type="RichTextLabel" parent="NPC/Squirrel_NPC/CanvasLayer/Popup" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 98.0
+margin_top = 8.0
+margin_right = 834.0
+margin_bottom = 72.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/normal_font = ExtResource( 11 )
+custom_colors/default_color = Color( 1, 1, 1, 1 )
+bbcode_enabled = false
+bbcode_text = ""
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = "Collect the gem in the pit. You can use wall jumping whenever your scarf turns"
+scroll_active = false
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+_sections_unfolded = [ "custom_colors" ]
+
+[node name="Label2" type="Label" parent="NPC/Squirrel_NPC/CanvasLayer/Popup" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 463.0
+margin_top = 39.0
+margin_right = 523.0
+margin_bottom = 70.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 11 )
+custom_colors/font_color = Color( 0.761719, 0.487976, 0.751026, 1 )
+text = "pink!"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_colors", "custom_fonts" ]
+
+[node name="Player" parent="." index="13" instance=ExtResource( 12 )]
+
+position = Vector2( 192, 288 )
+
+[node name="HUD" parent="." index="14" instance=ExtResource( 13 )]
+
+

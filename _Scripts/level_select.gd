@@ -23,6 +23,8 @@ func _process(delta):
 		
 			var level_scn = get_node("/root/level_data").generate_level_path(type, level)
 			
+			print (level_scn)
+			
 			get_tree().change_scene_to(level_scn)
 
 	pass
