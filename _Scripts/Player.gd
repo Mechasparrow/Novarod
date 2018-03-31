@@ -401,7 +401,25 @@ func check_collided_body(body):
 
 			hit_timer = 0
 			take_damage(1)
+	elif (body.is_in_group("enemy_projectile")):
+		if (player_hit) == false:
+			
+			player_hit = true
 
+			var bullet = body
+			
+			var dir = bullet.attack_dir
+			
+			if (dir == "left"):
+				knockback_vel = Vector2(-bullet.knockback_factor, 0)
+			elif (dir == "right"):
+				knockback_vel = Vector2(bullet.knockback_factor, 0)
+			
+			knockbacked = true
+			knockback_timer = 0
+
+			hit_timer = 0
+			take_damage(bullet.damage)
 
 	pass
 

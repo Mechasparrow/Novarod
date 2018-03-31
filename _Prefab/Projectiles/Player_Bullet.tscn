@@ -15,7 +15,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[node name="Player_Bullet" type="RigidBody2D" index="0" groups=[
+[node name="Player_Bullet" type="RigidBody2D" groups=[
 "bullet",
 "player_projectile",
 ]]

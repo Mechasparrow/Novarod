@@ -88,7 +88,7 @@ func _process(delta):
 
 "
 
-[node name="World" type="Node" groups=[
+[node name="World" type="Node" index="0" groups=[
 "gem_collect_level",
 ]]
 
@@ -195,6 +195,7 @@ position = Vector2( 97.7842, 416.212 )
 
 [node name="Pickups" type="Node2D" parent="." index="8"]
 
+editor/display_folded = true
 scale = Vector2( 6.5625, 6.5625 )
 _sections_unfolded = [ "Transform" ]
 
@@ -215,6 +216,7 @@ position = Vector2( 135, -128 )
 
 [node name="Enemies" type="Node2D" parent="." index="10"]
 
+editor/display_folded = true
 position = Vector2( 318.166, 383.563 )
 
 [node name="Enemy_Bunny_Boss" parent="Enemies" index="0" instance=ExtResource( 8 )]
