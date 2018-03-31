@@ -135,6 +135,7 @@ _sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
 
 [node name="Powerup" type="Node2D" parent="." index="3"]
 
+editor/display_folded = true
 position = Vector2( 586.236, 13.3615 )
 script = ExtResource( 4 )
 _sections_unfolded = [ "Transform" ]
@@ -297,6 +298,7 @@ _sections_unfolded = [ "Rect", "custom_fonts" ]
 
 [node name="Win_Pop_Up" type="PopupPanel" parent="." index="7"]
 
+editor/display_folded = true
 visible = false
 anchor_left = 0.0
 anchor_top = 0.0
@@ -458,6 +460,7 @@ stretch_mode = 0
 
 [node name="Lock" type="Node2D" parent="." index="9"]
 
+editor/display_folded = true
 position = Vector2( 368, 32 )
 script = ExtResource( 14 )
 

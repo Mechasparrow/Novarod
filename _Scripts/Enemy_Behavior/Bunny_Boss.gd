@@ -46,11 +46,12 @@ var carrot_y_range = 100
 
 # ShShooting Mechanism
 var shoot_timer = 0
-var shoot_cooldown = 1
+var shoot_cooldown = 1.0
+var shoot_cooldown_max = 1.0
 var can_shoot = false
 
 var shoot_dir = "left"
-var shoot_speed = 400
+var shoot_speed = 600
 
 
 func _ready():
@@ -115,6 +116,16 @@ func _physics_process(delta):
 		new_carrot.shoot(shoot_dir, 500)
 		
 		can_shoot = false
+		
+		var cooldown_random_factor = rand_range(0.0, 1.0)
+		
+		if (cooldown_random_factor <= (1.0/3)):
+			cooldown_duration = (1.0/3) * shoot_cooldown_max
+		elif (cooldown_random_factor > (1.0/3) and cooldown_random_factor <= ((1.0/3)*2)):
+			cooldown_duration = ((1.0/3) * 2) * shoot_cooldown_max
+		elif (cooldown_random_factor > ((1.0/3)*2) and cooldown_random_factor <= 1.0):
+			cooldown_duration = 1.0 * shoot_cooldown_max
+		
 		shoot_timer = 0
 
 	
