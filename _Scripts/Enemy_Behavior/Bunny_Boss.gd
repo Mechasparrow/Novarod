@@ -38,6 +38,20 @@ var xp = 25
 
 onready var xp_pickup = preload("res://_Prefab/Pickups/XP_Pickup.tscn")
 
+# Projectile Prefab
+
+onready var carrot = preload("res://_Prefab/Projectiles/Carrot_Projectile.tscn")
+var carrot_offset = 100
+
+# ShShooting Mechanism
+var shoot_timer = 0
+var shoot_cooldown = 1
+var can_shoot = false
+
+var shoot_dir = "right"
+var shoot_speed = 400
+
+
 func _ready():
 	# Called every time the node is added to the scene.
 	# Initialization here
@@ -56,6 +70,35 @@ func _physics_process(delta):
 	var force = Vector2(0, 0)
 
 	var stop = true
+
+	## Enemy AI + Movement
+	
+	## Shooting Carrots Section
+	if (can_shoot == false and shoot_timer < shoot_cooldown):
+		shoot_timer+= delta
+	elif (can_shoot == false and shoot_timer >= shoot_cooldown):
+		can_shoot = true
+		
+	if (can_shoot):
+		var new_carrot = carrot.instance()
+		new_carrot.global_position = global_position
+		
+		# Adds an offset so it is not on top of player_gun
+		if (shoot_dir == "left"):
+			new_carrot.position.x -= carrot_offset
+		elif (shoot_dir == "right"):
+			new_carrot.position.x += carrot_offset
+		
+		get_tree().get_root().get_node("World").add_child(new_carrot)
+		
+		new_carrot.shoot(shoot_dir, 500)
+		
+		can_shoot = false
+		shoot_timer = 0
+
+	
+	## Shooting End
+	
 
 	velocity += force * delta
 	# Integrate velocity into motion and move

@@ -9,8 +9,8 @@ custom_solver_bias = 0.0
 extents = Vector2( 9.70335, 10 )
 
 [node name="Gun" type="Area2D" groups=[
-"gun",
 "ranged_weapon",
+"gun",
 ]]
 
 scale = Vector2( 0.25, 0.25 )

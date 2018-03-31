@@ -216,7 +216,6 @@ position = Vector2( 135, -128 )
 
 [node name="Enemies" type="Node2D" parent="." index="10"]
 
-editor/display_folded = true
 position = Vector2( 318.166, 383.563 )
 
 [node name="Enemy_Bunny_Boss" parent="Enemies" index="0" instance=ExtResource( 8 )]
