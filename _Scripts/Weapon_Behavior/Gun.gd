@@ -48,7 +48,7 @@ func attack(dir):
 		elif (dir == "right"):
 			new_bullet.position.x += 40
 		
-		new_bullet.shoot(dir, 500)
+		new_bullet.shoot(dir, 600)
 		
 		can_shoot = false
 		shoot_timer = 0

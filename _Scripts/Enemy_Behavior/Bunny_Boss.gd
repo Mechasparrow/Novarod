@@ -171,6 +171,9 @@ func _physics_process(delta):
 
 	for body in bodies:
 
+		if(body.is_in_group("super_bullet")):
+			die()
+
 		if (body.is_in_group("bullet")):
 
 			if (hit == false):
