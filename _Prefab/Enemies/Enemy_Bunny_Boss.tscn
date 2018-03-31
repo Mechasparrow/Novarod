@@ -34,7 +34,7 @@ extents = Vector2( 23.9791, 48.6542 )
 custom_solver_bias = 0.0
 extents = Vector2( 32, 41.5622 )
 
-[node name="Enemy_Bunny_Boss" type="KinematicBody2D" index="0" groups=[
+[node name="Enemy_Bunny_Boss" type="KinematicBody2D" groups=[
 "enemy",
 "boss_enemy",
 "reg_enemy",

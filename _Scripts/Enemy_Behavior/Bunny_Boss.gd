@@ -42,13 +42,14 @@ onready var xp_pickup = preload("res://_Prefab/Pickups/XP_Pickup.tscn")
 
 onready var carrot = preload("res://_Prefab/Projectiles/Carrot_Projectile.tscn")
 var carrot_offset = 100
+var carrot_y_range = 100
 
 # ShShooting Mechanism
 var shoot_timer = 0
 var shoot_cooldown = 1
 var can_shoot = false
 
-var shoot_dir = "right"
+var shoot_dir = "left"
 var shoot_speed = 400
 
 
@@ -82,6 +83,26 @@ func _physics_process(delta):
 	if (can_shoot):
 		var new_carrot = carrot.instance()
 		new_carrot.global_position = global_position
+		
+		var random_dir_value = rand_range(0.0, 1.0)
+		
+		if (random_dir_value < 0.5):
+			shoot_dir = "left"
+		elif (random_dir_value >= 0.5):
+			shoot_dir = "right"
+		
+		new_carrot.position.y += (carrot_y_range/2)
+		var random_y_pos = rand_range(0.0,1.0)
+		var real_y_pos = 0
+		
+		if (random_y_pos < (1.0/3)):
+			real_y_pos = 0
+		elif (random_y_pos >= (1.0/3) and random_y_pos <= ((1.0/3)*2)):
+			real_y_pos = 1.0/2
+		elif (random_y_pos > ((1.0/3)*2) and random_y_pos <= 1.0):
+			real_y_pos = 1.0 
+		
+		new_carrot.position.y -= carrot_y_range * real_y_pos
 		
 		# Adds an offset so it is not on top of player_gun
 		if (shoot_dir == "left"):
