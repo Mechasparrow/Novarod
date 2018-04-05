@@ -10,7 +10,7 @@ source_file="res://_Assets/Art/Burnt_Trees/burnt_tree_2.png"
 source_md5="8c3611e8ad23b9ca391a04d3f277df17"
 
 dest_files=[ "res://.import/burnt_tree_2.png-9a92fbe91f684be4cfd35fff18b267f4.stex" ]
-dest_md5="44cffc6a0d4d087157dd6111938945b2"
+dest_md5="ffd6d2e0ad5cfde8e7ddb385771d91d4"
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
@@ -28,5 +28,5 @@ process/premult_alpha=false
 process/HDR_as_SRGB=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0

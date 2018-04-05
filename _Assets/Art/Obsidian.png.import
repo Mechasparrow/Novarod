@@ -10,7 +10,7 @@ source_file="res://_Assets/Art/Obsidian.png"
 source_md5="3a7406484bcf1be047b8dcde18987c0c"
 
 dest_files=[ "res://.import/Obsidian.png-09a60d188044c1615e230c32bc750857.stex" ]
-dest_md5="f40e3168204bb252347e1e1719eeff2f"
+dest_md5="44d5c76fe98cd75c07cd83c4b371b2da"
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
@@ -28,5 +28,5 @@ process/premult_alpha=false
 process/HDR_as_SRGB=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0

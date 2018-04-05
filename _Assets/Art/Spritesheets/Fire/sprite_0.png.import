@@ -10,7 +10,7 @@ source_file="res://_Assets/Art/Spritesheets/Fire/sprite_0.png"
 source_md5="f8e881a9ddcb8b813c72d3c8af193e57"
 
 dest_files=[ "res://.import/sprite_0.png-99d0c6c2b265144c7a17f666992b9ef2.stex" ]
-dest_md5="2ed79678ff78d8a56212315a9ae05f53"
+dest_md5="664871eccbfdb1046d48b6dc662e9702"
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
@@ -28,5 +28,5 @@ process/premult_alpha=false
 process/HDR_as_SRGB=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0

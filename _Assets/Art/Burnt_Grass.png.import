@@ -10,7 +10,7 @@ source_file="res://_Assets/Art/Burnt_Grass.png"
 source_md5="3126fcf229bd63802735a6533db00504"
 
 dest_files=[ "res://.import/Burnt_Grass.png-af227108dbfe6902d770e572c306cb55.stex" ]
-dest_md5="c914a0e4c4532fb1dba9ab2e0d05ffcb"
+dest_md5="e170c6dd4f9160054477de4f300e3564"
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
@@ -28,5 +28,5 @@ process/premult_alpha=false
 process/HDR_as_SRGB=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0
