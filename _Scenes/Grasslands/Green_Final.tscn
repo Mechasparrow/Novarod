@@ -23,7 +23,7 @@ script/source = "extends Node2D
 # var b = \"textvar\"
 
 var type = \"green\"
-var level = 8
+var level = 4
 
 func _ready():
 	# Called every time the node is added to the scene.

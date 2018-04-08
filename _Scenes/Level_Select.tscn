@@ -1,11 +1,12 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://_Scripts/level_select.gd" type="Script" id=1]
 [ext_resource path="res://_Assets/Art/Tutorials_Button.png" type="Texture" id=2]
 [ext_resource path="res://_Fonts/Roboto-Regular.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://_Fonts/Munro.ttf" type="DynamicFontData" id=4]
-[ext_resource path="res://_Assets/Art/Health_Bar.png" type="Texture" id=5]
-[ext_resource path="res://_Fonts/imported_fonts/pixel_font.tres" type="DynamicFont" id=6]
+[ext_resource path="res://_Assets/Art/XP_Bar.png" type="Texture" id=5]
+[ext_resource path="res://_Assets/Art/Health_Bar.png" type="Texture" id=6]
+[ext_resource path="res://_Fonts/imported_fonts/pixel_font.tres" type="DynamicFont" id=7]
 
 [sub_resource type="GDScript" id=10]
 
@@ -148,6 +149,103 @@ func _ready():
 #	pass
 "
 
+[sub_resource type="GDScript" id=17]
+
+script/source = "extends Node
+
+# class member variables go here, for example:
+# var a = 2
+# var b = \"textvar\"
+
+var level = 1
+var type = \"green\"
+
+func _ready():
+	# Called every time the node is added to the scene.
+	# Initialization here
+	pass
+
+#func _process(delta):
+#	# Called every frame. Delta is time since last frame.
+#	# Update game logic here.
+#	pass
+"
+
+[sub_resource type="GDScript" id=18]
+
+script/source = "extends Node
+
+# class member variables go here, for example:
+# var a = 2
+# var b = \"textvar\"
+
+var level = 2
+var type = \"green\"
+
+func _ready():
+	# Called every time the node is added to the scene.
+	# Initialization here
+	pass
+
+#func _process(delta):
+#	# Called every frame. Delta is time since last frame.
+#	# Update game logic here.
+#	pass
+"
+
+[sub_resource type="GDScript" id=19]
+
+script/source = "extends Node
+
+# class member variables go here, for example:
+# var a = 2
+# var b = \"textvar\"
+
+var level = 3
+var type = \"green\"
+
+func _ready():
+	# Called every time the node is added to the scene.
+	# Initialization here
+	pass
+
+#func _process(delta):
+#	# Called every frame. Delta is time since last frame.
+#	# Update game logic here.
+#	pass
+"
+
+[sub_resource type="GDScript" id=20]
+
+script/source = "extends Node
+
+# class member variables go here, for example:
+# var a = 2
+# var b = \"textvar\"
+
+var level = 4
+var type = \"green\"
+
+func _ready():
+	# Called every time the node is added to the scene.
+	# Initialization here
+	pass
+
+#func _process(delta):
+#	# Called every frame. Delta is time since last frame.
+#	# Update game logic here.
+#	pass
+"
+
+[sub_resource type="DynamicFont" id=21]
+
+size = 25
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 4 )
+fallback/0 = ExtResource( 3 )
+_sections_unfolded = [ "Font/fallback", "Settings" ]
+
 [sub_resource type="GDScript" id=11]
 
 script/source = "extends Node
@@ -170,7 +268,7 @@ func _ready():
 #	pass
 "
 
-[node name="Node" type="Node"]
+[node name="Node" type="Node" index="0"]
 
 script = ExtResource( 1 )
 
@@ -195,6 +293,7 @@ __meta__ = {
 
 [node name="Tutorial" type="Node2D" parent="." index="1"]
 
+editor/display_folded = true
 position = Vector2( 208, 64 )
 scale = Vector2( 0.75, 0.75 )
 
@@ -255,6 +354,7 @@ _sections_unfolded = [ "custom_fonts" ]
 
 [node name="Tutorial_Btn2" type="Node2D" parent="Tutorial" index="1"]
 
+editor/display_folded = true
 position = Vector2( 170.667, -21.3333 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
@@ -310,6 +410,7 @@ _sections_unfolded = [ "custom_fonts" ]
 
 [node name="Tutorial_Btn3" type="Node2D" parent="Tutorial" index="2"]
 
+editor/display_folded = true
 position = Vector2( 320, -21.3333 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
@@ -365,6 +466,7 @@ _sections_unfolded = [ "custom_fonts" ]
 
 [node name="Tutorial_Btn4" type="Node2D" parent="Tutorial" index="3"]
 
+editor/display_folded = true
 position = Vector2( 469.333, -21.3333 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
@@ -420,6 +522,7 @@ _sections_unfolded = [ "custom_fonts" ]
 
 [node name="Tutorial_Btn5" type="Node2D" parent="Tutorial" index="4"]
 
+editor/display_folded = true
 position = Vector2( 618.667, -21.3333 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
@@ -475,6 +578,7 @@ _sections_unfolded = [ "custom_fonts" ]
 
 [node name="Tutorial_Btn6" type="Node2D" parent="Tutorial" index="5"]
 
+editor/display_folded = true
 position = Vector2( 618.667, -21.3333 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
@@ -528,14 +632,240 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_fonts" ]
 
-[node name="Fire" type="Node2D" parent="." index="2"]
+[node name="Earth" type="Node2D" parent="." index="2"]
 
 editor/display_folded = true
+
+[node name="Earth_Btn1" type="Node2D" parent="Earth" index="0"]
+
+editor/display_folded = true
+position = Vector2( 224, 144 )
+scale = Vector2( 0.75, 0.75 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="TextureButton" type="TextureButton" parent="Earth/Earth_Btn1" index="0" groups=[
+"select_button",
+]]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 100.0
+margin_bottom = 100.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 5 )
+expand = true
+stretch_mode = 4
+script = SubResource( 17 )
+_sections_unfolded = [ "Hint", "Textures" ]
+
+[node name="Label" type="Label" parent="Earth/Earth_Btn1" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 16.0
+margin_top = 32.0
+margin_right = 88.0
+margin_bottom = 63.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 2 )
+text = "Level_01"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="Earth_Btn2" type="Node2D" parent="Earth" index="1"]
+
+editor/display_folded = true
+position = Vector2( 336, 144 )
+scale = Vector2( 0.75, 0.75 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="TextureButton" type="TextureButton" parent="Earth/Earth_Btn2" index="0" groups=[
+"select_button",
+]]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 100.0
+margin_bottom = 100.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 5 )
+expand = true
+stretch_mode = 4
+script = SubResource( 18 )
+_sections_unfolded = [ "Hint", "Textures" ]
+
+[node name="Label" type="Label" parent="Earth/Earth_Btn2" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 16.0
+margin_top = 32.0
+margin_right = 88.0
+margin_bottom = 63.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 2 )
+text = "Level_02"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="Earth_Btn3" type="Node2D" parent="Earth" index="2"]
+
+position = Vector2( 448, 144 )
+scale = Vector2( 0.75, 0.75 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="TextureButton" type="TextureButton" parent="Earth/Earth_Btn3" index="0" groups=[
+"select_button",
+]]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 100.0
+margin_bottom = 100.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 5 )
+expand = true
+stretch_mode = 4
+script = SubResource( 19 )
+_sections_unfolded = [ "Hint", "Textures" ]
+
+[node name="Label" type="Label" parent="Earth/Earth_Btn3" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 16.0
+margin_top = 32.0
+margin_right = 88.0
+margin_bottom = 63.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 2 )
+text = "Level_03"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="Earth_Btn4" type="Node2D" parent="Earth" index="3"]
+
+position = Vector2( 560, 144 )
+scale = Vector2( 0.75, 0.75 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="TextureButton" type="TextureButton" parent="Earth/Earth_Btn4" index="0" groups=[
+"select_button",
+]]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 256.0
+margin_bottom = 100.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 5 )
+expand = true
+script = SubResource( 20 )
+_sections_unfolded = [ "Hint", "Rect", "Textures" ]
+
+[node name="Label" type="Label" parent="Earth/Earth_Btn4" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 66.0
+margin_top = 30.0
+margin_right = 183.0
+margin_bottom = 61.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 21 )
+text = "Green_Boss"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="Fire" type="Node2D" parent="." index="3"]
 
 [node name="Fire_Lands" type="Node2D" parent="Fire" index="0"]
 
-editor/display_folded = true
-position = Vector2( 64, 192 )
+position = Vector2( 224, 240 )
 scale = Vector2( 0.75, 0.75 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
@@ -560,7 +890,7 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 5 )
+texture_normal = ExtResource( 6 )
 expand = true
 stretch_mode = 4
 script = SubResource( 10 )
@@ -589,7 +919,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_fonts" ]
 
-[node name="Button" type="Button" parent="." index="3" groups=[
+[node name="Button" type="Button" parent="." index="4" groups=[
 "select_button",
 ]]
 
@@ -608,7 +938,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_fonts/font = ExtResource( 6 )
+custom_fonts/font = ExtResource( 7 )
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null

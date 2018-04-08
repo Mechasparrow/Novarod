@@ -16,6 +16,8 @@ var lost = false
 
 export var reset_position = Vector2(100,400)
 
+onready var level_menu_scene = preload("res://_Scenes/Level_Select.tscn")
+
 func _ready():
 	# Called every time the node is added to the scene.
 	# Initialization here
@@ -25,6 +27,9 @@ func _ready():
 	pass
 
 func _process(delta):
+
+	if (Input.is_action_pressed("escape")):
+		get_tree().change_scene_to(level_menu_scene)
 
 	var current_time = get_node("/root/playerinfo").timer
 	var current_health = get_node("/root/playerinfo").health
