@@ -10,7 +10,7 @@ source_file="res://_Assets/Art/Spritesheets/Lava_Monster_Boss/sprite_1.png"
 source_md5="dbc4ae1db452b20df24d883b5ca2f0ea"
 
 dest_files=[ "res://.import/sprite_1.png-1953449fabc3d4845994d5bc89da9e34.stex" ]
-dest_md5="0ada7e278e4f4814e8887494946805f0"
+dest_md5="2fd6b89d8e79bbc24915d880f0ca0f5b"
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
@@ -28,5 +28,5 @@ process/premult_alpha=false
 process/HDR_as_SRGB=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0

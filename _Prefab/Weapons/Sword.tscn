@@ -69,12 +69,12 @@ tracks/1/keys = {
 "values": [ true, false ]
 }
 
-[node name="Sword" type="Area2D" groups=[
+[node name="Sword" type="Area2D" index="0" groups=[
 "weapon",
 ]]
 
 visible = false
-rotation = 0.785398
+rotation = -0.785398
 scale = Vector2( 0.25, 0.25 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -92,7 +92,7 @@ position = Vector2( 25.5549, 1.15848 )
 rotation = 1.5708
 scale = Vector2( 3, 3 )
 texture = ExtResource( 2 )
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Visibility" ]
 
 [node name="Hitbox" type="CollisionShape2D" parent="." index="1"]
 
