@@ -380,7 +380,7 @@ func check_collided_body(body):
 		iced = true
 		iced_timer = 0
 
-	if (node_name == "Hazard"):
+	if (node_name == "Hazard" or body.is_in_group("hazard")):
 		respawn()
 		take_damage(1)
 
