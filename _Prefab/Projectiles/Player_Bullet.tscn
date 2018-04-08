@@ -15,7 +15,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[node name="Player_Bullet" type="RigidBody2D" groups=[
+[node name="Player_Bullet" type="RigidBody2D" index="0" groups=[
 "bullet",
 "player_projectile",
 ]]
@@ -66,6 +66,6 @@ audio_bus_name = "Master"
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Hitbox" index="0"]
 
 build_mode = 0
-polygon = PoolVector2Array( 9.79123, 8.02827, -15.8539, 8.13295, -15.7492, -7.7775, 9.47721, -7.67282, 14.0829, 0.282399 )
+polygon = PoolVector2Array( 10.5072, 10.1581, -16.4007, 9.92617, -16.4007, -9.90678, 10.8551, -9.32687, 17.0022, 0.299652 )
 
 
