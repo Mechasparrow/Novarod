@@ -1,19 +1,19 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://_Scripts/Weapon_Behavior/Carrot_Projectile..gd" type="Script" id=1]
+[ext_resource path="res://_Scripts/Weapon_Behavior/Fireball_Projectile..gd" type="Script" id=1]
 [ext_resource path="res://_Assets/Art/Spritesheets/Fireball/sprite_0.png" type="Texture" id=2]
-
-[sub_resource type="RectangleShape2D" id=2]
-
-custom_solver_bias = 0.0
-extents = Vector2( 34.9788, 22.7557 )
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
+extents = Vector2( 34.9788, 22.7557 )
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
 extents = Vector2( 31.5137, 18.6776 )
 
-[node name="Carrot_Projectile" type="RigidBody2D" groups=[
+[node name="Fireball_Projectile" type="RigidBody2D" groups=[
 "enemy_projectile",
 ]]
 
@@ -55,7 +55,7 @@ _sections_unfolded = [ "Transform" ]
 position = Vector2( -6.97271e-07, -0.0963084 )
 rotation = -1.5708
 scale = Vector2( 0.330359, 0.666667 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="." index="1"]
 
@@ -67,6 +67,6 @@ _sections_unfolded = [ "Offset", "Transform" ]
 
 position = Vector2( 0.288925, 0 )
 scale = Vector2( 0.991076, 1 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 

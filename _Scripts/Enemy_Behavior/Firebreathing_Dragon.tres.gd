@@ -4,10 +4,19 @@ extends KinematicBody2D
 # var a = 2
 # var b = "textvar"
 
-const GRAVITY = 700.0
+const GRAVITY = 0
 
 onready var anim = get_node("AnimatedSprite")
 onready var hitbox = get_node("Hitbox")
+onready var fireball = preload("res://_Prefab/Projectiles/Fireball_Projectile.tscn")
+
+# Shooting Mechanism
+var shoot_timer = 0
+var shoot_cooldown = 1.0
+var can_shoot = false
+var shoot_dir = "left"
+var shoot_speed = 400
+var fireball_offset = 80
 
 var velocity = Vector2(200,0)
 
@@ -31,28 +40,12 @@ var knockback_duration = 0.1
 var knockback_timer = 0
 var knockedback = false
 
-var health = 6
+var health = 3
 
 var xp_drop = true
-var xp = 25
+var xp = 3
 
 onready var xp_pickup = preload("res://_Prefab/Pickups/XP_Pickup.tscn")
-
-# Projectile Prefab
-
-onready var carrot = preload("res://_Prefab/Projectiles/Carrot_Projectile.tscn")
-var carrot_offset = 100
-var carrot_y_range = 100
-
-# Shooting Mechanism
-var shoot_timer = 0
-var shoot_cooldown = 1.0
-var shoot_cooldown_max = 1.0
-var can_shoot = false
-
-var shoot_dir = "left"
-var shoot_speed = 600
-
 
 func _ready():
 	# Called every time the node is added to the scene.
@@ -69,77 +62,80 @@ func _ready():
 
 func _physics_process(delta):
 
-	var force = Vector2(0, 0)
+	## Enemy AI + Movement
+
+	var force = Vector2(0, GRAVITY)
 
 	var stop = true
 
-	## Enemy AI + Movement
+	var walk_left
+	var walk_right
+
+	ai_movement_timer += delta
+
+	if (ai_movement_timer > ai_movement_cooldown):
+		var random_range = rand_range(0,1)
+		WALK_MAX_SPEED = rand_range(200, 1000)
+		if (random_range <= 0.5):
+			dir = "left"
+		else:
+			dir = "right"
+
+		ai_movement_timer = 0
+
+	if (dir == "left"):
+		walk_left = true
+		walk_right = false
+	elif (dir == "right"):
+		walk_left = false
+		walk_right = true
+
+	if walk_left:
+		if velocity.x <= WALK_MIN_SPEED and velocity.x > -WALK_MAX_SPEED:
+
+			anim.flip_h = true
+			stop = false
+
+
+	elif walk_right:
+		if velocity.x >= -WALK_MIN_SPEED and velocity.x < WALK_MAX_SPEED:
+
+			anim.flip_h = false
+			stop = false
+
+	if not stop:
+		if (anim.is_playing() == false or anim.animation == "still"):
+			anim.play("move")
+
 	
 	## Shooting Carrots Section
+	shoot_dir = dir
+	
 	if (can_shoot == false and shoot_timer < shoot_cooldown):
 		shoot_timer+= delta
 	elif (can_shoot == false and shoot_timer >= shoot_cooldown):
 		can_shoot = true
 		
 	if (can_shoot):
-		var new_carrot = carrot.instance()
-		new_carrot.global_position = global_position
-		
-		var random_dir_value = rand_range(0.0, 1.0)
-		
-		if (random_dir_value < 0.5):
-			shoot_dir = "left"
-		elif (random_dir_value >= 0.5):
-			shoot_dir = "right"
-		
-		new_carrot.position.y += (carrot_y_range/2)
-		var random_y_pos = rand_range(0.0,1.0)
-		var real_y_pos = 0
-		
-		if (random_y_pos < (1.0/3)):
-			real_y_pos = 0
-		elif (random_y_pos >= (1.0/3) and random_y_pos <= ((1.0/3)*2)):
-			real_y_pos = 1.0/2
-		elif (random_y_pos > ((1.0/3)*2) and random_y_pos <= 1.0):
-			real_y_pos = 1.0 
-		
-		new_carrot.position.y -= carrot_y_range * real_y_pos
+		var new_fireball = fireball.instance()
+		new_fireball.global_position = global_position
 		
 		# Adds an offset so it is not on top of player_gun
 		if (shoot_dir == "left"):
-			new_carrot.position.x -= carrot_offset
+			new_fireball.position.x -= fireball_offset
 		elif (shoot_dir == "right"):
-			new_carrot.position.x += carrot_offset
+			new_fireball.position.x += fireball_offset
 		
-		get_tree().get_root().get_node("World").add_child(new_carrot)
+		get_tree().get_root().get_node("World").add_child(new_fireball)
 		
-		new_carrot.shoot(shoot_dir, 500)
+		new_fireball.shoot(shoot_dir, shoot_speed)
 		
 		can_shoot = false
-		
-		var cooldown_random_factor = rand_range(0.0, 1.0)
-		
-		if (cooldown_random_factor <= (1.0/3)):
-			cooldown_duration = (1.0/3) * shoot_cooldown_max
-		elif (cooldown_random_factor > (1.0/3) and cooldown_random_factor <= ((1.0/3)*2)):
-			cooldown_duration = ((1.0/3) * 2) * shoot_cooldown_max
-		elif (cooldown_random_factor > ((1.0/3)*2) and cooldown_random_factor <= 1.0):
-			cooldown_duration = 1.0 * shoot_cooldown_max
-		
 		shoot_timer = 0
 
 	
 	## Shooting End
-	
 
-	velocity += force * delta
-	# Integrate velocity into motion and move
-	#velocity = move_and_slide(velocity, Vector2(0, -1))
-
-	if (velocity == Vector2(0,0)):
-		anim.stop()
-		if (anim.is_playing() == false):
-			anim.play("still")
 
 	var areas = hitbox.get_overlapping_areas()
 	var bodies = hitbox.get_overlapping_bodies()
@@ -170,9 +166,6 @@ func _physics_process(delta):
 	#KNOCKBACK
 
 	for body in bodies:
-
-		if(body.is_in_group("super_bullet")):
-			die()
 
 		if (body.is_in_group("bullet")):
 

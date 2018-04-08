@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 2.31221, 10 )
+extents = Vector2( 2.31221, 11.1911 )
 
 [sub_resource type="Animation" id=2]
 
@@ -69,12 +69,12 @@ tracks/1/keys = {
 "values": [ true, false ]
 }
 
-[node name="Sword" type="Area2D" index="0" groups=[
+[node name="Sword" type="Area2D" groups=[
 "weapon",
 ]]
 
 visible = false
-rotation = -0.785398
+rotation = 0.785398
 scale = Vector2( 0.25, 0.25 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -94,7 +94,7 @@ scale = Vector2( 3, 3 )
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Visibility" ]
 
-[node name="Hitbox" type="CollisionShape2D" parent="." index="1"]
+[node name="Actual_Hitbox" type="CollisionShape2D" parent="." index="1"]
 
 position = Vector2( 25.2849, 1.15848 )
 rotation = 1.5708

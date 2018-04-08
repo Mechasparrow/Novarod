@@ -46,6 +46,6 @@ func _process(delta):
 		attacking = false
 
 	if (attacking == true):
-		get_node("Hitbox").disabled = false
+		get_node("Actual_Hitbox").disabled = false
 	elif (attacking == false):
-		get_node("Hitbox").disabled = true
+		get_node("Actual_Hitbox").disabled = true

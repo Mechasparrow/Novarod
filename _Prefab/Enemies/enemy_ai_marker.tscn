@@ -21,5 +21,6 @@ audio_bus_name = "Master"
 
 position = Vector2( 521.877, 836.484 )
 shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
 
 
