@@ -21,6 +21,7 @@ extents = Vector2( 63.7941, 62.1514 )
 
 [node name="Fire" type="StaticBody2D" groups=[
 "fire",
+"hazard",
 ]]
 
 input_pickable = false
@@ -36,6 +37,7 @@ bounce = 0.0
 scale = Vector2( 8, 8 )
 frames = SubResource( 1 )
 animation = "Fire"
+frame = 3
 playing = true
 _sections_unfolded = [ "Transform" ]
 

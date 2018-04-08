@@ -25,9 +25,10 @@ var levels = {
 	},
 	"red": {
 		"folder": "Firelands",
-		"count": 2,
+		"count": 3,
 		"1": "Red_01",
-		"2": "Red_02"
+		"2": "Red_02",
+		"3": "Red_03"
 	},
 	"sandbox": {
 		"folder": "Sandbox",

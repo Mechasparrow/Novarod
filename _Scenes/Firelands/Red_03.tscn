@@ -1,0 +1,620 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://_Scripts/level_script.gd" type="Script" id=1]
+[ext_resource path="res://_Tileset/normal_world.tres" type="TileSet" id=2]
+[ext_resource path="res://_Prefab/Fire.tscn" type="PackedScene" id=3]
+[ext_resource path="res://_Tileset/hazards.tres" type="TileSet" id=4]
+[ext_resource path="res://_Prefab/gems/gem_red.tscn" type="PackedScene" id=5]
+[ext_resource path="res://_Prefab/Platforms/Platform_Reg_Horizontal.tscn" type="PackedScene" id=6]
+[ext_resource path="res://_Prefab/Pickups/Weapon_Pickup.tscn" type="PackedScene" id=7]
+[ext_resource path="res://_Prefab/Door.tscn" type="PackedScene" id=8]
+[ext_resource path="res://_Prefab/Players/Player.tscn" type="PackedScene" id=9]
+[ext_resource path="res://_Prefab/Enemies/Left_Dragon.tscn" type="PackedScene" id=10]
+[ext_resource path="res://_Prefab/HUD.tscn" type="PackedScene" id=11]
+
+[sub_resource type="GDScript" id=1]
+
+script/source = "extends Node2D
+
+# class member variables go here, for example:
+# var a = 2
+# var b = \"textvar\"
+
+var type = \"red\"
+var level = 3
+
+func _ready():
+	# Called every time the node is added to the scene.
+	# Initialization here
+	pass
+
+#func _process(delta):
+#	# Called every frame. Delta is time since last frame.
+#	# Update game logic here.
+#	pass
+"
+
+[sub_resource type="GDScript" id=2]
+
+script/source = "extends KinematicBody2D
+
+# class member variables go here, for example:
+# var a = 2
+# var b = \"textvar\"
+
+var speed = 200
+var dir = \"right\"
+
+var movement_timer = 0
+var movement_duration = 2.0
+
+onready var platform_hitbox = get_node(\"Hitbox\")
+
+func _ready():
+	# Called every time the node is added to the scene.
+	# Initialization here
+	pass
+
+func _process(delta):
+	
+	if (dir == \"left\"):
+		position.x -= speed * delta
+		pass
+	elif (dir == \"right\"):
+		position.x += speed * delta
+		pass
+	
+	movement_timer += delta
+	
+	if (movement_timer > movement_duration):
+		if (dir == \"left\"):
+			dir = \"right\"
+			movement_timer = 0
+		elif (dir == \"right\"):
+			dir = \"left\"
+			movement_timer = 0
+	
+	
+	var platform_bodies = platform_hitbox.get_overlapping_bodies()
+	
+	for body in platform_bodies:
+		var body_position = body.position
+		
+		if (dir == \"left\"):
+			body_position.x -= speed * delta * 1.5
+			
+		elif (dir == \"right\"):
+			body_position.x += speed * delta * 1.5
+	
+"
+
+[sub_resource type="GDScript" id=3]
+
+script/source = "extends KinematicBody2D
+
+# class member variables go here, for example:
+# var a = 2
+# var b = \"textvar\"
+
+var speed = 200
+var dir = \"left\"
+
+var movement_timer = 0
+var movement_duration = 2.0
+
+onready var platform_hitbox = get_node(\"Hitbox\")
+
+func _ready():
+	# Called every time the node is added to the scene.
+	# Initialization here
+	pass
+
+func _process(delta):
+	
+	if (dir == \"left\"):
+		position.x -= speed * delta
+		pass
+	elif (dir == \"right\"):
+		position.x += speed * delta
+		pass
+	
+	movement_timer += delta
+	
+	if (movement_timer > movement_duration):
+		if (dir == \"left\"):
+			dir = \"right\"
+			movement_timer = 0
+		elif (dir == \"right\"):
+			dir = \"left\"
+			movement_timer = 0
+	
+	
+	var platform_bodies = platform_hitbox.get_overlapping_bodies()
+	
+	for body in platform_bodies:
+		var body_position = body.position
+		
+		if (dir == \"left\"):
+			body_position.x -= speed * delta * 1.5
+			
+		elif (dir == \"right\"):
+			body_position.x += speed * delta * 1.5
+	
+"
+
+[sub_resource type="GDScript" id=4]
+
+script/source = "extends Area2D
+
+# class member variables go here, for example:
+# var a = 2
+# var b = \"textvar\"
+
+var weapon
+var weapon_texture
+
+onready var animator = get_node(\"AnimationPlayer\")
+
+func _ready():
+	# Called every time the node is added to the scene.
+	# Initialization here
+	
+	var gun_prefab = get_node(\"/root/weapons\").weapons[1]
+	var gun = gun_prefab.instance()
+	var gun_texture = gun.get_node(\"Sprite\").texture
+	
+	set_weapon(gun_prefab, gun_texture)
+	
+	animator.play(\"Bobin\")
+	
+	
+	pass
+
+func set_weapon(wpn, weapon_txtre):
+	weapon = wpn
+	weapon_texture = weapon_txtre
+	get_node(\"WeaponHolder/WeaponSprite\").texture = weapon_texture
+	
+	pass
+
+func _process(delta):
+
+	var bodies = get_overlapping_bodies()
+	var areas =get_overlapping_areas()
+	
+	var colliders = bodies + areas
+	
+	for collider in colliders:
+		if (collider.is_in_group(\"player\")):
+			var player = collider
+			var player_props = player.player_info
+			player_props.set_current_weapon(weapon)
+			player.check_weapons()
+			queue_free()
+
+	pass
+	
+
+"
+
+[sub_resource type="GDScript" id=5]
+
+script/source = "extends KinematicBody2D
+
+# class member variables go here, for example:
+# var a = 2
+# var b = \"textvar\"
+
+const GRAVITY = 0
+
+onready var anim = get_node(\"AnimatedSprite\")
+onready var hitbox = get_node(\"Hitbox\")
+onready var fireball = preload(\"res://_Prefab/Projectiles/Fireball_Projectile.tscn\")
+
+# Shooting Mechanism
+var shoot_timer = 0
+var shoot_cooldown = 2.0
+var can_shoot = false
+var shoot_dir = \"left\"
+var shoot_speed = 300
+var fireball_offset = 80
+
+var velocity = Vector2(200,0)
+
+var WALK_FORCE
+var WALK_MIN_SPEED
+var WALK_MAX_SPEED
+var STOP_FORCE
+var dir
+var hit_marker = false
+
+var enemy_knockback = 1000
+
+var ai_movement_timer = 0
+var ai_movement_cooldown = 1
+
+var hit = false
+var knockback_vel = Vector2(0,0)
+var cooldown_duration = 0.5
+var cooldown_timer = 0
+var knockback_duration = 0.1
+var knockback_timer = 0
+var knockedback = false
+
+var health = 3
+
+var xp_drop = true
+var xp = 3
+
+onready var xp_pickup = preload(\"res://_Prefab/Pickups/XP_Pickup.tscn\")
+
+func _ready():
+	# Called every time the node is added to the scene.
+	# Initialization here
+
+	WALK_FORCE = 600
+	WALK_MIN_SPEED = 10
+	WALK_MAX_SPEED = 200
+	STOP_FORCE = 1300
+
+	dir = \"right\"
+
+	pass
+
+func _physics_process(delta):
+
+	## Enemy AI + Movement
+
+	var force = Vector2(0, GRAVITY)
+
+	var stop = true
+
+	var walk_left
+	var walk_right
+
+	ai_movement_timer += delta
+
+	if (dir == \"left\"):
+		walk_left = true
+		walk_right = false
+	elif (dir == \"right\"):
+		walk_left = false
+		walk_right = true
+	
+	if (dir == \"left\"):
+		anim.flip_h = true
+	elif (dir == \"right\"):
+		anim.flip_h = false
+
+	## Shooting Carrots Section
+	shoot_dir = dir
+
+	if (can_shoot == false and shoot_timer < shoot_cooldown):
+		shoot_timer+= delta
+	elif (can_shoot == false and shoot_timer >= shoot_cooldown):
+		can_shoot = true
+
+	if (can_shoot):
+		var new_fireball = fireball.instance()
+		new_fireball.global_position = global_position
+
+		# Adds an offset so it is not on top of player_gun
+		if (shoot_dir == \"left\"):
+			new_fireball.position.x -= fireball_offset
+		elif (shoot_dir == \"right\"):
+			new_fireball.position.x += fireball_offset
+
+		get_tree().get_root().get_node(\"World\").add_child(new_fireball)
+
+		new_fireball.shoot(shoot_dir, shoot_speed)
+
+		can_shoot = false
+		shoot_timer = 0
+
+
+	## Shooting End
+
+
+	var areas = hitbox.get_overlapping_areas()
+	var bodies = hitbox.get_overlapping_bodies()
+
+	if (len(areas) == 0):
+		hit_marker = false
+
+	for body in bodies:
+		if body.name == \"Hazard\":
+			die()
+
+	# HIT COOLDOWN
+	if (hit == true and cooldown_timer < cooldown_duration):
+
+		cooldown_timer += delta
+
+	if (knockedback == true and knockback_timer < knockback_duration):
+		velocity += knockback_vel * 15 *  delta
+		knockback_timer += delta
+
+	if (knockedback == true and knockback_timer > knockback_duration):
+		velocity.x = 0
+		knockedback = false
+
+	if (hit == true and cooldown_timer > cooldown_duration):
+		hit = false
+
+	#KNOCKBACK
+
+	for body in bodies:
+
+		if (body.is_in_group(\"bullet\")):
+
+			if (hit == false):
+				handle_attack(body)
+				cooldown_timer = 0
+				hit = true
+				knockback_timer = 0
+				knockedback = true
+
+		pass
+
+	for area in areas:
+		var hit_a_marker = false
+
+		if (area.is_in_group(\"weapon\")):
+
+			if (hit == false):
+				handle_attack(area)
+				cooldown_timer = 0
+				hit = true
+				knockback_timer = 0
+				knockedback = true
+
+		if (area.is_in_group(\"enemy_marker\")):
+			hit_a_marker = true
+
+			if (hit_marker == false):
+				hit_marker = true
+				if (dir == \"left\"):
+					ai_movement_timer = 0
+					WALK_MAX_SPEED = 200
+					dir = \"right\"
+				elif (dir == \"right\"):
+					position.x -= 30
+					ai_movement_timer = 0
+					WALK_MAX_SPEED = 200
+					dir = \"left\"
+
+		hit_marker = hit_a_marker
+
+	#check health
+	display_health(health)
+
+	if health <= 0:
+		die()
+
+	pass
+
+func die():
+
+	## Spawn Drops
+
+	for x in range(xp):
+		var xp_pickup_node = xp_pickup.instance()
+		get_tree().get_root().get_node(\"World\").add_child(xp_pickup_node)
+		xp_pickup_node.global_position = global_position
+		xp_pickup_node.scale = Vector2(1,1)
+
+	## End Code
+
+
+	queue_free()
+
+func handle_attack(weapon):
+	var dir = weapon.attack_dir
+	var knockback = weapon.knockback_factor
+
+	if (dir == \"left\"):
+		knockback_vel = Vector2(-knockback, 0)
+	elif (dir == \"right\"):
+		knockback_vel = Vector2(knockback, 0)
+
+	health -= 1
+
+	print (str(knockback))
+	print (str(dir))
+	print (\"HIT\")
+
+func display_health(health):
+
+	var health_display = get_node(\"Hearts\")
+
+	var hearts = health_display.get_children()
+
+	var cnt = 0
+	for heart in hearts:
+		cnt += 1
+
+		if (cnt > health):
+			heart.hide()
+		else:
+			heart.show()
+
+	pass
+
+#func _process(delta):
+#	# Called every frame. Delta is time since last frame.
+#	# Update game logic here.
+#	pass
+"
+
+[node name="World" type="Node" groups=[
+"gem_collect_level",
+]]
+
+script = ExtResource( 1 )
+reset_position = Vector2( 100, 400 )
+
+[node name="level_info" type="Node2D" parent="." index="0"]
+
+script = SubResource( 1 )
+
+[node name="NPCS" type="Node2D" parent="." index="1"]
+
+[node name="Chests" type="Node2D" parent="." index="2"]
+
+[node name="Tiles" type="Node2D" parent="." index="3"]
+
+[node name="Ground" type="TileMap" parent="Tiles" index="0"]
+
+scale = Vector2( 4, 4 )
+mode = 0
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 16, 16 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 3
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( 65536, -1073741817, 0, 65537, 7, 0, 65538, 7, 0, 65539, 7, 0, 65540, 7, 0, 65541, 7, 0, 65542, 7, 0, 65543, 7, 0, 65544, -1610612729, 0, 196588, 4, 0, 196589, 4, 0, 196590, 4, 0, 196591, 4, 0, 196602, 4, 0, 196603, 4, 0, 196604, 4, 0, 196605, 7, 0, 131072, -1073741817, 0, 131073, 1610612743, 0, 131074, 1610612743, 0, 131075, 1610612743, 0, 131076, 1610612743, 0, 131077, 1610612743, 0, 131078, 1610612743, 0, 131079, 1610612743, 0, 131080, -1610612729, 0, 131083, 7, 0, 131084, 4, 0, 131085, 4, 0, 131086, 4, 0, 131097, 4, 0, 131098, 4, 0, 131099, 4, 0, 131100, 4, 0, 262124, 8, 0, 262125, 8, 0, 262126, 8, 0, 262127, 8, 0, 262138, 8, 0, 262139, 8, 0, 262140, 8, 0, 262141, -1610612729, 0, 196608, -1073741817, 0, 196616, -1610612729, 0, 196619, -1073741817, 0, 196620, 8, 0, 196621, 8, 0, 196622, 8, 0, 196633, 8, 0, 196634, 8, 0, 196635, 8, 0, 196636, 8, 0, 327660, 8, 0, 327661, 8, 0, 327662, 8, 0, 327663, 8, 0, 327674, 8, 0, 327675, 8, 0, 327676, 8, 0, 327677, -1610612729, 0, 262155, -1073741817, 0, 262156, 8, 0, 262157, 8, 0, 262158, 8, 0, 262169, 8, 0, 262170, 8, 0, 262171, 8, 0, 262172, 8, 0, 393196, 8, 0, 393197, 8, 0, 393198, 8, 0, 393199, 8, 0, 393210, 8, 0, 393211, 8, 0, 393212, 8, 0, 393213, -1610612729, 0, 327691, -1073741817, 0, 327692, 8, 0, 327693, 8, 0, 327694, 8, 0, 327705, 8, 0, 327706, 8, 0, 327707, 8, 0, 327708, 8, 0, 458752, 4, 0, 458753, 4, 0, 458754, 4, 0, 458755, 4, 0, 458756, 4, 0, 458757, 4, 0, 458758, 4, 0, 458759, 4, 0, 458760, 4, 0, 524288, 9, 0, 524289, 9, 0, 524290, 9, 0, 524291, 9, 0, 524292, 9, 0, 524293, 9, 0, 524294, 9, 0, 524295, 9, 0, 524296, 9, 0, 655358, 9, 0, 655359, 9, 0, 589824, 9, 0, 589825, 9, 0, 589826, 9, 0, 589827, 9, 0, 589828, 9, 0, 589829, 9, 0, 589830, 9, 0, 589831, 9, 0, 589832, 9, 0, 589833, 9, 0, 589834, 9, 0, 720894, 9, 0, 720895, 9, 0, 655360, 9, 0, 655361, 9, 0, 655362, 9, 0, 655363, 9, 0, 655364, 9, 0, 655365, 9, 0, 655366, 9, 0, 655367, 9, 0, 655368, 9, 0, 655369, 9, 0, 655370, 9, 0, 786430, 8, 0, 786431, 8, 0, 720896, 8, 0, 720897, 8, 0, 720898, 8, 0, 720899, 8, 0, 720900, 8, 0, 720901, 8, 0, 720902, 8, 0, 720903, 8, 0, 720904, 8, 0, 720905, 8, 0, 720906, 8, 0, 851966, 8, 0, 851967, 8, 0, 786432, 8, 0, 786433, 8, 0, 786434, 8, 0, 786435, 8, 0, 786436, 8, 0, 786437, 8, 0, 786438, 8, 0, 786439, 8, 0, 786440, 8, 0, 786441, 8, 0, 786442, 8, 0 )
+_sections_unfolded = [ "Cell", "Collision", "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Fire" type="Node2D" parent="Tiles" index="1"]
+
+scale = Vector2( 0.5, 0.5 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Fire" parent="Tiles/Fire" index="0" instance=ExtResource( 3 )]
+
+position = Vector2( -64, 1088 )
+
+[node name="Fire2" parent="Tiles/Fire" index="1" instance=ExtResource( 3 )]
+
+position = Vector2( -192, 1088 )
+
+[node name="Fire3" parent="Tiles/Fire" index="2" instance=ExtResource( 3 )]
+
+position = Vector2( 1216, 1088 )
+
+[node name="Fire4" parent="Tiles/Fire" index="3" instance=ExtResource( 3 )]
+
+position = Vector2( 1344, 1088 )
+
+[node name="Hazard" type="TileMap" parent="Tiles" index="2"]
+
+scale = Vector2( 4, 4 )
+mode = 0
+tile_set = ExtResource( 4 )
+cell_size = Vector2( 16, 16 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( 458758, 2, 0, 458759, 2, 0, 786454, 2, 0, 917499, 2, 0, 851990, 2, 0, 917526, 2, 0, 917527, 2, 0, 917528, 2, 0, 917529, 2, 0 )
+_sections_unfolded = [ "Cell", "Collision", "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Water" type="Node2D" parent="Tiles" index="3"]
+
+modulate = Color( 1, 1, 1, 0.588235 )
+z_index = 2
+_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
+
+[node name="Trees" type="Node2D" parent="Tiles" index="4"]
+
+[node name="Ice" type="Node2D" parent="Tiles" index="5"]
+
+[node name="Gems" type="Node2D" parent="." index="4"]
+
+editor/display_folded = true
+
+[node name="Red_Gem" parent="Gems" index="0" instance=ExtResource( 5 )]
+
+position = Vector2( 1824, 80 )
+
+[node name="Red_Gem2" parent="Gems" index="1" instance=ExtResource( 5 )]
+
+position = Vector2( -1248, 80 )
+
+[node name="Coins" type="Node2D" parent="." index="5"]
+
+[node name="Coins_R" type="Node2D" parent="." index="6"]
+
+[node name="Signs" type="Node2D" parent="." index="7"]
+
+position = Vector2( 97.7842, 416.212 )
+
+[node name="Platforms" type="Node2D" parent="." index="8"]
+
+editor/display_folded = true
+
+[node name="Platform_Reg" parent="Platforms" index="0" instance=ExtResource( 6 )]
+
+position = Vector2( -896, 160 )
+script = SubResource( 2 )
+
+[node name="Platform_Reg2" parent="Platforms" index="1" instance=ExtResource( 6 )]
+
+position = Vector2( 1472, 160 )
+script = SubResource( 3 )
+
+[node name="Pickups" type="Node2D" parent="." index="9"]
+
+editor/display_folded = true
+_sections_unfolded = [ "Transform" ]
+
+[node name="Weapon_Pickup" parent="Pickups" index="0" instance=ExtResource( 7 )]
+
+position = Vector2( -240, 80 )
+
+[node name="Weapon_Pickup2" parent="Pickups" index="1" instance=ExtResource( 7 )]
+
+position = Vector2( 784, 80 )
+script = SubResource( 4 )
+
+[node name="Door" parent="." index="10" instance=ExtResource( 8 )]
+
+position = Vector2( 240, 0 )
+
+[node name="Player" parent="." index="11" instance=ExtResource( 9 )]
+
+position = Vector2( 192, 288 )
+
+[node name="Enemies" type="Node2D" parent="." index="12"]
+
+[node name="Dragon" parent="Enemies" index="0" instance=ExtResource( 10 )]
+
+position = Vector2( 1744, 64 )
+
+[node name="Dragon2" parent="Enemies" index="1" instance=ExtResource( 10 )]
+
+position = Vector2( -1152, 64 )
+script = SubResource( 5 )
+
+[node name="Enemy_Markers" type="Node2D" parent="." index="13"]
+
+position = Vector2( 272, 64 )
+
+[node name="HUD" parent="." index="14" instance=ExtResource( 11 )]
+
+

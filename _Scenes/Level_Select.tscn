@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://_Scripts/level_select.gd" type="Script" id=1]
 [ext_resource path="res://_Assets/Art/Tutorials_Button.png" type="Texture" id=2]
@@ -8,7 +8,7 @@
 [ext_resource path="res://_Assets/Art/Health_Bar.png" type="Texture" id=6]
 [ext_resource path="res://_Fonts/imported_fonts/pixel_font.tres" type="DynamicFont" id=7]
 
-[sub_resource type="GDScript" id=10]
+[sub_resource type="GDScript" id=1]
 
 script/source = "extends Node
 
@@ -39,7 +39,7 @@ font_data = ExtResource( 4 )
 fallback/0 = ExtResource( 3 )
 _sections_unfolded = [ "Font/fallback", "Settings" ]
 
-[sub_resource type="GDScript" id=12]
+[sub_resource type="GDScript" id=3]
 
 script/source = "extends Node
 
@@ -61,7 +61,7 @@ func _ready():
 #	pass
 "
 
-[sub_resource type="GDScript" id=13]
+[sub_resource type="GDScript" id=4]
 
 script/source = "extends Node
 
@@ -83,7 +83,7 @@ func _ready():
 #	pass
 "
 
-[sub_resource type="GDScript" id=14]
+[sub_resource type="GDScript" id=5]
 
 script/source = "extends Node
 
@@ -105,7 +105,7 @@ func _ready():
 #	pass
 "
 
-[sub_resource type="GDScript" id=15]
+[sub_resource type="GDScript" id=6]
 
 script/source = "extends Node
 
@@ -127,7 +127,7 @@ func _ready():
 #	pass
 "
 
-[sub_resource type="GDScript" id=16]
+[sub_resource type="GDScript" id=7]
 
 script/source = "extends Node
 
@@ -149,7 +149,7 @@ func _ready():
 #	pass
 "
 
-[sub_resource type="GDScript" id=17]
+[sub_resource type="GDScript" id=8]
 
 script/source = "extends Node
 
@@ -171,7 +171,7 @@ func _ready():
 #	pass
 "
 
-[sub_resource type="GDScript" id=18]
+[sub_resource type="GDScript" id=9]
 
 script/source = "extends Node
 
@@ -193,7 +193,7 @@ func _ready():
 #	pass
 "
 
-[sub_resource type="GDScript" id=19]
+[sub_resource type="GDScript" id=10]
 
 script/source = "extends Node
 
@@ -215,7 +215,7 @@ func _ready():
 #	pass
 "
 
-[sub_resource type="GDScript" id=20]
+[sub_resource type="GDScript" id=11]
 
 script/source = "extends Node
 
@@ -237,7 +237,7 @@ func _ready():
 #	pass
 "
 
-[sub_resource type="DynamicFont" id=21]
+[sub_resource type="DynamicFont" id=12]
 
 size = 25
 use_mipmaps = false
@@ -246,7 +246,7 @@ font_data = ExtResource( 4 )
 fallback/0 = ExtResource( 3 )
 _sections_unfolded = [ "Font/fallback", "Settings" ]
 
-[sub_resource type="GDScript" id=22]
+[sub_resource type="GDScript" id=13]
 
 script/source = "extends Node
 
@@ -268,7 +268,7 @@ func _ready():
 #	pass
 "
 
-[sub_resource type="GDScript" id=23]
+[sub_resource type="GDScript" id=14]
 
 script/source = "extends Node
 
@@ -290,7 +290,51 @@ func _ready():
 #	pass
 "
 
-[sub_resource type="GDScript" id=11]
+[sub_resource type="GDScript" id=15]
+
+script/source = "extends Node
+
+# class member variables go here, for example:
+# var a = 2
+# var b = \"textvar\"
+
+var level = 3
+var type = \"red\"
+
+func _ready():
+	# Called every time the node is added to the scene.
+	# Initialization here
+	pass
+
+#func _process(delta):
+#	# Called every frame. Delta is time since last frame.
+#	# Update game logic here.
+#	pass
+"
+
+[sub_resource type="GDScript" id=17]
+
+script/source = "extends Node
+
+# class member variables go here, for example:
+# var a = 2
+# var b = \"textvar\"
+
+var level = 4
+var type = \"red\"
+
+func _ready():
+	# Called every time the node is added to the scene.
+	# Initialization here
+	pass
+
+#func _process(delta):
+#	# Called every frame. Delta is time since last frame.
+#	# Update game logic here.
+#	pass
+"
+
+[sub_resource type="GDScript" id=16]
 
 script/source = "extends Node
 
@@ -312,7 +356,7 @@ func _ready():
 #	pass
 "
 
-[node name="Node" type="Node"]
+[node name="Node" type="Node" index="0"]
 
 script = ExtResource( 1 )
 
@@ -370,7 +414,7 @@ group = null
 texture_normal = ExtResource( 2 )
 expand = true
 stretch_mode = 4
-script = SubResource( 10 )
+script = SubResource( 1 )
 _sections_unfolded = [ "Hint", "Textures" ]
 
 [node name="Label" type="Label" parent="Tutorial/Tutorial_Btn" index="1"]
@@ -426,7 +470,7 @@ group = null
 texture_normal = ExtResource( 2 )
 expand = true
 stretch_mode = 4
-script = SubResource( 12 )
+script = SubResource( 3 )
 _sections_unfolded = [ "Hint", "Textures" ]
 
 [node name="Label" type="Label" parent="Tutorial/Tutorial_Btn2" index="1"]
@@ -482,7 +526,7 @@ group = null
 texture_normal = ExtResource( 2 )
 expand = true
 stretch_mode = 4
-script = SubResource( 13 )
+script = SubResource( 4 )
 _sections_unfolded = [ "Hint", "Textures" ]
 
 [node name="Label" type="Label" parent="Tutorial/Tutorial_Btn3" index="1"]
@@ -538,7 +582,7 @@ group = null
 texture_normal = ExtResource( 2 )
 expand = true
 stretch_mode = 4
-script = SubResource( 14 )
+script = SubResource( 5 )
 _sections_unfolded = [ "Hint", "Textures" ]
 
 [node name="Label" type="Label" parent="Tutorial/Tutorial_Btn4" index="1"]
@@ -594,7 +638,7 @@ group = null
 texture_normal = ExtResource( 2 )
 expand = true
 stretch_mode = 4
-script = SubResource( 15 )
+script = SubResource( 6 )
 _sections_unfolded = [ "Hint", "Textures" ]
 
 [node name="Label" type="Label" parent="Tutorial/Tutorial_Btn5" index="1"]
@@ -650,7 +694,7 @@ group = null
 texture_normal = ExtResource( 2 )
 expand = true
 stretch_mode = 4
-script = SubResource( 16 )
+script = SubResource( 7 )
 _sections_unfolded = [ "Hint", "Textures" ]
 
 [node name="Label" type="Label" parent="Tutorial/Tutorial_Btn6" index="1"]
@@ -677,8 +721,6 @@ max_lines_visible = -1
 _sections_unfolded = [ "custom_fonts" ]
 
 [node name="Earth" type="Node2D" parent="." index="2"]
-
-editor/display_folded = true
 
 [node name="Earth_Btn1" type="Node2D" parent="Earth" index="0"]
 
@@ -711,7 +753,7 @@ group = null
 texture_normal = ExtResource( 5 )
 expand = true
 stretch_mode = 4
-script = SubResource( 17 )
+script = SubResource( 8 )
 _sections_unfolded = [ "Hint", "Textures" ]
 
 [node name="Label" type="Label" parent="Earth/Earth_Btn1" index="1"]
@@ -768,7 +810,7 @@ group = null
 texture_normal = ExtResource( 5 )
 expand = true
 stretch_mode = 4
-script = SubResource( 18 )
+script = SubResource( 9 )
 _sections_unfolded = [ "Hint", "Textures" ]
 
 [node name="Label" type="Label" parent="Earth/Earth_Btn2" index="1"]
@@ -796,6 +838,7 @@ _sections_unfolded = [ "custom_fonts" ]
 
 [node name="Earth_Btn3" type="Node2D" parent="Earth" index="2"]
 
+editor/display_folded = true
 position = Vector2( 448, 144 )
 scale = Vector2( 0.75, 0.75 )
 _sections_unfolded = [ "Transform", "Visibility" ]
@@ -824,7 +867,7 @@ group = null
 texture_normal = ExtResource( 5 )
 expand = true
 stretch_mode = 4
-script = SubResource( 19 )
+script = SubResource( 10 )
 _sections_unfolded = [ "Hint", "Textures" ]
 
 [node name="Label" type="Label" parent="Earth/Earth_Btn3" index="1"]
@@ -879,7 +922,7 @@ shortcut = null
 group = null
 texture_normal = ExtResource( 5 )
 expand = true
-script = SubResource( 20 )
+script = SubResource( 11 )
 _sections_unfolded = [ "Hint", "Rect", "Textures" ]
 
 [node name="Label" type="Label" parent="Earth/Earth_Btn4" index="1"]
@@ -898,7 +941,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 21 )
+custom_fonts/font = SubResource( 12 )
 text = "Green_Boss"
 percent_visible = 1.0
 lines_skipped = 0
@@ -938,7 +981,7 @@ group = null
 texture_normal = ExtResource( 6 )
 expand = true
 stretch_mode = 4
-script = SubResource( 22 )
+script = SubResource( 13 )
 _sections_unfolded = [ "Hint", "Textures" ]
 
 [node name="Label" type="Label" parent="Fire/Fire_Lands" index="1"]
@@ -966,6 +1009,7 @@ _sections_unfolded = [ "custom_fonts" ]
 
 [node name="Fire_Lands2" type="Node2D" parent="Fire" index="1"]
 
+editor/display_folded = true
 position = Vector2( 336, 240 )
 scale = Vector2( 0.75, 0.75 )
 _sections_unfolded = [ "Transform", "Visibility" ]
@@ -994,7 +1038,7 @@ group = null
 texture_normal = ExtResource( 6 )
 expand = true
 stretch_mode = 4
-script = SubResource( 23 )
+script = SubResource( 14 )
 _sections_unfolded = [ "Hint", "Textures" ]
 
 [node name="Label" type="Label" parent="Fire/Fire_Lands2" index="1"]
@@ -1015,6 +1059,118 @@ size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_fonts/font = SubResource( 2 )
 text = "Level_02"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="Fire_Lands3" type="Node2D" parent="Fire" index="2"]
+
+editor/display_folded = true
+position = Vector2( 448, 240 )
+scale = Vector2( 0.75, 0.75 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="TextureButton" type="TextureButton" parent="Fire/Fire_Lands3" index="0" groups=[
+"select_button",
+]]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 100.0
+margin_bottom = 100.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 6 )
+expand = true
+stretch_mode = 4
+script = SubResource( 15 )
+_sections_unfolded = [ "Hint", "Textures" ]
+
+[node name="Label" type="Label" parent="Fire/Fire_Lands3" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 16.0
+margin_top = 32.0
+margin_right = 88.0
+margin_bottom = 63.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 2 )
+text = "Level_03"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="Red_Btn4" type="Node2D" parent="Fire" index="3"]
+
+position = Vector2( 560, 240 )
+scale = Vector2( 0.75, 0.75 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="TextureButton" type="TextureButton" parent="Fire/Red_Btn4" index="0" groups=[
+"select_button",
+]]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 256.0
+margin_bottom = 100.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 6 )
+expand = true
+script = SubResource( 17 )
+_sections_unfolded = [ "Hint", "Rect", "Textures" ]
+
+[node name="Label" type="Label" parent="Fire/Red_Btn4" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 66.0
+margin_top = 30.0
+margin_right = 183.0
+margin_bottom = 61.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 12 )
+text = "Red_Boss"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
@@ -1047,7 +1203,7 @@ group = null
 text = "Sandbox"
 flat = false
 align = 1
-script = SubResource( 11 )
+script = SubResource( 16 )
 _sections_unfolded = [ "custom_fonts" ]
 
 
