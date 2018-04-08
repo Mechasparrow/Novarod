@@ -18,6 +18,16 @@ var levels = {
 		"7": "Green_07",
 		"8": "Green_Final"
 	},
+	"tutorial": {
+		"folder": "Tutorials",
+		"count": 6,
+		"1": "Tutorial_01",
+		"2": "Tutorial_02",
+		"3": "Tutorial_03",
+		"4": "Tutorial_04",
+		"5": "Tutorial_05",
+		"6": "Tutorial_06"
+	},
 	"red": {
 		"folder": "Firelands",
 		"count": 1,

@@ -1,14 +1,13 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://_Scripts/level_select.gd" type="Script" id=1]
-[ext_resource path="res://_Assets/Art/XP_Bar.png" type="Texture" id=2]
+[ext_resource path="res://_Assets/Art/Tutorials_Button.png" type="Texture" id=2]
 [ext_resource path="res://_Fonts/Roboto-Regular.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://_Fonts/Munro.ttf" type="DynamicFontData" id=4]
-[ext_resource path="res://_Scripts/Menu/button_props.gd" type="Script" id=5]
-[ext_resource path="res://_Assets/Art/Health_Bar.png" type="Texture" id=6]
-[ext_resource path="res://_Fonts/imported_fonts/pixel_font.tres" type="DynamicFont" id=7]
+[ext_resource path="res://_Assets/Art/Health_Bar.png" type="Texture" id=5]
+[ext_resource path="res://_Fonts/imported_fonts/pixel_font.tres" type="DynamicFont" id=6]
 
-[sub_resource type="GDScript" id=1]
+[sub_resource type="GDScript" id=10]
 
 script/source = "extends Node
 
@@ -16,8 +15,8 @@ script/source = "extends Node
 # var a = 2
 # var b = \"textvar\"
 
-var level = 0
-var type = \"green\"
+var level = 1
+var type = \"tutorial\"
 
 func _ready():
 	# Called every time the node is added to the scene.
@@ -39,7 +38,7 @@ font_data = ExtResource( 4 )
 fallback/0 = ExtResource( 3 )
 _sections_unfolded = [ "Font/fallback", "Settings" ]
 
-[sub_resource type="GDScript" id=3]
+[sub_resource type="GDScript" id=12]
 
 script/source = "extends Node
 
@@ -48,7 +47,7 @@ script/source = "extends Node
 # var b = \"textvar\"
 
 var level = 2
-var type = \"green\"
+var type = \"tutorial\"
 
 func _ready():
 	# Called every time the node is added to the scene.
@@ -61,7 +60,7 @@ func _ready():
 #	pass
 "
 
-[sub_resource type="GDScript" id=4]
+[sub_resource type="GDScript" id=13]
 
 script/source = "extends Node
 
@@ -70,7 +69,7 @@ script/source = "extends Node
 # var b = \"textvar\"
 
 var level = 3
-var type = \"green\"
+var type = \"tutorial\"
 
 func _ready():
 	# Called every time the node is added to the scene.
@@ -83,7 +82,7 @@ func _ready():
 #	pass
 "
 
-[sub_resource type="GDScript" id=5]
+[sub_resource type="GDScript" id=14]
 
 script/source = "extends Node
 
@@ -92,7 +91,51 @@ script/source = "extends Node
 # var b = \"textvar\"
 
 var level = 4
-var type = \"green\"
+var type = \"tutorial\"
+
+func _ready():
+	# Called every time the node is added to the scene.
+	# Initialization here
+	pass
+
+#func _process(delta):
+#	# Called every frame. Delta is time since last frame.
+#	# Update game logic here.
+#	pass
+"
+
+[sub_resource type="GDScript" id=15]
+
+script/source = "extends Node
+
+# class member variables go here, for example:
+# var a = 2
+# var b = \"textvar\"
+
+var level = 5
+var type = \"tutorial\"
+
+func _ready():
+	# Called every time the node is added to the scene.
+	# Initialization here
+	pass
+
+#func _process(delta):
+#	# Called every frame. Delta is time since last frame.
+#	# Update game logic here.
+#	pass
+"
+
+[sub_resource type="GDScript" id=16]
+
+script/source = "extends Node
+
+# class member variables go here, for example:
+# var a = 2
+# var b = \"textvar\"
+
+var level = 6
+var type = \"tutorial\"
 
 func _ready():
 	# Called every time the node is added to the scene.
@@ -106,116 +149,6 @@ func _ready():
 "
 
 [sub_resource type="GDScript" id=11]
-
-script/source = "extends Node
-
-# class member variables go here, for example:
-# var a = 2
-# var b = \"textvar\"
-
-var level = 5
-var type = \"green\"
-
-func _ready():
-	# Called every time the node is added to the scene.
-	# Initialization here
-	pass
-
-#func _process(delta):
-#	# Called every frame. Delta is time since last frame.
-#	# Update game logic here.
-#	pass
-"
-
-[sub_resource type="GDScript" id=9]
-
-script/source = "extends Node
-
-# class member variables go here, for example:
-# var a = 2
-# var b = \"textvar\"
-
-var level = 6
-var type = \"green\"
-
-func _ready():
-	# Called every time the node is added to the scene.
-	# Initialization here
-	pass
-
-#func _process(delta):
-#	# Called every frame. Delta is time since last frame.
-#	# Update game logic here.
-#	pass
-"
-
-[sub_resource type="GDScript" id=10]
-
-script/source = "extends Node
-
-# class member variables go here, for example:
-# var a = 2
-# var b = \"textvar\"
-
-var level = 7
-var type = \"green\"
-
-func _ready():
-	# Called every time the node is added to the scene.
-	# Initialization here
-	pass
-
-#func _process(delta):
-#	# Called every frame. Delta is time since last frame.
-#	# Update game logic here.
-#	pass
-"
-
-[sub_resource type="GDScript" id=12]
-
-script/source = "extends Node
-
-# class member variables go here, for example:
-# var a = 2
-# var b = \"textvar\"
-
-var level = 8
-var type = \"green\"
-
-func _ready():
-	# Called every time the node is added to the scene.
-	# Initialization here
-	pass
-
-#func _process(delta):
-#	# Called every frame. Delta is time since last frame.
-#	# Update game logic here.
-#	pass
-"
-
-[sub_resource type="GDScript" id=7]
-
-script/source = "extends Node
-
-# class member variables go here, for example:
-# var a = 2
-# var b = \"textvar\"
-
-var level = 1
-var type = \"red\"
-
-func _ready():
-	# Called every time the node is added to the scene.
-	# Initialization here
-	pass
-
-#func _process(delta):
-#	# Called every frame. Delta is time since last frame.
-#	# Update game logic here.
-#	pass
-"
-
-[sub_resource type="GDScript" id=8]
 
 script/source = "extends Node
 
@@ -237,7 +170,7 @@ func _ready():
 #	pass
 "
 
-[node name="Node" type="Node" index="0"]
+[node name="Node" type="Node"]
 
 script = ExtResource( 1 )
 
@@ -260,439 +193,17 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Green_lands_Btn" type="Node2D" parent="." index="1"]
+[node name="Tutorial" type="Node2D" parent="." index="1"]
 
-editor/display_folded = true
-position = Vector2( 56, 40 )
+position = Vector2( 208, 64 )
 scale = Vector2( 0.75, 0.75 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="TextureButton" type="TextureButton" parent="Green_lands_Btn" index="0" groups=[
-"select_button",
-]]
+[node name="Tutorial_Btn" type="Node2D" parent="Tutorial" index="0"]
 
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 100.0
-margin_bottom = 100.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
-texture_normal = ExtResource( 2 )
-expand = true
-stretch_mode = 4
-script = SubResource( 1 )
-_sections_unfolded = [ "Hint", "Rect" ]
+position = Vector2( 21.3333, -21.3333 )
+_sections_unfolded = [ "Transform", "Visibility" ]
 
-[node name="Label" type="Label" parent="Green_lands_Btn" index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 16.0
-margin_top = 32.0
-margin_right = 88.0
-margin_bottom = 63.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-custom_fonts/font = SubResource( 2 )
-text = "Level_00"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Rect", "custom_fonts" ]
-
-[node name="Green_lands_Btn4" type="Node2D" parent="." index="2"]
-
-editor/display_folded = true
-position = Vector2( 152, 40 )
-scale = Vector2( 0.75, 0.75 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="TextureButton" type="TextureButton" parent="Green_lands_Btn4" index="0" groups=[
-"select_button",
-]]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 100.0
-margin_bottom = 100.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
-texture_normal = ExtResource( 2 )
-expand = true
-stretch_mode = 4
-script = ExtResource( 5 )
-_sections_unfolded = [ "Hint", "Rect" ]
-
-[node name="Label" type="Label" parent="Green_lands_Btn4" index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 16.0
-margin_top = 32.0
-margin_right = 88.0
-margin_bottom = 63.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-custom_fonts/font = SubResource( 2 )
-text = "Level_01"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Rect", "custom_fonts" ]
-
-[node name="Green_lands_Btn2" type="Node2D" parent="." index="3"]
-
-editor/display_folded = true
-position = Vector2( 248, 40 )
-scale = Vector2( 0.75, 0.75 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="TextureButton" type="TextureButton" parent="Green_lands_Btn2" index="0" groups=[
-"select_button",
-]]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 100.0
-margin_bottom = 100.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
-texture_normal = ExtResource( 2 )
-expand = true
-stretch_mode = 4
-script = SubResource( 3 )
-_sections_unfolded = [ "Hint", "Rect" ]
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Label" type="Label" parent="Green_lands_Btn2" index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 16.0
-margin_top = 32.0
-margin_right = 88.0
-margin_bottom = 63.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-custom_fonts/font = SubResource( 2 )
-text = "Level_02"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Hint", "Rect", "custom_fonts" ]
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Green_lands_Btn3" type="Node2D" parent="." index="4"]
-
-editor/display_folded = true
-position = Vector2( 344, 40 )
-scale = Vector2( 0.75, 0.75 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="TextureButton" type="TextureButton" parent="Green_lands_Btn3" index="0" groups=[
-"select_button",
-]]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 100.0
-margin_bottom = 100.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
-texture_normal = ExtResource( 2 )
-expand = true
-stretch_mode = 4
-script = SubResource( 4 )
-_sections_unfolded = [ "Hint", "Rect" ]
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Label" type="Label" parent="Green_lands_Btn3" index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 16.0
-margin_top = 32.0
-margin_right = 88.0
-margin_bottom = 63.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-custom_fonts/font = SubResource( 2 )
-text = "Level_03"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Hint", "Rect", "custom_fonts" ]
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Green_lands_Btn5" type="Node2D" parent="." index="5"]
-
-position = Vector2( 440, 40 )
-scale = Vector2( 0.75, 0.75 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="TextureButton" type="TextureButton" parent="Green_lands_Btn5" index="0" groups=[
-"select_button",
-]]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 100.0
-margin_bottom = 100.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
-texture_normal = ExtResource( 2 )
-expand = true
-stretch_mode = 4
-script = SubResource( 5 )
-_sections_unfolded = [ "Hint", "Rect" ]
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Label" type="Label" parent="Green_lands_Btn5" index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 16.0
-margin_top = 32.0
-margin_right = 88.0
-margin_bottom = 63.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-custom_fonts/font = SubResource( 2 )
-text = "Level_04"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Hint", "Rect", "custom_fonts" ]
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Green_lands_Btn6" type="Node2D" parent="." index="6"]
-
-position = Vector2( 536, 40 )
-scale = Vector2( 0.75, 0.75 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="TextureButton" type="TextureButton" parent="Green_lands_Btn6" index="0" groups=[
-"select_button",
-]]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 100.0
-margin_bottom = 100.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
-texture_normal = ExtResource( 2 )
-expand = true
-stretch_mode = 4
-script = SubResource( 11 )
-_sections_unfolded = [ "Hint", "Rect" ]
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Label" type="Label" parent="Green_lands_Btn6" index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 16.0
-margin_top = 32.0
-margin_right = 88.0
-margin_bottom = 63.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-custom_fonts/font = SubResource( 2 )
-text = "Level_05"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Hint", "Rect", "custom_fonts" ]
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Green_lands_Btn7" type="Node2D" parent="." index="7"]
-
-position = Vector2( 632, 40 )
-scale = Vector2( 0.75, 0.75 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="TextureButton" type="TextureButton" parent="Green_lands_Btn7" index="0" groups=[
-"select_button",
-]]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 100.0
-margin_bottom = 100.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
-texture_normal = ExtResource( 2 )
-expand = true
-stretch_mode = 4
-script = SubResource( 9 )
-_sections_unfolded = [ "Hint", "Rect" ]
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Label" type="Label" parent="Green_lands_Btn7" index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 16.0
-margin_top = 32.0
-margin_right = 88.0
-margin_bottom = 63.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-custom_fonts/font = SubResource( 2 )
-text = "Level_06"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Hint", "Rect", "custom_fonts" ]
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Green_lands_Btn8" type="Node2D" parent="." index="8"]
-
-position = Vector2( 728, 40 )
-scale = Vector2( 0.75, 0.75 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="TextureButton" type="TextureButton" parent="Green_lands_Btn8" index="0" groups=[
+[node name="TextureButton" type="TextureButton" parent="Tutorial/Tutorial_Btn" index="0" groups=[
 "select_button",
 ]]
 
@@ -717,12 +228,9 @@ texture_normal = ExtResource( 2 )
 expand = true
 stretch_mode = 4
 script = SubResource( 10 )
-_sections_unfolded = [ "Hint", "Rect" ]
-__meta__ = {
-"_edit_lock_": true
-}
+_sections_unfolded = [ "Hint", "Textures" ]
 
-[node name="Label" type="Label" parent="Green_lands_Btn8" index="1"]
+[node name="Label" type="Label" parent="Tutorial/Tutorial_Btn" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -739,21 +247,18 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_fonts/font = SubResource( 2 )
-text = "Level_07"
+text = "Level_01"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "Hint", "Rect", "custom_fonts" ]
-__meta__ = {
-"_edit_lock_": true
-}
+_sections_unfolded = [ "custom_fonts" ]
 
-[node name="Green_lands_Btn9" type="Node2D" parent="." index="9"]
+[node name="Tutorial_Btn2" type="Node2D" parent="Tutorial" index="1"]
 
-position = Vector2( 848, 32 )
-_sections_unfolded = [ "Transform" ]
+position = Vector2( 170.667, -21.3333 )
+_sections_unfolded = [ "Transform", "Visibility" ]
 
-[node name="TextureButton" type="TextureButton" parent="Green_lands_Btn9" index="0" groups=[
+[node name="TextureButton" type="TextureButton" parent="Tutorial/Tutorial_Btn2" index="0" groups=[
 "select_button",
 ]]
 
@@ -778,21 +283,18 @@ texture_normal = ExtResource( 2 )
 expand = true
 stretch_mode = 4
 script = SubResource( 12 )
-_sections_unfolded = [ "Hint", "Rect" ]
-__meta__ = {
-"_edit_lock_": true
-}
+_sections_unfolded = [ "Hint", "Textures" ]
 
-[node name="Label" type="Label" parent="Green_lands_Btn9" index="1"]
+[node name="Label" type="Label" parent="Tutorial/Tutorial_Btn2" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 10.0
-margin_top = 34.0
-margin_right = 94.0
-margin_bottom = 65.0
+margin_left = 16.0
+margin_top = 32.0
+margin_right = 88.0
+margin_bottom = 63.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -800,18 +302,18 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_fonts/font = SubResource( 2 )
-text = "GREEN_BOSS"
+text = "Level_02"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "Hint", "Rect", "custom_fonts" ]
+_sections_unfolded = [ "custom_fonts" ]
 
-[node name="Fire_Lands" type="Node2D" parent="." index="10"]
+[node name="Tutorial_Btn3" type="Node2D" parent="Tutorial" index="2"]
 
-editor/display_folded = true
-position = Vector2( 0, 144 )
+position = Vector2( 320, -21.3333 )
+_sections_unfolded = [ "Transform", "Visibility" ]
 
-[node name="TextureButton" type="TextureButton" parent="Fire_Lands" index="0" groups=[
+[node name="TextureButton" type="TextureButton" parent="Tutorial/Tutorial_Btn3" index="0" groups=[
 "select_button",
 ]]
 
@@ -819,10 +321,8 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 48.0
-margin_top = 32.0
-margin_right = 148.0
-margin_bottom = 132.0
+margin_right = 100.0
+margin_bottom = 100.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -834,22 +334,248 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 6 )
+texture_normal = ExtResource( 2 )
 expand = true
 stretch_mode = 4
-script = SubResource( 7 )
+script = SubResource( 13 )
 _sections_unfolded = [ "Hint", "Textures" ]
 
-[node name="Label" type="Label" parent="Fire_Lands" index="1"]
+[node name="Label" type="Label" parent="Tutorial/Tutorial_Btn3" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 64.0
-margin_top = 64.0
-margin_right = 136.0
-margin_bottom = 95.0
+margin_left = 16.0
+margin_top = 32.0
+margin_right = 88.0
+margin_bottom = 63.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 2 )
+text = "Level_03"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="Tutorial_Btn4" type="Node2D" parent="Tutorial" index="3"]
+
+position = Vector2( 469.333, -21.3333 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="TextureButton" type="TextureButton" parent="Tutorial/Tutorial_Btn4" index="0" groups=[
+"select_button",
+]]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 100.0
+margin_bottom = 100.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 2 )
+expand = true
+stretch_mode = 4
+script = SubResource( 14 )
+_sections_unfolded = [ "Hint", "Textures" ]
+
+[node name="Label" type="Label" parent="Tutorial/Tutorial_Btn4" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 16.0
+margin_top = 32.0
+margin_right = 88.0
+margin_bottom = 63.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 2 )
+text = "Level_04"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="Tutorial_Btn5" type="Node2D" parent="Tutorial" index="4"]
+
+position = Vector2( 618.667, -21.3333 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="TextureButton" type="TextureButton" parent="Tutorial/Tutorial_Btn5" index="0" groups=[
+"select_button",
+]]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 100.0
+margin_bottom = 100.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 2 )
+expand = true
+stretch_mode = 4
+script = SubResource( 15 )
+_sections_unfolded = [ "Hint", "Textures" ]
+
+[node name="Label" type="Label" parent="Tutorial/Tutorial_Btn5" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 16.0
+margin_top = 32.0
+margin_right = 88.0
+margin_bottom = 63.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 2 )
+text = "Level_05"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="Tutorial_Btn6" type="Node2D" parent="Tutorial" index="5"]
+
+position = Vector2( 618.667, -21.3333 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="TextureButton" type="TextureButton" parent="Tutorial/Tutorial_Btn6" index="0" groups=[
+"select_button",
+]]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 100.0
+margin_bottom = 100.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 2 )
+expand = true
+stretch_mode = 4
+script = SubResource( 16 )
+_sections_unfolded = [ "Hint", "Textures" ]
+
+[node name="Label" type="Label" parent="Tutorial/Tutorial_Btn6" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 16.0
+margin_top = 32.0
+margin_right = 88.0
+margin_bottom = 63.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 2 )
+text = "Level_06"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="Fire" type="Node2D" parent="." index="2"]
+
+editor/display_folded = true
+
+[node name="Fire_Lands" type="Node2D" parent="Fire" index="0"]
+
+editor/display_folded = true
+position = Vector2( 64, 192 )
+scale = Vector2( 0.75, 0.75 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="TextureButton" type="TextureButton" parent="Fire/Fire_Lands" index="0" groups=[
+"select_button",
+]]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 100.0
+margin_bottom = 100.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 5 )
+expand = true
+stretch_mode = 4
+script = SubResource( 10 )
+_sections_unfolded = [ "Hint", "Textures" ]
+
+[node name="Label" type="Label" parent="Fire/Fire_Lands" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 16.0
+margin_top = 32.0
+margin_right = 88.0
+margin_bottom = 63.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -863,7 +589,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_fonts" ]
 
-[node name="Button" type="Button" parent="." index="11" groups=[
+[node name="Button" type="Button" parent="." index="3" groups=[
 "select_button",
 ]]
 
@@ -882,7 +608,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_fonts/font = ExtResource( 7 )
+custom_fonts/font = ExtResource( 6 )
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -890,7 +616,7 @@ group = null
 text = "Sandbox"
 flat = false
 align = 1
-script = SubResource( 8 )
+script = SubResource( 11 )
 _sections_unfolded = [ "custom_fonts" ]
 
 

@@ -4,8 +4,8 @@ extends Node2D
 # var a = 2
 # var b = "textvar"
 
-var type = "green"
-var level = 1
+var type = "tutorial"
+var level = 2
 
 func _ready():
 	# Called every time the node is added to the scene.
