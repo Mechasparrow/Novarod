@@ -1,0 +1,108 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://_Scripts/Enemy_Behavior/Enemy_02.gd" type="Script" id=1]
+[ext_resource path="res://_Assets/Art/Spritesheets/Dragon/sprite_0.png" type="Texture" id=2]
+[ext_resource path="res://_Assets/Art/Spritesheets/Dragon/sprite_2.png" type="Texture" id=3]
+[ext_resource path="res://_Assets/Art/Spritesheets/Dragon/sprite_3.png" type="Texture" id=4]
+[ext_resource path="res://_Assets/Art/Spritesheets/Dragon/sprite_1.png" type="Texture" id=5]
+[ext_resource path="res://_Assets/Art/heart_0.png" type="Texture" id=6]
+
+[sub_resource type="SpriteFrames" id=1]
+
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "move",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "still",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "jump",
+"speed": 5.0
+} ]
+_sections_unfolded = [ "Resource" ]
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 35.6056, 27.4751 )
+
+[sub_resource type="RectangleShape2D" id=3]
+
+custom_solver_bias = 0.0
+extents = Vector2( 30.6989, 23.9862 )
+
+[node name="Dragon" type="KinematicBody2D" index="0" groups=[
+"enemy",
+"flying_enemy",
+]]
+
+position = Vector2( 193.834, 448.437 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="." index="0"]
+
+scale = Vector2( 6, 6 )
+frames = SubResource( 1 )
+animation = "move"
+frame = 1
+playing = true
+_sections_unfolded = [ "Transform" ]
+
+[node name="Hitbox" type="Area2D" parent="." index="1"]
+
+position = Vector2( 0, -8 )
+scale = Vector2( 1, 0.75 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Hitbox" index="0"]
+
+position = Vector2( -3.3911, 27.0234 )
+scale = Vector2( 1.09866, 2.01841 )
+shape = SubResource( 2 )
+
+[node name="Hearts" type="Node2D" parent="." index="2"]
+
+position = Vector2( 4.166, -39.437 )
+
+[node name="Heart" type="Sprite" parent="Hearts" index="0"]
+
+position = Vector2( -18.9127, 0 )
+texture = ExtResource( 6 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Heart2" type="Sprite" parent="Hearts" index="1"]
+
+position = Vector2( 0.540344, 0 )
+texture = ExtResource( 6 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Heart3" type="Sprite" parent="Hearts" index="2"]
+
+position = Vector2( 19.4531, 0 )
+texture = ExtResource( 6 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="3"]
+
+position = Vector2( -3.3911, 12.2675 )
+scale = Vector2( 1.09866, 1.51381 )
+shape = SubResource( 3 )
+
+

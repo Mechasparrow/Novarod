@@ -10,7 +10,7 @@ source_file="res://_Assets/Art/Spritesheets/Dragon/sprite_2.png"
 source_md5="cd93ea4f31afc65ea4120ae1a71c3c85"
 
 dest_files=[ "res://.import/sprite_2.png-3366b4927c67e4574bff65ba07bc1f32.stex" ]
-dest_md5="720f99f4daec6f1742c11c0e76af269d"
+dest_md5="9c7c320d8a0ae8331e86b4be2e7b550c"
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
@@ -28,5 +28,5 @@ process/premult_alpha=false
 process/HDR_as_SRGB=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0
