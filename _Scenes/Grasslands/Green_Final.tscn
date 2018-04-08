@@ -10,9 +10,9 @@
 [ext_resource path="res://_Prefab/Enemies/Enemy_Bunny_Boss.tscn" type="PackedScene" id=8]
 [ext_resource path="res://_Prefab/Players/Player.tscn" type="PackedScene" id=9]
 [ext_resource path="res://_Prefab/HUD.tscn" type="PackedScene" id=10]
-[ext_resource path="res://_Prefab/Cage.tscn" type="PackedScene" id=11]
-[ext_resource path="res://_Scripts/boss-handler.gd" type="Script" id=12]
-[ext_resource path="res://_Prefab/Projectiles/Golden_Carrot_Projectile.tscn" type="PackedScene" id=13]
+[ext_resource path="res://_Prefab/Projectiles/Golden_Carrot_Projectile.tscn" type="PackedScene" id=11]
+[ext_resource path="res://_Prefab/Cage.tscn" type="PackedScene" id=12]
+[ext_resource path="res://_Scripts/boss-handler.gd" type="Script" id=13]
 
 [sub_resource type="GDScript" id=1]
 
@@ -241,15 +241,15 @@ position = Vector2( 192, 288 )
 
 _sections_unfolded = [ "Visibility", "Z Index" ]
 
-[node name="Cage" parent="." index="14" instance=ExtResource( 11 )]
+[node name="Killer_Carrot" parent="." index="14" instance=ExtResource( 11 )]
+
+position = Vector2( 160.985, -500.057 )
+
+[node name="Cage" parent="." index="15" instance=ExtResource( 12 )]
 
 position = Vector2( 160, -496 )
 scale = Vector2( 1.25, 1.25 )
-script = ExtResource( 12 )
+script = ExtResource( 13 )
 _sections_unfolded = [ "Transform" ]
-
-[node name="Killer_Carrot" parent="." index="15" instance=ExtResource( 13 )]
-
-position = Vector2( 160.985, -500.057 )
 
 
