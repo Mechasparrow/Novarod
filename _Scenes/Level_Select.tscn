@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://_Scripts/level_select.gd" type="Script" id=1]
 [ext_resource path="res://_Assets/Art/Tutorials_Button.png" type="Texture" id=2]
@@ -6,7 +6,8 @@
 [ext_resource path="res://_Fonts/Munro.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://_Assets/Art/XP_Bar.png" type="Texture" id=5]
 [ext_resource path="res://_Assets/Art/Health_Bar.png" type="Texture" id=6]
-[ext_resource path="res://_Fonts/imported_fonts/pixel_font.tres" type="DynamicFont" id=7]
+[ext_resource path="res://_Assets/Art/Water_button_sprite.png" type="Texture" id=7]
+[ext_resource path="res://_Fonts/imported_fonts/pixel_font.tres" type="DynamicFont" id=8]
 
 [sub_resource type="GDScript" id=1]
 
@@ -312,7 +313,7 @@ func _ready():
 #	pass
 "
 
-[sub_resource type="GDScript" id=17]
+[sub_resource type="GDScript" id=16]
 
 script/source = "extends Node
 
@@ -334,7 +335,29 @@ func _ready():
 #	pass
 "
 
-[sub_resource type="GDScript" id=16]
+[sub_resource type="GDScript" id=17]
+
+script/source = "extends Node
+
+# class member variables go here, for example:
+# var a = 2
+# var b = \"textvar\"
+
+var level = 1
+var type = \"blue\"
+
+func _ready():
+	# Called every time the node is added to the scene.
+	# Initialization here
+	pass
+
+#func _process(delta):
+#	# Called every frame. Delta is time since last frame.
+#	# Update game logic here.
+#	pass
+"
+
+[sub_resource type="GDScript" id=18]
 
 script/source = "extends Node
 
@@ -356,7 +379,7 @@ func _ready():
 #	pass
 "
 
-[node name="Node" type="Node" index="0"]
+[node name="Node" type="Node"]
 
 script = ExtResource( 1 )
 
@@ -722,6 +745,8 @@ _sections_unfolded = [ "custom_fonts" ]
 
 [node name="Earth" type="Node2D" parent="." index="2"]
 
+editor/display_folded = true
+
 [node name="Earth_Btn1" type="Node2D" parent="Earth" index="0"]
 
 editor/display_folded = true
@@ -950,6 +975,8 @@ _sections_unfolded = [ "custom_fonts" ]
 
 [node name="Fire" type="Node2D" parent="." index="3"]
 
+editor/display_folded = true
+
 [node name="Fire_Lands" type="Node2D" parent="Fire" index="0"]
 
 editor/display_folded = true
@@ -1150,7 +1177,7 @@ shortcut = null
 group = null
 texture_normal = ExtResource( 6 )
 expand = true
-script = SubResource( 17 )
+script = SubResource( 16 )
 _sections_unfolded = [ "Hint", "Rect", "Textures" ]
 
 [node name="Label" type="Label" parent="Fire/Red_Btn4" index="1"]
@@ -1176,7 +1203,65 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_fonts" ]
 
-[node name="Button" type="Button" parent="." index="4" groups=[
+[node name="Water" type="Node2D" parent="." index="4"]
+
+[node name="Water_Lands_1" type="Node2D" parent="Water" index="0"]
+
+position = Vector2( 224, 336 )
+scale = Vector2( 0.75, 0.75 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="TextureButton" type="TextureButton" parent="Water/Water_Lands_1" index="0" groups=[
+"select_button",
+]]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 100.0
+margin_bottom = 100.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 7 )
+expand = true
+stretch_mode = 4
+script = SubResource( 17 )
+_sections_unfolded = [ "Hint", "Textures" ]
+
+[node name="Label" type="Label" parent="Water/Water_Lands_1" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 16.0
+margin_top = 32.0
+margin_right = 88.0
+margin_bottom = 63.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 2 )
+text = "Level_01"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="Button" type="Button" parent="." index="5" groups=[
 "select_button",
 ]]
 
@@ -1195,7 +1280,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_fonts/font = ExtResource( 7 )
+custom_fonts/font = ExtResource( 8 )
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -1203,7 +1288,7 @@ group = null
 text = "Sandbox"
 flat = false
 align = 1
-script = SubResource( 16 )
+script = SubResource( 18 )
 _sections_unfolded = [ "custom_fonts" ]
 
 

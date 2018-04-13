@@ -13,6 +13,11 @@ var levels = {
 		"3": "Green_03",
 		"4": "Green_Final"
 	},
+	"blue": {
+		"folder": "Waterlands",
+		"count": 1,
+		"1": "Water_01"
+	},
 	"tutorial": {
 		"folder": "Tutorials",
 		"count": 6,
@@ -25,10 +30,11 @@ var levels = {
 	},
 	"red": {
 		"folder": "Firelands",
-		"count": 3,
+		"count": 4,
 		"1": "Red_01",
 		"2": "Red_02",
-		"3": "Red_03"
+		"3": "Red_03",
+		"4": "Red_Final"
 	},
 	"sandbox": {
 		"folder": "Sandbox",

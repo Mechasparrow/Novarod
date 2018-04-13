@@ -1,0 +1,60 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://_Assets/Art/Lily_Pad.png" type="Texture" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 8.05131, 4.99833 )
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 31.9589, 9.36147 )
+
+[node name="Lilypad" type="Node2D"]
+
+[node name="Water" type="Area2D" parent="." index="0" groups=[
+"Water",
+]]
+
+scale = Vector2( 4, 4 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Water_Sprite" type="Sprite" parent="Water" index="0"]
+
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 16, 16 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Water" index="1"]
+
+position = Vector2( 0, 1.97502 )
+scale = Vector2( 1, 1.24693 )
+shape = SubResource( 1 )
+
+[node name="LilyPad" type="StaticBody2D" parent="." index="1"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LilyPad" index="0"]
+
+position = Vector2( 0, -24.5899 )
+scale = Vector2( 1, 0.791548 )
+shape = SubResource( 2 )
+
+
