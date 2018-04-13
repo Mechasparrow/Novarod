@@ -15,8 +15,9 @@ var levels = {
 	},
 	"blue": {
 		"folder": "Waterlands",
-		"count": 1,
-		"1": "Water_01"
+		"count": 2,
+		"1": "Water_01",
+		"2": "Water_02"
 	},
 	"tutorial": {
 		"folder": "Tutorials",
