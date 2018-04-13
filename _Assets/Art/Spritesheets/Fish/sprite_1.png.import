@@ -10,7 +10,7 @@ source_file="res://_Assets/Art/Spritesheets/Fish/sprite_1.png"
 source_md5="6f356e13eb9253f8ad7639d46f4f2f14"
 
 dest_files=[ "res://.import/sprite_1.png-98337000ff7061be06e148dff0bfd004.stex" ]
-dest_md5="a5db49d08b905ac6bbd59327b2b7f3da"
+dest_md5="93861682d8c21e2efcfafa8ef9fe75c4"
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
@@ -28,5 +28,5 @@ process/premult_alpha=false
 process/HDR_as_SRGB=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0
