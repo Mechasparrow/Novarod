@@ -1,0 +1,2898 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://_Scripts/level_script.gd" type="Script" id=1]
+[ext_resource path="res://_Tileset/normal_world.tres" type="TileSet" id=2]
+[ext_resource path="res://_Tileset/hazards.tres" type="TileSet" id=3]
+[ext_resource path="res://_Prefab/Water_Env/lily.tscn" type="PackedScene" id=4]
+[ext_resource path="res://_Assets/Art/Rod_Water.png" type="Texture" id=5]
+[ext_resource path="res://_Prefab/gems/gem_blue.tscn" type="PackedScene" id=6]
+[ext_resource path="res://_Prefab/Pickups/Weapon_Pickup.tscn" type="PackedScene" id=7]
+[ext_resource path="res://_Prefab/Door.tscn" type="PackedScene" id=8]
+[ext_resource path="res://_Scripts/Enemy_Behavior/Shark.gd" type="Script" id=9]
+[ext_resource path="res://_Assets/Art/Spritesheets/Shark (Normal)/sprite_0.png" type="Texture" id=10]
+[ext_resource path="res://_Assets/Art/Spritesheets/Shark (Normal)/sprite_1.png" type="Texture" id=11]
+[ext_resource path="res://_Prefab/Heart.tscn" type="PackedScene" id=12]
+[ext_resource path="res://_Prefab/Players/Player.tscn" type="PackedScene" id=13]
+[ext_resource path="res://_Prefab/HUD.tscn" type="PackedScene" id=14]
+
+[sub_resource type="GDScript" id=1]
+
+script/source = "extends Node2D
+
+# class member variables go here, for example:
+# var a = 2
+# var b = \"textvar\"
+
+var type = \"blue\"
+var level = 3
+
+func _ready():
+	# Called every time the node is added to the scene.
+	# Initialization here
+	pass
+
+#func _process(delta):
+#	# Called every frame. Delta is time since last frame.
+#	# Update game logic here.
+#	pass
+"
+
+[sub_resource type="SpriteFrames" id=3]
+
+animations = [ {
+"frames": [ ExtResource( 10 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "Swimming",
+"speed": 5.0
+} ]
+
+[sub_resource type="Animation" id=2]
+
+resource_name = "Swimming"
+length = 3.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.7, 1.5, 2.2, 3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 93.3333, -20 ), Vector2( 200, 0 ), Vector2( 106.667, 20 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Anim:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.5, 3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CollisionShape2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1.5, 3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -2.21001, -7.99887 ), Vector2( 2.21001, -7.99887 ), Vector2( -2.21001, -7.99887 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Hitbox/CollisionShape2D2:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1.5, 3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -2.21001, -7.99887 ), Vector2( 2.21001, -7.99887 ), Vector2( -2.21001, -7.99887 ) ]
+}
+
+[sub_resource type="RectangleShape2D" id=4]
+
+custom_solver_bias = 0.0
+extents = Vector2( 28.0546, 29.2991 )
+
+[sub_resource type="RectangleShape2D" id=5]
+
+custom_solver_bias = 0.0
+extents = Vector2( 31.8296, 32.8181 )
+
+[sub_resource type="Animation" id=6]
+
+resource_name = "Swimming"
+length = 3.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.7, 1.5, 2.2, 3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 93.3333, -20 ), Vector2( 200, 0 ), Vector2( 106.667, 20 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Anim:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.5, 3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CollisionShape2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1.5, 3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -2.21001, -7.99887 ), Vector2( 2.21001, -7.99887 ), Vector2( -2.21001, -7.99887 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Hitbox/CollisionShape2D2:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1.5, 3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -2.21001, -7.99887 ), Vector2( 2.21001, -7.99887 ), Vector2( -2.21001, -7.99887 ) ]
+}
+
+[node name="World" type="Node" index="0" groups=[
+"gem_collect_level",
+]]
+
+script = ExtResource( 1 )
+reset_position = Vector2( 100, 400 )
+
+[node name="level_info" type="Node2D" parent="." index="0"]
+
+script = SubResource( 1 )
+
+[node name="Chests" type="Node2D" parent="." index="1"]
+
+[node name="Tiles" type="Node2D" parent="." index="2"]
+
+editor/display_folded = true
+
+[node name="Ground" type="TileMap" parent="Tiles" index="0"]
+
+scale = Vector2( 4, 4 )
+mode = 0
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 16, 16 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 3
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( 262154, 0, 0, 262155, 0, 0, 262158, 0, 0, 327689, 0, 0, 327695, 0, 0, 327701, 0, 0, 327702, 0, 0, 327706, 0, 0, 458751, 0, 0, 393223, 0, 0, 393224, 0, 0, 393225, 8, 0, 393231, 8, 0, 393236, 0, 0, 393237, 1, 0, 393238, 1, 0, 393239, 0, 0, 393242, 1, 0, 524287, 2, 0, 458767, 8, 0, 458772, 1, 0, 458773, 1, 0, 458774, 1, 0, 458775, 1, 0, 458778, 1, 0, 589823, 2, 0, 524300, 8, 0, 524303, 8, 0, 524308, 8, 0, 524309, 2, 0, 524310, 2, 0, 524311, 8, 0, 524314, 8, 0, 589824, 2, 0, 589825, 2, 0, 589826, 2, 0, 589827, 2, 0, 589828, 2, 0, 589829, 2, 0, 589830, 2, 0, 589831, 8, 0, 589832, 8, 0, 589836, 8, 0, 589839, 8, 0, 589844, 8, 0, 589845, 2, 0, 589846, 2, 0, 589847, 8, 0, 589850, 8, 0, 655369, 8, 0, 655375, 8, 0, 655380, 8, 0, 655381, 2, 0, 655382, 2, 0, 655383, 8, 0, 655386, 8, 0, 720905, 8, 0, 720911, 8, 0, 720912, 3, 0, 720913, 3, 0, 720914, 3, 0, 720915, 3, 0, 720916, 8, 0, 720917, 2, 0, 720918, 2, 0, 720919, 8, 0, 720920, 8, 0, 720921, 8, 0, 720922, 8, 0, 786441, 8, 0, 786442, 8, 0, 786443, 8, 0, 786444, 8, 0, 786445, 8, 0, 786446, 8, 0, 786447, 8, 0, 786448, 8, 0, 786449, 8, 0, 786450, 8, 0, 786451, 8, 0, 786452, 8, 0, 786453, 8, 0, 786454, 8, 0, 786455, 8, 0, 786456, 8, 0, 786457, 8, 0, 786458, 8, 0 )
+_sections_unfolded = [ "Cell", "Collision", "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Hazard" type="TileMap" parent="Tiles" index="1"]
+
+scale = Vector2( 4, 4 )
+mode = 0
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 16, 16 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( 458758, 2, 0, 458759, 2, 0, 655376, 1, 0, 655377, 1, 0, 655378, 1, 0, 655379, 1, 0, 786454, 2, 0, 786455, 2, 0, 786456, 2, 0, 786457, 2, 0, 917499, 2, 0, 851990, 2, 0, 851991, 2, 0, 851992, 2, 0, 851993, 2, 0, 917526, 2, 0, 917527, 2, 0, 917528, 2, 0, 917529, 2, 0, 1048568, 2, 0 )
+_sections_unfolded = [ "Cell", "Collision", "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Lily" type="Node2D" parent="Tiles" index="2"]
+
+editor/display_folded = true
+modulate = Color( 1, 1, 1, 0.588235 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="Lilypad2" parent="Tiles/Lily" index="0" instance=ExtResource( 4 )]
+
+position = Vector2( 736, 480 )
+
+[node name="Lilypad4" parent="Tiles/Lily" index="1" instance=ExtResource( 4 )]
+
+position = Vector2( 672, 480 )
+
+[node name="Lilypad3" parent="Tiles/Lily" index="2" instance=ExtResource( 4 )]
+
+position = Vector2( 800, 480 )
+
+[node name="Water" type="Node2D" parent="Tiles" index="3"]
+
+editor/display_folded = true
+modulate = Color( 1, 1, 1, 0.588235 )
+z_index = 2
+_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
+
+[node name="Water" type="Node2D" parent="Tiles/Water" index="0" groups=[
+"Water",
+]]
+
+position = Vector2( 32, 400 )
+
+[node name="Water" type="Area2D" parent="Tiles/Water/Water" index="0" groups=[
+"Water",
+]]
+
+editor/display_folded = true
+position = Vector2( 0, 144 )
+scale = Vector2( 4, 4 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Water_Sprite" type="Sprite" parent="Tiles/Water/Water/Water" index="0" groups=[
+"Water",
+]]
+
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 16, 16 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Tiles/Water/Water/Water" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( -8, 8, -8, -8, 8, -8, 8, 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Water68" type="Area2D" parent="Tiles/Water/Water" index="1" groups=[
+"Water",
+]]
+
+editor/display_folded = true
+position = Vector2( 1216, 272 )
+scale = Vector2( 4, 4 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Water_Sprite" type="Sprite" parent="Tiles/Water/Water/Water68" index="0" groups=[
+"Water",
+]]
+
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 16, 16 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Tiles/Water/Water/Water68" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( -8, 8, -8, -8, 8, -8, 8, 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Water71" type="Area2D" parent="Tiles/Water/Water" index="2" groups=[
+"Water",
+]]
+
+editor/display_folded = true
+position = Vector2( 1536, 272 )
+scale = Vector2( 4, 4 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Water_Sprite" type="Sprite" parent="Tiles/Water/Water/Water71" index="0" groups=[
+"Water",
+]]
+
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 16, 16 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Tiles/Water/Water/Water71" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( -8, 8, -8, -8, 8, -8, 8, 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Water72" type="Area2D" parent="Tiles/Water/Water" index="3" groups=[
+"Water",
+]]
+
+editor/display_folded = true
+position = Vector2( 1600, 272 )
+scale = Vector2( 4, 4 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Water_Sprite" type="Sprite" parent="Tiles/Water/Water/Water72" index="0" groups=[
+"Water",
+]]
+
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 16, 16 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Tiles/Water/Water/Water72" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( -8, 8, -8, -8, 8, -8, 8, 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Water73" type="Area2D" parent="Tiles/Water/Water" index="4" groups=[
+"Water",
+]]
+
+editor/display_folded = true
+position = Vector2( 1600, 208 )
+scale = Vector2( 4, 4 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Water_Sprite" type="Sprite" parent="Tiles/Water/Water/Water73" index="0" groups=[
+"Water",
+]]
+
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 16, 16 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Tiles/Water/Water/Water73" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( -8, 8, -8, -8, 8, -8, 8, 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Water74" type="Area2D" parent="Tiles/Water/Water" index="5" groups=[
+"Water",
+]]
+
+editor/display_folded = true
+position = Vector2( 1536, 208 )
+scale = Vector2( 4, 4 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Water_Sprite" type="Sprite" parent="Tiles/Water/Water/Water74" index="0" groups=[
+"Water",
+]]
+
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 16, 16 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Tiles/Water/Water/Water74" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( -8, 8, -8, -8, 8, -8, 8, 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Water75" type="Area2D" parent="Tiles/Water/Water" index="6" groups=[
+"Water",
+]]
+
+editor/display_folded = true
+position = Vector2( 1536, 144 )
+scale = Vector2( 4, 4 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Water_Sprite" type="Sprite" parent="Tiles/Water/Water/Water75" index="0" groups=[
+"Water",
+]]
+
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 16, 16 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Tiles/Water/Water/Water75" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( -8, 8, -8, -8, 8, -8, 8, 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Water76" type="Area2D" parent="Tiles/Water/Water" index="7" groups=[
+"Water",
+]]
+
+editor/display_folded = true
+position = Vector2( 1600, 144 )
+scale = Vector2( 4, 4 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Water_Sprite" type="Sprite" parent="Tiles/Water/Water/Water76" index="0" groups=[
+"Water",
+]]
+
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 16, 16 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Tiles/Water/Water/Water76" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( -8, 8, -8, -8, 8, -8, 8, 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Water69" type="Area2D" parent="Tiles/Water/Water" index="8" groups=[
+"Water",
+]]
+
+editor/display_folded = true
+position = Vector2( 1216, 208 )
+scale = Vector2( 4, 4 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Water_Sprite" type="Sprite" parent="Tiles/Water/Water/Water69" index="0" groups=[
+"Water",
+]]
+
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 16, 16 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Tiles/Water/Water/Water69" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( -8, 8, -8, -8, 8, -8, 8, 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Water70" type="Area2D" parent="Tiles/Water/Water" index="9" groups=[
+"Water",
+]]
+
+editor/display_folded = true
+position = Vector2( 1216, 144 )
+scale = Vector2( 4, 4 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Water_Sprite" type="Sprite" parent="Tiles/Water/Water/Water70" index="0" groups=[
+"Water",
+]]
+
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 16, 16 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Tiles/Water/Water/Water70" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( -8, 8, -8, -8, 8, -8, 8, 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Water59" type="Area2D" parent="Tiles/Water/Water" index="10" groups=[
+"Water",
+]]
+
+editor/display_folded = true
+position = Vector2( 1024, 272 )
+scale = Vector2( 4, 4 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Water_Sprite" type="Sprite" parent="Tiles/Water/Water/Water59" index="0" groups=[
+"Water",
+]]
+
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 16, 16 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Tiles/Water/Water/Water59" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( -8, 8, -8, -8, 8, -8, 8, 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Water60" type="Area2D" parent="Tiles/Water/Water" index="11" groups=[
+"Water",
+]]
+
+editor/display_folded = true
+position = Vector2( 1088, 272 )
+scale = Vector2( 4, 4 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Water_Sprite" type="Sprite" parent="Tiles/Water/Water/Water60" index="0" groups=[
+"Water",
+]]
+
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 16, 16 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Tiles/Water/Water/Water60" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( -8, 8, -8, -8, 8, -8, 8, 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Water61" type="Area2D" parent="Tiles/Water/Water" index="12" groups=[
+"Water",
+]]
+
+editor/display_folded = true
+position = Vector2( 1152, 272 )
+scale = Vector2( 4, 4 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Water_Sprite" type="Sprite" parent="Tiles/Water/Water/Water61" index="0" groups=[
+"Water",
+]]
+
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 16, 16 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Tiles/Water/Water/Water61" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( -8, 8, -8, -8, 8, -8, 8, 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Water62" type="Area2D" parent="Tiles/Water/Water" index="13" groups=[
+"Water",
+]]
+
+editor/display_folded = true
+position = Vector2( 1152, 208 )
+scale = Vector2( 4, 4 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Water_Sprite" type="Sprite" parent="Tiles/Water/Water/Water62" index="0" groups=[
+"Water",
+]]
+
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 16, 16 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Tiles/Water/Water/Water62" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( -8, 8, -8, -8, 8, -8, 8, 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Water63" type="Area2D" parent="Tiles/Water/Water" index="14" groups=[
+"Water",
+]]
+
+editor/display_folded = true
+position = Vector2( 1088, 208 )
+scale = Vector2( 4, 4 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Water_Sprite" type="Sprite" parent="Tiles/Water/Water/Water63" index="0" groups=[
+"Water",
+]]
+
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 16, 16 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Tiles/Water/Water/Water63" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( -8, 8, -8, -8, 8, -8, 8, 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Water64" type="Area2D" parent="Tiles/Water/Water" index="15" groups=[
+"Water",
+]]
+
+editor/display_folded = true
+position = Vector2( 1024, 208 )
+scale = Vector2( 4, 4 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Water_Sprite" type="Sprite" parent="Tiles/Water/Water/Water64" index="0" groups=[
+"Water",
+]]
+
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 16, 16 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Tiles/Water/Water/Water64" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( -8, 8, -8, -8, 8, -8, 8, 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Water65" type="Area2D" parent="Tiles/Water/Water" index="16" groups=[
+"Water",
+]]
+
+editor/display_folded = true
+position = Vector2( 1024, 144 )
+scale = Vector2( 4, 4 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Water_Sprite" type="Sprite" parent="Tiles/Water/Water/Water65" index="0" groups=[
+"Water",
+]]
+
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 16, 16 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Tiles/Water/Water/Water65" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( -8, 8, -8, -8, 8, -8, 8, 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Water66" type="Area2D" parent="Tiles/Water/Water" index="17" groups=[
+"Water",
+]]
+
+editor/display_folded = true
+position = Vector2( 1088, 144 )
+scale = Vector2( 4, 4 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Water_Sprite" type="Sprite" parent="Tiles/Water/Water/Water66" index="0" groups=[
+"Water",
+]]
+
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 16, 16 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Tiles/Water/Water/Water66" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( -8, 8, -8, -8, 8, -8, 8, 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Water67" type="Area2D" parent="Tiles/Water/Water" index="18" groups=[
+"Water",
+]]
+
+editor/display_folded = true
+position = Vector2( 1152, 144 )
+scale = Vector2( 4, 4 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Water_Sprite" type="Sprite" parent="Tiles/Water/Water/Water67" index="0" groups=[
+"Water",
+]]
+
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 16, 16 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Tiles/Water/Water/Water67" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( -8, 8, -8, -8, 8, -8, 8, 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Water2" type="Area2D" parent="Tiles/Water/Water" index="19" groups=[
+"Water",
+]]
+
+editor/display_folded = true
+position = Vector2( 0, 80 )
+scale = Vector2( 4, 4 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Water_Sprite" type="Sprite" parent="Tiles/Water/Water/Water2" index="0" groups=[
+"Water",
+]]
+
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 16, 16 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Tiles/Water/Water/Water2" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( -8, 8, -8, -8, 8, -8, 8, 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Water3" type="Area2D" parent="Tiles/Water/Water" index="20" groups=[
+"Water",
+]]
+
+editor/display_folded = true
+position = Vector2( 64, 80 )
+scale = Vector2( 4, 4 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Water_Sprite" type="Sprite" parent="Tiles/Water/Water/Water3" index="0" groups=[
+"Water",
+]]
+
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 16, 16 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Tiles/Water/Water/Water3" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( -8, 8, -8, -8, 8, -8, 8, 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Water4" type="Area2D" parent="Tiles/Water/Water" index="21" groups=[
+"Water",
+]]
+
+editor/display_folded = true
+position = Vector2( 64, 144 )
+scale = Vector2( 4, 4 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Water_Sprite" type="Sprite" parent="Tiles/Water/Water/Water4" index="0" groups=[
+"Water",
+]]
+
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 16, 16 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Tiles/Water/Water/Water4" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( -8, 8, -8, -8, 8, -8, 8, 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Water5" type="Area2D" parent="Tiles/Water/Water" index="22" groups=[
+"Water",
+]]
+
+editor/display_folded = true
+position = Vector2( 128, 144 )
+scale = Vector2( 4, 4 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Water_Sprite" type="Sprite" parent="Tiles/Water/Water/Water5" index="0" groups=[
+"Water",
+]]
+
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 16, 16 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Tiles/Water/Water/Water5" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( -8, 8, -8, -8, 8, -8, 8, 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Water6" type="Area2D" parent="Tiles/Water/Water" index="23" groups=[
+"Water",
+]]
+
+editor/display_folded = true
+position = Vector2( 128, 80 )
+scale = Vector2( 4, 4 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Water_Sprite" type="Sprite" parent="Tiles/Water/Water/Water6" index="0" groups=[
+"Water",
+]]
+
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 16, 16 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Tiles/Water/Water/Water6" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( -8, 8, -8, -8, 8, -8, 8, 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Water7" type="Area2D" parent="Tiles/Water/Water" index="24" groups=[
+"Water",
+]]
+
+editor/display_folded = true
+position = Vector2( 128, 16 )
+scale = Vector2( 4, 4 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Water_Sprite" type="Sprite" parent="Tiles/Water/Water/Water7" index="0" groups=[
+"Water",
+]]
+
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 16, 16 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Tiles/Water/Water/Water7" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( -8, 8, -8, -8, 8, -8, 8, 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Water8" type="Area2D" parent="Tiles/Water/Water" index="25" groups=[
+"Water",
+]]
+
+editor/display_folded = true
+position = Vector2( 64, 16 )
+scale = Vector2( 4, 4 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Water_Sprite" type="Sprite" parent="Tiles/Water/Water/Water8" index="0" groups=[
+"Water",
+]]
+
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 16, 16 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Tiles/Water/Water/Water8" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( -8, 8, -8, -8, 8, -8, 8, 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Water9" type="Area2D" parent="Tiles/Water/Water" index="26" groups=[
+"Water",
+]]
+
+editor/display_folded = true
+position = Vector2( 0, 16 )
+scale = Vector2( 4, 4 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Water_Sprite" type="Sprite" parent="Tiles/Water/Water/Water9" index="0" groups=[
+"Water",
+]]
+
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 16, 16 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Tiles/Water/Water/Water9" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( -8, 8, -8, -8, 8, -8, 8, 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Water10" type="Area2D" parent="Tiles/Water/Water" index="27" groups=[
+"Water",
+]]
+
+editor/display_folded = true
+position = Vector2( 192, 16 )
+scale = Vector2( 4, 4 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Water_Sprite" type="Sprite" parent="Tiles/Water/Water/Water10" index="0" groups=[
+"Water",
+]]
+
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 16, 16 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Tiles/Water/Water/Water10" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( -8, 8, -8, -8, 8, -8, 8, 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Water11" type="Area2D" parent="Tiles/Water/Water" index="28" groups=[
+"Water",
+]]
+
+editor/display_folded = true
+position = Vector2( 192, 80 )
+scale = Vector2( 4, 4 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Water_Sprite" type="Sprite" parent="Tiles/Water/Water/Water11" index="0" groups=[
+"Water",
+]]
+
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 16, 16 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Tiles/Water/Water/Water11" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( -8, 8, -8, -8, 8, -8, 8, 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Water12" type="Area2D" parent="Tiles/Water/Water" index="29" groups=[
+"Water",
+]]
+
+editor/display_folded = true
+position = Vector2( 192, 144 )
+scale = Vector2( 4, 4 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Water_Sprite" type="Sprite" parent="Tiles/Water/Water/Water12" index="0" groups=[
+"Water",
+]]
+
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 16, 16 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Tiles/Water/Water/Water12" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( -8, 8, -8, -8, 8, -8, 8, 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Water22" type="Area2D" parent="Tiles/Water/Water" index="30" groups=[
+"Water",
+]]
+
+editor/display_folded = true
+position = Vector2( 448, 80 )
+scale = Vector2( 4, 4 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Water_Sprite" type="Sprite" parent="Tiles/Water/Water/Water22" index="0" groups=[
+"Water",
+]]
+
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 16, 16 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Tiles/Water/Water/Water22" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( -8, 8, -8, -8, 8, -8, 8, 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Water23" type="Area2D" parent="Tiles/Water/Water" index="31" groups=[
+"Water",
+]]
+
+editor/display_folded = true
+position = Vector2( 448, 144 )
+scale = Vector2( 4, 4 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Water_Sprite" type="Sprite" parent="Tiles/Water/Water/Water23" index="0" groups=[
+"Water",
+]]
+
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 16, 16 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Tiles/Water/Water/Water23" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( -8, 8, -8, -8, 8, -8, 8, 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Water24" type="Area2D" parent="Tiles/Water/Water" index="32" groups=[
+"Water",
+]]
+
+editor/display_folded = true
+position = Vector2( 512, 144 )
+scale = Vector2( 4, 4 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Water_Sprite" type="Sprite" parent="Tiles/Water/Water/Water24" index="0" groups=[
+"Water",
+]]
+
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 16, 16 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Tiles/Water/Water/Water24" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( -8, 8, -8, -8, 8, -8, 8, 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Water25" type="Area2D" parent="Tiles/Water/Water" index="33" groups=[
+"Water",
+]]
+
+editor/display_folded = true
+position = Vector2( 512, 80 )
+scale = Vector2( 4, 4 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Water_Sprite" type="Sprite" parent="Tiles/Water/Water/Water25" index="0" groups=[
+"Water",
+]]
+
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 16, 16 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Tiles/Water/Water/Water25" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( -8, 8, -8, -8, 8, -8, 8, 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Water26" type="Area2D" parent="Tiles/Water/Water" index="34" groups=[
+"Water",
+]]
+
+editor/display_folded = true
+position = Vector2( 576, 80 )
+scale = Vector2( 4, 4 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Water_Sprite" type="Sprite" parent="Tiles/Water/Water/Water26" index="0" groups=[
+"Water",
+]]
+
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 16, 16 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Tiles/Water/Water/Water26" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( -8, 8, -8, -8, 8, -8, 8, 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Water27" type="Area2D" parent="Tiles/Water/Water" index="35" groups=[
+"Water",
+]]
+
+editor/display_folded = true
+position = Vector2( 576, 144 )
+scale = Vector2( 4, 4 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Water_Sprite" type="Sprite" parent="Tiles/Water/Water/Water27" index="0" groups=[
+"Water",
+]]
+
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 16, 16 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Tiles/Water/Water/Water27" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( -8, 8, -8, -8, 8, -8, 8, 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Water28" type="Area2D" parent="Tiles/Water/Water" index="36" groups=[
+"Water",
+]]
+
+editor/display_folded = true
+position = Vector2( 576, 208 )
+scale = Vector2( 4, 4 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Water_Sprite" type="Sprite" parent="Tiles/Water/Water/Water28" index="0" groups=[
+"Water",
+]]
+
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 16, 16 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Tiles/Water/Water/Water28" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( -8, 8, -8, -8, 8, -8, 8, 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Water29" type="Area2D" parent="Tiles/Water/Water" index="37" groups=[
+"Water",
+]]
+
+editor/display_folded = true
+position = Vector2( 640, 144 )
+scale = Vector2( 4, 4 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Water_Sprite" type="Sprite" parent="Tiles/Water/Water/Water29" index="0" groups=[
+"Water",
+]]
+
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 16, 16 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Tiles/Water/Water/Water29" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( -8, 8, -8, -8, 8, -8, 8, 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Water30" type="Area2D" parent="Tiles/Water/Water" index="38" groups=[
+"Water",
+]]
+
+editor/display_folded = true
+position = Vector2( 640, 208 )
+scale = Vector2( 4, 4 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Water_Sprite" type="Sprite" parent="Tiles/Water/Water/Water30" index="0" groups=[
+"Water",
+]]
+
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 16, 16 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Tiles/Water/Water/Water30" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( -8, 8, -8, -8, 8, -8, 8, 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Water31" type="Area2D" parent="Tiles/Water/Water" index="39" groups=[
+"Water",
+]]
+
+editor/display_folded = true
+position = Vector2( 640, 272 )
+scale = Vector2( 4, 4 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Water_Sprite" type="Sprite" parent="Tiles/Water/Water/Water31" index="0" groups=[
+"Water",
+]]
+
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 16, 16 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Tiles/Water/Water/Water31" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( -8, 8, -8, -8, 8, -8, 8, 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Water32" type="Area2D" parent="Tiles/Water/Water" index="40" groups=[
+"Water",
+]]
+
+editor/display_folded = true
+position = Vector2( 640, 336 )
+scale = Vector2( 4, 4 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Water_Sprite" type="Sprite" parent="Tiles/Water/Water/Water32" index="0" groups=[
+"Water",
+]]
+
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 16, 16 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Tiles/Water/Water/Water32" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( -8, 8, -8, -8, 8, -8, 8, 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Water33" type="Area2D" parent="Tiles/Water/Water" index="41" groups=[
+"Water",
+]]
+
+editor/display_folded = true
+position = Vector2( 704, 336 )
+scale = Vector2( 4, 4 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Water_Sprite" type="Sprite" parent="Tiles/Water/Water/Water33" index="0" groups=[
+"Water",
+]]
+
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 16, 16 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Tiles/Water/Water/Water33" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( -8, 8, -8, -8, 8, -8, 8, 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Water34" type="Area2D" parent="Tiles/Water/Water" index="42" groups=[
+"Water",
+]]
+
+editor/display_folded = true
+position = Vector2( 704, 272 )
+scale = Vector2( 4, 4 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Water_Sprite" type="Sprite" parent="Tiles/Water/Water/Water34" index="0" groups=[
+"Water",
+]]
+
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 16, 16 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Tiles/Water/Water/Water34" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( -8, 8, -8, -8, 8, -8, 8, 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Water35" type="Area2D" parent="Tiles/Water/Water" index="43" groups=[
+"Water",
+]]
+
+editor/display_folded = true
+position = Vector2( 768, 272 )
+scale = Vector2( 4, 4 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Water_Sprite" type="Sprite" parent="Tiles/Water/Water/Water35" index="0" groups=[
+"Water",
+]]
+
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 16, 16 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Tiles/Water/Water/Water35" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( -8, 8, -8, -8, 8, -8, 8, 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Water36" type="Area2D" parent="Tiles/Water/Water" index="44" groups=[
+"Water",
+]]
+
+editor/display_folded = true
+position = Vector2( 768, 336 )
+scale = Vector2( 4, 4 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Water_Sprite" type="Sprite" parent="Tiles/Water/Water/Water36" index="0" groups=[
+"Water",
+]]
+
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 16, 16 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Tiles/Water/Water/Water36" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( -8, 8, -8, -8, 8, -8, 8, 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Water37" type="Area2D" parent="Tiles/Water/Water" index="45" groups=[
+"Water",
+]]
+
+editor/display_folded = true
+position = Vector2( 832, 336 )
+scale = Vector2( 4, 4 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Water_Sprite" type="Sprite" parent="Tiles/Water/Water/Water37" index="0" groups=[
+"Water",
+]]
+
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 16, 16 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Tiles/Water/Water/Water37" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( -8, 8, -8, -8, 8, -8, 8, 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Water38" type="Area2D" parent="Tiles/Water/Water" index="46" groups=[
+"Water",
+]]
+
+editor/display_folded = true
+position = Vector2( 832, 272 )
+scale = Vector2( 4, 4 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Water_Sprite" type="Sprite" parent="Tiles/Water/Water/Water38" index="0" groups=[
+"Water",
+]]
+
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 16, 16 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Tiles/Water/Water/Water38" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( -8, 8, -8, -8, 8, -8, 8, 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Water39" type="Area2D" parent="Tiles/Water/Water" index="47" groups=[
+"Water",
+]]
+
+editor/display_folded = true
+position = Vector2( 896, 272 )
+scale = Vector2( 4, 4 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Water_Sprite" type="Sprite" parent="Tiles/Water/Water/Water39" index="0" groups=[
+"Water",
+]]
+
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 16, 16 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Tiles/Water/Water/Water39" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( -8, 8, -8, -8, 8, -8, 8, 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Water40" type="Area2D" parent="Tiles/Water/Water" index="48" groups=[
+"Water",
+]]
+
+editor/display_folded = true
+position = Vector2( 896, 336 )
+scale = Vector2( 4, 4 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Water_Sprite" type="Sprite" parent="Tiles/Water/Water/Water40" index="0" groups=[
+"Water",
+]]
+
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 16, 16 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Tiles/Water/Water/Water40" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( -8, 8, -8, -8, 8, -8, 8, 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Water41" type="Area2D" parent="Tiles/Water/Water" index="49" groups=[
+"Water",
+]]
+
+editor/display_folded = true
+position = Vector2( 704, 208 )
+scale = Vector2( 4, 4 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Water_Sprite" type="Sprite" parent="Tiles/Water/Water/Water41" index="0" groups=[
+"Water",
+]]
+
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 16, 16 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Tiles/Water/Water/Water41" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( -8, 8, -8, -8, 8, -8, 8, 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Water42" type="Area2D" parent="Tiles/Water/Water" index="50" groups=[
+"Water",
+]]
+
+editor/display_folded = true
+position = Vector2( 704, 144 )
+scale = Vector2( 4, 4 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Water_Sprite" type="Sprite" parent="Tiles/Water/Water/Water42" index="0" groups=[
+"Water",
+]]
+
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 16, 16 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Tiles/Water/Water/Water42" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( -8, 8, -8, -8, 8, -8, 8, 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Water43" type="Area2D" parent="Tiles/Water/Water" index="51" groups=[
+"Water",
+]]
+
+editor/display_folded = true
+position = Vector2( 832, 144 )
+scale = Vector2( 4, 4 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Water_Sprite" type="Sprite" parent="Tiles/Water/Water/Water43" index="0" groups=[
+"Water",
+]]
+
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 16, 16 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Tiles/Water/Water/Water43" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( -8, 8, -8, -8, 8, -8, 8, 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Water44" type="Area2D" parent="Tiles/Water/Water" index="52" groups=[
+"Water",
+]]
+
+editor/display_folded = true
+position = Vector2( 832, 208 )
+scale = Vector2( 4, 4 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Water_Sprite" type="Sprite" parent="Tiles/Water/Water/Water44" index="0" groups=[
+"Water",
+]]
+
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 16, 16 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Tiles/Water/Water/Water44" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( -8, 8, -8, -8, 8, -8, 8, 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Water45" type="Area2D" parent="Tiles/Water/Water" index="53" groups=[
+"Water",
+]]
+
+editor/display_folded = true
+position = Vector2( 896, 208 )
+scale = Vector2( 4, 4 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Water_Sprite" type="Sprite" parent="Tiles/Water/Water/Water45" index="0" groups=[
+"Water",
+]]
+
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 16, 16 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Tiles/Water/Water/Water45" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( -8, 8, -8, -8, 8, -8, 8, 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Water46" type="Area2D" parent="Tiles/Water/Water" index="54" groups=[
+"Water",
+]]
+
+editor/display_folded = true
+position = Vector2( 896, 144 )
+scale = Vector2( 4, 4 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Water_Sprite" type="Sprite" parent="Tiles/Water/Water/Water46" index="0" groups=[
+"Water",
+]]
+
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 16, 16 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Tiles/Water/Water/Water46" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( -8, 8, -8, -8, 8, -8, 8, 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Water47" type="Area2D" parent="Tiles/Water/Water" index="55" groups=[
+"Water",
+]]
+
+editor/display_folded = true
+position = Vector2( 896, 80 )
+scale = Vector2( 4, 4 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Water_Sprite" type="Sprite" parent="Tiles/Water/Water/Water47" index="0" groups=[
+"Water",
+]]
+
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 16, 16 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Tiles/Water/Water/Water47" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( -8, 8, -8, -8, 8, -8, 8, 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Water48" type="Area2D" parent="Tiles/Water/Water" index="56" groups=[
+"Water",
+]]
+
+editor/display_folded = true
+position = Vector2( 832, 80 )
+scale = Vector2( 4, 4 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Water_Sprite" type="Sprite" parent="Tiles/Water/Water/Water48" index="0" groups=[
+"Water",
+]]
+
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 16, 16 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Tiles/Water/Water/Water48" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( -8, 8, -8, -8, 8, -8, 8, 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Water49" type="Area2D" parent="Tiles/Water/Water" index="57" groups=[
+"Water",
+]]
+
+editor/display_folded = true
+position = Vector2( 832, 16 )
+scale = Vector2( 4, 4 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Water_Sprite" type="Sprite" parent="Tiles/Water/Water/Water49" index="0" groups=[
+"Water",
+]]
+
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 16, 16 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Tiles/Water/Water/Water49" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( -8, 8, -8, -8, 8, -8, 8, 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Water50" type="Area2D" parent="Tiles/Water/Water" index="58" groups=[
+"Water",
+]]
+
+editor/display_folded = true
+position = Vector2( 896, 16 )
+scale = Vector2( 4, 4 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Water_Sprite" type="Sprite" parent="Tiles/Water/Water/Water50" index="0" groups=[
+"Water",
+]]
+
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 16, 16 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Tiles/Water/Water/Water50" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( -8, 8, -8, -8, 8, -8, 8, 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Water51" type="Area2D" parent="Tiles/Water/Water" index="59" groups=[
+"Water",
+]]
+
+editor/display_folded = true
+position = Vector2( 896, -48 )
+scale = Vector2( 4, 4 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Water_Sprite" type="Sprite" parent="Tiles/Water/Water/Water51" index="0" groups=[
+"Water",
+]]
+
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 16, 16 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Tiles/Water/Water/Water51" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( -8, 8, -8, -8, 8, -8, 8, 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Water52" type="Area2D" parent="Tiles/Water/Water" index="60" groups=[
+"Water",
+]]
+
+editor/display_folded = true
+position = Vector2( 832, -48 )
+scale = Vector2( 4, 4 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Water_Sprite" type="Sprite" parent="Tiles/Water/Water/Water52" index="0" groups=[
+"Water",
+]]
+
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 16, 16 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Tiles/Water/Water/Water52" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( -8, 8, -8, -8, 8, -8, 8, 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Water53" type="Area2D" parent="Tiles/Water/Water" index="61" groups=[
+"Water",
+]]
+
+editor/display_folded = true
+position = Vector2( 768, -48 )
+scale = Vector2( 4, 4 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Water_Sprite" type="Sprite" parent="Tiles/Water/Water/Water53" index="0" groups=[
+"Water",
+]]
+
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 16, 16 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Tiles/Water/Water/Water53" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( -8, 8, -8, -8, 8, -8, 8, 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Water54" type="Area2D" parent="Tiles/Water/Water" index="62" groups=[
+"Water",
+]]
+
+editor/display_folded = true
+position = Vector2( 768, 16 )
+scale = Vector2( 4, 4 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Water_Sprite" type="Sprite" parent="Tiles/Water/Water/Water54" index="0" groups=[
+"Water",
+]]
+
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 16, 16 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Tiles/Water/Water/Water54" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( -8, 8, -8, -8, 8, -8, 8, 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Water55" type="Area2D" parent="Tiles/Water/Water" index="63" groups=[
+"Water",
+]]
+
+editor/display_folded = true
+position = Vector2( 704, 16 )
+scale = Vector2( 4, 4 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Water_Sprite" type="Sprite" parent="Tiles/Water/Water/Water55" index="0" groups=[
+"Water",
+]]
+
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 16, 16 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Tiles/Water/Water/Water55" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( -8, 8, -8, -8, 8, -8, 8, 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Water56" type="Area2D" parent="Tiles/Water/Water" index="64" groups=[
+"Water",
+]]
+
+editor/display_folded = true
+position = Vector2( 704, -48 )
+scale = Vector2( 4, 4 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Water_Sprite" type="Sprite" parent="Tiles/Water/Water/Water56" index="0" groups=[
+"Water",
+]]
+
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 16, 16 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Tiles/Water/Water/Water56" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( -8, 8, -8, -8, 8, -8, 8, 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Water57" type="Area2D" parent="Tiles/Water/Water" index="65" groups=[
+"Water",
+]]
+
+editor/display_folded = true
+position = Vector2( 640, -48 )
+scale = Vector2( 4, 4 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Water_Sprite" type="Sprite" parent="Tiles/Water/Water/Water57" index="0" groups=[
+"Water",
+]]
+
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 16, 16 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Tiles/Water/Water/Water57" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( -8, 8, -8, -8, 8, -8, 8, 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Water58" type="Area2D" parent="Tiles/Water/Water" index="66" groups=[
+"Water",
+]]
+
+editor/display_folded = true
+position = Vector2( 640, 16 )
+scale = Vector2( 4, 4 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Water_Sprite" type="Sprite" parent="Tiles/Water/Water/Water58" index="0" groups=[
+"Water",
+]]
+
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 16, 16 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Tiles/Water/Water/Water58" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( -8, 8, -8, -8, 8, -8, 8, 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Water13" type="Area2D" parent="Tiles/Water/Water" index="67" groups=[
+"Water",
+]]
+
+editor/display_folded = true
+position = Vector2( 256, 144 )
+scale = Vector2( 4, 4 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Water_Sprite" type="Sprite" parent="Tiles/Water/Water/Water13" index="0" groups=[
+"Water",
+]]
+
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 16, 16 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Tiles/Water/Water/Water13" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( -8, 8, -8, -8, 8, -8, 8, 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Water14" type="Area2D" parent="Tiles/Water/Water" index="68" groups=[
+"Water",
+]]
+
+editor/display_folded = true
+position = Vector2( 256, 80 )
+scale = Vector2( 4, 4 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Water_Sprite" type="Sprite" parent="Tiles/Water/Water/Water14" index="0" groups=[
+"Water",
+]]
+
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 16, 16 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Tiles/Water/Water/Water14" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( -8, 8, -8, -8, 8, -8, 8, 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Water15" type="Area2D" parent="Tiles/Water/Water" index="69" groups=[
+"Water",
+]]
+
+editor/display_folded = true
+position = Vector2( 256, 16 )
+scale = Vector2( 4, 4 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Water_Sprite" type="Sprite" parent="Tiles/Water/Water/Water15" index="0" groups=[
+"Water",
+]]
+
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 16, 16 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Tiles/Water/Water/Water15" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( -8, 8, -8, -8, 8, -8, 8, 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Water16" type="Area2D" parent="Tiles/Water/Water" index="70" groups=[
+"Water",
+]]
+
+editor/display_folded = true
+position = Vector2( 320, 16 )
+scale = Vector2( 4, 4 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Water_Sprite" type="Sprite" parent="Tiles/Water/Water/Water16" index="0" groups=[
+"Water",
+]]
+
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 16, 16 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Tiles/Water/Water/Water16" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( -8, 8, -8, -8, 8, -8, 8, 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Water17" type="Area2D" parent="Tiles/Water/Water" index="71" groups=[
+"Water",
+]]
+
+editor/display_folded = true
+position = Vector2( 320, 83 )
+scale = Vector2( 4, 4 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Water_Sprite" type="Sprite" parent="Tiles/Water/Water/Water17" index="0" groups=[
+"Water",
+]]
+
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 16, 16 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Tiles/Water/Water/Water17" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( -8, 8, -8, -8, 8, -8, 8, 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Water18" type="Area2D" parent="Tiles/Water/Water" index="72" groups=[
+"Water",
+]]
+
+editor/display_folded = true
+position = Vector2( 320, 144 )
+scale = Vector2( 4, 4 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Water_Sprite" type="Sprite" parent="Tiles/Water/Water/Water18" index="0" groups=[
+"Water",
+]]
+
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 16, 16 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Tiles/Water/Water/Water18" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( -8, 8, -8, -8, 8, -8, 8, 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Water19" type="Area2D" parent="Tiles/Water/Water" index="73" groups=[
+"Water",
+]]
+
+editor/display_folded = true
+position = Vector2( 384, 144 )
+scale = Vector2( 4, 4 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Water_Sprite" type="Sprite" parent="Tiles/Water/Water/Water19" index="0" groups=[
+"Water",
+]]
+
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 16, 16 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Tiles/Water/Water/Water19" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( -8, 8, -8, -8, 8, -8, 8, 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Water20" type="Area2D" parent="Tiles/Water/Water" index="74" groups=[
+"Water",
+]]
+
+editor/display_folded = true
+position = Vector2( 384, 80 )
+scale = Vector2( 4, 4 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Water_Sprite" type="Sprite" parent="Tiles/Water/Water/Water20" index="0" groups=[
+"Water",
+]]
+
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 16, 16 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Tiles/Water/Water/Water20" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( -8, 8, -8, -8, 8, -8, 8, 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Water21" type="Area2D" parent="Tiles/Water/Water" index="75" groups=[
+"Water",
+]]
+
+editor/display_folded = true
+position = Vector2( 384, 16 )
+scale = Vector2( 4, 4 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Water_Sprite" type="Sprite" parent="Tiles/Water/Water/Water21" index="0" groups=[
+"Water",
+]]
+
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 16, 16 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Tiles/Water/Water/Water21" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( -8, 8, -8, -8, 8, -8, 8, 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Trees" type="Node2D" parent="Tiles" index="4"]
+
+[node name="Ice" type="Node2D" parent="Tiles" index="5"]
+
+[node name="Gems" type="Node2D" parent="." index="3"]
+
+editor/display_folded = true
+
+[node name="gem_blue" parent="Gems" index="0" instance=ExtResource( 6 )]
+
+position = Vector2( 896, 720 )
+
+[node name="gem_blue2" parent="Gems" index="1" instance=ExtResource( 6 )]
+
+position = Vector2( 704, 384 )
+
+[node name="gem_blue3" parent="Gems" index="2" instance=ExtResource( 6 )]
+
+position = Vector2( 1600, 640 )
+
+[node name="Coins" type="Node2D" parent="." index="4"]
+
+[node name="Coins_R" type="Node2D" parent="." index="5"]
+
+[node name="Signs" type="Node2D" parent="." index="6"]
+
+position = Vector2( 97.7842, 416.212 )
+
+[node name="Platforms" type="Node2D" parent="." index="7"]
+
+[node name="Pickups" type="Node2D" parent="." index="8"]
+
+editor/display_folded = true
+_sections_unfolded = [ "Transform" ]
+
+[node name="Weapon_Pickup" parent="Pickups" index="0" instance=ExtResource( 7 )]
+
+position = Vector2( 368, 528 )
+
+[node name="Door" parent="." index="9" instance=ExtResource( 8 )]
+
+position = Vector2( 1376, 256 )
+
+[node name="Enemies" type="Node2D" parent="." index="10"]
+
+position = Vector2( 318.166, 383.563 )
+
+[node name="Enemy_Holder" type="Node2D" parent="Enemies" index="0"]
+
+position = Vector2( 385.834, 16.437 )
+
+[node name="Sharko" type="KinematicBody2D" parent="Enemies/Enemy_Holder" index="0" groups=[
+"enemy",
+]]
+
+editor/display_folded = true
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+script = ExtResource( 9 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Anim" type="AnimatedSprite" parent="Enemies/Enemy_Holder/Sharko" index="0"]
+
+scale = Vector2( 4, 4 )
+frames = SubResource( 3 )
+animation = "Swimming"
+frame = 1
+playing = true
+_sections_unfolded = [ "Transform" ]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Enemies/Enemy_Holder/Sharko" index="1"]
+
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 0.6
+anims/Swimming = SubResource( 2 )
+blend_times = [  ]
+_sections_unfolded = [ "Playback Options" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/Enemy_Holder/Sharko" index="2"]
+
+position = Vector2( -2.21001, -7.99887 )
+scale = Vector2( 0.928834, 0.693663 )
+shape = SubResource( 4 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Hitbox" type="Area2D" parent="Enemies/Enemy_Holder/Sharko" index="3"]
+
+editor/display_folded = true
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Enemies/Enemy_Holder/Sharko/Hitbox" index="0"]
+
+position = Vector2( -2.21001, -7.99887 )
+scale = Vector2( 0.928834, 0.693663 )
+shape = SubResource( 5 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Hearts" type="Node2D" parent="Enemies/Enemy_Holder/Sharko" index="4"]
+
+[node name="Heart" parent="Enemies/Enemy_Holder/Sharko/Hearts" index="0" instance=ExtResource( 12 )]
+
+position = Vector2( -12.442, -42.0595 )
+
+[node name="Heart2" parent="Enemies/Enemy_Holder/Sharko/Hearts" index="1" instance=ExtResource( 12 )]
+
+position = Vector2( 9.55834, -42.0595 )
+
+[node name="Enemy_Holder2" type="Node2D" parent="Enemies" index="1"]
+
+position = Vector2( 369.834, 320.437 )
+
+[node name="Sharko2" type="KinematicBody2D" parent="Enemies/Enemy_Holder2" index="0" groups=[
+"enemy",
+]]
+
+editor/display_folded = true
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+script = ExtResource( 9 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Anim" type="AnimatedSprite" parent="Enemies/Enemy_Holder2/Sharko2" index="0"]
+
+scale = Vector2( 4, 4 )
+frames = SubResource( 3 )
+animation = "Swimming"
+frame = 1
+playing = true
+_sections_unfolded = [ "Transform" ]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Enemies/Enemy_Holder2/Sharko2" index="1"]
+
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 0.6
+anims/Swimming = SubResource( 6 )
+blend_times = [  ]
+_sections_unfolded = [ "Playback Options" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/Enemy_Holder2/Sharko2" index="2"]
+
+position = Vector2( -2.21001, -7.99887 )
+scale = Vector2( 0.928834, 0.693663 )
+shape = SubResource( 4 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Hitbox" type="Area2D" parent="Enemies/Enemy_Holder2/Sharko2" index="3"]
+
+editor/display_folded = true
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Enemies/Enemy_Holder2/Sharko2/Hitbox" index="0"]
+
+position = Vector2( -2.21001, -7.99887 )
+scale = Vector2( 0.928834, 0.693663 )
+shape = SubResource( 5 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Hearts" type="Node2D" parent="Enemies/Enemy_Holder2/Sharko2" index="4"]
+
+[node name="Heart" parent="Enemies/Enemy_Holder2/Sharko2/Hearts" index="0" instance=ExtResource( 12 )]
+
+position = Vector2( -12.442, -42.0595 )
+
+[node name="Heart2" parent="Enemies/Enemy_Holder2/Sharko2/Hearts" index="1" instance=ExtResource( 12 )]
+
+position = Vector2( 9.55834, -42.0595 )
+
+[node name="Enemy_Markers" type="Node2D" parent="." index="11"]
+
+position = Vector2( 272, 64 )
+
+[node name="Player" parent="." index="12" instance=ExtResource( 13 )]
+
+position = Vector2( 192, 288 )
+
+[node name="HUD" parent="." index="13" instance=ExtResource( 14 )]
+
+
