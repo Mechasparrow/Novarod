@@ -10,7 +10,7 @@ source_file="res://_Assets/Art/Spritesheets/Shark (Normal)/sprite_0.png"
 source_md5="a06daac2aa509235f76a742dab2b380b"
 
 dest_files=[ "res://.import/sprite_0.png-93cc22f428c10590bd4bb881a1f17567.stex" ]
-dest_md5="ccce03983a8fb73eefe922652685745d"
+dest_md5="e5081a3556ac4f6e5f8045c736097e44"
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
@@ -28,5 +28,5 @@ process/premult_alpha=false
 process/HDR_as_SRGB=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0

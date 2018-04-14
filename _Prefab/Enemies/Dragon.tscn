@@ -1,26 +1,27 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://_Scripts/Enemy_Behavior/Enemy_02.gd" type="Script" id=1]
-[ext_resource path="res://_Assets/Art/Spritesheets/Dragon/sprite_0.png" type="Texture" id=2]
-[ext_resource path="res://_Assets/Art/Spritesheets/Dragon/sprite_2.png" type="Texture" id=3]
-[ext_resource path="res://_Assets/Art/Spritesheets/Dragon/sprite_3.png" type="Texture" id=4]
-[ext_resource path="res://_Assets/Art/Spritesheets/Dragon/sprite_1.png" type="Texture" id=5]
-[ext_resource path="res://_Assets/Art/heart_0.png" type="Texture" id=6]
+[ext_resource path="res://_Assets/Art/Spritesheets/Dragon/sprite_1.png" type="Texture" id=2]
+[ext_resource path="res://_Assets/Art/Spritesheets/Dragon/sprite_0.png" type="Texture" id=3]
+[ext_resource path="res://_Assets/Art/Spritesheets/Dragon/sprite_2.png" type="Texture" id=4]
+[ext_resource path="res://_Assets/Art/Spritesheets/Dragon/sprite_3.png" type="Texture" id=5]
+[ext_resource path="res://_Prefab/Heart.tscn" type="PackedScene" id=6]
+[ext_resource path="res://_Assets/Art/heart_0.png" type="Texture" id=7]
 
 [sub_resource type="SpriteFrames" id=1]
 
 animations = [ {
-"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ) ],
-"loop": true,
-"name": "move",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 5 ) ],
+"frames": [ ExtResource( 2 ) ],
 "loop": true,
 "name": "still",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 3 ) ],
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "move",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
 "loop": true,
 "name": "jump",
 "speed": 5.0
@@ -37,9 +38,9 @@ extents = Vector2( 35.6056, 27.4751 )
 custom_solver_bias = 0.0
 extents = Vector2( 30.6989, 23.9862 )
 
-[node name="Dragon" type="KinematicBody2D" index="0" groups=[
-"enemy",
+[node name="Dragon" type="KinematicBody2D" groups=[
 "flying_enemy",
+"enemy",
 ]]
 
 position = Vector2( 193.834, 448.437 )
@@ -81,22 +82,18 @@ shape = SubResource( 2 )
 
 position = Vector2( 4.166, -39.437 )
 
-[node name="Heart" type="Sprite" parent="Hearts" index="0"]
-
-position = Vector2( -18.9127, 0 )
-texture = ExtResource( 6 )
-_sections_unfolded = [ "Transform" ]
+[node name="Heart" parent="Hearts" index="0" instance=ExtResource( 6 )]
 
 [node name="Heart2" type="Sprite" parent="Hearts" index="1"]
 
 position = Vector2( 0.540344, 0 )
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Heart3" type="Sprite" parent="Hearts" index="2"]
 
 position = Vector2( 19.4531, 0 )
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="3"]
