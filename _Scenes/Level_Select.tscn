@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://_Scripts/level_select.gd" type="Script" id=1]
 [ext_resource path="res://_Assets/Art/Tutorials_Button.png" type="Texture" id=2]
@@ -379,7 +379,7 @@ func _ready():
 #	pass
 "
 
-[sub_resource type="GDScript" id=20]
+[sub_resource type="GDScript" id=19]
 
 script/source = "extends Node
 
@@ -401,7 +401,29 @@ func _ready():
 #	pass
 "
 
-[sub_resource type="GDScript" id=19]
+[sub_resource type="GDScript" id=20]
+
+script/source = "extends Node
+
+# class member variables go here, for example:
+# var a = 2
+# var b = \"textvar\"
+
+var level = 4
+var type = \"blue\"
+
+func _ready():
+	# Called every time the node is added to the scene.
+	# Initialization here
+	pass
+
+#func _process(delta):
+#	# Called every frame. Delta is time since last frame.
+#	# Update game logic here.
+#	pass
+"
+
+[sub_resource type="GDScript" id=21]
 
 script/source = "extends Node
 
@@ -1019,8 +1041,6 @@ _sections_unfolded = [ "custom_fonts" ]
 
 [node name="Fire" type="Node2D" parent="." index="3"]
 
-editor/display_folded = true
-
 [node name="Fire_Lands" type="Node2D" parent="Fire" index="0"]
 
 editor/display_folded = true
@@ -1391,7 +1411,7 @@ group = null
 texture_normal = ExtResource( 7 )
 expand = true
 stretch_mode = 4
-script = SubResource( 20 )
+script = SubResource( 19 )
 _sections_unfolded = [ "Hint", "Textures" ]
 
 [node name="Label" type="Label" parent="Water/Water_Lands_3" index="1"]
@@ -1412,6 +1432,61 @@ size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_fonts/font = SubResource( 2 )
 text = "Level_03"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="Red_Btn5" type="Node2D" parent="Water" index="3"]
+
+position = Vector2( 560, 336 )
+scale = Vector2( 0.75, 0.75 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="TextureButton" type="TextureButton" parent="Water/Red_Btn5" index="0" groups=[
+"select_button",
+]]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 256.0
+margin_bottom = 100.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 7 )
+expand = true
+script = SubResource( 20 )
+_sections_unfolded = [ "Hint", "Rect", "Textures" ]
+
+[node name="Label" type="Label" parent="Water/Red_Btn5" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 66.0
+margin_top = 30.0
+margin_right = 183.0
+margin_bottom = 61.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 12 )
+text = "Blue_Boss"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
@@ -1444,7 +1519,7 @@ group = null
 text = "Sandbox"
 flat = false
 align = 1
-script = SubResource( 19 )
+script = SubResource( 21 )
 _sections_unfolded = [ "custom_fonts" ]
 
 

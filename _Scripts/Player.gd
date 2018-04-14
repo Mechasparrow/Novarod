@@ -97,8 +97,8 @@ func _physics_process(delta):
 					in_water = true
 					velocity.y/=4
 
-				GRAVITY = 100.0
-				WALK_FORCE = 100
+				GRAVITY = 300.0
+				WALK_MAX_SPEED = 150 
 				JUMP_SPEED = 300
 
 	if (len(tile_areas) == 0):
@@ -124,7 +124,7 @@ func _physics_process(delta):
 			elif (dir == "left"):
 				weapon_holder.position.x = -weapon_offset
 
-	if (interact and not (weapon == null) and not sliding and not jumping and is_on_floor()):
+	if (interact and not (weapon == null) and not sliding):
 		var weapon_offset = weapon.offset
 
 		if (dir == "right"):

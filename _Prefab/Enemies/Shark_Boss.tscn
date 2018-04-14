@@ -1,11 +1,11 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://_Scripts/Enemy_Behavior/Shark.gd" type="Script" id=1]
-[ext_resource path="res://_Assets/Art/Spritesheets/Shark (Normal)/sprite_0.png" type="Texture" id=2]
-[ext_resource path="res://_Assets/Art/Spritesheets/Shark (Normal)/sprite_1.png" type="Texture" id=3]
+[ext_resource path="res://_Scripts/Enemy_Behavior/Shark_Boss.gd" type="Script" id=1]
+[ext_resource path="res://_Assets/Art/Spritesheets/Shark (Boss)/sprite_0.png" type="Texture" id=2]
+[ext_resource path="res://_Assets/Art/Spritesheets/Shark (Boss)/sprite_1.png" type="Texture" id=3]
 [ext_resource path="res://_Prefab/Heart.tscn" type="PackedScene" id=4]
 
-[sub_resource type="SpriteFrames" id=1]
+[sub_resource type="SpriteFrames" id=5]
 
 animations = [ {
 "frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
@@ -54,7 +54,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0, 1.5, 3 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ Vector2( -2.21001, -7.99887 ), Vector2( 2.21001, -7.99887 ), Vector2( -2.21001, -7.99887 ) ]
+"values": [ Vector2( -7.69962, -32.0408 ), Vector2( 8.08131, -32.257 ), Vector2( -7.69962, -32.0408 ) ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("Hitbox/CollisionShape2D2:position")
@@ -66,24 +66,24 @@ tracks/3/keys = {
 "times": PoolRealArray( 0, 1.5, 3 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ Vector2( -2.21001, -7.99887 ), Vector2( 2.21001, -7.99887 ), Vector2( -2.21001, -7.99887 ) ]
+"values": [ Vector2( -7.69962, -32.0408 ), Vector2( 7.69962, -32.0408 ), Vector2( -7.69962, -32.0408 ) ]
 }
 
 [sub_resource type="RectangleShape2D" id=3]
 
 custom_solver_bias = 0.0
-extents = Vector2( 28.0546, 29.2991 )
+extents = Vector2( 116.623, 146.769 )
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=6]
 
 custom_solver_bias = 0.0
-extents = Vector2( 31.8296, 32.8181 )
+extents = Vector2( 126.397, 166.28 )
 
-[node name="Sharko" type="KinematicBody2D" groups=[
+[node name="Shark_Boss" type="KinematicBody2D" groups=[
 "enemy",
 ]]
 
-position = Vector2( 37.2715, -7.98676 )
+position = Vector2( 130.264, 14.9435 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -93,10 +93,11 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Anim" type="AnimatedSprite" parent="." index="0"]
 
-scale = Vector2( 4, 4 )
-frames = SubResource( 1 )
+scale = Vector2( 16, 16 )
+frames = SubResource( 5 )
 animation = "Swimming"
 playing = true
+flip_h = true
 _sections_unfolded = [ "Transform" ]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
@@ -111,8 +112,8 @@ blend_times = [  ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]
 
-position = Vector2( -2.21001, -7.99887 )
-scale = Vector2( 0.928834, 0.693663 )
+position = Vector2( 8.08131, -32.257 )
+scale = Vector2( 0.892102, 0.54481 )
 shape = SubResource( 3 )
 _sections_unfolded = [ "Transform" ]
 
@@ -129,19 +130,48 @@ audio_bus_name = "Master"
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Hitbox" index="0"]
 
-position = Vector2( -2.21001, -7.99887 )
-scale = Vector2( 0.928834, 0.693663 )
-shape = SubResource( 4 )
+position = Vector2( 7.69962, -32.0408 )
+scale = Vector2( 0.892102, 0.54481 )
+shape = SubResource( 6 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Hearts" type="Node2D" parent="." index="4"]
 
+_sections_unfolded = [ "Transform" ]
+
 [node name="Heart" parent="Hearts" index="0" instance=ExtResource( 4 )]
 
-position = Vector2( -12.442, -42.0595 )
+position = Vector2( -83.7462, -152.324 )
+scale = Vector2( 3, 3 )
 
 [node name="Heart2" parent="Hearts" index="1" instance=ExtResource( 4 )]
 
-position = Vector2( 9.55834, -42.0595 )
+position = Vector2( -28.6666, -153.059 )
+scale = Vector2( 3, 3 )
+
+[node name="Heart3" parent="Hearts" index="2" instance=ExtResource( 4 )]
+
+position = Vector2( 27.2006, -153.794 )
+scale = Vector2( 3, 3 )
+
+[node name="Heart4" parent="Hearts" index="3" instance=ExtResource( 4 )]
+
+position = Vector2( 84.5379, -153.794 )
+scale = Vector2( 3, 3 )
+
+[node name="Heart5" parent="Hearts" index="4" instance=ExtResource( 4 )]
+
+position = Vector2( -53.6598, -208.926 )
+scale = Vector2( 3, 3 )
+
+[node name="Heart6" parent="Hearts" index="5" instance=ExtResource( 4 )]
+
+position = Vector2( 55.8692, -208.191 )
+scale = Vector2( 3, 3 )
+
+[node name="Heart7" parent="Hearts" index="6" instance=ExtResource( 4 )]
+
+position = Vector2( 0.737144, -208.926 )
+scale = Vector2( 3, 3 )
 
 
