@@ -1,0 +1,140 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://_Scripts/level_script.gd" type="Script" id=1]
+[ext_resource path="res://_Tileset/normal_world.tres" type="TileSet" id=2]
+[ext_resource path="res://_Tileset/hazards.tres" type="TileSet" id=3]
+[ext_resource path="res://_Prefab/Door.tscn" type="PackedScene" id=4]
+[ext_resource path="res://_Prefab/Players/Player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://_Prefab/HUD.tscn" type="PackedScene" id=6]
+
+[sub_resource type="GDScript" id=1]
+
+script/source = "extends Node2D
+
+# class member variables go here, for example:
+# var a = 2
+# var b = \"textvar\"
+
+var type = \"yellow\"
+var level = 1
+
+func _ready():
+	# Called every time the node is added to the scene.
+	# Initialization here
+	pass
+
+#func _process(delta):
+#	# Called every frame. Delta is time since last frame.
+#	# Update game logic here.
+#	pass
+"
+
+[node name="World" type="Node" groups=[
+"gem_collect_level",
+]]
+
+script = ExtResource( 1 )
+reset_position = Vector2( 100, 400 )
+
+[node name="level_info" type="Node2D" parent="." index="0"]
+
+script = SubResource( 1 )
+
+[node name="Chests" type="Node2D" parent="." index="1"]
+
+[node name="Tiles" type="Node2D" parent="." index="2"]
+
+[node name="Ground" type="TileMap" parent="Tiles" index="0"]
+
+scale = Vector2( 4, 4 )
+mode = 0
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 16, 16 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 3
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray(  )
+_sections_unfolded = [ "Cell", "Collision", "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Hazard" type="TileMap" parent="Tiles" index="1"]
+
+scale = Vector2( 4, 4 )
+mode = 0
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 16, 16 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( 458758, 2, 0, 458759, 2, 0, 786454, 2, 0, 786455, 2, 0, 786456, 2, 0, 786457, 2, 0, 917499, 2, 0, 851990, 2, 0, 851991, 2, 0, 851992, 2, 0, 851993, 2, 0, 917526, 2, 0, 917527, 2, 0, 917528, 2, 0, 917529, 2, 0, 1048568, 2, 0 )
+_sections_unfolded = [ "Cell", "Collision", "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Water" type="Node2D" parent="Tiles" index="2"]
+
+modulate = Color( 1, 1, 1, 0.588235 )
+z_index = 2
+_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
+
+[node name="Trees" type="Node2D" parent="Tiles" index="3"]
+
+[node name="Ice" type="Node2D" parent="Tiles" index="4"]
+
+[node name="Gems" type="Node2D" parent="." index="3"]
+
+[node name="Coins" type="Node2D" parent="." index="4"]
+
+[node name="Coins_R" type="Node2D" parent="." index="5"]
+
+[node name="Signs" type="Node2D" parent="." index="6"]
+
+position = Vector2( 97.7842, 416.212 )
+
+[node name="Platforms" type="Node2D" parent="." index="7"]
+
+[node name="Pickups" type="Node2D" parent="." index="8"]
+
+scale = Vector2( 6.5625, 6.5625 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Door" parent="." index="9" instance=ExtResource( 4 )]
+
+[node name="Enemies" type="Node2D" parent="." index="10"]
+
+position = Vector2( 318.166, 383.563 )
+
+[node name="Enemy_Markers" type="Node2D" parent="." index="11"]
+
+position = Vector2( 272, 64 )
+
+[node name="Player" parent="." index="12" instance=ExtResource( 5 )]
+
+position = Vector2( 192, 288 )
+
+[node name="HUD" parent="." index="13" instance=ExtResource( 6 )]
+
+
