@@ -10,7 +10,7 @@ source_file="res://_Assets/Art/Air Artwork/Spritesheets/Evil Bird/sprite_3.png"
 source_md5="165d941687cc3beb7f0244271d435f6a"
 
 dest_files=[ "res://.import/sprite_3.png-a8b3c843c2f356c117bf3a87f21bd74a.stex" ]
-dest_md5="3f59a1462b56565d97c81eb91140d7da"
+dest_md5="9df3ece90b28eb83f65f519fa94db2b6"
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
@@ -28,5 +28,5 @@ process/premult_alpha=false
 process/HDR_as_SRGB=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0

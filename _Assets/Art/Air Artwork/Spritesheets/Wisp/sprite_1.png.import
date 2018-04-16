@@ -10,7 +10,7 @@ source_file="res://_Assets/Art/Air Artwork/Spritesheets/Wisp/sprite_1.png"
 source_md5="5ae5faa3bc3177c63081154c47bfea54"
 
 dest_files=[ "res://.import/sprite_1.png-e3f9022ad029bae9a6efc6ba8dfbfe7f.stex" ]
-dest_md5="3964ded93ded52bd1d052198e2c1cc71"
+dest_md5="33353e01a74869bbfe87b0df0fe09f04"
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
@@ -28,5 +28,5 @@ process/premult_alpha=false
 process/HDR_as_SRGB=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0
