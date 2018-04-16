@@ -10,7 +10,7 @@ source_file="res://_Assets/Art/Air Artwork/Mast_Head.png"
 source_md5="500711ecba95c843dc3f1102452f6b44"
 
 dest_files=[ "res://.import/Mast_Head.png-0450c1bd4ad0ccd5d3a1cd12b17f52f7.stex" ]
-dest_md5="0430719877fb0d7ec176f6bd8f732388"
+dest_md5="dc3e4fd08ec8d82c90e468fd72bd0069"
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
@@ -28,5 +28,5 @@ process/premult_alpha=false
 process/HDR_as_SRGB=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0

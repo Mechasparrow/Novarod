@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://_Assets/Art/Ground_Surface_Reg.png" type="Texture" id=1]
 [ext_resource path="res://_Assets/Art/Burnt_Grass.png" type="Texture" id=2]
@@ -6,13 +6,16 @@
 [ext_resource path="res://_Assets/Art/Obsidian.png" type="Texture" id=4]
 [ext_resource path="res://_Assets/Art/Stone_Surface.png" type="Texture" id=5]
 [ext_resource path="res://_Assets/Art/Dark_Dirt.png" type="Texture" id=6]
+[ext_resource path="res://_Assets/Art/Air Artwork/Air_Grass.png" type="Texture" id=7]
+[ext_resource path="res://_Assets/Art/Air Artwork/Air_Particles.png" type="Texture" id=8]
+[ext_resource path="res://_Assets/Art/Air Artwork/Wooden Planks.png" type="Texture" id=9]
 
 [sub_resource type="StreamTexture" id=1]
 
 flags = 0
 load_path = "res://.import/Ground_Dirt_1.png-d0ce40c9eb18552f7cc6d3321945ec3c.stex"
 
-[node name="Node" type="Node"]
+[node name="Node" type="Node" index="0"]
 
 [node name="Grass" type="Sprite" parent="." index="0"]
 
@@ -230,6 +233,102 @@ __meta__ = {
 }
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Burnt_Ground/StaticBody2D" index="0"]
+
+position = Vector2( -2.98023e-08, 0 )
+build_mode = 0
+polygon = PoolVector2Array( -8, 8, -8, -8, 8, -8, 8, 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Air_Grass" type="Sprite" parent="." index="7"]
+
+editor/display_folded = true
+position = Vector2( 130, 320 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 16, 16 )
+_sections_unfolded = [ "Animation", "Region", "Transform" ]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Air_Grass" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Air_Grass/StaticBody2D" index="0"]
+
+position = Vector2( -2.98023e-08, 0 )
+build_mode = 0
+polygon = PoolVector2Array( -8, 8, -8, -8, 8, -8, 8, 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Air_Dirt" type="Sprite" parent="." index="8"]
+
+editor/display_folded = true
+position = Vector2( 260, 320 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 8 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 16, 16 )
+_sections_unfolded = [ "Animation", "Region", "Transform" ]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Air_Dirt" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Air_Dirt/StaticBody2D" index="0"]
+
+position = Vector2( -2.98023e-08, 0 )
+build_mode = 0
+polygon = PoolVector2Array( -8, 8, -8, -8, 8, -8, 8, 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Plank" type="Sprite" parent="." index="9"]
+
+editor/display_folded = true
+position = Vector2( 380, 320 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 9 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 16, 16 )
+_sections_unfolded = [ "Animation", "Region", "Transform" ]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Plank" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Plank/StaticBody2D" index="0"]
 
 position = Vector2( -2.98023e-08, 0 )
 build_mode = 0

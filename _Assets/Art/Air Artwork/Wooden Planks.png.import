@@ -10,7 +10,7 @@ source_file="res://_Assets/Art/Air Artwork/Wooden Planks.png"
 source_md5="385d33b25b40095e72d388585b92f26b"
 
 dest_files=[ "res://.import/Wooden Planks.png-f283c84e4d6bfc35d71e93377649bc18.stex" ]
-dest_md5="4464ca49a2ac7d14408537108d41a52d"
+dest_md5="57c3f25dd824ce85442ad1b9e60779a6"
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
@@ -28,5 +28,5 @@ process/premult_alpha=false
 process/HDR_as_SRGB=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0

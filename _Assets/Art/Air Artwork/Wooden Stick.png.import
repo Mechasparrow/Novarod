@@ -10,7 +10,7 @@ source_file="res://_Assets/Art/Air Artwork/Wooden Stick.png"
 source_md5="31acd6dd00846c696ce8257e09db4263"
 
 dest_files=[ "res://.import/Wooden Stick.png-9d7fc7b6417903ade8a943b58637bc83.stex" ]
-dest_md5="7ef643170ca5dcbda6abe10680e8473c"
+dest_md5="1912a9e9c3e8e2318a3f3e996a337345"
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
@@ -28,5 +28,5 @@ process/premult_alpha=false
 process/HDR_as_SRGB=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0
