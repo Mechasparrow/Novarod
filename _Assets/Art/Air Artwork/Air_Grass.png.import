@@ -1,0 +1,32 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/Air_Grass.png-9c9af41e682a34aaf232118329328989.stex"
+
+[deps]
+
+source_file="res://_Assets/Art/Air Artwork/Air_Grass.png"
+source_md5="adf9034d05e2d095c91f43f204a724fc"
+
+dest_files=[ "res://.import/Air_Grass.png-9c9af41e682a34aaf232118329328989.stex" ]
+dest_md5="a4893dee001bc524db4f083ee6ac2af9"
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0
