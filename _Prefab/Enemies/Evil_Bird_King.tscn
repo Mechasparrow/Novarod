@@ -6,7 +6,7 @@
 [ext_resource path="res://_Assets/Art/Air Artwork/Spritesheets/Evil Bird/sprite_3.png" type="Texture" id=4]
 [ext_resource path="res://_Prefab/Heart.tscn" type="PackedScene" id=5]
 
-[sub_resource type="GDScript" id=8]
+[sub_resource type="GDScript" id=1]
 
 script/source = "extends KinematicBody2D
 
@@ -182,7 +182,7 @@ func display_health(health):
 	pass
 "
 
-[sub_resource type="SpriteFrames" id=6]
+[sub_resource type="SpriteFrames" id=2]
 
 animations = [ {
 "frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ) ],
@@ -191,19 +191,18 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=3]
 
 custom_solver_bias = 0.0
 extents = Vector2( 21.2141, 24.4395 )
 
-[sub_resource type="RectangleShape2D" id=7]
+[sub_resource type="RectangleShape2D" id=4]
 
 custom_solver_bias = 0.0
 extents = Vector2( 26.178, 28.5963 )
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=5]
 
-resource_name = "Moving"
 length = 2.0
 loop = true
 step = 0.1
@@ -232,22 +231,24 @@ tracks/1/keys = {
 "values": [ false, true, false ]
 }
 
-[node name="Evil_Bird_King" type="KinematicBody2D" index="0"]
+[node name="Evil_Bird_King" type="KinematicBody2D" groups=[
+"enemy",
+]]
 
 position = Vector2( 128.388, 0 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
-script = SubResource( 8 )
+script = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." index="0"]
 
 scale = Vector2( 4, 4 )
-frames = SubResource( 6 )
+frames = SubResource( 2 )
 animation = "moving"
-frame = 2
+frame = 1
 playing = true
 flip_h = true
 _sections_unfolded = [ "Transform" ]
@@ -256,7 +257,7 @@ _sections_unfolded = [ "Transform" ]
 
 position = Vector2( 0, 4.35365 )
 scale = Vector2( 1, 1.15679 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="Hitbox" type="Area2D" parent="." index="2"]
 
@@ -272,7 +273,7 @@ audio_bus_name = "Master"
 
 position = Vector2( 0, 4.35365 )
 scale = Vector2( 1, 1.15679 )
-shape = SubResource( 7 )
+shape = SubResource( 4 )
 
 [node name="Health" type="Node2D" parent="." index="3"]
 
@@ -297,7 +298,7 @@ autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/Moving = SubResource( 4 )
+anims/Moving = SubResource( 5 )
 blend_times = [  ]
 
 

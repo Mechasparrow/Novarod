@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://_Scripts/level_select.gd" type="Script" id=1]
 [ext_resource path="res://_Assets/Art/Tutorials_Button.png" type="Texture" id=2]
@@ -446,7 +446,7 @@ func _ready():
 #	pass
 "
 
-[sub_resource type="GDScript" id=23]
+[sub_resource type="GDScript" id=22]
 
 script/source = "extends Node
 
@@ -468,7 +468,7 @@ func _ready():
 #	pass
 "
 
-[sub_resource type="GDScript" id=24]
+[sub_resource type="GDScript" id=23]
 
 script/source = "extends Node
 
@@ -490,7 +490,29 @@ func _ready():
 #	pass
 "
 
-[sub_resource type="GDScript" id=22]
+[sub_resource type="GDScript" id=25]
+
+script/source = "extends Node
+
+# class member variables go here, for example:
+# var a = 2
+# var b = \"textvar\"
+
+var level = 4
+var type = \"yellow\"
+
+func _ready():
+	# Called every time the node is added to the scene.
+	# Initialization here
+	pass
+
+#func _process(delta):
+#	# Called every frame. Delta is time since last frame.
+#	# Update game logic here.
+#	pass
+"
+
+[sub_resource type="GDScript" id=24]
 
 script/source = "extends Node
 
@@ -512,7 +534,7 @@ func _ready():
 #	pass
 "
 
-[node name="Node" type="Node"]
+[node name="Node" type="Node" index="0"]
 
 script = ExtResource( 1 )
 
@@ -525,7 +547,6 @@ anchor_bottom = 0.0
 margin_right = 1023.0
 margin_bottom = 602.0
 rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
@@ -557,7 +578,6 @@ anchor_bottom = 0.0
 margin_right = 100.0
 margin_bottom = 100.0
 rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
 focus_mode = 2
 mouse_filter = 0
 mouse_default_cursor_shape = 0
@@ -584,7 +604,6 @@ margin_top = 32.0
 margin_right = 88.0
 margin_bottom = 63.0
 rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
@@ -613,7 +632,6 @@ anchor_bottom = 0.0
 margin_right = 100.0
 margin_bottom = 100.0
 rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
 focus_mode = 2
 mouse_filter = 0
 mouse_default_cursor_shape = 0
@@ -640,7 +658,6 @@ margin_top = 32.0
 margin_right = 88.0
 margin_bottom = 63.0
 rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
@@ -669,7 +686,6 @@ anchor_bottom = 0.0
 margin_right = 100.0
 margin_bottom = 100.0
 rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
 focus_mode = 2
 mouse_filter = 0
 mouse_default_cursor_shape = 0
@@ -696,7 +712,6 @@ margin_top = 32.0
 margin_right = 88.0
 margin_bottom = 63.0
 rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
@@ -725,7 +740,6 @@ anchor_bottom = 0.0
 margin_right = 100.0
 margin_bottom = 100.0
 rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
 focus_mode = 2
 mouse_filter = 0
 mouse_default_cursor_shape = 0
@@ -752,7 +766,6 @@ margin_top = 32.0
 margin_right = 88.0
 margin_bottom = 63.0
 rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
@@ -781,7 +794,6 @@ anchor_bottom = 0.0
 margin_right = 100.0
 margin_bottom = 100.0
 rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
 focus_mode = 2
 mouse_filter = 0
 mouse_default_cursor_shape = 0
@@ -808,7 +820,6 @@ margin_top = 32.0
 margin_right = 88.0
 margin_bottom = 63.0
 rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
@@ -837,7 +848,6 @@ anchor_bottom = 0.0
 margin_right = 100.0
 margin_bottom = 100.0
 rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
 focus_mode = 2
 mouse_filter = 0
 mouse_default_cursor_shape = 0
@@ -864,7 +874,6 @@ margin_top = 32.0
 margin_right = 88.0
 margin_bottom = 63.0
 rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
@@ -898,7 +907,6 @@ anchor_bottom = 0.0
 margin_right = 100.0
 margin_bottom = 100.0
 rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
 focus_mode = 2
 mouse_filter = 0
 mouse_default_cursor_shape = 0
@@ -925,7 +933,6 @@ margin_top = 32.0
 margin_right = 88.0
 margin_bottom = 63.0
 rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
@@ -955,7 +962,6 @@ anchor_bottom = 0.0
 margin_right = 100.0
 margin_bottom = 100.0
 rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
 focus_mode = 2
 mouse_filter = 0
 mouse_default_cursor_shape = 0
@@ -982,7 +988,6 @@ margin_top = 32.0
 margin_right = 88.0
 margin_bottom = 63.0
 rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
@@ -1012,7 +1017,6 @@ anchor_bottom = 0.0
 margin_right = 100.0
 margin_bottom = 100.0
 rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
 focus_mode = 2
 mouse_filter = 0
 mouse_default_cursor_shape = 0
@@ -1039,7 +1043,6 @@ margin_top = 32.0
 margin_right = 88.0
 margin_bottom = 63.0
 rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
@@ -1068,7 +1071,6 @@ anchor_bottom = 0.0
 margin_right = 256.0
 margin_bottom = 100.0
 rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
 focus_mode = 2
 mouse_filter = 0
 mouse_default_cursor_shape = 0
@@ -1094,7 +1096,6 @@ margin_top = 30.0
 margin_right = 183.0
 margin_bottom = 61.0
 rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
@@ -1128,7 +1129,6 @@ anchor_bottom = 0.0
 margin_right = 100.0
 margin_bottom = 100.0
 rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
 focus_mode = 2
 mouse_filter = 0
 mouse_default_cursor_shape = 0
@@ -1155,7 +1155,6 @@ margin_top = 32.0
 margin_right = 88.0
 margin_bottom = 63.0
 rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
@@ -1185,7 +1184,6 @@ anchor_bottom = 0.0
 margin_right = 100.0
 margin_bottom = 100.0
 rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
 focus_mode = 2
 mouse_filter = 0
 mouse_default_cursor_shape = 0
@@ -1212,7 +1210,6 @@ margin_top = 32.0
 margin_right = 88.0
 margin_bottom = 63.0
 rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
@@ -1242,7 +1239,6 @@ anchor_bottom = 0.0
 margin_right = 100.0
 margin_bottom = 100.0
 rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
 focus_mode = 2
 mouse_filter = 0
 mouse_default_cursor_shape = 0
@@ -1269,7 +1265,6 @@ margin_top = 32.0
 margin_right = 88.0
 margin_bottom = 63.0
 rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
@@ -1298,7 +1293,6 @@ anchor_bottom = 0.0
 margin_right = 256.0
 margin_bottom = 100.0
 rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
 focus_mode = 2
 mouse_filter = 0
 mouse_default_cursor_shape = 0
@@ -1324,7 +1318,6 @@ margin_top = 30.0
 margin_right = 183.0
 margin_bottom = 61.0
 rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
@@ -1342,6 +1335,7 @@ editor/display_folded = true
 
 [node name="Water_Lands_1" type="Node2D" parent="Water" index="0"]
 
+editor/display_folded = true
 position = Vector2( 224, 336 )
 scale = Vector2( 0.75, 0.75 )
 _sections_unfolded = [ "Transform", "Visibility" ]
@@ -1357,7 +1351,6 @@ anchor_bottom = 0.0
 margin_right = 100.0
 margin_bottom = 100.0
 rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
 focus_mode = 2
 mouse_filter = 0
 mouse_default_cursor_shape = 0
@@ -1384,7 +1377,6 @@ margin_top = 32.0
 margin_right = 88.0
 margin_bottom = 63.0
 rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
@@ -1398,6 +1390,7 @@ _sections_unfolded = [ "custom_fonts" ]
 
 [node name="Water_Lands_2" type="Node2D" parent="Water" index="1"]
 
+editor/display_folded = true
 position = Vector2( 336, 336 )
 scale = Vector2( 0.75, 0.75 )
 _sections_unfolded = [ "Transform", "Visibility" ]
@@ -1413,7 +1406,6 @@ anchor_bottom = 0.0
 margin_right = 100.0
 margin_bottom = 100.0
 rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
 focus_mode = 2
 mouse_filter = 0
 mouse_default_cursor_shape = 0
@@ -1440,7 +1432,6 @@ margin_top = 32.0
 margin_right = 88.0
 margin_bottom = 63.0
 rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
@@ -1454,6 +1445,7 @@ _sections_unfolded = [ "custom_fonts" ]
 
 [node name="Water_Lands_3" type="Node2D" parent="Water" index="2"]
 
+editor/display_folded = true
 position = Vector2( 448, 336 )
 scale = Vector2( 0.75, 0.75 )
 _sections_unfolded = [ "Transform", "Visibility" ]
@@ -1469,7 +1461,6 @@ anchor_bottom = 0.0
 margin_right = 100.0
 margin_bottom = 100.0
 rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
 focus_mode = 2
 mouse_filter = 0
 mouse_default_cursor_shape = 0
@@ -1496,7 +1487,6 @@ margin_top = 32.0
 margin_right = 88.0
 margin_bottom = 63.0
 rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
@@ -1525,7 +1515,6 @@ anchor_bottom = 0.0
 margin_right = 256.0
 margin_bottom = 100.0
 rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
 focus_mode = 2
 mouse_filter = 0
 mouse_default_cursor_shape = 0
@@ -1551,7 +1540,6 @@ margin_top = 30.0
 margin_right = 183.0
 margin_bottom = 61.0
 rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
@@ -1583,7 +1571,6 @@ anchor_bottom = 0.0
 margin_right = 100.0
 margin_bottom = 100.0
 rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
 focus_mode = 2
 mouse_filter = 0
 mouse_default_cursor_shape = 0
@@ -1610,7 +1597,6 @@ margin_top = 32.0
 margin_right = 88.0
 margin_bottom = 63.0
 rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
@@ -1640,7 +1626,6 @@ anchor_bottom = 0.0
 margin_right = 100.0
 margin_bottom = 100.0
 rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
 focus_mode = 2
 mouse_filter = 0
 mouse_default_cursor_shape = 0
@@ -1653,7 +1638,7 @@ group = null
 texture_normal = ExtResource( 8 )
 expand = true
 stretch_mode = 4
-script = SubResource( 23 )
+script = SubResource( 22 )
 _sections_unfolded = [ "Hint" ]
 
 [node name="Label" type="Label" parent="Air/Air_Lands_02" index="1"]
@@ -1667,7 +1652,6 @@ margin_top = 32.0
 margin_right = 88.0
 margin_bottom = 63.0
 rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
@@ -1697,7 +1681,6 @@ anchor_bottom = 0.0
 margin_right = 100.0
 margin_bottom = 100.0
 rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
 focus_mode = 2
 mouse_filter = 0
 mouse_default_cursor_shape = 0
@@ -1710,7 +1693,7 @@ group = null
 texture_normal = ExtResource( 8 )
 expand = true
 stretch_mode = 4
-script = SubResource( 24 )
+script = SubResource( 23 )
 _sections_unfolded = [ "Hint" ]
 
 [node name="Label" type="Label" parent="Air/Air_Lands_03" index="1"]
@@ -1724,13 +1707,65 @@ margin_top = 32.0
 margin_right = 88.0
 margin_bottom = 63.0
 rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_fonts/font = SubResource( 2 )
 text = "Level_03"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="Yellow_Final_Button" type="Node2D" parent="Air" index="3"]
+
+position = Vector2( 560, 432 )
+scale = Vector2( 0.75, 0.75 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="TextureButton" type="TextureButton" parent="Air/Yellow_Final_Button" index="0" groups=[
+"select_button",
+]]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 256.0
+margin_bottom = 100.0
+rect_pivot_offset = Vector2( 0, 0 )
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 8 )
+expand = true
+script = SubResource( 25 )
+_sections_unfolded = [ "Hint", "Rect", "Textures" ]
+
+[node name="Label" type="Label" parent="Air/Yellow_Final_Button" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 62.0
+margin_top = 40.0
+margin_right = 190.0
+margin_bottom = 71.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 12 )
+text = "Yellow_Boss"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
@@ -1750,7 +1785,6 @@ margin_right = 504.0
 margin_bottom = 597.0
 rect_rotation = -90.0
 rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
 focus_mode = 2
 mouse_filter = 0
 mouse_default_cursor_shape = 0
@@ -1764,7 +1798,7 @@ group = null
 text = "Sandbox"
 flat = false
 align = 1
-script = SubResource( 22 )
+script = SubResource( 24 )
 _sections_unfolded = [ "Rect", "custom_fonts" ]
 
 
