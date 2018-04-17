@@ -1,11 +1,18 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://_Scripts/level_script.gd" type="Script" id=1]
 [ext_resource path="res://_Tileset/normal_world.tres" type="TileSet" id=2]
 [ext_resource path="res://_Tileset/hazards.tres" type="TileSet" id=3]
-[ext_resource path="res://_Prefab/Door.tscn" type="PackedScene" id=4]
-[ext_resource path="res://_Prefab/Players/Player.tscn" type="PackedScene" id=5]
-[ext_resource path="res://_Prefab/HUD.tscn" type="PackedScene" id=6]
+[ext_resource path="res://_Prefab/Pickups/Weapon_Pickup.tscn" type="PackedScene" id=4]
+[ext_resource path="res://_Scripts/Pickup_Behavior/Weapon_Gun_Pickup.gd" type="Script" id=5]
+[ext_resource path="res://_Prefab/Door.tscn" type="PackedScene" id=6]
+[ext_resource path="res://_Assets/Art/Air Artwork/Spritesheets/Evil Bird/sprite_0.png" type="Texture" id=7]
+[ext_resource path="res://_Assets/Art/Air Artwork/Spritesheets/Evil Bird/sprite_1.png" type="Texture" id=8]
+[ext_resource path="res://_Assets/Art/Air Artwork/Spritesheets/Evil Bird/sprite_2.png" type="Texture" id=9]
+[ext_resource path="res://_Assets/Art/Air Artwork/Spritesheets/Evil Bird/sprite_3.png" type="Texture" id=10]
+[ext_resource path="res://_Prefab/Heart.tscn" type="PackedScene" id=11]
+[ext_resource path="res://_Prefab/Players/Player.tscn" type="PackedScene" id=12]
+[ext_resource path="res://_Prefab/HUD.tscn" type="PackedScene" id=13]
 
 [sub_resource type="GDScript" id=1]
 
@@ -29,8 +36,233 @@ func _ready():
 #	pass
 "
 
-[node name="World" type="Node" groups=[
-"gem_collect_level",
+[sub_resource type="GDScript" id=6]
+
+script/source = "extends KinematicBody2D
+
+# class member variables go here, for example:
+# var a = 2
+# var b = \"textvar\"
+
+onready var anim = get_node(\"AnimationPlayer\")
+onready var hitbox = get_node(\"Hitbox\")
+
+var velocity = Vector2(0,0)
+
+var WALK_FORCE
+var WALK_MIN_SPEED
+var WALK_MAX_SPEED
+var STOP_FORCE
+var dir
+var hit_marker = false
+
+var enemy_knockback = 1000
+
+
+var ai_movement_timer = 0
+var ai_movement_cooldown = 1
+
+var hit = false
+var knockback_vel = Vector2(0,0)
+var cooldown_duration = 0.5
+var cooldown_timer = 0
+var knockback_duration = 0.1
+var knockback_timer = 0
+var knockedback = false
+
+var health = 7
+
+var xp_drop = true
+var xp = 6
+
+onready var xp_pickup = preload(\"res://_Prefab/Pickups/XP_Pickup.tscn\")
+
+func _ready():
+	# Called every time the node is added to the scene.
+	# Initialization here
+	anim.play(\"Moving\")
+	
+	pass
+
+func _physics_process(delta):
+
+	var areas = hitbox.get_overlapping_areas()
+	var bodies = hitbox.get_overlapping_bodies()
+
+	if (len(areas) == 0):
+		hit_marker = false
+
+	for body in bodies:
+		if body.name == \"Hazard\":
+			die()
+
+	# HIT COOLDOWN
+	if (hit == true and cooldown_timer < cooldown_duration):
+
+		cooldown_timer += delta
+
+	if (knockedback == true and knockback_timer < knockback_duration):
+		velocity += knockback_vel * 15 *  delta
+		knockback_timer += delta
+
+	if (knockedback == true and knockback_timer > knockback_duration):
+		velocity.x = 0
+		knockedback = false
+
+	if (hit == true and cooldown_timer > cooldown_duration):
+		hit = false
+
+	#KNOCKBACK
+
+	for body in bodies:
+
+		if (body.is_in_group(\"bullet\")):
+
+			if (hit == false):
+				handle_attack(body)
+				cooldown_timer = 0
+				hit = true
+				knockback_timer = 0
+				knockedback = true
+
+		pass
+
+	for area in areas:
+		var hit_a_marker = false
+
+		if (area.is_in_group(\"weapon\")):
+
+			if (hit == false):
+				handle_attack(area)
+				cooldown_timer = 0
+				hit = true
+				knockback_timer = 0
+				knockedback = true
+
+		if (area.is_in_group(\"enemy_marker\")):
+			hit_a_marker = true
+
+			if (hit_marker == false):
+				hit_marker = true
+				if (dir == \"left\"):
+					ai_movement_timer = 0
+					WALK_MAX_SPEED = 200
+					dir = \"right\"
+				elif (dir == \"right\"):
+					position.x -= 30
+					ai_movement_timer = 0
+					WALK_MAX_SPEED = 200
+					dir = \"left\"
+
+		hit_marker = hit_a_marker
+
+	#check health
+	display_health(health)
+
+	if health <= 0:
+		die()
+
+	pass
+
+func die():
+
+	## Spawn Drops
+
+	for x in range(xp):
+		var xp_pickup_node = xp_pickup.instance()
+		get_tree().get_root().get_node(\"World\").add_child(xp_pickup_node)
+		xp_pickup_node.global_position = global_position
+		xp_pickup_node.scale = Vector2(1,1)
+
+	## End Code
+
+
+	queue_free()
+
+func handle_attack(weapon):
+	var dir = weapon.attack_dir
+	var knockback = weapon.knockback_factor
+
+	if (dir == \"left\"):
+		knockback_vel = Vector2(-knockback, 0)
+	elif (dir == \"right\"):
+		knockback_vel = Vector2(knockback, 0)
+
+	health -= 1
+
+	print (str(knockback))
+	print (str(dir))
+	print (\"HIT\")
+
+func display_health(health):
+
+	var health_display = get_node(\"Hearts\")
+
+	var hearts = health_display.get_children()
+
+	var cnt = 0
+	for heart in hearts:
+		cnt += 1
+
+		if (cnt > health):
+			heart.hide()
+		else:
+			heart.show()
+
+	pass
+"
+
+[sub_resource type="SpriteFrames" id=2]
+
+animations = [ {
+"frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "moving",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=3]
+
+custom_solver_bias = 0.0
+extents = Vector2( 21.2141, 24.4395 )
+
+[sub_resource type="RectangleShape2D" id=4]
+
+custom_solver_bias = 0.0
+extents = Vector2( 26.178, 28.5963 )
+
+[sub_resource type="Animation" id=5]
+
+length = 6.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2, 3, 4, 5, 6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 205.934, -1.6702 ), Vector2( 86.0144, -0.835083 ), Vector2( 86.4319, -88.9373 ), Vector2( 85.1794, 85.1793 ), Vector2( 86.8495, 0.835083 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1, 2, 5, 6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false, true, false ]
+}
+
+[node name="World" type="Node" index="0" groups=[
+"enemy_kill_level",
 ]]
 
 script = ExtResource( 1 )
@@ -43,8 +275,6 @@ script = SubResource( 1 )
 [node name="Chests" type="Node2D" parent="." index="1"]
 
 [node name="Tiles" type="Node2D" parent="." index="2"]
-
-editor/display_folded = true
 
 [node name="Ground" type="TileMap" parent="Tiles" index="0"]
 
@@ -65,7 +295,7 @@ collision_layer = 3
 collision_mask = 1
 occluder_light_mask = 1
 format = 1
-tile_data = PoolIntArray( 393217, 13, 0, 393218, 13, 0, 393219, 13, 0, 393220, 13, 0 )
+tile_data = PoolIntArray( -327680, 13, 0, -327679, 13, 0, -327678, 13, 0, -327677, 13, 0, -327676, 13, 0, -327675, 13, 0, -327674, 13, 0, -327673, 13, 0, -327672, 13, 0, -196615, 13, 0, -196614, 13, 0, -262130, 13, 0, -262129, 13, 0, -65544, -1610612723, 0, -131056, -1073741811, 0, -8, -1610612723, 0, -65520, -1073741811, 0, 65528, -1610612723, 0, 65531, 13, 0, 65532, 13, 0, 65533, 13, 0, 11, 13, 0, 12, 13, 0, 13, 13, 0, 16, -1073741811, 0, 131064, -1610612723, 0, 131067, 13, 0, 131070, 13, 0, 65546, 13, 0, 65549, 13, 0, 65552, -1073741811, 0, 196600, -1610612723, 0, 196603, 13, 0, 196606, 13, 0, 196607, 13, 0, 131072, 13, 0, 131073, 13, 0, 131079, 13, 0, 131080, 13, 0, 131081, 13, 0, 131082, 13, 0, 131085, 13, 0, 131088, -1073741811, 0, 262136, -1610612723, 0, 196624, -1073741811, 0, 327672, -1610612723, 0, 262160, -1073741811, 0, 393208, -1610612723, 0, 393210, 13, 0, 393211, 13, 0, 393212, 13, 0, 393213, 13, 0, 327691, 13, 0, 327692, 13, 0, 327693, 13, 0, 327694, 13, 0, 327696, -1073741811, 0, 458745, 13, 0, 393216, 13, 0, 393217, 13, 0, 393218, 13, 0, 393219, 13, 0, 393220, 13, 0, 393221, 13, 0, 393222, 13, 0, 393223, 13, 0, 393224, 13, 0, 393231, 13, 0 )
 _sections_unfolded = [ "Cell", "Collision", "Transform" ]
 __meta__ = {
 "_edit_lock_": true
@@ -122,24 +352,122 @@ position = Vector2( 97.7842, 416.212 )
 
 [node name="Pickups" type="Node2D" parent="." index="9"]
 
+editor/display_folded = true
 _sections_unfolded = [ "Transform" ]
 
-[node name="Door" parent="." index="10" instance=ExtResource( 4 )]
+[node name="Weapon_Pickup" parent="Pickups" index="0" instance=ExtResource( 4 )]
 
-position = Vector2( 183.993, 315.795 )
+position = Vector2( 460, 340 )
+script = ExtResource( 5 )
+
+[node name="Door" parent="." index="10" instance=ExtResource( 6 )]
+
+position = Vector2( 264.161, 320.806 )
 
 [node name="Enemies" type="Node2D" parent="." index="11"]
 
+editor/display_folded = true
 _sections_unfolded = [ "Transform" ]
+
+[node name="Boss" type="Node2D" parent="Enemies" index="0"]
+
+position = Vector2( 111.29, 68.3298 )
+scale = Vector2( 2, 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Evil_Bird_King" type="KinematicBody2D" parent="Enemies/Boss" index="0" groups=[
+"enemy",
+]]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+script = SubResource( 6 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Enemies/Boss/Evil_Bird_King" index="0"]
+
+scale = Vector2( 4, 4 )
+frames = SubResource( 2 )
+animation = "moving"
+frame = 2
+playing = true
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/Boss/Evil_Bird_King" index="1"]
+
+position = Vector2( 0, 4.35365 )
+scale = Vector2( 1, 1.15679 )
+shape = SubResource( 3 )
+
+[node name="Hitbox" type="Area2D" parent="Enemies/Boss/Evil_Bird_King" index="2"]
+
+editor/display_folded = true
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Enemies/Boss/Evil_Bird_King/Hitbox" index="0"]
+
+position = Vector2( 0, 4.35365 )
+scale = Vector2( 1, 1.15679 )
+shape = SubResource( 4 )
+
+[node name="Hearts" type="Node2D" parent="Enemies/Boss/Evil_Bird_King" index="3"]
+
+editor/display_folded = true
+
+[node name="Heart" parent="Enemies/Boss/Evil_Bird_King/Hearts" index="0" instance=ExtResource( 11 )]
+
+position = Vector2( -9.5691, -42.9224 )
+
+[node name="Heart4" parent="Enemies/Boss/Evil_Bird_King/Hearts" index="1" instance=ExtResource( 11 )]
+
+position = Vector2( -29.1324, -42.9224 )
+
+[node name="Heart5" parent="Enemies/Boss/Evil_Bird_King/Hearts" index="2" instance=ExtResource( 11 )]
+
+position = Vector2( -18.9128, -60.7337 )
+
+[node name="Heart6" parent="Enemies/Boss/Evil_Bird_King/Hearts" index="3" instance=ExtResource( 11 )]
+
+position = Vector2( -0.225464, -60.7337 )
+
+[node name="Heart7" parent="Enemies/Boss/Evil_Bird_King/Hearts" index="4" instance=ExtResource( 11 )]
+
+position = Vector2( 18.7538, -60.7337 )
+
+[node name="Heart2" parent="Enemies/Boss/Evil_Bird_King/Hearts" index="5" instance=ExtResource( 11 )]
+
+position = Vector2( 8.82624, -42.6304 )
+
+[node name="Heart3" parent="Enemies/Boss/Evil_Bird_King/Hearts" index="6" instance=ExtResource( 11 )]
+
+position = Vector2( 27.2216, -43.2144 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Enemies/Boss/Evil_Bird_King" index="4"]
+
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/Moving = SubResource( 5 )
+blend_times = [  ]
 
 [node name="Enemy_Markers" type="Node2D" parent="." index="12"]
 
 position = Vector2( 272, 64 )
 
-[node name="Player" parent="." index="13" instance=ExtResource( 5 )]
+[node name="Player" parent="." index="13" instance=ExtResource( 12 )]
 
 position = Vector2( 192, 288 )
 
-[node name="HUD" parent="." index="14" instance=ExtResource( 6 )]
+[node name="HUD" parent="." index="14" instance=ExtResource( 13 )]
 
 

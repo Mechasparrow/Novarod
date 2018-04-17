@@ -6,7 +6,7 @@
 [ext_resource path="res://_Assets/Art/Air Artwork/Spritesheets/Evil Bird/sprite_3.png" type="Texture" id=4]
 [ext_resource path="res://_Prefab/Heart.tscn" type="PackedScene" id=5]
 
-[sub_resource type="GDScript" id=1]
+[sub_resource type="GDScript" id=6]
 
 script/source = "extends KinematicBody2D
 
@@ -40,7 +40,7 @@ var knockback_duration = 0.1
 var knockback_timer = 0
 var knockedback = false
 
-var health = 3
+var health = 7
 
 var xp_drop = true
 var xp = 6
@@ -203,7 +203,7 @@ extents = Vector2( 26.178, 28.5963 )
 
 [sub_resource type="Animation" id=5]
 
-length = 2.0
+length = 6.0
 loop = true
 step = 0.1
 tracks/0/type = "value"
@@ -213,10 +213,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1, 2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 1, 2, 3, 4, 5, 6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 165.85, 0 ), Vector2( 0, 0 ) ]
+"values": [ Vector2( 0, 0 ), Vector2( 205.934, -1.6702 ), Vector2( 86.0144, -0.835083 ), Vector2( 86.4319, -88.9373 ), Vector2( 85.1794, 85.1793 ), Vector2( 86.8495, 0.835083 ), Vector2( 0, 0 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("AnimatedSprite:flip_h")
@@ -225,10 +225,10 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 1, 2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 1, 2, 5, 6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ false, true, false ]
+"values": [ false, true, false, true, false ]
 }
 
 [node name="Evil_Bird_King" type="KinematicBody2D" groups=[
@@ -240,7 +240,7 @@ input_pickable = false
 collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
-script = SubResource( 1 )
+script = SubResource( 6 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." index="0"]
@@ -248,7 +248,7 @@ _sections_unfolded = [ "Transform" ]
 scale = Vector2( 4, 4 )
 frames = SubResource( 2 )
 animation = "moving"
-frame = 1
+frame = 3
 playing = true
 flip_h = true
 _sections_unfolded = [ "Transform" ]
@@ -275,21 +275,35 @@ position = Vector2( 0, 4.35365 )
 scale = Vector2( 1, 1.15679 )
 shape = SubResource( 4 )
 
-[node name="Health" type="Node2D" parent="." index="3"]
+[node name="Hearts" type="Node2D" parent="." index="3"]
 
-editor/display_folded = true
+[node name="Heart" parent="Hearts" index="0" instance=ExtResource( 5 )]
 
-[node name="Heart" parent="Health" index="0" instance=ExtResource( 5 )]
+position = Vector2( -9.5691, -42.9224 )
 
-position = Vector2( -17.4528, -42.9224 )
+[node name="Heart4" parent="Hearts" index="1" instance=ExtResource( 5 )]
 
-[node name="Heart2" parent="Health" index="1" instance=ExtResource( 5 )]
+position = Vector2( -29.1324, -42.9224 )
 
-position = Vector2( 0.942547, -42.6304 )
+[node name="Heart5" parent="Hearts" index="2" instance=ExtResource( 5 )]
 
-[node name="Heart3" parent="Health" index="2" instance=ExtResource( 5 )]
+position = Vector2( -18.9128, -60.7337 )
 
-position = Vector2( 19.3379, -43.2144 )
+[node name="Heart6" parent="Hearts" index="3" instance=ExtResource( 5 )]
+
+position = Vector2( -0.225464, -60.7337 )
+
+[node name="Heart7" parent="Hearts" index="4" instance=ExtResource( 5 )]
+
+position = Vector2( 18.7538, -60.7337 )
+
+[node name="Heart2" parent="Hearts" index="5" instance=ExtResource( 5 )]
+
+position = Vector2( 8.82624, -42.6304 )
+
+[node name="Heart3" parent="Hearts" index="6" instance=ExtResource( 5 )]
+
+position = Vector2( 27.2216, -43.2144 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="4"]
 
