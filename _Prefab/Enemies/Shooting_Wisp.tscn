@@ -25,7 +25,9 @@ extents = Vector2( 29.3898, 28.1422 )
 custom_solver_bias = 0.0
 extents = Vector2( 35.5216, 33.3671 )
 
-[node name="Shooting_Wisp" type="KinematicBody2D"]
+[node name="Shooting_Wisp" type="KinematicBody2D" groups=[
+"enemy",
+]]
 
 input_pickable = false
 collision_layer = 1
