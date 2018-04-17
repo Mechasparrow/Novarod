@@ -41,8 +41,9 @@ var levels = {
 	},
 	"yellow": {
 		"folder": "Airlands",
-		"count": 1,
-		"1": "Yellow_01"
+		"count": 2,
+		"1": "Yellow_01",
+		"2": "Yellow_02"
 	},
 	"sandbox": {
 		"folder": "Sandbox",
