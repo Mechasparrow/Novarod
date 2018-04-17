@@ -10,7 +10,7 @@ source_file="res://_Assets/Art/Air Artwork/Spritesheets/Lightning_Ball/sprite_1.
 source_md5="2d69d857a1ac2b6618bcb83915fc1d05"
 
 dest_files=[ "res://.import/sprite_1.png-580fea8597ea82677cffb4755ac9a568.stex" ]
-dest_md5="d22215e40bf230b0179e58f20db51427"
+dest_md5="8419ec0d840b4b25da72f9d1b899dde9"
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
@@ -28,5 +28,5 @@ process/premult_alpha=false
 process/HDR_as_SRGB=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0

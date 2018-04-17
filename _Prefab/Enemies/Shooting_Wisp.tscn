@@ -1,0 +1,86 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://_Scripts/Enemy_Behavior/Shooting_Wisp_Left.gd" type="Script" id=1]
+[ext_resource path="res://_Assets/Art/Air Artwork/Spritesheets/Wisp/sprite_0.png" type="Texture" id=2]
+[ext_resource path="res://_Assets/Art/Air Artwork/Spritesheets/Wisp/sprite_1.png" type="Texture" id=3]
+[ext_resource path="res://_Assets/Art/Air Artwork/Spritesheets/Wisp/sprite_2.png" type="Texture" id=4]
+[ext_resource path="res://_Prefab/Heart.tscn" type="PackedScene" id=5]
+
+[sub_resource type="SpriteFrames" id=2]
+
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "moving",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=3]
+
+custom_solver_bias = 0.0
+extents = Vector2( 29.3898, 28.1422 )
+
+[sub_resource type="RectangleShape2D" id=4]
+
+custom_solver_bias = 0.0
+extents = Vector2( 35.5216, 33.3671 )
+
+[node name="Shooting_Wisp" type="KinematicBody2D"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="." index="0"]
+
+scale = Vector2( 4, 4 )
+frames = SubResource( 2 )
+animation = "moving"
+frame = 2
+playing = true
+flip_h = true
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+
+position = Vector2( 0, 0.432629 )
+scale = Vector2( 1, 1.01389 )
+shape = SubResource( 3 )
+
+[node name="Hitbox" type="Area2D" parent="." index="2"]
+
+editor/display_folded = true
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Hitbox" index="0"]
+
+position = Vector2( 0, 0.432629 )
+scale = Vector2( 1, 1.01389 )
+shape = SubResource( 4 )
+
+[node name="Hearts" type="Node2D" parent="." index="3"]
+
+editor/display_folded = true
+
+[node name="Heart" parent="Hearts" index="0" instance=ExtResource( 5 )]
+
+position = Vector2( -17.4528, -42.9224 )
+
+[node name="Heart2" parent="Hearts" index="1" instance=ExtResource( 5 )]
+
+position = Vector2( 0.942547, -42.6304 )
+
+[node name="Heart3" parent="Hearts" index="2" instance=ExtResource( 5 )]
+
+position = Vector2( 19.3379, -43.2144 )
+
+
