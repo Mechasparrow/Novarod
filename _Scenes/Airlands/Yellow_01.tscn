@@ -1,11 +1,17 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://_Scripts/level_script.gd" type="Script" id=1]
 [ext_resource path="res://_Tileset/normal_world.tres" type="TileSet" id=2]
 [ext_resource path="res://_Tileset/hazards.tres" type="TileSet" id=3]
-[ext_resource path="res://_Prefab/Door.tscn" type="PackedScene" id=4]
-[ext_resource path="res://_Prefab/Players/Player.tscn" type="PackedScene" id=5]
-[ext_resource path="res://_Prefab/HUD.tscn" type="PackedScene" id=6]
+[ext_resource path="res://_Prefab/Air World/Stick.tscn" type="PackedScene" id=4]
+[ext_resource path="res://_Prefab/Air World/Flag.tscn" type="PackedScene" id=5]
+[ext_resource path="res://_Prefab/Platforms/Platform_Reg.tscn" type="PackedScene" id=6]
+[ext_resource path="res://_Prefab/Platforms/Platform_Reg_Horizontal.tscn" type="PackedScene" id=7]
+[ext_resource path="res://_Prefab/Pickups/Weapon_Pickup.tscn" type="PackedScene" id=8]
+[ext_resource path="res://_Prefab/Door.tscn" type="PackedScene" id=9]
+[ext_resource path="res://_Prefab/Enemies/Wisp.tscn" type="PackedScene" id=10]
+[ext_resource path="res://_Prefab/Players/Player.tscn" type="PackedScene" id=11]
+[ext_resource path="res://_Prefab/HUD.tscn" type="PackedScene" id=12]
 
 [sub_resource type="GDScript" id=1]
 
@@ -29,7 +35,61 @@ func _ready():
 #	pass
 "
 
-[node name="World" type="Node" groups=[
+[sub_resource type="GDScript" id=2]
+
+script/source = "extends KinematicBody2D
+
+# class member variables go here, for example:
+# var a = 2
+# var b = \"textvar\"
+
+var speed = 150
+var dir = \"left\"
+
+var movement_timer = 0
+var movement_duration = 2.0
+
+onready var platform_hitbox = get_node(\"Hitbox\")
+
+func _ready():
+	# Called every time the node is added to the scene.
+	# Initialization here
+	pass
+
+func _process(delta):
+	
+	if (dir == \"left\"):
+		position.x -= speed * delta
+		pass
+	elif (dir == \"right\"):
+		position.x += speed * delta
+		pass
+	
+	movement_timer += delta
+	
+	if (movement_timer > movement_duration):
+		if (dir == \"left\"):
+			dir = \"right\"
+			movement_timer = 0
+		elif (dir == \"right\"):
+			dir = \"left\"
+			movement_timer = 0
+	
+	
+	var platform_bodies = platform_hitbox.get_overlapping_bodies()
+	
+	for body in platform_bodies:
+		var body_position = body.position
+		
+		if (dir == \"left\"):
+			body_position.x -= speed * delta * 1.5
+			
+		elif (dir == \"right\"):
+			body_position.x += speed * delta * 1.5
+	
+"
+
+[node name="World" type="Node" index="0" groups=[
 "gem_collect_level",
 ]]
 
@@ -43,6 +103,8 @@ script = SubResource( 1 )
 [node name="Chests" type="Node2D" parent="." index="1"]
 
 [node name="Tiles" type="Node2D" parent="." index="2"]
+
+editor/display_folded = true
 
 [node name="Ground" type="TileMap" parent="Tiles" index="0"]
 
@@ -63,7 +125,7 @@ collision_layer = 3
 collision_mask = 1
 occluder_light_mask = 1
 format = 1
-tile_data = PoolIntArray(  )
+tile_data = PoolIntArray( 327680, 13, 0, 327685, 13, 0, 393217, 13, 0, 393218, 13, 0, 393219, 13, 0, 393220, 13, 0, 393245, 13, 0, 458771, 11, 0, 458772, 11, 0, 458773, 11, 0, 458774, 11, 0, 458778, 13, 0, 458779, 13, 0, 458780, 13, 0, 524307, 12, 0, 524308, 12, 0, 524309, 12, 0, 524310, 12, 0 )
 _sections_unfolded = [ "Cell", "Collision", "Transform" ]
 __meta__ = {
 "_edit_lock_": true
@@ -104,37 +166,87 @@ _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
 [node name="Ice" type="Node2D" parent="Tiles" index="4"]
 
-[node name="Gems" type="Node2D" parent="." index="3"]
+[node name="Ship_Parts" type="Node2D" parent="." index="3"]
 
-[node name="Coins" type="Node2D" parent="." index="4"]
+editor/display_folded = true
 
-[node name="Coins_R" type="Node2D" parent="." index="5"]
+[node name="Stick" parent="Ship_Parts" index="0" instance=ExtResource( 4 )]
 
-[node name="Signs" type="Node2D" parent="." index="6"]
+position = Vector2( 190, 350 )
+
+[node name="Stick2" parent="Ship_Parts" index="1" instance=ExtResource( 4 )]
+
+position = Vector2( 190, 300 )
+
+[node name="Stick3" parent="Ship_Parts" index="2" instance=ExtResource( 4 )]
+
+position = Vector2( 190, 240 )
+
+[node name="Stick4" parent="Ship_Parts" index="3" instance=ExtResource( 4 )]
+
+position = Vector2( 190, 180 )
+
+[node name="Flag" parent="Ship_Parts" index="4" instance=ExtResource( 5 )]
+
+position = Vector2( 249, 214 )
+scale = Vector2( 1.28125, 1.4375 )
+
+[node name="Gems" type="Node2D" parent="." index="4"]
+
+[node name="Coins" type="Node2D" parent="." index="5"]
+
+[node name="Coins_R" type="Node2D" parent="." index="6"]
+
+[node name="Signs" type="Node2D" parent="." index="7"]
 
 position = Vector2( 97.7842, 416.212 )
 
-[node name="Platforms" type="Node2D" parent="." index="7"]
+[node name="Platforms" type="Node2D" parent="." index="8"]
 
-[node name="Pickups" type="Node2D" parent="." index="8"]
+editor/display_folded = true
 
-scale = Vector2( 6.5625, 6.5625 )
+[node name="Platform_Reg" parent="Platforms" index="0" instance=ExtResource( 6 )]
+
+position = Vector2( 608, 416 )
+
+[node name="Platform_Reg2" parent="Platforms" index="1" instance=ExtResource( 7 )]
+
+position = Vector2( 1104, 416 )
+script = SubResource( 2 )
+
+[node name="Pickups" type="Node2D" parent="." index="9"]
+
 _sections_unfolded = [ "Transform" ]
 
-[node name="Door" parent="." index="9" instance=ExtResource( 4 )]
+[node name="Weapon_Pickup" parent="Pickups" index="0" instance=ExtResource( 8 )]
 
-[node name="Enemies" type="Node2D" parent="." index="10"]
+position = Vector2( 656, 336 )
 
-position = Vector2( 318.166, 383.563 )
+[node name="Door" parent="." index="10" instance=ExtResource( 9 )]
 
-[node name="Enemy_Markers" type="Node2D" parent="." index="11"]
+position = Vector2( 1744, 384 )
+
+[node name="Enemies" type="Node2D" parent="." index="11"]
+
+editor/display_folded = true
+_sections_unfolded = [ "Transform" ]
+
+[node name="Wisp_Container" type="Node2D" parent="Enemies" index="0"]
+
+position = Vector2( 1280, 400 )
+
+[node name="Wisp" parent="Enemies/Wisp_Container" index="0" instance=ExtResource( 10 )]
+
+position = Vector2( 0, 0 )
+
+[node name="Enemy_Markers" type="Node2D" parent="." index="12"]
 
 position = Vector2( 272, 64 )
 
-[node name="Player" parent="." index="12" instance=ExtResource( 5 )]
+[node name="Player" parent="." index="13" instance=ExtResource( 11 )]
 
 position = Vector2( 192, 288 )
 
-[node name="HUD" parent="." index="13" instance=ExtResource( 6 )]
+[node name="HUD" parent="." index="14" instance=ExtResource( 12 )]
 
 

@@ -56,7 +56,9 @@ tracks/1/keys = {
 "values": [ false, true, false ]
 }
 
-[node name="Wisp" type="KinematicBody2D" index="0"]
+[node name="Wisp" type="KinematicBody2D" groups=[
+"enemy",
+]]
 
 position = Vector2( 146.951, 0 )
 input_pickable = false
@@ -71,7 +73,7 @@ _sections_unfolded = [ "Transform" ]
 scale = Vector2( 4, 4 )
 frames = SubResource( 1 )
 animation = "moving"
-frame = 2
+frame = 1
 playing = true
 flip_h = true
 _sections_unfolded = [ "Transform" ]
@@ -99,19 +101,17 @@ position = Vector2( 0, 0.432629 )
 scale = Vector2( 1, 1.01389 )
 shape = SubResource( 3 )
 
-[node name="Health" type="Node2D" parent="." index="3"]
+[node name="Hearts" type="Node2D" parent="." index="3"]
 
-editor/display_folded = true
-
-[node name="Heart" parent="Health" index="0" instance=ExtResource( 5 )]
+[node name="Heart" parent="Hearts" index="0" instance=ExtResource( 5 )]
 
 position = Vector2( -17.4528, -42.9224 )
 
-[node name="Heart2" parent="Health" index="1" instance=ExtResource( 5 )]
+[node name="Heart2" parent="Hearts" index="1" instance=ExtResource( 5 )]
 
 position = Vector2( 0.942547, -42.6304 )
 
-[node name="Heart3" parent="Health" index="2" instance=ExtResource( 5 )]
+[node name="Heart3" parent="Hearts" index="2" instance=ExtResource( 5 )]
 
 position = Vector2( 19.3379, -43.2144 )
 
