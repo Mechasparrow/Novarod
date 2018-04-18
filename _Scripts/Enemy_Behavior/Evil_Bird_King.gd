@@ -5,6 +5,7 @@ extends KinematicBody2D
 # var b = "textvar"
 
 onready var anim = get_node("AnimationPlayer")
+onready var animated_sprite = get_node("AnimatedSprite")
 onready var hitbox = get_node("Hitbox")
 
 var velocity = Vector2(0,0)
@@ -30,10 +31,24 @@ var knockback_duration = 0.1
 var knockback_timer = 0
 var knockedback = false
 
-var health = 3
+var health = 7
 
 var xp_drop = true
 var xp = 6
+
+# Projectile Prefab
+
+onready var lightningball = preload("res://_Prefab/Projectiles/Lightning_Ball.tscn")
+var lightningball_offset = 100
+
+# Shooting Mechanism
+var shoot_timer = 0
+var shoot_cooldown = 1
+var shoot_cooldown_max = 1
+var can_shoot = false
+
+var shoot_dir = "left"
+var shoot_speed = 600
 
 onready var xp_pickup = preload("res://_Prefab/Pickups/XP_Pickup.tscn")
 
@@ -45,6 +60,41 @@ func _ready():
 	pass
 
 func _physics_process(delta):
+
+
+	# Shooting AI
+
+	if (animated_sprite.flip_h == false):
+		shoot_dir = "right"
+	elif (animated_sprite.flip_h == true):
+		shoot_dir = "left"
+
+	if (can_shoot == false and shoot_timer < shoot_cooldown):
+		shoot_timer+= delta
+	elif (can_shoot == false and shoot_timer >= shoot_cooldown):
+		can_shoot = true
+
+	if (can_shoot):
+		var new_lightningball = lightningball.instance()
+		new_lightningball.global_position = global_position
+
+		# Adds an offset so it is not on top of player_gun
+		if (shoot_dir == "left"):
+			new_lightningball.position.x -= lightningball_offset
+		elif (shoot_dir == "right"):
+			new_lightningball.position.x += lightningball_offset
+
+		get_tree().get_root().get_node("World").add_child(new_lightningball)
+
+		new_lightningball.shoot(shoot_dir, shoot_speed)
+
+		can_shoot = false
+		shoot_timer = 0
+
+	# Shooting AI End
+
+	
+
 
 	var areas = hitbox.get_overlapping_areas()
 	var bodies = hitbox.get_overlapping_bodies()

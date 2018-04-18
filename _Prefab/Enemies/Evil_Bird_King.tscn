@@ -6,7 +6,7 @@
 [ext_resource path="res://_Assets/Art/Air Artwork/Spritesheets/Evil Bird/sprite_3.png" type="Texture" id=4]
 [ext_resource path="res://_Prefab/Heart.tscn" type="PackedScene" id=5]
 
-[sub_resource type="GDScript" id=6]
+[sub_resource type="GDScript" id=1]
 
 script/source = "extends KinematicBody2D
 
@@ -240,7 +240,7 @@ input_pickable = false
 collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
-script = SubResource( 6 )
+script = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." index="0"]
@@ -248,7 +248,7 @@ _sections_unfolded = [ "Transform" ]
 scale = Vector2( 4, 4 )
 frames = SubResource( 2 )
 animation = "moving"
-frame = 3
+frame = 2
 playing = true
 flip_h = true
 _sections_unfolded = [ "Transform" ]
