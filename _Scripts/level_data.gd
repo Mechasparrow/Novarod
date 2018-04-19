@@ -51,6 +51,11 @@ var levels = {
 		"folder": "Sandbox",
 		"count": 0,
 		"0": "Level_0"	
+	},
+	"village": {
+		"folder": "Village",
+		"count": 1,
+		"1": "Village_beginning"
 	}
 }
 

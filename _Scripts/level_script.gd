@@ -70,6 +70,11 @@ func _process(delta):
 	if (level_end == true and next_level == true):
 		var type = level_info.type
 		var current_level = level_info.level
+		
+		if (type == "village" and current_level == 1):
+			type = "green"
+			current_level = 0
+		
 		var nxt_level = current_level + 1
 
 		var level_scn = get_node("/root/level_data").generate_level_path(type, nxt_level)

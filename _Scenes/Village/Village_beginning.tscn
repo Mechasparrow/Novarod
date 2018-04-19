@@ -50,7 +50,7 @@ animations = [ {
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[node name="World" type="Node" index="0" groups=[
+[node name="World" type="Node" groups=[
 "gem_collect_level",
 ]]
 
@@ -692,6 +692,7 @@ transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
 [node name="Popup" type="PopupPanel" parent="NPC/Rod_NPC3/CanvasLayer" index="0"]
 
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
