@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://_Scripts/level_script.gd" type="Script" id=1]
 [ext_resource path="res://_Tileset/normal_world.tres" type="TileSet" id=2]
@@ -7,8 +7,12 @@
 [ext_resource path="res://_Animations/_Frames/door_frames.tres" type="SpriteFrames" id=5]
 [ext_resource path="res://_Assets/Art/Rod_Water.png" type="Texture" id=6]
 [ext_resource path="res://_Prefab/Door.tscn" type="PackedScene" id=7]
-[ext_resource path="res://_Prefab/Players/Player.tscn" type="PackedScene" id=8]
-[ext_resource path="res://_Prefab/HUD.tscn" type="PackedScene" id=9]
+[ext_resource path="res://_Prefab/NPC/Rod-NPC.tscn" type="PackedScene" id=8]
+[ext_resource path="res://_Scripts/NPC_Behavior/Birdo.gd" type="Script" id=9]
+[ext_resource path="res://_Assets/Art/Spritesheets/Rod_NPC/sprite_0.png" type="Texture" id=10]
+[ext_resource path="res://_Fonts/imported_fonts/pixel_font.tres" type="DynamicFont" id=11]
+[ext_resource path="res://_Prefab/Players/Player.tscn" type="PackedScene" id=12]
+[ext_resource path="res://_Prefab/HUD.tscn" type="PackedScene" id=13]
 
 [sub_resource type="GDScript" id=1]
 
@@ -31,6 +35,20 @@ func _ready():
 #	# Update game logic here.
 #	pass
 "
+
+[sub_resource type="SpriteFrames" id=3]
+
+animations = [ {
+"frames": [ ExtResource( 10 ) ],
+"loop": true,
+"name": "still",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
 
 [node name="World" type="Node" index="0" groups=[
 "gem_collect_level",
@@ -531,18 +549,206 @@ _sections_unfolded = [ "Transform" ]
 
 position = Vector2( 1728, 64 )
 
-[node name="Enemies" type="Node2D" parent="." index="10"]
+[node name="NPC" type="Node2D" parent="." index="10"]
+
+[node name="Rod_NPC" parent="NPC" index="0" instance=ExtResource( 8 )]
+
+position = Vector2( -63.0001, 391 )
+
+[node name="Rod_NPC2" type="Area2D" parent="NPC" index="1"]
+
+editor/display_folded = true
+position = Vector2( 762, 327 )
+scale = Vector2( 1.8, 1.8 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 9 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="NPC/Rod_NPC2" index="0"]
+
+scale = Vector2( 4, 4 )
+frames = SubResource( 3 )
+animation = "still"
+playing = true
+flip_h = true
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC/Rod_NPC2" index="1"]
+
+scale = Vector2( 2.5, 2.5 )
+shape = SubResource( 2 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="NPC/Rod_NPC2" index="2"]
+
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+
+[node name="Popup" type="PopupPanel" parent="NPC/Rod_NPC2/CanvasLayer" index="0"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 62.0
+margin_top = 470.0
+margin_right = 976.0
+margin_bottom = 544.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+popup_exclusive = false
+
+[node name="Label" type="RichTextLabel" parent="NPC/Rod_NPC2/CanvasLayer/Popup" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 210.0
+margin_top = 26.0
+margin_right = 674.0
+margin_bottom = 58.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/normal_font = ExtResource( 11 )
+bbcode_enabled = false
+bbcode_text = ""
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = "You wear a scarf. Your a disgrace"
+scroll_active = false
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="Rod_NPC3" type="Area2D" parent="NPC" index="2"]
+
+position = Vector2( 1664, 80 )
+scale = Vector2( 1.8, 1.8 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 9 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="NPC/Rod_NPC3" index="0"]
+
+scale = Vector2( 4, 4 )
+frames = SubResource( 3 )
+animation = "still"
+playing = true
+flip_h = true
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC/Rod_NPC3" index="1"]
+
+scale = Vector2( 2.5, 2.5 )
+shape = SubResource( 2 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="NPC/Rod_NPC3" index="2"]
+
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+
+[node name="Popup" type="PopupPanel" parent="NPC/Rod_NPC3/CanvasLayer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 62.0
+margin_top = 470.0
+margin_right = 976.0
+margin_bottom = 544.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+popup_exclusive = false
+
+[node name="Label" type="RichTextLabel" parent="NPC/Rod_NPC3/CanvasLayer/Popup" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 322.0
+margin_top = 26.0
+margin_right = 562.0
+margin_bottom = 58.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/normal_font = ExtResource( 11 )
+bbcode_enabled = false
+bbcode_text = ""
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = "Go on and leave"
+scroll_active = false
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="Enemies" type="Node2D" parent="." index="11"]
 
 position = Vector2( 318.166, 383.563 )
 
-[node name="Enemy_Markers" type="Node2D" parent="." index="11"]
+[node name="Enemy_Markers" type="Node2D" parent="." index="12"]
 
 position = Vector2( 272, 64 )
 
-[node name="Player" parent="." index="12" instance=ExtResource( 8 )]
+[node name="Player" parent="." index="13" instance=ExtResource( 12 )]
 
-position = Vector2( 192, 288 )
+position = Vector2( 160, 256 )
 
-[node name="HUD" parent="." index="13" instance=ExtResource( 9 )]
+[node name="HUD" parent="." index="14" instance=ExtResource( 13 )]
 
 

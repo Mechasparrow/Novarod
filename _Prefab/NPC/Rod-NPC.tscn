@@ -18,9 +18,10 @@ animations = [ {
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[node name="Rod_NPC" type="Area2D" index="0"]
+[node name="Rod_NPC" type="Area2D"]
 
 position = Vector2( 272, 368 )
+scale = Vector2( 1.8, 1.8 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -37,7 +38,6 @@ scale = Vector2( 4, 4 )
 frames = SubResource( 3 )
 animation = "still"
 playing = true
-flip_h = true
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
@@ -62,7 +62,6 @@ transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
 [node name="Popup" type="PopupPanel" parent="CanvasLayer" index="0"]
 
-visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -101,7 +100,7 @@ visible_characters = -1
 percent_visible = 1.0
 meta_underlined = true
 tab_size = 4
-text = "Collect all the gems Rod!"
+text = "I don't like your scarf"
 scroll_active = false
 scroll_following = false
 selection_enabled = false
