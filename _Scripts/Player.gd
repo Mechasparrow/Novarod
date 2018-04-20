@@ -80,6 +80,9 @@ func _physics_process(delta):
 
 	var player_props = player_info
 
+	if (global_position.y >= 1024):
+		player_props.health = 0
+
 	# Check if iced
 	if (iced == true and iced_timer < iced_duration):
 		STOP_FORCE = STOP_FORCE / 6
