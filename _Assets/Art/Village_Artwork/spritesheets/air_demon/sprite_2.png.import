@@ -10,7 +10,7 @@ source_file="res://_Assets/Art/Village_Artwork/spritesheets/air_demon/sprite_2.p
 source_md5="32480a5cb3331755049bff6e9e32bb2d"
 
 dest_files=[ "res://.import/sprite_2.png-8a0d33589be582fdfff59c7ea5999537.stex" ]
-dest_md5="96a3b7a6edbe4cd4cb0e79721ee5e99a"
+dest_md5="490f4bb9c396dcf474affe4dd3de6cd7"
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
@@ -28,5 +28,5 @@ process/premult_alpha=false
 process/HDR_as_SRGB=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0

@@ -6,7 +6,7 @@
 [ext_resource path="res://_Assets/Art/Air Artwork/Spritesheets/Wisp/sprite_2.png" type="Texture" id=4]
 [ext_resource path="res://_Prefab/Heart.tscn" type="PackedScene" id=5]
 
-[sub_resource type="SpriteFrames" id=5]
+[sub_resource type="SpriteFrames" id=1]
 
 animations = [ {
 "frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ) ],
@@ -15,7 +15,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=2]
 
 custom_solver_bias = 0.0
 extents = Vector2( 29.3898, 28.1422 )
@@ -71,9 +71,8 @@ _sections_unfolded = [ "Transform" ]
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." index="0"]
 
 scale = Vector2( 4, 4 )
-frames = SubResource( 5 )
+frames = SubResource( 1 )
 animation = "moving"
-frame = 2
 playing = true
 flip_h = true
 _sections_unfolded = [ "Transform" ]
@@ -82,7 +81,7 @@ _sections_unfolded = [ "Transform" ]
 
 position = Vector2( 0, 0.432629 )
 scale = Vector2( 1, 1.01389 )
-shape = SubResource( 6 )
+shape = SubResource( 2 )
 
 [node name="Hitbox" type="Area2D" parent="." index="2"]
 

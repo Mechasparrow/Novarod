@@ -1,0 +1,108 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://_Scripts/Enemy_Behavior/Demon.gd" type="Script" id=1]
+[ext_resource path="res://_Assets/Art/Village_Artwork/spritesheets/air_demon/sprite_0.png" type="Texture" id=2]
+[ext_resource path="res://_Assets/Art/Village_Artwork/spritesheets/air_demon/sprite_1.png" type="Texture" id=3]
+[ext_resource path="res://_Assets/Art/Village_Artwork/spritesheets/air_demon/sprite_2.png" type="Texture" id=4]
+[ext_resource path="res://_Assets/Art/Village_Artwork/spritesheets/grass_demon/sprite_0.png" type="Texture" id=5]
+[ext_resource path="res://_Assets/Art/Village_Artwork/spritesheets/grass_demon/sprite_1.png" type="Texture" id=6]
+[ext_resource path="res://_Assets/Art/Village_Artwork/spritesheets/grass_demon/sprite_2.png" type="Texture" id=7]
+[ext_resource path="res://_Assets/Art/Village_Artwork/spritesheets/fire_demon/sprite_0.png" type="Texture" id=8]
+[ext_resource path="res://_Assets/Art/Village_Artwork/spritesheets/fire_demon/sprite_1.png" type="Texture" id=9]
+[ext_resource path="res://_Assets/Art/Village_Artwork/spritesheets/fire_demon/sprite_2.png" type="Texture" id=10]
+[ext_resource path="res://_Assets/Art/Village_Artwork/spritesheets/water_demon/sprite_0.png" type="Texture" id=11]
+[ext_resource path="res://_Assets/Art/Village_Artwork/spritesheets/water_demon/sprite_1.png" type="Texture" id=12]
+[ext_resource path="res://_Assets/Art/Village_Artwork/spritesheets/water_demon/sprite_2.png" type="Texture" id=13]
+[ext_resource path="res://_Prefab/Heart.tscn" type="PackedScene" id=14]
+
+[sub_resource type="SpriteFrames" id=10]
+
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "floating_yellow",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "floating_green",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "floating_red",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ) ],
+"loop": true,
+"name": "floating_purple",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=11]
+
+custom_solver_bias = 0.0
+extents = Vector2( 32, 32 )
+
+[sub_resource type="RectangleShape2D" id=12]
+
+custom_solver_bias = 0.0
+extents = Vector2( 39.1793, 39.7635 )
+
+[node name="Demon" type="KinematicBody2D" groups=[
+"enemy",
+]]
+
+scale = Vector2( 2, 2 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="." index="0"]
+
+scale = Vector2( 4, 4 )
+frames = SubResource( 10 )
+animation = "floating_green"
+frame = 2
+playing = true
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+
+shape = SubResource( 11 )
+
+[node name="Hitbox" type="Area2D" parent="." index="2"]
+
+editor/display_folded = true
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Hitbox" index="0"]
+
+shape = SubResource( 12 )
+
+[node name="Hearts" type="Node2D" parent="." index="3"]
+
+editor/display_folded = true
+
+[node name="Heart" parent="Hearts" index="0" instance=ExtResource( 14 )]
+
+position = Vector2( -18.6207, -52.2659 )
+
+[node name="Heart2" parent="Hearts" index="1" instance=ExtResource( 14 )]
+
+position = Vector2( -0.225445, -52.5579 )
+
+[node name="Heart3" parent="Hearts" index="2" instance=ExtResource( 14 )]
+
+position = Vector2( 18.7538, -52.5579 )
+
+

@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=50 format=2]
 
 [ext_resource path="res://_Scripts/level_script.gd" type="Script" id=1]
 [ext_resource path="res://_Tileset/normal_world.tres" type="TileSet" id=2]
@@ -20,8 +20,23 @@
 [ext_resource path="res://_Scripts/TelePair.gd" type="Script" id=18]
 [ext_resource path="res://_Assets/Art/Spritesheets/Teleporter/teleporter1.png" type="Texture" id=19]
 [ext_resource path="res://_Assets/Art/Spritesheets/Teleporter/teleporter0.png" type="Texture" id=20]
-[ext_resource path="res://_Prefab/Players/Player.tscn" type="PackedScene" id=21]
-[ext_resource path="res://_Prefab/HUD.tscn" type="PackedScene" id=22]
+[ext_resource path="res://_Prefab/Enemies/Demon.tscn" type="PackedScene" id=21]
+[ext_resource path="res://_Scripts/Enemy_Behavior/Demon.gd" type="Script" id=22]
+[ext_resource path="res://_Assets/Art/Village_Artwork/spritesheets/air_demon/sprite_0.png" type="Texture" id=23]
+[ext_resource path="res://_Assets/Art/Village_Artwork/spritesheets/air_demon/sprite_1.png" type="Texture" id=24]
+[ext_resource path="res://_Assets/Art/Village_Artwork/spritesheets/air_demon/sprite_2.png" type="Texture" id=25]
+[ext_resource path="res://_Assets/Art/Village_Artwork/spritesheets/grass_demon/sprite_0.png" type="Texture" id=26]
+[ext_resource path="res://_Assets/Art/Village_Artwork/spritesheets/grass_demon/sprite_1.png" type="Texture" id=27]
+[ext_resource path="res://_Assets/Art/Village_Artwork/spritesheets/grass_demon/sprite_2.png" type="Texture" id=28]
+[ext_resource path="res://_Assets/Art/Village_Artwork/spritesheets/fire_demon/sprite_0.png" type="Texture" id=29]
+[ext_resource path="res://_Assets/Art/Village_Artwork/spritesheets/fire_demon/sprite_1.png" type="Texture" id=30]
+[ext_resource path="res://_Assets/Art/Village_Artwork/spritesheets/fire_demon/sprite_2.png" type="Texture" id=31]
+[ext_resource path="res://_Assets/Art/Village_Artwork/spritesheets/water_demon/sprite_0.png" type="Texture" id=32]
+[ext_resource path="res://_Assets/Art/Village_Artwork/spritesheets/water_demon/sprite_1.png" type="Texture" id=33]
+[ext_resource path="res://_Assets/Art/Village_Artwork/spritesheets/water_demon/sprite_2.png" type="Texture" id=34]
+[ext_resource path="res://_Prefab/Heart.tscn" type="PackedScene" id=35]
+[ext_resource path="res://_Prefab/Players/Player.tscn" type="PackedScene" id=36]
+[ext_resource path="res://_Prefab/HUD.tscn" type="PackedScene" id=37]
 
 [sub_resource type="GDScript" id=1]
 
@@ -197,8 +212,42 @@ extents = Vector2( 10, 10 )
 custom_solver_bias = 0.0
 extents = Vector2( 6, 7 )
 
+[sub_resource type="SpriteFrames" id=10]
+
+animations = [ {
+"frames": [ ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ) ],
+"loop": true,
+"name": "floating_yellow",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ) ],
+"loop": true,
+"name": "floating_green",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ) ],
+"loop": true,
+"name": "floating_red",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ) ],
+"loop": true,
+"name": "floating_purple",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=11]
+
+custom_solver_bias = 0.0
+extents = Vector2( 32, 32 )
+
+[sub_resource type="RectangleShape2D" id=12]
+
+custom_solver_bias = 0.0
+extents = Vector2( 39.1793, 39.7635 )
+
 [node name="World" type="Node" index="0" groups=[
-"gem_collect_level",
+"enemy_kill_level",
 ]]
 
 script = ExtResource( 1 )
@@ -663,7 +712,7 @@ position = Vector2( 32, 416 )
 scale = Vector2( 4, 4 )
 frames = SubResource( 4 )
 animation = "Fire"
-frame = 2
+frame = 1
 playing = true
 _sections_unfolded = [ "Transform" ]
 
@@ -673,7 +722,6 @@ position = Vector2( -160, 224 )
 scale = Vector2( 4, 4 )
 frames = SubResource( 4 )
 animation = "Fire"
-frame = 1
 playing = true
 _sections_unfolded = [ "Transform" ]
 
@@ -683,7 +731,7 @@ position = Vector2( -224, 160 )
 scale = Vector2( 4, 4 )
 frames = SubResource( 4 )
 animation = "Fire"
-frame = 1
+frame = 3
 playing = true
 _sections_unfolded = [ "Transform" ]
 
@@ -693,6 +741,7 @@ position = Vector2( 480, 352 )
 scale = Vector2( 4, 4 )
 frames = SubResource( 4 )
 animation = "Fire"
+frame = 3
 playing = true
 _sections_unfolded = [ "Transform" ]
 
@@ -702,7 +751,7 @@ position = Vector2( 736, 224 )
 scale = Vector2( 4, 4 )
 frames = SubResource( 4 )
 animation = "Fire"
-frame = 3
+frame = 2
 playing = true
 _sections_unfolded = [ "Transform" ]
 
@@ -712,7 +761,7 @@ position = Vector2( 1184, 288 )
 scale = Vector2( 4, 4 )
 frames = SubResource( 4 )
 animation = "Fire"
-frame = 3
+frame = 1
 playing = true
 _sections_unfolded = [ "Transform" ]
 
@@ -722,7 +771,7 @@ position = Vector2( 1568, -160 )
 scale = Vector2( 4, 4 )
 frames = SubResource( 4 )
 animation = "Fire"
-frame = 2
+frame = 1
 playing = true
 _sections_unfolded = [ "Transform" ]
 
@@ -732,7 +781,7 @@ position = Vector2( 1888, 96 )
 scale = Vector2( 4, 4 )
 frames = SubResource( 4 )
 animation = "Fire"
-frame = 2
+frame = 1
 playing = true
 _sections_unfolded = [ "Transform" ]
 
@@ -742,7 +791,6 @@ position = Vector2( 1888, -32 )
 scale = Vector2( 4, 4 )
 frames = SubResource( 4 )
 animation = "Fire"
-frame = 1
 playing = true
 _sections_unfolded = [ "Transform" ]
 
@@ -752,7 +800,6 @@ position = Vector2( 1824, -160 )
 scale = Vector2( 4, 4 )
 frames = SubResource( 4 )
 animation = "Fire"
-frame = 1
 playing = true
 _sections_unfolded = [ "Transform" ]
 
@@ -768,6 +815,8 @@ position = Vector2( 97.7842, 416.212 )
 
 [node name="Platforms" type="Node2D" parent="." index="7"]
 
+editor/display_folded = true
+
 [node name="Platform_Reg" parent="Platforms" index="0" instance=ExtResource( 11 )]
 
 position = Vector2( 1248, -608 )
@@ -780,6 +829,7 @@ script = SubResource( 9 )
 
 [node name="Pickups" type="Node2D" parent="." index="8"]
 
+editor/display_folded = true
 _sections_unfolded = [ "Transform" ]
 
 [node name="Weapon_Pickup" parent="Pickups" index="0" instance=ExtResource( 12 )]
@@ -1132,14 +1182,190 @@ shape = SubResource( 7 )
 
 position = Vector2( 318.166, 383.563 )
 
+[node name="Demon" parent="Enemies" index="0" instance=ExtResource( 21 )]
+
+position = Vector2( 113.834, -1407.56 )
+
+[node name="Demon2" type="KinematicBody2D" parent="Enemies" index="1" groups=[
+"enemy",
+]]
+
+editor/display_folded = true
+position = Vector2( 737.834, -1407.56 )
+scale = Vector2( 2, 2 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+script = ExtResource( 22 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Enemies/Demon2" index="0"]
+
+scale = Vector2( 4, 4 )
+frames = SubResource( 10 )
+animation = "floating_purple"
+frame = 1
+playing = true
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/Demon2" index="1"]
+
+shape = SubResource( 11 )
+
+[node name="Hitbox" type="Area2D" parent="Enemies/Demon2" index="2"]
+
+editor/display_folded = true
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Enemies/Demon2/Hitbox" index="0"]
+
+shape = SubResource( 12 )
+
+[node name="Hearts" type="Node2D" parent="Enemies/Demon2" index="3"]
+
+editor/display_folded = true
+
+[node name="Heart" parent="Enemies/Demon2/Hearts" index="0" instance=ExtResource( 35 )]
+
+position = Vector2( -18.6207, -52.2659 )
+
+[node name="Heart2" parent="Enemies/Demon2/Hearts" index="1" instance=ExtResource( 35 )]
+
+position = Vector2( -0.225445, -52.5579 )
+
+[node name="Heart3" parent="Enemies/Demon2/Hearts" index="2" instance=ExtResource( 35 )]
+
+position = Vector2( 18.7538, -52.5579 )
+
+[node name="Demon3" type="KinematicBody2D" parent="Enemies" index="2" groups=[
+"enemy",
+]]
+
+editor/display_folded = true
+position = Vector2( 113.834, -1183.56 )
+scale = Vector2( 2, 2 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+script = ExtResource( 22 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Enemies/Demon3" index="0"]
+
+scale = Vector2( 4, 4 )
+frames = SubResource( 10 )
+animation = "floating_red"
+playing = true
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/Demon3" index="1"]
+
+shape = SubResource( 11 )
+
+[node name="Hitbox" type="Area2D" parent="Enemies/Demon3" index="2"]
+
+editor/display_folded = true
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Enemies/Demon3/Hitbox" index="0"]
+
+shape = SubResource( 12 )
+
+[node name="Hearts" type="Node2D" parent="Enemies/Demon3" index="3"]
+
+editor/display_folded = true
+
+[node name="Heart" parent="Enemies/Demon3/Hearts" index="0" instance=ExtResource( 35 )]
+
+position = Vector2( -18.6207, -52.2659 )
+
+[node name="Heart2" parent="Enemies/Demon3/Hearts" index="1" instance=ExtResource( 35 )]
+
+position = Vector2( -0.225445, -52.5579 )
+
+[node name="Heart3" parent="Enemies/Demon3/Hearts" index="2" instance=ExtResource( 35 )]
+
+position = Vector2( 18.7538, -52.5579 )
+
+[node name="Demon4" type="KinematicBody2D" parent="Enemies" index="3" groups=[
+"enemy",
+]]
+
+position = Vector2( 737.834, -1199.56 )
+scale = Vector2( 2, 2 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+script = ExtResource( 22 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Enemies/Demon4" index="0"]
+
+scale = Vector2( 4, 4 )
+frames = SubResource( 10 )
+animation = "floating_yellow"
+frame = 1
+playing = true
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/Demon4" index="1"]
+
+shape = SubResource( 11 )
+
+[node name="Hitbox" type="Area2D" parent="Enemies/Demon4" index="2"]
+
+editor/display_folded = true
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Enemies/Demon4/Hitbox" index="0"]
+
+shape = SubResource( 12 )
+
+[node name="Hearts" type="Node2D" parent="Enemies/Demon4" index="3"]
+
+editor/display_folded = true
+
+[node name="Heart" parent="Enemies/Demon4/Hearts" index="0" instance=ExtResource( 35 )]
+
+position = Vector2( -18.6207, -52.2659 )
+
+[node name="Heart2" parent="Enemies/Demon4/Hearts" index="1" instance=ExtResource( 35 )]
+
+position = Vector2( -0.225445, -52.5579 )
+
+[node name="Heart3" parent="Enemies/Demon4/Hearts" index="2" instance=ExtResource( 35 )]
+
+position = Vector2( 18.7538, -52.5579 )
+
 [node name="Enemy_Markers" type="Node2D" parent="." index="13"]
 
 position = Vector2( 272, 64 )
 
-[node name="Player" parent="." index="14" instance=ExtResource( 21 )]
+[node name="Player" parent="." index="14" instance=ExtResource( 36 )]
 
 position = Vector2( 160, 256 )
 
-[node name="HUD" parent="." index="15" instance=ExtResource( 22 )]
+[node name="HUD" parent="." index="15" instance=ExtResource( 37 )]
 
 

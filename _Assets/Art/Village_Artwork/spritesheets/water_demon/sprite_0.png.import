@@ -10,7 +10,7 @@ source_file="res://_Assets/Art/Village_Artwork/spritesheets/water_demon/sprite_0
 source_md5="c45e032e3235e324f39dbd4810052037"
 
 dest_files=[ "res://.import/sprite_0.png-fb3c30a2dd0797386f30a62a5cf4d365.stex" ]
-dest_md5="deb08d157728681ebecee7abb1310b58"
+dest_md5="7a9e14c596a2cbb43a0c2fba0fbb9876"
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
@@ -28,5 +28,5 @@ process/premult_alpha=false
 process/HDR_as_SRGB=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0

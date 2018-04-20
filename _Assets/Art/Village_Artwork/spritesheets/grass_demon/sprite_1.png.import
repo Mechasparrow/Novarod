@@ -10,7 +10,7 @@ source_file="res://_Assets/Art/Village_Artwork/spritesheets/grass_demon/sprite_1
 source_md5="cbb8e27211f685c9acdf13c11dec3c5b"
 
 dest_files=[ "res://.import/sprite_1.png-8332ee177ddd19c4ea08b4b9fc0d8a52.stex" ]
-dest_md5="cc93c64bf9d2d707efd77ab49298b002"
+dest_md5="3281adde525f2c7606d6100561ace71a"
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
@@ -28,5 +28,5 @@ process/premult_alpha=false
 process/HDR_as_SRGB=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0
