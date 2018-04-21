@@ -1,15 +1,15 @@
 [gd_scene load_steps=24 format=2]
 
-[ext_resource path="res://_Scripts/level_script.gd" type="Script" id=1]
+[ext_resource path="res://_Scripts/Level_Bahavior/level_script.gd" type="Script" id=1]
 [ext_resource path="res://_Tileset/normal_world.tres" type="TileSet" id=2]
-[ext_resource path="res://_Prefab/Fire.tscn" type="PackedScene" id=3]
+[ext_resource path="res://_Prefab/Hazard/Fire.tscn" type="PackedScene" id=3]
 [ext_resource path="res://_Tileset/hazards.tres" type="TileSet" id=4]
 [ext_resource path="res://_Prefab/trees/tree1.tscn" type="PackedScene" id=5]
 [ext_resource path="res://_Assets/Art/Burnt_Trees/sprite_1.png" type="Texture" id=6]
 [ext_resource path="res://_Prefab/gems/gem_red.tscn" type="PackedScene" id=7]
 [ext_resource path="res://_Prefab/Platforms/Platform_Reg_Vertical.tscn" type="PackedScene" id=8]
 [ext_resource path="res://_Prefab/Pickups/Weapon_Pickup.tscn" type="PackedScene" id=9]
-[ext_resource path="res://_Prefab/Door.tscn" type="PackedScene" id=10]
+[ext_resource path="res://_Prefab/Doors/Door.tscn" type="PackedScene" id=10]
 [ext_resource path="res://_Prefab/Players/Player.tscn" type="PackedScene" id=11]
 [ext_resource path="res://_Scripts/Enemy_Behavior/Firebreath_Dragon_left.gd" type="Script" id=12]
 [ext_resource path="res://_Assets/Art/Spritesheets/Dragon/sprite_1.png" type="Texture" id=13]
@@ -17,7 +17,11 @@
 [ext_resource path="res://_Assets/Art/Spritesheets/Dragon/sprite_2.png" type="Texture" id=15]
 [ext_resource path="res://_Assets/Art/Spritesheets/Dragon/sprite_3.png" type="Texture" id=16]
 [ext_resource path="res://_Assets/Art/heart_0.png" type="Texture" id=17]
-[ext_resource path="res://_Prefab/HUD.tscn" type="PackedScene" id=18]
+[ext_resource path="res://_Prefab/UI/HUD.tscn" type="PackedScene" id=18]
+
+
+
+
 
 [sub_resource type="GDScript" id=1]
 

@@ -15,7 +15,7 @@
 flags = 0
 load_path = "res://.import/Ground_Dirt_1.png-d0ce40c9eb18552f7cc6d3321945ec3c.stex"
 
-[node name="Node" type="Node" index="0"]
+[node name="Node" type="Node"]
 
 [node name="Grass" type="Sprite" parent="." index="0"]
 

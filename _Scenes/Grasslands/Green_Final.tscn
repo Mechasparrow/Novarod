@@ -1,18 +1,24 @@
 [gd_scene load_steps=16 format=2]
 
-[ext_resource path="res://_Scripts/level_script.gd" type="Script" id=1]
+[ext_resource path="res://_Scripts/Level_Bahavior/level_script.gd" type="Script" id=1]
 [ext_resource path="res://_Tileset/normal_world.tres" type="TileSet" id=2]
 [ext_resource path="res://_Tileset/hazards.tres" type="TileSet" id=3]
 [ext_resource path="res://_Prefab/gems/gem_green.tscn" type="PackedScene" id=4]
-[ext_resource path="res://_Prefab/invisible_checkpoint.tscn" type="PackedScene" id=5]
+[ext_resource path="res://_Prefab/Scene_Elements/invisible_checkpoint.tscn" type="PackedScene" id=5]
 [ext_resource path="res://_Prefab/Pickups/Weapon_Pickup.tscn" type="PackedScene" id=6]
-[ext_resource path="res://_Prefab/Door.tscn" type="PackedScene" id=7]
+[ext_resource path="res://_Prefab/Doors/Door.tscn" type="PackedScene" id=7]
 [ext_resource path="res://_Prefab/Enemies/Enemy_Bunny_Boss.tscn" type="PackedScene" id=8]
 [ext_resource path="res://_Prefab/Players/Player.tscn" type="PackedScene" id=9]
-[ext_resource path="res://_Prefab/HUD.tscn" type="PackedScene" id=10]
+[ext_resource path="res://_Prefab/UI/HUD.tscn" type="PackedScene" id=10]
 [ext_resource path="res://_Prefab/Projectiles/Golden_Carrot_Projectile.tscn" type="PackedScene" id=11]
-[ext_resource path="res://_Prefab/Cage.tscn" type="PackedScene" id=12]
-[ext_resource path="res://_Scripts/boss-handler.gd" type="Script" id=13]
+[ext_resource path="res://_Prefab/Scene_Elements/Cage.tscn" type="PackedScene" id=12]
+[ext_resource path="res://_Scripts/Enemy_Behavior/boss-handler.gd" type="Script" id=13]
+
+
+
+
+
+
 
 [sub_resource type="GDScript" id=1]
 

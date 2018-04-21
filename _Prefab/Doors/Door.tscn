@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://_Scripts/Door.gd" type="Script" id=1]
+[ext_resource path="res://_Scripts/Level_Bahavior/Door.gd" type="Script" id=1]
 [ext_resource path="res://_Animations/_Frames/door_frames.tres" type="SpriteFrames" id=2]
 [ext_resource path="res://_Assets/Art/Spritesheets/Door/lock_0.png" type="Texture" id=3]
 [ext_resource path="res://_Assets/Art/Spritesheets/Door/lock_1.png" type="Texture" id=4]
@@ -8,6 +8,7 @@
 [ext_resource path="res://_Assets/Art/Spritesheets/Keys/interact_1.png" type="Texture" id=6]
 [ext_resource path="res://_Assets/Art/Spritesheets/Keys/interact_2.png" type="Texture" id=7]
 [ext_resource path="res://_Assets/Art/Spritesheets/Keys/interact_3.png" type="Texture" id=8]
+
 
 [sub_resource type="RectangleShape2D" id=1]
 

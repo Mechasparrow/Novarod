@@ -16,7 +16,7 @@ var lost = false
 
 export var reset_position = Vector2(100,400)
 
-onready var level_menu_scene = preload("res://_Scenes/Level_Select.tscn")
+onready var level_menu_scene = preload("res://_Scenes/Navigation/Level_Select.tscn")
 
 func _ready():
 	# Called every time the node is added to the scene.

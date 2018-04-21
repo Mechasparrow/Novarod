@@ -11,14 +11,14 @@ config_version=3
 [application]
 
 config/name="Rodnova"
-run/main_scene="res://_Scenes/Menu.tscn"
+run/main_scene="res://_Scenes/Navigation/Menu.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
-playerinfo="*res://_Scripts/playerinfo.gd"
-weapons="*res://_Scripts/weapons.gd"
-level_data="*res://_Scripts/level_data.gd"
+playerinfo="*res://_Scripts/Player_Behavior/playerinfo.gd"
+weapons="*res://_Scripts/Player_Behavior/weapons.gd"
+level_data="*res://_Scripts/Level_Bahavior/level_data.gd"
 
 [display]
 

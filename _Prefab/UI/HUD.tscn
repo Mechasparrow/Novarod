@@ -1,21 +1,27 @@
 [gd_scene load_steps=21 format=2]
 
-[ext_resource path="res://_Scripts/CoinsHUD.gd" type="Script" id=1]
+[ext_resource path="res://_Scripts/Coins/CoinsHUD.gd" type="Script" id=1]
 [ext_resource path="res://_Fonts/imported_fonts/pixel_font.tres" type="DynamicFont" id=2]
-[ext_resource path="res://_Scripts/CoinsRHUD.gd" type="Script" id=3]
-[ext_resource path="res://_Scripts/PowerupHUD.gd" type="Script" id=4]
-[ext_resource path="res://_Scripts/Timer.gd" type="Script" id=5]
-[ext_resource path="res://_Scripts/Health.gd" type="Script" id=6]
+[ext_resource path="res://_Scripts/Coins/CoinsRHUD.gd" type="Script" id=3]
+[ext_resource path="res://_Scripts/UI_Behavior/PowerupHUD.gd" type="Script" id=4]
+[ext_resource path="res://_Scripts/UI_Behavior/Timer.gd" type="Script" id=5]
+[ext_resource path="res://_Scripts/UI_Behavior/Health.gd" type="Script" id=6]
 [ext_resource path="res://_Assets/Art/Health_Bar.png" type="Texture" id=7]
-[ext_resource path="res://_Scripts/XP.gd" type="Script" id=8]
+[ext_resource path="res://_Scripts/UI_Behavior/XP.gd" type="Script" id=8]
 [ext_resource path="res://_Assets/Art/XP_Bar.png" type="Texture" id=9]
 [ext_resource path="res://_Fonts/Roboto-Regular.ttf" type="DynamicFontData" id=10]
 [ext_resource path="res://_Fonts/Munro.ttf" type="DynamicFontData" id=11]
-[ext_resource path="res://_Scripts/Inventory.gd" type="Script" id=12]
+[ext_resource path="res://_Scripts/UI_Behavior/Inventory.gd" type="Script" id=12]
 [ext_resource path="res://_Assets/Art/Inventory_Square.png" type="Texture" id=13]
-[ext_resource path="res://_Scripts/Lock.gd" type="Script" id=14]
+[ext_resource path="res://_Scripts/UI_Behavior/Lock.gd" type="Script" id=14]
 [ext_resource path="res://_Assets/Art/Spritesheets/Door/lock_1.png" type="Texture" id=15]
 [ext_resource path="res://_Assets/Art/Spritesheets/Door/lock_0.png" type="Texture" id=16]
+
+
+
+
+
+
 
 [sub_resource type="DynamicFont" id=1]
 

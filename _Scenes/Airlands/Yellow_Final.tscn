@@ -1,19 +1,23 @@
 [gd_scene load_steps=20 format=2]
 
-[ext_resource path="res://_Scripts/level_script.gd" type="Script" id=1]
+[ext_resource path="res://_Scripts/Level_Bahavior/level_script.gd" type="Script" id=1]
 [ext_resource path="res://_Tileset/normal_world.tres" type="TileSet" id=2]
 [ext_resource path="res://_Tileset/hazards.tres" type="TileSet" id=3]
 [ext_resource path="res://_Prefab/Pickups/Weapon_Pickup.tscn" type="PackedScene" id=4]
 [ext_resource path="res://_Scripts/Pickup_Behavior/Weapon_Gun_Pickup.gd" type="Script" id=5]
-[ext_resource path="res://_Prefab/Door.tscn" type="PackedScene" id=6]
+[ext_resource path="res://_Prefab/Doors/Door.tscn" type="PackedScene" id=6]
 [ext_resource path="res://_Scripts/Enemy_Behavior/Evil_Bird_King.gd" type="Script" id=7]
 [ext_resource path="res://_Assets/Art/Air Artwork/Spritesheets/Evil Bird/sprite_0.png" type="Texture" id=8]
 [ext_resource path="res://_Assets/Art/Air Artwork/Spritesheets/Evil Bird/sprite_1.png" type="Texture" id=9]
 [ext_resource path="res://_Assets/Art/Air Artwork/Spritesheets/Evil Bird/sprite_2.png" type="Texture" id=10]
 [ext_resource path="res://_Assets/Art/Air Artwork/Spritesheets/Evil Bird/sprite_3.png" type="Texture" id=11]
-[ext_resource path="res://_Prefab/Heart.tscn" type="PackedScene" id=12]
+[ext_resource path="res://_Prefab/UI/Heart.tscn" type="PackedScene" id=12]
 [ext_resource path="res://_Prefab/Players/Player.tscn" type="PackedScene" id=13]
-[ext_resource path="res://_Prefab/HUD.tscn" type="PackedScene" id=14]
+[ext_resource path="res://_Prefab/UI/HUD.tscn" type="PackedScene" id=14]
+
+
+
+
 
 [sub_resource type="GDScript" id=1]
 

@@ -4,7 +4,7 @@ extends Node
 # var a = 2
 # var b = "textvar"
 
-var level_select = preload("res://_Scenes/Level_Select.tscn")
+var level_select = preload("res://_Scenes/Navigation/Level_Select.tscn")
 
 func _ready():
 	# Called every time the node is added to the scene.

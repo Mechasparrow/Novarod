@@ -13,7 +13,8 @@
 [ext_resource path="res://_Assets/Art/Village_Artwork/spritesheets/water_demon/sprite_0.png" type="Texture" id=11]
 [ext_resource path="res://_Assets/Art/Village_Artwork/spritesheets/water_demon/sprite_1.png" type="Texture" id=12]
 [ext_resource path="res://_Assets/Art/Village_Artwork/spritesheets/water_demon/sprite_2.png" type="Texture" id=13]
-[ext_resource path="res://_Prefab/Heart.tscn" type="PackedScene" id=14]
+[ext_resource path="res://_Prefab/UI/Heart.tscn" type="PackedScene" id=14]
+
 
 [sub_resource type="SpriteFrames" id=10]
 

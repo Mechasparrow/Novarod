@@ -1,11 +1,12 @@
 [gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://_Scripts/Simple_Enemy_AI.gd" type="Script" id=1]
+[ext_resource path="res://_Scripts/Enemy_Behavior/Simple_Enemy_AI.gd" type="Script" id=1]
 [ext_resource path="res://_Assets/Art/Spritesheets/Enemies/enemy_one/enemy1_2.png" type="Texture" id=2]
 [ext_resource path="res://_Assets/Art/Spritesheets/Enemies/enemy_one/enemy1_0.png" type="Texture" id=3]
 [ext_resource path="res://_Assets/Art/Spritesheets/Enemies/enemy_one/enemy1_1.png" type="Texture" id=4]
 [ext_resource path="res://_Assets/Art/Spritesheets/Enemies/enemy_one/enemy1_3.png" type="Texture" id=5]
 [ext_resource path="res://_Assets/Art/heart_0.png" type="Texture" id=6]
+
 
 [sub_resource type="SpriteFrames" id=1]
 

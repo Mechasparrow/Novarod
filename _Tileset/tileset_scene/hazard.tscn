@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://_Assets/Art/Lava_1.png" type="Texture" id=1]
-[ext_resource path="res://_Scripts/Hazard.gd" type="Script" id=2]
+[ext_resource path="res://_Scripts/Level_Bahavior/Hazard.gd" type="Script" id=2]
 [ext_resource path="res://_Assets/Art/rod_spike.png" type="Texture" id=3]
 
 [node name="Node" type="Node"]

@@ -1,12 +1,13 @@
 [gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://_Scripts/gem.gd" type="Script" id=1]
+[ext_resource path="res://_Scripts/Pickup_Behavior/gem.gd" type="Script" id=1]
 [ext_resource path="res://_Assets/Art/Spritesheets/Gems/gem_red/gem_0.png" type="Texture" id=2]
 [ext_resource path="res://_Assets/Art/Spritesheets/Gems/gem_red/gem_1.png" type="Texture" id=3]
 [ext_resource path="res://_Assets/Art/Spritesheets/Gems/gem_red/gem_2.png" type="Texture" id=4]
 [ext_resource path="res://_Assets/Art/Spritesheets/Gems/gem_red/gem_3.png" type="Texture" id=5]
 [ext_resource path="res://_Assets/Art/Spritesheets/Gems/gem_red/gem_4.png" type="Texture" id=6]
 [ext_resource path="res://_Assets/Art/Spritesheets/Gems/gem_red/gem_5.png" type="Texture" id=7]
+
 
 [sub_resource type="SpriteFrames" id=5]
 
