@@ -21,18 +21,18 @@
 [ext_resource path="res://_Assets/Art/Spritesheets/Teleporter/teleporter1.png" type="Texture" id=19]
 [ext_resource path="res://_Assets/Art/Spritesheets/Teleporter/teleporter0.png" type="Texture" id=20]
 [ext_resource path="res://_Scripts/Enemy_Behavior/Demon.gd" type="Script" id=21]
-[ext_resource path="res://_Assets/Art/Village_Artwork/spritesheets/air_demon/sprite_0.png" type="Texture" id=22]
-[ext_resource path="res://_Assets/Art/Village_Artwork/spritesheets/air_demon/sprite_1.png" type="Texture" id=23]
-[ext_resource path="res://_Assets/Art/Village_Artwork/spritesheets/air_demon/sprite_2.png" type="Texture" id=24]
-[ext_resource path="res://_Assets/Art/Village_Artwork/spritesheets/grass_demon/sprite_0.png" type="Texture" id=25]
-[ext_resource path="res://_Assets/Art/Village_Artwork/spritesheets/grass_demon/sprite_1.png" type="Texture" id=26]
-[ext_resource path="res://_Assets/Art/Village_Artwork/spritesheets/grass_demon/sprite_2.png" type="Texture" id=27]
-[ext_resource path="res://_Assets/Art/Village_Artwork/spritesheets/fire_demon/sprite_0.png" type="Texture" id=28]
-[ext_resource path="res://_Assets/Art/Village_Artwork/spritesheets/fire_demon/sprite_1.png" type="Texture" id=29]
-[ext_resource path="res://_Assets/Art/Village_Artwork/spritesheets/fire_demon/sprite_2.png" type="Texture" id=30]
-[ext_resource path="res://_Assets/Art/Village_Artwork/spritesheets/water_demon/sprite_0.png" type="Texture" id=31]
-[ext_resource path="res://_Assets/Art/Village_Artwork/spritesheets/water_demon/sprite_1.png" type="Texture" id=32]
-[ext_resource path="res://_Assets/Art/Village_Artwork/spritesheets/water_demon/sprite_2.png" type="Texture" id=33]
+[ext_resource path="res://_Assets/Art/Village_Artwork/spritesheets/fire_demon/sprite_0.png" type="Texture" id=22]
+[ext_resource path="res://_Assets/Art/Village_Artwork/spritesheets/fire_demon/sprite_1.png" type="Texture" id=23]
+[ext_resource path="res://_Assets/Art/Village_Artwork/spritesheets/fire_demon/sprite_2.png" type="Texture" id=24]
+[ext_resource path="res://_Assets/Art/Village_Artwork/spritesheets/water_demon/sprite_0.png" type="Texture" id=25]
+[ext_resource path="res://_Assets/Art/Village_Artwork/spritesheets/water_demon/sprite_1.png" type="Texture" id=26]
+[ext_resource path="res://_Assets/Art/Village_Artwork/spritesheets/water_demon/sprite_2.png" type="Texture" id=27]
+[ext_resource path="res://_Assets/Art/Village_Artwork/spritesheets/air_demon/sprite_0.png" type="Texture" id=28]
+[ext_resource path="res://_Assets/Art/Village_Artwork/spritesheets/air_demon/sprite_1.png" type="Texture" id=29]
+[ext_resource path="res://_Assets/Art/Village_Artwork/spritesheets/air_demon/sprite_2.png" type="Texture" id=30]
+[ext_resource path="res://_Assets/Art/Village_Artwork/spritesheets/grass_demon/sprite_0.png" type="Texture" id=31]
+[ext_resource path="res://_Assets/Art/Village_Artwork/spritesheets/grass_demon/sprite_1.png" type="Texture" id=32]
+[ext_resource path="res://_Assets/Art/Village_Artwork/spritesheets/grass_demon/sprite_2.png" type="Texture" id=33]
 [ext_resource path="res://_Prefab/Heart.tscn" type="PackedScene" id=34]
 [ext_resource path="res://_Prefab/Players/Player.tscn" type="PackedScene" id=35]
 [ext_resource path="res://_Prefab/HUD.tscn" type="PackedScene" id=36]
@@ -216,22 +216,22 @@ extents = Vector2( 6, 7 )
 animations = [ {
 "frames": [ ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ) ],
 "loop": true,
-"name": "floating_yellow",
+"name": "floating_red",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ) ],
 "loop": true,
-"name": "floating_green",
+"name": "floating_purple",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ) ],
 "loop": true,
-"name": "floating_red",
+"name": "floating_yellow",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ) ],
 "loop": true,
-"name": "floating_purple",
+"name": "floating_green",
 "speed": 5.0
 } ]
 
@@ -281,22 +281,22 @@ tracks/1/keys = {
 animations = [ {
 "frames": [ ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ) ],
 "loop": true,
-"name": "floating_yellow",
+"name": "floating_red",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ) ],
 "loop": true,
-"name": "floating_green",
+"name": "floating_purple",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ) ],
 "loop": true,
-"name": "floating_red",
+"name": "floating_yellow",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ) ],
 "loop": true,
-"name": "floating_purple",
+"name": "floating_green",
 "speed": 5.0
 } ]
 
@@ -470,6 +470,8 @@ __meta__ = {
 
 [node name="Village Art" type="Node2D" parent="Tiles" index="2"]
 
+position = Vector2( 160, 0 )
+
 [node name="VillageAsetics" type="TileMap" parent="Tiles/Village Art" index="0"]
 
 position = Vector2( -162.061, 0 )
@@ -496,6 +498,7 @@ _sections_unfolded = [ "Cell", "Collision", "Transform" ]
 [node name="Doors" type="Node2D" parent="Tiles/Village Art" index="1"]
 
 editor/display_folded = true
+position = Vector2( -160, 0 )
 
 [node name="Door2" parent="Tiles/Village Art/Doors" index="0" instance=ExtResource( 4 )]
 
@@ -858,9 +861,9 @@ __meta__ = {
 
 [node name="Fire" type="Node2D" parent="Tiles" index="6"]
 
-editor/display_folded = true
-
 [node name="Fire" type="Node2D" parent="Tiles/Fire" index="0"]
+
+position = Vector2( -2, 0 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Tiles/Fire/Fire" index="0"]
 
@@ -868,7 +871,7 @@ position = Vector2( 32, 416 )
 scale = Vector2( 4, 4 )
 frames = SubResource( 2 )
 animation = "Fire"
-frame = 2
+frame = 1
 playing = true
 _sections_unfolded = [ "Transform" ]
 
@@ -878,7 +881,6 @@ position = Vector2( -160, 224 )
 scale = Vector2( 4, 4 )
 frames = SubResource( 2 )
 animation = "Fire"
-frame = 1
 playing = true
 _sections_unfolded = [ "Transform" ]
 
@@ -888,6 +890,7 @@ position = Vector2( -224, 160 )
 scale = Vector2( 4, 4 )
 frames = SubResource( 2 )
 animation = "Fire"
+frame = 3
 playing = true
 _sections_unfolded = [ "Transform" ]
 
@@ -897,6 +900,7 @@ position = Vector2( 480, 352 )
 scale = Vector2( 4, 4 )
 frames = SubResource( 2 )
 animation = "Fire"
+frame = 3
 playing = true
 _sections_unfolded = [ "Transform" ]
 
@@ -906,7 +910,7 @@ position = Vector2( 736, 224 )
 scale = Vector2( 4, 4 )
 frames = SubResource( 2 )
 animation = "Fire"
-frame = 3
+frame = 2
 playing = true
 _sections_unfolded = [ "Transform" ]
 
@@ -916,7 +920,7 @@ position = Vector2( 1184, 288 )
 scale = Vector2( 4, 4 )
 frames = SubResource( 2 )
 animation = "Fire"
-frame = 2
+frame = 1
 playing = true
 _sections_unfolded = [ "Transform" ]
 
@@ -926,7 +930,7 @@ position = Vector2( 1568, -160 )
 scale = Vector2( 4, 4 )
 frames = SubResource( 2 )
 animation = "Fire"
-frame = 2
+frame = 1
 playing = true
 _sections_unfolded = [ "Transform" ]
 
@@ -936,7 +940,7 @@ position = Vector2( 1888, 96 )
 scale = Vector2( 4, 4 )
 frames = SubResource( 2 )
 animation = "Fire"
-frame = 2
+frame = 1
 playing = true
 _sections_unfolded = [ "Transform" ]
 
@@ -946,7 +950,6 @@ position = Vector2( 1888, -32 )
 scale = Vector2( 4, 4 )
 frames = SubResource( 2 )
 animation = "Fire"
-frame = 1
 playing = true
 _sections_unfolded = [ "Transform" ]
 
@@ -956,7 +959,6 @@ position = Vector2( 1824, -160 )
 scale = Vector2( 4, 4 )
 frames = SubResource( 2 )
 animation = "Fire"
-frame = 1
 playing = true
 _sections_unfolded = [ "Transform" ]
 
@@ -1062,6 +1064,7 @@ margin_top = 470.0
 margin_right = 976.0
 margin_bottom = 544.0
 rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
@@ -1154,6 +1157,7 @@ margin_top = 470.0
 margin_right = 976.0
 margin_bottom = 544.0
 rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
@@ -1245,6 +1249,7 @@ margin_top = 470.0
 margin_right = 976.0
 margin_bottom = 544.0
 rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
@@ -1354,7 +1359,7 @@ _sections_unfolded = [ "Transform" ]
 scale = Vector2( 4, 4 )
 frames = SubResource( 10 )
 animation = "floating_green"
-frame = 2
+frame = 1
 playing = true
 flip_h = true
 _sections_unfolded = [ "Transform" ]
@@ -1424,7 +1429,6 @@ _sections_unfolded = [ "Transform" ]
 scale = Vector2( 4, 4 )
 frames = SubResource( 14 )
 animation = "floating_purple"
-frame = 1
 playing = true
 flip_h = true
 _sections_unfolded = [ "Transform" ]
@@ -1494,6 +1498,7 @@ _sections_unfolded = [ "Transform" ]
 scale = Vector2( 4, 4 )
 frames = SubResource( 14 )
 animation = "floating_red"
+frame = 2
 playing = true
 _sections_unfolded = [ "Transform" ]
 
@@ -1562,7 +1567,6 @@ _sections_unfolded = [ "Transform" ]
 scale = Vector2( 4, 4 )
 frames = SubResource( 14 )
 animation = "floating_yellow"
-frame = 1
 playing = true
 _sections_unfolded = [ "Transform" ]
 
