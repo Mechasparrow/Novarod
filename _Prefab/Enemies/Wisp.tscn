@@ -1,10 +1,11 @@
 [gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://_Scripts/Enemy_Behavior/Wisp.gd" type="Script" id=1]
-[ext_resource path="res://_Assets/Art/Air Artwork/Spritesheets/Wisp/sprite_0.png" type="Texture" id=2]
-[ext_resource path="res://_Assets/Art/Air Artwork/Spritesheets/Wisp/sprite_1.png" type="Texture" id=3]
-[ext_resource path="res://_Assets/Art/Air Artwork/Spritesheets/Wisp/sprite_2.png" type="Texture" id=4]
+[ext_resource path="res://_Assets/Art/Air Artwork/Enemies/Wisp/sprite_0.png" type="Texture" id=2]
+[ext_resource path="res://_Assets/Art/Air Artwork/Enemies/Wisp/sprite_1.png" type="Texture" id=3]
+[ext_resource path="res://_Assets/Art/Air Artwork/Enemies/Wisp/sprite_2.png" type="Texture" id=4]
 [ext_resource path="res://_Prefab/UI/Heart.tscn" type="PackedScene" id=5]
+
 
 
 [sub_resource type="SpriteFrames" id=1]

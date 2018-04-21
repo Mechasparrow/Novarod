@@ -1,11 +1,12 @@
 [gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://_Scripts/Coins/Coin_R.gd" type="Script" id=1]
-[ext_resource path="res://_Assets/Art/Spritesheets/Red_Coin/red_coin_0.png" type="Texture" id=2]
-[ext_resource path="res://_Assets/Art/Spritesheets/Red_Coin/red_coin_1.png" type="Texture" id=3]
-[ext_resource path="res://_Assets/Art/Spritesheets/Red_Coin/red_coin_2.png" type="Texture" id=4]
-[ext_resource path="res://_Assets/Art/Spritesheets/Red_Coin/red_coin_3.png" type="Texture" id=5]
-[ext_resource path="res://_Assets/Art/Spritesheets/Red_Coin/red_coin_4.png" type="Texture" id=6]
+[ext_resource path="res://_Assets/Art/Coins/Red_Coin/red_coin_0.png" type="Texture" id=2]
+[ext_resource path="res://_Assets/Art/Coins/Red_Coin/red_coin_1.png" type="Texture" id=3]
+[ext_resource path="res://_Assets/Art/Coins/Red_Coin/red_coin_2.png" type="Texture" id=4]
+[ext_resource path="res://_Assets/Art/Coins/Red_Coin/red_coin_3.png" type="Texture" id=5]
+[ext_resource path="res://_Assets/Art/Coins/Red_Coin/red_coin_4.png" type="Texture" id=6]
+
 
 
 [sub_resource type="SpriteFrames" id=1]

@@ -8,8 +8,8 @@
 [ext_resource path="res://_Prefab/gems/gem_blue.tscn" type="PackedScene" id=6]
 [ext_resource path="res://_Prefab/Pickups/Weapon_Pickup.tscn" type="PackedScene" id=7]
 [ext_resource path="res://_Prefab/Doors/Door.tscn" type="PackedScene" id=8]
-[ext_resource path="res://_Assets/Art/Spritesheets/Shark (Boss)/sprite_0.png" type="Texture" id=9]
-[ext_resource path="res://_Assets/Art/Spritesheets/Shark (Boss)/sprite_1.png" type="Texture" id=10]
+[ext_resource path="res://_Assets/Art/Water_Artwork/Enemies/Shark (Boss)/sprite_0.png" type="Texture" id=9]
+[ext_resource path="res://_Assets/Art/Water_Artwork/Enemies/Shark (Boss)/sprite_1.png" type="Texture" id=10]
 [ext_resource path="res://_Prefab/UI/Heart.tscn" type="PackedScene" id=11]
 [ext_resource path="res://_Prefab/Players/Player.tscn" type="PackedScene" id=12]
 [ext_resource path="res://_Prefab/UI/HUD.tscn" type="PackedScene" id=13]
@@ -4501,7 +4501,6 @@ _sections_unfolded = [ "Transform" ]
 scale = Vector2( 16, 16 )
 frames = SubResource( 3 )
 animation = "Swimming"
-frame = 1
 playing = true
 _sections_unfolded = [ "Transform" ]
 

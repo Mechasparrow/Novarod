@@ -1,10 +1,11 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://_Scripts/Weapon_Behavior/Player_Bullet.gd" type="Script" id=1]
-[ext_resource path="res://_Assets/Art/Spritesheets/Player_Projectile/player_bullet_0.png" type="Texture" id=2]
-[ext_resource path="res://_Assets/Art/Spritesheets/Player_Projectile/player_bullet_1.png" type="Texture" id=3]
-[ext_resource path="res://_Assets/Art/Spritesheets/Player_Projectile/player_bullet_2.png" type="Texture" id=4]
-[ext_resource path="res://_Assets/Art/Spritesheets/Player_Projectile/player_bullet_3.png" type="Texture" id=5]
+[ext_resource path="res://_Assets/Art/Projectiles/Player_Projectile/player_bullet_0.png" type="Texture" id=2]
+[ext_resource path="res://_Assets/Art/Projectiles/Player_Projectile/player_bullet_1.png" type="Texture" id=3]
+[ext_resource path="res://_Assets/Art/Projectiles/Player_Projectile/player_bullet_2.png" type="Texture" id=4]
+[ext_resource path="res://_Assets/Art/Projectiles/Player_Projectile/player_bullet_3.png" type="Texture" id=5]
+
 
 [sub_resource type="SpriteFrames" id=1]
 

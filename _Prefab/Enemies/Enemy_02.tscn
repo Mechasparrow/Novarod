@@ -1,9 +1,10 @@
 [gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://_Scripts/Enemy_Behavior/Enemy_02.gd" type="Script" id=1]
-[ext_resource path="res://_Assets/Art/Spritesheets/Enemies/enemy_two/flying_enemy1.png" type="Texture" id=2]
-[ext_resource path="res://_Assets/Art/Spritesheets/Enemies/enemy_two/flying_enemy0.png" type="Texture" id=3]
+[ext_resource path="res://_Assets/Art/General_Enemies/enemy_two/flying_enemy1.png" type="Texture" id=2]
+[ext_resource path="res://_Assets/Art/General_Enemies/enemy_two/flying_enemy0.png" type="Texture" id=3]
 [ext_resource path="res://_Assets/Art/UI/heart_0.png" type="Texture" id=4]
+
 
 
 [sub_resource type="SpriteFrames" id=1]

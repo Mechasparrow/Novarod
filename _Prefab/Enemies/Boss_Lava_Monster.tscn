@@ -1,9 +1,10 @@
 [gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://_Scripts/Enemy_Behavior/Fire_Monster_Boss.gd" type="Script" id=1]
-[ext_resource path="res://_Assets/Art/Spritesheets/Lava_Monster_Boss/sprite_1.png" type="Texture" id=2]
-[ext_resource path="res://_Assets/Art/Spritesheets/Lava_Monster_Boss/sprite_0.png" type="Texture" id=3]
+[ext_resource path="res://_Assets/Art/Fire Artwork/Lava_Monster_Boss/sprite_1.png" type="Texture" id=2]
+[ext_resource path="res://_Assets/Art/Fire Artwork/Lava_Monster_Boss/sprite_0.png" type="Texture" id=3]
 [ext_resource path="res://_Assets/Art/UI/heart_0.png" type="Texture" id=4]
+
 
 
 [sub_resource type="SpriteFrames" id=2]

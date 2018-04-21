@@ -1,0 +1,32 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/sprite_1.png-64b59b26087b0025f105b070b03e1fe8.stex"
+
+[deps]
+
+source_file="res://_Assets/Art/Fire Artwork/Lava_Monster/sprite_1.png"
+source_md5="a7aab30600a5af9b01de851bff0105f9"
+
+dest_files=[ "res://.import/sprite_1.png-64b59b26087b0025f105b070b03e1fe8.stex" ]
+dest_md5="3bf39a357aae3cf17e5b78fe2100eb12"
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=false
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+stream=false
+size_limit=0
+detect_3d=false
+svg/scale=1.0

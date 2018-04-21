@@ -1,7 +1,8 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://_Scripts/Weapon_Behavior/Fireball_Projectile..gd" type="Script" id=1]
-[ext_resource path="res://_Assets/Art/Air Artwork/Spritesheets/Lightning_Ball/sprite_2.png" type="Texture" id=2]
+[ext_resource path="res://_Assets/Art/Projectiles/Lightning_Ball/sprite_2.png" type="Texture" id=2]
+
 
 [sub_resource type="RectangleShape2D" id=1]
 

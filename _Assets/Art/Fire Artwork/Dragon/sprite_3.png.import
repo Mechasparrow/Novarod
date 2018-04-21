@@ -1,0 +1,32 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/sprite_3.png-fa0aa54fd2556638f620c548651b9297.stex"
+
+[deps]
+
+source_file="res://_Assets/Art/Fire Artwork/Dragon/sprite_3.png"
+source_md5="b0fd4c3ea3db9c396e672c61d0a3dca5"
+
+dest_files=[ "res://.import/sprite_3.png-fa0aa54fd2556638f620c548651b9297.stex" ]
+dest_md5="7d5ec5dbb02ea9f38f92e9f5926eb424"
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=false
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+stream=false
+size_limit=0
+detect_3d=false
+svg/scale=1.0

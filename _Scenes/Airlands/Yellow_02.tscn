@@ -9,13 +9,14 @@
 [ext_resource path="res://_Prefab/Pickups/Weapon_Pickup.tscn" type="PackedScene" id=7]
 [ext_resource path="res://_Prefab/Doors/Door.tscn" type="PackedScene" id=8]
 [ext_resource path="res://_Scripts/Enemy_Behavior/Wisp.gd" type="Script" id=9]
-[ext_resource path="res://_Assets/Art/Air Artwork/Spritesheets/Wisp/sprite_0.png" type="Texture" id=10]
-[ext_resource path="res://_Assets/Art/Air Artwork/Spritesheets/Wisp/sprite_1.png" type="Texture" id=11]
-[ext_resource path="res://_Assets/Art/Air Artwork/Spritesheets/Wisp/sprite_2.png" type="Texture" id=12]
+[ext_resource path="res://_Assets/Art/Air Artwork/Enemies/Wisp/sprite_0.png" type="Texture" id=10]
+[ext_resource path="res://_Assets/Art/Air Artwork/Enemies/Wisp/sprite_1.png" type="Texture" id=11]
+[ext_resource path="res://_Assets/Art/Air Artwork/Enemies/Wisp/sprite_2.png" type="Texture" id=12]
 [ext_resource path="res://_Prefab/UI/Heart.tscn" type="PackedScene" id=13]
 [ext_resource path="res://_Prefab/Enemies/Shooting_Wisp.tscn" type="PackedScene" id=14]
 [ext_resource path="res://_Prefab/Players/Player.tscn" type="PackedScene" id=15]
 [ext_resource path="res://_Prefab/UI/HUD.tscn" type="PackedScene" id=16]
+
 
 [sub_resource type="GDScript" id=1]
 

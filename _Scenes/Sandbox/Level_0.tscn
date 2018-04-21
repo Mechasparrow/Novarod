@@ -31,12 +31,13 @@
 [ext_resource path="res://_Prefab/Enemies/Enemy_01.tscn" type="PackedScene" id=29]
 [ext_resource path="res://_Prefab/Enemies/Enemy_02.tscn" type="PackedScene" id=30]
 [ext_resource path="res://_Scripts/Level_Bahavior/TelePair.gd" type="Script" id=31]
-[ext_resource path="res://_Assets/Art/Spritesheets/Teleporter/teleporter1.png" type="Texture" id=32]
-[ext_resource path="res://_Assets/Art/Spritesheets/Teleporter/teleporter0.png" type="Texture" id=33]
+[ext_resource path="res://_Assets/Art/General_Scene_art/Teleporter/teleporter1.png" type="Texture" id=32]
+[ext_resource path="res://_Assets/Art/General_Scene_art/Teleporter/teleporter0.png" type="Texture" id=33]
 [ext_resource path="res://_Prefab/Enemies/enemy_ai_marker.tscn" type="PackedScene" id=34]
 [ext_resource path="res://_Prefab/NPC/Birdo-NPC.tscn" type="PackedScene" id=35]
 [ext_resource path="res://_Prefab/Players/Player.tscn" type="PackedScene" id=36]
 [ext_resource path="res://_Prefab/UI/HUD.tscn" type="PackedScene" id=37]
+
 
 
 

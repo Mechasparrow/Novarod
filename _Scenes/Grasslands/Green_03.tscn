@@ -11,13 +11,14 @@
 [ext_resource path="res://_Prefab/Doors/Door.tscn" type="PackedScene" id=9]
 [ext_resource path="res://_Prefab/Enemies/Enemy_02.tscn" type="PackedScene" id=10]
 [ext_resource path="res://_Scripts/NPC_Behavior/Birdo.gd" type="Script" id=11]
-[ext_resource path="res://_Assets/Art/Spritesheets/squirrel/squirrel_0.png" type="Texture" id=12]
-[ext_resource path="res://_Assets/Art/Spritesheets/squirrel/squirrel_1.png" type="Texture" id=13]
-[ext_resource path="res://_Assets/Art/Spritesheets/squirrel/squirrel_2.png" type="Texture" id=14]
-[ext_resource path="res://_Assets/Art/Spritesheets/squirrel/squirrel_3.png" type="Texture" id=15]
+[ext_resource path="res://_Assets/Art/NPC/squirrel/squirrel_0.png" type="Texture" id=12]
+[ext_resource path="res://_Assets/Art/NPC/squirrel/squirrel_1.png" type="Texture" id=13]
+[ext_resource path="res://_Assets/Art/NPC/squirrel/squirrel_2.png" type="Texture" id=14]
+[ext_resource path="res://_Assets/Art/NPC/squirrel/squirrel_3.png" type="Texture" id=15]
 [ext_resource path="res://_Fonts/imported_fonts/pixel_font.tres" type="DynamicFont" id=16]
 [ext_resource path="res://_Prefab/Players/Player.tscn" type="PackedScene" id=17]
 [ext_resource path="res://_Prefab/UI/HUD.tscn" type="PackedScene" id=18]
+
 
 [sub_resource type="GDScript" id=1]
 

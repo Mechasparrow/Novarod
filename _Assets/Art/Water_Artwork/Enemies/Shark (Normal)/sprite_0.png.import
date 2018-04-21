@@ -1,0 +1,32 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/sprite_0.png-c4760c2f592327d00a9630582f74948c.stex"
+
+[deps]
+
+source_file="res://_Assets/Art/Water_Artwork/Enemies/Shark (Normal)/sprite_0.png"
+source_md5="a06daac2aa509235f76a742dab2b380b"
+
+dest_files=[ "res://.import/sprite_0.png-c4760c2f592327d00a9630582f74948c.stex" ]
+dest_md5="e5081a3556ac4f6e5f8045c736097e44"
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=false
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+stream=false
+size_limit=0
+detect_3d=false
+svg/scale=1.0

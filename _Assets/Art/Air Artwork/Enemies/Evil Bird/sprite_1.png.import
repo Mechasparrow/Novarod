@@ -1,0 +1,32 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/sprite_1.png-5486a466c3fe9d506211664283e1c4b7.stex"
+
+[deps]
+
+source_file="res://_Assets/Art/Air Artwork/Enemies/Evil Bird/sprite_1.png"
+source_md5="890475e198b077788ccb869dd8da3562"
+
+dest_files=[ "res://.import/sprite_1.png-5486a466c3fe9d506211664283e1c4b7.stex" ]
+dest_md5="51e3c980ed197188d5a414581d7b12af"
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=false
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+stream=false
+size_limit=0
+detect_3d=false
+svg/scale=1.0

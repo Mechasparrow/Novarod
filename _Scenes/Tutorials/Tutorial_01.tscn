@@ -2,8 +2,8 @@
 
 [ext_resource path="res://_Scripts/Level_Bahavior/level_script.gd" type="Script" id=1]
 [ext_resource path="res://_Scripts/NPC_Behavior/Birdo.gd" type="Script" id=2]
-[ext_resource path="res://_Assets/Art/Spritesheets/Rod-Birdo/birdo_0.png" type="Texture" id=3]
-[ext_resource path="res://_Assets/Art/Spritesheets/Rod-Birdo/birdo_1.png" type="Texture" id=4]
+[ext_resource path="res://_Assets/Art/NPC/Rod-Birdo/birdo_0.png" type="Texture" id=3]
+[ext_resource path="res://_Assets/Art/NPC/Rod-Birdo/birdo_1.png" type="Texture" id=4]
 [ext_resource path="res://_Fonts/imported_fonts/pixel_font.tres" type="DynamicFont" id=5]
 [ext_resource path="res://_Tileset/normal_world.tres" type="TileSet" id=6]
 [ext_resource path="res://_Tileset/hazards.tres" type="TileSet" id=7]
@@ -13,17 +13,19 @@
 [ext_resource path="res://_Assets/Art/NPC/Sign_Post.png" type="Texture" id=11]
 [ext_resource path="res://_Fonts/Roboto-Regular.ttf" type="DynamicFontData" id=12]
 [ext_resource path="res://_Fonts/Munro.ttf" type="DynamicFontData" id=13]
-[ext_resource path="res://_Assets/Art/Spritesheets/Keys/left_key_0.png" type="Texture" id=14]
-[ext_resource path="res://_Assets/Art/Spritesheets/Keys/left_key_1.png" type="Texture" id=15]
-[ext_resource path="res://_Assets/Art/Spritesheets/Keys/left_key_2.png" type="Texture" id=16]
-[ext_resource path="res://_Assets/Art/Spritesheets/Keys/left_key_3.png" type="Texture" id=17]
-[ext_resource path="res://_Assets/Art/Spritesheets/Keys/right_key_0.png" type="Texture" id=18]
-[ext_resource path="res://_Assets/Art/Spritesheets/Keys/right_key_1.png" type="Texture" id=19]
-[ext_resource path="res://_Assets/Art/Spritesheets/Keys/right_key_2.png" type="Texture" id=20]
-[ext_resource path="res://_Assets/Art/Spritesheets/Keys/right_key_3.png" type="Texture" id=21]
+[ext_resource path="res://_Assets/Art/UI/Keys/left_key_0.png" type="Texture" id=14]
+[ext_resource path="res://_Assets/Art/UI/Keys/left_key_1.png" type="Texture" id=15]
+[ext_resource path="res://_Assets/Art/UI/Keys/left_key_2.png" type="Texture" id=16]
+[ext_resource path="res://_Assets/Art/UI/Keys/left_key_3.png" type="Texture" id=17]
+[ext_resource path="res://_Assets/Art/UI/Keys/right_key_0.png" type="Texture" id=18]
+[ext_resource path="res://_Assets/Art/UI/Keys/right_key_1.png" type="Texture" id=19]
+[ext_resource path="res://_Assets/Art/UI/Keys/right_key_2.png" type="Texture" id=20]
+[ext_resource path="res://_Assets/Art/UI/Keys/right_key_3.png" type="Texture" id=21]
 [ext_resource path="res://_Prefab/Doors/Door.tscn" type="PackedScene" id=22]
 [ext_resource path="res://_Prefab/Players/Player.tscn" type="PackedScene" id=23]
 [ext_resource path="res://_Prefab/UI/HUD.tscn" type="PackedScene" id=24]
+
+
 
 [sub_resource type="GDScript" id=1]
 

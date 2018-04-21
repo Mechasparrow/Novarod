@@ -14,8 +14,9 @@
 [ext_resource path="res://_Scripts/UI_Behavior/Inventory.gd" type="Script" id=12]
 [ext_resource path="res://_Assets/Art/UI/Inventory_Square.png" type="Texture" id=13]
 [ext_resource path="res://_Scripts/UI_Behavior/Lock.gd" type="Script" id=14]
-[ext_resource path="res://_Assets/Art/Spritesheets/Door/lock_1.png" type="Texture" id=15]
-[ext_resource path="res://_Assets/Art/Spritesheets/Door/lock_0.png" type="Texture" id=16]
+[ext_resource path="res://_Assets/Art/General_Scene_art/Door/lock_1.png" type="Texture" id=15]
+[ext_resource path="res://_Assets/Art/General_Scene_art/Door/lock_0.png" type="Texture" id=16]
+
 
 
 

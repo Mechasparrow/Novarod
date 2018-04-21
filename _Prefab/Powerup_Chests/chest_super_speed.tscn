@@ -1,8 +1,9 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://_Scripts/Level_Bahavior/Chest.gd" type="Script" id=1]
-[ext_resource path="res://_Assets/Art/Spritesheets/Chest/Chest_Super_Speed/speed_chest_0.png" type="Texture" id=2]
-[ext_resource path="res://_Assets/Art/Spritesheets/Chest/Chest_Super_Speed/speed_chest_1.png" type="Texture" id=3]
+[ext_resource path="res://_Assets/Art/General_Scene_art/Chest/Chest_Super_Speed/speed_chest_0.png" type="Texture" id=2]
+[ext_resource path="res://_Assets/Art/General_Scene_art/Chest/Chest_Super_Speed/speed_chest_1.png" type="Texture" id=3]
+
 
 
 [sub_resource type="SpriteFrames" id=1]

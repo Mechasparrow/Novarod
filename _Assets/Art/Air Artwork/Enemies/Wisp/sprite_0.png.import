@@ -1,0 +1,32 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/sprite_0.png-8600e08bf4f43999482fa63232268e1d.stex"
+
+[deps]
+
+source_file="res://_Assets/Art/Air Artwork/Enemies/Wisp/sprite_0.png"
+source_md5="60822c854dae9416030c9fe5cce6e0a3"
+
+dest_files=[ "res://.import/sprite_0.png-8600e08bf4f43999482fa63232268e1d.stex" ]
+dest_md5="2761609ded403f54c9efcf4c9d27d829"
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=false
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+stream=false
+size_limit=0
+detect_3d=false
+svg/scale=1.0

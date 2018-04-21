@@ -1,0 +1,32 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/sprite_1.png-c05220f95805d05528706a24531270a1.stex"
+
+[deps]
+
+source_file="res://_Assets/Art/Water_Artwork/Enemies/Shark (Boss)/sprite_1.png"
+source_md5="f29e89139b2f19a76df59ed945b7dbb7"
+
+dest_files=[ "res://.import/sprite_1.png-c05220f95805d05528706a24531270a1.stex" ]
+dest_md5="11aa0c1808d0dfc368b08edfa6ba04f4"
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=false
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+stream=false
+size_limit=0
+detect_3d=false
+svg/scale=1.0
