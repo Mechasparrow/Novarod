@@ -36,7 +36,7 @@ func _ready():
 #	pass
 "
 
-[sub_resource type="SpriteFrames" id=3]
+[sub_resource type="SpriteFrames" id=2]
 
 animations = [ {
 "frames": [ ExtResource( 10 ) ],
@@ -45,12 +45,12 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=3]
 
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[node name="World" type="Node" groups=[
+[node name="World" type="Node" index="0" groups=[
 "gem_collect_level",
 ]]
 
@@ -116,6 +116,8 @@ __meta__ = {
 }
 
 [node name="Village Art" type="Node2D" parent="Tiles" index="2"]
+
+editor/display_folded = true
 
 [node name="VillageAsetics" type="TileMap" parent="Tiles/Village Art" index="0"]
 
@@ -557,7 +559,6 @@ position = Vector2( -63.0001, 391 )
 
 [node name="Rod_NPC2" type="Area2D" parent="NPC" index="1"]
 
-editor/display_folded = true
 position = Vector2( 762, 327 )
 scale = Vector2( 1.8, 1.8 )
 input_pickable = true
@@ -573,7 +574,7 @@ _sections_unfolded = [ "Transform" ]
 [node name="AnimatedSprite" type="AnimatedSprite" parent="NPC/Rod_NPC2" index="0"]
 
 scale = Vector2( 4, 4 )
-frames = SubResource( 3 )
+frames = SubResource( 2 )
 animation = "still"
 playing = true
 flip_h = true
@@ -585,7 +586,7 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPC/Rod_NPC2" index="1"]
 
 scale = Vector2( 2.5, 2.5 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
@@ -601,7 +602,6 @@ transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
 [node name="Popup" type="PopupPanel" parent="NPC/Rod_NPC2/CanvasLayer" index="0"]
 
-visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -611,6 +611,7 @@ margin_top = 470.0
 margin_right = 976.0
 margin_bottom = 544.0
 rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
@@ -625,7 +626,7 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 210.0
 margin_top = 26.0
-margin_right = 674.0
+margin_right = 690.0
 margin_bottom = 58.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = true
@@ -640,7 +641,7 @@ visible_characters = -1
 percent_visible = 1.0
 meta_underlined = true
 tab_size = 4
-text = "You wear a scarf. Your a disgrace"
+text = "You wear a scarf. You're a disgrace"
 scroll_active = false
 scroll_following = false
 selection_enabled = false
@@ -664,7 +665,7 @@ _sections_unfolded = [ "Transform" ]
 [node name="AnimatedSprite" type="AnimatedSprite" parent="NPC/Rod_NPC3" index="0"]
 
 scale = Vector2( 4, 4 )
-frames = SubResource( 3 )
+frames = SubResource( 2 )
 animation = "still"
 playing = true
 flip_h = true
@@ -676,7 +677,7 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPC/Rod_NPC3" index="1"]
 
 scale = Vector2( 2.5, 2.5 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
@@ -702,6 +703,7 @@ margin_top = 470.0
 margin_right = 976.0
 margin_bottom = 544.0
 rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
