@@ -10,7 +10,7 @@
 [ext_resource path="res://_Prefab/trees/tree1.tscn" type="PackedScene" id=8]
 [ext_resource path="res://_Assets/Art/Trees/tree_1.png" type="Texture" id=9]
 [ext_resource path="res://_Scripts/NPC_Behavior/Sign.gd" type="Script" id=10]
-[ext_resource path="res://_Assets/Art/Sign_Post.png" type="Texture" id=11]
+[ext_resource path="res://_Assets/Art/NPC/Sign_Post.png" type="Texture" id=11]
 [ext_resource path="res://_Fonts/Roboto-Regular.ttf" type="DynamicFontData" id=12]
 [ext_resource path="res://_Fonts/Munro.ttf" type="DynamicFontData" id=13]
 [ext_resource path="res://_Assets/Art/Spritesheets/Keys/left_key_0.png" type="Texture" id=14]
@@ -24,10 +24,6 @@
 [ext_resource path="res://_Prefab/Doors/Door.tscn" type="PackedScene" id=22]
 [ext_resource path="res://_Prefab/Players/Player.tscn" type="PackedScene" id=23]
 [ext_resource path="res://_Prefab/UI/HUD.tscn" type="PackedScene" id=24]
-
-
-
-
 
 [sub_resource type="GDScript" id=1]
 
@@ -97,7 +93,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[node name="World" type="Node" index="0"]
+[node name="World" type="Node"]
 
 script = ExtResource( 1 )
 reset_position = Vector2( 100, 400 )
@@ -375,7 +371,6 @@ position = Vector2( 63, -43 )
 scale = Vector2( 4, 4 )
 frames = SubResource( 6 )
 animation = "default"
-frame = 2
 playing = true
 _sections_unfolded = [ "Transform" ]
 
@@ -385,7 +380,7 @@ position = Vector2( 857, -49 )
 scale = Vector2( 4, 4 )
 frames = SubResource( 7 )
 animation = "default"
-frame = 3
+frame = 1
 playing = true
 _sections_unfolded = [ "Transform" ]
 

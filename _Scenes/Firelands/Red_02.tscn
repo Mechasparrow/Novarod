@@ -16,12 +16,8 @@
 [ext_resource path="res://_Assets/Art/Spritesheets/Dragon/sprite_0.png" type="Texture" id=14]
 [ext_resource path="res://_Assets/Art/Spritesheets/Dragon/sprite_2.png" type="Texture" id=15]
 [ext_resource path="res://_Assets/Art/Spritesheets/Dragon/sprite_3.png" type="Texture" id=16]
-[ext_resource path="res://_Assets/Art/heart_0.png" type="Texture" id=17]
+[ext_resource path="res://_Assets/Art/UI/heart_0.png" type="Texture" id=17]
 [ext_resource path="res://_Prefab/UI/HUD.tscn" type="PackedScene" id=18]
-
-
-
-
 
 [sub_resource type="GDScript" id=1]
 
@@ -345,7 +341,7 @@ _sections_unfolded = [ "Transform" ]
 scale = Vector2( 6, 6 )
 frames = SubResource( 3 )
 animation = "move"
-frame = 2
+frame = 1
 playing = true
 _sections_unfolded = [ "Transform" ]
 

@@ -14,10 +14,6 @@
 [ext_resource path="res://_Prefab/Players/Player.tscn" type="PackedScene" id=12]
 [ext_resource path="res://_Prefab/UI/HUD.tscn" type="PackedScene" id=13]
 
-
-
-
-
 [sub_resource type="GDScript" id=1]
 
 script/source = "extends Node2D
@@ -96,36 +92,28 @@ __meta__ = {
 
 editor/display_folded = true
 
-[node name="Fire" parent="Tiles/Fire" index="0" groups=[
-"hazard",
-] instance=ExtResource( 3 )]
+[node name="Fire" parent="Tiles/Fire" index="0" instance=ExtResource( 3 )]
 
 modulate = Color( 1, 1, 1, 0.862745 )
 position = Vector2( -32, 480 )
 scale = Vector2( 0.5, 0.5 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
-[node name="Fire2" parent="Tiles/Fire" index="1" groups=[
-"hazard",
-] instance=ExtResource( 3 )]
+[node name="Fire2" parent="Tiles/Fire" index="1" instance=ExtResource( 3 )]
 
 modulate = Color( 1, 1, 1, 0.862745 )
 position = Vector2( -96, 480 )
 scale = Vector2( 0.5, 0.5 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
-[node name="Fire3" parent="Tiles/Fire" index="2" groups=[
-"hazard",
-] instance=ExtResource( 3 )]
+[node name="Fire3" parent="Tiles/Fire" index="2" instance=ExtResource( 3 )]
 
 modulate = Color( 1, 1, 1, 0.862745 )
 position = Vector2( -160, 480 )
 scale = Vector2( 0.5, 0.5 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
-[node name="Fire4" parent="Tiles/Fire" index="3" groups=[
-"hazard",
-] instance=ExtResource( 3 )]
+[node name="Fire4" parent="Tiles/Fire" index="3" instance=ExtResource( 3 )]
 
 modulate = Color( 1, 1, 1, 0.862745 )
 position = Vector2( -224, 480 )

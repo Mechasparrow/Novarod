@@ -1,15 +1,14 @@
 [gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://_Scripts/Level_Bahavior/level_select.gd" type="Script" id=1]
-[ext_resource path="res://_Assets/Art/Tutorials_Button.png" type="Texture" id=2]
+[ext_resource path="res://_Assets/Art/Buttons/Tutorials_Button.png" type="Texture" id=2]
 [ext_resource path="res://_Fonts/Roboto-Regular.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://_Fonts/Munro.ttf" type="DynamicFontData" id=4]
-[ext_resource path="res://_Assets/Art/XP_Bar.png" type="Texture" id=5]
-[ext_resource path="res://_Assets/Art/Health_Bar.png" type="Texture" id=6]
-[ext_resource path="res://_Assets/Art/Water_button_sprite.png" type="Texture" id=7]
-[ext_resource path="res://_Assets/Art/Yello_button.png" type="Texture" id=8]
+[ext_resource path="res://_Assets/Art/UI/XP_Bar.png" type="Texture" id=5]
+[ext_resource path="res://_Assets/Art/UI/Health_Bar.png" type="Texture" id=6]
+[ext_resource path="res://_Assets/Art/Buttons/Water_button_sprite.png" type="Texture" id=7]
+[ext_resource path="res://_Assets/Art/Buttons/Yello_button.png" type="Texture" id=8]
 [ext_resource path="res://_Fonts/imported_fonts/pixel_font.tres" type="DynamicFont" id=9]
-
 
 [sub_resource type="GDScript" id=1]
 
@@ -579,7 +578,7 @@ func _ready():
 #	pass
 "
 
-[node name="Node" type="Node"]
+[node name="Node" type="Node" index="0"]
 
 script = ExtResource( 1 )
 
@@ -1898,7 +1897,6 @@ _sections_unfolded = [ "Rect", "custom_fonts" ]
 
 [node name="Village_01" type="Node2D" parent="Village_button" index="0"]
 
-editor/display_folded = true
 position = Vector2( 784, 192 )
 scale = Vector2( 0.75, 0.75 )
 _sections_unfolded = [ "Transform", "Visibility" ]

@@ -12,10 +12,6 @@
 [ext_resource path="res://_Prefab/Enemies/Left_Dragon.tscn" type="PackedScene" id=10]
 [ext_resource path="res://_Prefab/UI/HUD.tscn" type="PackedScene" id=11]
 
-
-
-
-
 [sub_resource type="GDScript" id=1]
 
 script/source = "extends Node2D

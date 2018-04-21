@@ -6,14 +6,11 @@
 [ext_resource path="res://_Prefab/Water_Env/algae.tscn" type="PackedScene" id=4]
 [ext_resource path="res://_Prefab/Water_Env/ivy.tscn" type="PackedScene" id=5]
 [ext_resource path="res://_Prefab/Water_Env/lily.tscn" type="PackedScene" id=6]
-[ext_resource path="res://_Assets/Art/Rod_Water.png" type="Texture" id=7]
+[ext_resource path="res://_Assets/Art/Water_Artwork/Rod_Water.png" type="Texture" id=7]
 [ext_resource path="res://_Prefab/gems/gem_blue.tscn" type="PackedScene" id=8]
 [ext_resource path="res://_Prefab/Doors/Door.tscn" type="PackedScene" id=9]
 [ext_resource path="res://_Prefab/Players/Player.tscn" type="PackedScene" id=10]
 [ext_resource path="res://_Prefab/UI/HUD.tscn" type="PackedScene" id=11]
-
-
-
 
 [sub_resource type="GDScript" id=1]
 
@@ -37,7 +34,7 @@ func _ready():
 #	pass
 "
 
-[node name="World" type="Node" index="0" groups=[
+[node name="World" type="Node" groups=[
 "gem_collect_level",
 ]]
 

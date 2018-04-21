@@ -6,7 +6,7 @@
 [ext_resource path="res://_Prefab/Powerup_Chests/chest_jump_up.tscn" type="PackedScene" id=4]
 [ext_resource path="res://_Tileset/normal_world.tres" type="TileSet" id=5]
 [ext_resource path="res://_Tileset/hazards.tres" type="TileSet" id=6]
-[ext_resource path="res://_Assets/Art/Rod_Water.png" type="Texture" id=7]
+[ext_resource path="res://_Assets/Art/Water_Artwork/Rod_Water.png" type="Texture" id=7]
 [ext_resource path="res://_Prefab/trees/tree1.tscn" type="PackedScene" id=8]
 [ext_resource path="res://_Prefab/trees/tree2.tscn" type="PackedScene" id=9]
 [ext_resource path="res://_Prefab/trees/tree3.tscn" type="PackedScene" id=10]
@@ -19,7 +19,7 @@
 [ext_resource path="res://_Prefab/Coins/red_coin.tscn" type="PackedScene" id=17]
 [ext_resource path="res://_Prefab/Scene_Elements/Sign.tscn" type="PackedScene" id=18]
 [ext_resource path="res://_Scripts/NPC_Behavior/Sign.gd" type="Script" id=19]
-[ext_resource path="res://_Assets/Art/Sign_Post.png" type="Texture" id=20]
+[ext_resource path="res://_Assets/Art/NPC/Sign_Post.png" type="Texture" id=20]
 [ext_resource path="res://_Fonts/Roboto-Regular.ttf" type="DynamicFontData" id=21]
 [ext_resource path="res://_Fonts/Munro.ttf" type="DynamicFontData" id=22]
 [ext_resource path="res://_Prefab/Platforms/Platform_Reg.tscn" type="PackedScene" id=23]
@@ -37,6 +37,8 @@
 [ext_resource path="res://_Prefab/NPC/Birdo-NPC.tscn" type="PackedScene" id=35]
 [ext_resource path="res://_Prefab/Players/Player.tscn" type="PackedScene" id=36]
 [ext_resource path="res://_Prefab/UI/HUD.tscn" type="PackedScene" id=37]
+
+
 
 [sub_resource type="GDScript" id=1]
 

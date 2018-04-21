@@ -14,12 +14,6 @@
 [ext_resource path="res://_Prefab/Scene_Elements/Cage.tscn" type="PackedScene" id=12]
 [ext_resource path="res://_Scripts/Enemy_Behavior/boss-handler.gd" type="Script" id=13]
 
-
-
-
-
-
-
 [sub_resource type="GDScript" id=1]
 
 script/source = "extends Node2D
@@ -97,7 +91,7 @@ func _process(delta):
 
 "
 
-[node name="World" type="Node" index="0" groups=[
+[node name="World" type="Node" groups=[
 "gem_collect_level",
 ]]
 

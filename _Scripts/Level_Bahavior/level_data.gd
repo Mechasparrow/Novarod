@@ -70,8 +70,10 @@ func generate_level_path(type, level):
 	var level_count = levels[type]["count"]
 	
 	if (level > level_count):
-		var level_select = load("res://_Scenes/Level_Select.tscn")
+		var level_select = load("res://_Scenes/Navigation/Level_Select.tscn")
 		return level_select
 	else:
-		var lvl_scene = load("res://_Scenes/" + levels[type]["folder"] + "/" + levels[type][str(level)] + ".tscn")
+		var level_path = "res://_Scenes/" + levels[type]["folder"] + "/" + levels[type][str(level)] + ".tscn"
+		print (level_path)
+		var lvl_scene = load(level_path)
 		return lvl_scene

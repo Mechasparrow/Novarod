@@ -12,9 +12,6 @@
 [ext_resource path="res://_Prefab/Players/Player.tscn" type="PackedScene" id=10]
 [ext_resource path="res://_Prefab/UI/HUD.tscn" type="PackedScene" id=11]
 
-
-
-
 [sub_resource type="GDScript" id=1]
 
 script/source = "extends Node2D
@@ -56,7 +53,7 @@ animations = [ {
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[node name="World" type="Node" index="0"]
+[node name="World" type="Node"]
 
 script = ExtResource( 1 )
 reset_position = Vector2( 100, 400 )
@@ -185,6 +182,7 @@ script = ExtResource( 6 )
 scale = Vector2( 4, 4 )
 frames = SubResource( 2 )
 animation = "hopping"
+frame = 1
 playing = true
 flip_h = true
 _sections_unfolded = [ "Transform" ]
