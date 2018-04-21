@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://_Scripts/level_script.gd" type="Script" id=1]
 [ext_resource path="res://_Prefab/Powerup_Chests/chest_speed.tscn" type="PackedScene" id=2]
@@ -26,16 +26,17 @@
 [ext_resource path="res://_Prefab/Platforms/Platform_Reg_Vertical.tscn" type="PackedScene" id=24]
 [ext_resource path="res://_Prefab/Platforms/Platform_Reg_Horizontal.tscn" type="PackedScene" id=25]
 [ext_resource path="res://_Prefab/Pickups/Weapon_Pickup.tscn" type="PackedScene" id=26]
-[ext_resource path="res://_Prefab/Door.tscn" type="PackedScene" id=27]
-[ext_resource path="res://_Prefab/Enemies/Enemy_01.tscn" type="PackedScene" id=28]
-[ext_resource path="res://_Prefab/Enemies/Enemy_02.tscn" type="PackedScene" id=29]
-[ext_resource path="res://_Scripts/TelePair.gd" type="Script" id=30]
-[ext_resource path="res://_Assets/Art/Spritesheets/Teleporter/teleporter1.png" type="Texture" id=31]
-[ext_resource path="res://_Assets/Art/Spritesheets/Teleporter/teleporter0.png" type="Texture" id=32]
-[ext_resource path="res://_Prefab/Enemies/enemy_ai_marker.tscn" type="PackedScene" id=33]
-[ext_resource path="res://_Prefab/NPC/Birdo-NPC.tscn" type="PackedScene" id=34]
-[ext_resource path="res://_Prefab/Players/Player.tscn" type="PackedScene" id=35]
-[ext_resource path="res://_Prefab/HUD.tscn" type="PackedScene" id=36]
+[ext_resource path="res://_Prefab/Pickups/Health_Pack.tscn" type="PackedScene" id=27]
+[ext_resource path="res://_Prefab/Door.tscn" type="PackedScene" id=28]
+[ext_resource path="res://_Prefab/Enemies/Enemy_01.tscn" type="PackedScene" id=29]
+[ext_resource path="res://_Prefab/Enemies/Enemy_02.tscn" type="PackedScene" id=30]
+[ext_resource path="res://_Scripts/TelePair.gd" type="Script" id=31]
+[ext_resource path="res://_Assets/Art/Spritesheets/Teleporter/teleporter1.png" type="Texture" id=32]
+[ext_resource path="res://_Assets/Art/Spritesheets/Teleporter/teleporter0.png" type="Texture" id=33]
+[ext_resource path="res://_Prefab/Enemies/enemy_ai_marker.tscn" type="PackedScene" id=34]
+[ext_resource path="res://_Prefab/NPC/Birdo-NPC.tscn" type="PackedScene" id=35]
+[ext_resource path="res://_Prefab/Players/Player.tscn" type="PackedScene" id=36]
+[ext_resource path="res://_Prefab/HUD.tscn" type="PackedScene" id=37]
 
 [sub_resource type="GDScript" id=1]
 
@@ -776,28 +777,29 @@ position = Vector2( 2704, 432 )
 
 [node name="Pickups" type="Node2D" parent="." index="8"]
 
-editor/display_folded = true
-scale = Vector2( 6.5625, 6.5625 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Weapon_Pickup" parent="Pickups" index="0" instance=ExtResource( 26 )]
 
-position = Vector2( -14.6286, 73.1429 )
-scale = Vector2( 0.1, 0.1 )
+position = Vector2( -64, 464 )
 script = SubResource( 4 )
 
-[node name="Door" parent="." index="9" instance=ExtResource( 27 )]
+[node name="Health_Pack" parent="Pickups" index="1" instance=ExtResource( 27 )]
+
+position = Vector2( 720, 464 )
+
+[node name="Door" parent="." index="9" instance=ExtResource( 28 )]
 
 [node name="Enemies" type="Node2D" parent="." index="10"]
 
 editor/display_folded = true
 position = Vector2( 318.166, 383.563 )
 
-[node name="Enemy_01" parent="Enemies" index="0" instance=ExtResource( 28 )]
+[node name="Enemy_01" parent="Enemies" index="0" instance=ExtResource( 29 )]
 
 position = Vector2( 450.688, 456.845 )
 
-[node name="Enemy_02" parent="Enemies" index="1" instance=ExtResource( 29 )]
+[node name="Enemy_02" parent="Enemies" index="1" instance=ExtResource( 30 )]
 
 position = Vector2( 401.834, 0.437012 )
 
@@ -807,7 +809,7 @@ position = Vector2( 401.834, 0.437012 )
 
 position = Vector2( 0, 148 )
 scale = Vector2( 4, 4 )
-script = ExtResource( 30 )
+script = ExtResource( 31 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="TeleporterOne" type="Area2D" parent="Teleporters/TelePair" index="0"]
@@ -823,7 +825,7 @@ audio_bus_name = "Master"
 
 [node name="Sprite" type="Sprite" parent="Teleporters/TelePair/TeleporterOne" index="0"]
 
-texture = ExtResource( 31 )
+texture = ExtResource( 32 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Teleporters/TelePair/TeleporterOne" index="1"]
 
@@ -842,7 +844,7 @@ audio_bus_name = "Master"
 
 [node name="Sprite2" type="Sprite" parent="Teleporters/TelePair/TeleporterTwo" index="0"]
 
-texture = ExtResource( 32 )
+texture = ExtResource( 33 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Teleporters/TelePair/TeleporterTwo" index="1"]
 
@@ -853,23 +855,23 @@ shape = SubResource( 5 )
 editor/display_folded = true
 position = Vector2( 272, 64 )
 
-[node name="enemy_ai_marker2" parent="Enemy_Markers" index="0" instance=ExtResource( 33 )]
+[node name="enemy_ai_marker2" parent="Enemy_Markers" index="0" instance=ExtResource( 34 )]
 
 position = Vector2( 267.135, -57.0512 )
 
-[node name="enemy_ai_marker3" parent="Enemy_Markers" index="1" instance=ExtResource( 33 )]
+[node name="enemy_ai_marker3" parent="Enemy_Markers" index="1" instance=ExtResource( 34 )]
 
 position = Vector2( 64, -512 )
 
-[node name="enemy_ai_marker4" parent="Enemy_Markers" index="2" instance=ExtResource( 33 )]
+[node name="enemy_ai_marker4" parent="Enemy_Markers" index="2" instance=ExtResource( 34 )]
 
 position = Vector2( -1168, -528 )
 
-[node name="Birdo-NPC" parent="." index="13" instance=ExtResource( 34 )]
+[node name="Birdo-NPC" parent="." index="13" instance=ExtResource( 35 )]
 
-[node name="Player" parent="." index="14" instance=ExtResource( 35 )]
+[node name="Player" parent="." index="14" instance=ExtResource( 36 )]
 
-[node name="HUD" parent="." index="15" instance=ExtResource( 36 )]
+[node name="HUD" parent="." index="15" instance=ExtResource( 37 )]
 
 [connection signal="body_entered" from="Signs/Sign2" to="Signs/Sign2" method="on_body_enter"]
 
