@@ -60,6 +60,17 @@ func _process(delta):
 		end_door.close_door()
 
 	if (level_complete and end_door.player_here == true and level_end == false and enter_door):
+		
+		# Game Over bypass
+		var type = level_info.type
+		var current_level = level_info.level
+		
+		if (type == "village" and current_level == 2):
+			var good_ending = load("res://_Scenes/Navigation/Good_Ending.tscn")
+			get_tree().change_scene_to(good_ending)
+			
+			pass
+		
 		level_end = true
 		level_stop()
 		
@@ -74,7 +85,7 @@ func _process(delta):
 		if (type == "village" and current_level == 1):
 			type = "green"
 			current_level = 0
-		
+			
 		var nxt_level = current_level + 1
 
 		var level_scn = get_node("/root/level_data").generate_level_path(type, nxt_level)

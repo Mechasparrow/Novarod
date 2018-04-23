@@ -57,6 +57,12 @@ var levels = {
 		"count": 2,
 		"1": "Village_beginning",
 		"2": "Village_ending"
+	},
+	"endings": {
+		"folder": "Navigation",
+		"count": 2,
+		"1": "Good_Ending",
+		"2": "Bad_Ending"	
 	}
 }
 
