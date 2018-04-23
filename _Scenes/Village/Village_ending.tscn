@@ -1,41 +1,46 @@
-[gd_scene load_steps=56 format=2]
+[gd_scene load_steps=64 format=2]
 
 [ext_resource path="res://_Scripts/Level_Bahavior/level_script.gd" type="Script" id=1]
-[ext_resource path="res://_Tileset/normal_world.tres" type="TileSet" id=2]
-[ext_resource path="res://_Tileset/hazards.tres" type="TileSet" id=3]
-[ext_resource path="res://_Prefab/Doors/UselessDoor.tscn" type="PackedScene" id=4]
-[ext_resource path="res://_Animations/_Frames/door_frames.tres" type="SpriteFrames" id=5]
-[ext_resource path="res://_Assets/Art/Water_Artwork/Rod_Water.png" type="Texture" id=6]
-[ext_resource path="res://_Assets/Art/Fire Artwork/Fire/sprite_0.png" type="Texture" id=7]
-[ext_resource path="res://_Assets/Art/Fire Artwork/Fire/sprite_1.png" type="Texture" id=8]
-[ext_resource path="res://_Assets/Art/Fire Artwork/Fire/sprite_2.png" type="Texture" id=9]
-[ext_resource path="res://_Assets/Art/Fire Artwork/Fire/sprite_3.png" type="Texture" id=10]
-[ext_resource path="res://_Prefab/Platforms/Platform_Reg_Vertical.tscn" type="PackedScene" id=11]
-[ext_resource path="res://_Prefab/Pickups/Weapon_Pickup.tscn" type="PackedScene" id=12]
-[ext_resource path="res://_Scripts/Pickup_Behavior/Weapon_Gun_Pickup.gd" type="Script" id=13]
-[ext_resource path="res://_Prefab/Doors/Door.tscn" type="PackedScene" id=14]
-[ext_resource path="res://_Scripts/NPC_Behavior/Birdo.gd" type="Script" id=15]
-[ext_resource path="res://_Assets/Art/NPC/Rod_NPC/sprite_0.png" type="Texture" id=16]
-[ext_resource path="res://_Fonts/imported_fonts/pixel_font.tres" type="DynamicFont" id=17]
-[ext_resource path="res://_Scripts/Level_Bahavior/TelePair.gd" type="Script" id=18]
-[ext_resource path="res://_Assets/Art/General_Scene_art/Teleporter/teleporter1.png" type="Texture" id=19]
-[ext_resource path="res://_Assets/Art/General_Scene_art/Teleporter/teleporter0.png" type="Texture" id=20]
-[ext_resource path="res://_Scripts/Enemy_Behavior/Demon.gd" type="Script" id=21]
-[ext_resource path="res://_Assets/Art/Village_Artwork/Enemies/grass_demon/sprite_0.png" type="Texture" id=22]
-[ext_resource path="res://_Assets/Art/Village_Artwork/Enemies/grass_demon/sprite_1.png" type="Texture" id=23]
-[ext_resource path="res://_Assets/Art/Village_Artwork/Enemies/grass_demon/sprite_2.png" type="Texture" id=24]
-[ext_resource path="res://_Assets/Art/Village_Artwork/Enemies/air_demon/sprite_0.png" type="Texture" id=25]
-[ext_resource path="res://_Assets/Art/Village_Artwork/Enemies/air_demon/sprite_1.png" type="Texture" id=26]
-[ext_resource path="res://_Assets/Art/Village_Artwork/Enemies/air_demon/sprite_2.png" type="Texture" id=27]
-[ext_resource path="res://_Assets/Art/Village_Artwork/Enemies/water_demon/sprite_0.png" type="Texture" id=28]
-[ext_resource path="res://_Assets/Art/Village_Artwork/Enemies/water_demon/sprite_1.png" type="Texture" id=29]
-[ext_resource path="res://_Assets/Art/Village_Artwork/Enemies/water_demon/sprite_2.png" type="Texture" id=30]
-[ext_resource path="res://_Assets/Art/Village_Artwork/Enemies/fire_demon/sprite_0.png" type="Texture" id=31]
-[ext_resource path="res://_Assets/Art/Village_Artwork/Enemies/fire_demon/sprite_1.png" type="Texture" id=32]
-[ext_resource path="res://_Assets/Art/Village_Artwork/Enemies/fire_demon/sprite_2.png" type="Texture" id=33]
-[ext_resource path="res://_Prefab/UI/Heart.tscn" type="PackedScene" id=34]
-[ext_resource path="res://_Prefab/Players/Player.tscn" type="PackedScene" id=35]
-[ext_resource path="res://_Prefab/UI/HUD.tscn" type="PackedScene" id=36]
+[ext_resource path="res://_Scripts/Level_Bahavior/evil_ending_handler.gd" type="Script" id=2]
+[ext_resource path="res://_Tileset/normal_world.tres" type="TileSet" id=3]
+[ext_resource path="res://_Tileset/hazards.tres" type="TileSet" id=4]
+[ext_resource path="res://_Prefab/Doors/UselessDoor.tscn" type="PackedScene" id=5]
+[ext_resource path="res://_Animations/_Frames/door_frames.tres" type="SpriteFrames" id=6]
+[ext_resource path="res://_Assets/Art/Water_Artwork/Rod_Water.png" type="Texture" id=7]
+[ext_resource path="res://_Assets/Art/Fire Artwork/Fire/sprite_0.png" type="Texture" id=8]
+[ext_resource path="res://_Assets/Art/Fire Artwork/Fire/sprite_1.png" type="Texture" id=9]
+[ext_resource path="res://_Assets/Art/Fire Artwork/Fire/sprite_2.png" type="Texture" id=10]
+[ext_resource path="res://_Assets/Art/Fire Artwork/Fire/sprite_3.png" type="Texture" id=11]
+[ext_resource path="res://_Assets/Art/UI/Keys/interact_0.png" type="Texture" id=12]
+[ext_resource path="res://_Assets/Art/UI/Keys/interact_1.png" type="Texture" id=13]
+[ext_resource path="res://_Assets/Art/UI/Keys/interact_2.png" type="Texture" id=14]
+[ext_resource path="res://_Assets/Art/UI/Keys/interact_3.png" type="Texture" id=15]
+[ext_resource path="res://_Prefab/Platforms/Platform_Reg_Vertical.tscn" type="PackedScene" id=16]
+[ext_resource path="res://_Prefab/Pickups/Weapon_Pickup.tscn" type="PackedScene" id=17]
+[ext_resource path="res://_Scripts/Pickup_Behavior/Weapon_Gun_Pickup.gd" type="Script" id=18]
+[ext_resource path="res://_Prefab/Doors/Door.tscn" type="PackedScene" id=19]
+[ext_resource path="res://_Scripts/NPC_Behavior/Birdo.gd" type="Script" id=20]
+[ext_resource path="res://_Assets/Art/NPC/Rod_NPC/sprite_0.png" type="Texture" id=21]
+[ext_resource path="res://_Fonts/imported_fonts/pixel_font.tres" type="DynamicFont" id=22]
+[ext_resource path="res://_Scripts/Level_Bahavior/TelePair.gd" type="Script" id=23]
+[ext_resource path="res://_Assets/Art/General_Scene_art/Teleporter/teleporter1.png" type="Texture" id=24]
+[ext_resource path="res://_Assets/Art/General_Scene_art/Teleporter/teleporter0.png" type="Texture" id=25]
+[ext_resource path="res://_Scripts/Enemy_Behavior/Demon.gd" type="Script" id=26]
+[ext_resource path="res://_Assets/Art/Village_Artwork/Enemies/fire_demon/sprite_0.png" type="Texture" id=27]
+[ext_resource path="res://_Assets/Art/Village_Artwork/Enemies/fire_demon/sprite_1.png" type="Texture" id=28]
+[ext_resource path="res://_Assets/Art/Village_Artwork/Enemies/fire_demon/sprite_2.png" type="Texture" id=29]
+[ext_resource path="res://_Assets/Art/Village_Artwork/Enemies/air_demon/sprite_0.png" type="Texture" id=30]
+[ext_resource path="res://_Assets/Art/Village_Artwork/Enemies/air_demon/sprite_1.png" type="Texture" id=31]
+[ext_resource path="res://_Assets/Art/Village_Artwork/Enemies/air_demon/sprite_2.png" type="Texture" id=32]
+[ext_resource path="res://_Assets/Art/Village_Artwork/Enemies/water_demon/sprite_0.png" type="Texture" id=33]
+[ext_resource path="res://_Assets/Art/Village_Artwork/Enemies/water_demon/sprite_1.png" type="Texture" id=34]
+[ext_resource path="res://_Assets/Art/Village_Artwork/Enemies/water_demon/sprite_2.png" type="Texture" id=35]
+[ext_resource path="res://_Assets/Art/Village_Artwork/Enemies/grass_demon/sprite_0.png" type="Texture" id=36]
+[ext_resource path="res://_Assets/Art/Village_Artwork/Enemies/grass_demon/sprite_1.png" type="Texture" id=37]
+[ext_resource path="res://_Assets/Art/Village_Artwork/Enemies/grass_demon/sprite_2.png" type="Texture" id=38]
+[ext_resource path="res://_Prefab/UI/Heart.tscn" type="PackedScene" id=39]
+[ext_resource path="res://_Prefab/Players/Player.tscn" type="PackedScene" id=40]
+[ext_resource path="res://_Prefab/UI/HUD.tscn" type="PackedScene" id=41]
 
 [sub_resource type="GDScript" id=1]
 
@@ -59,16 +64,100 @@ func _ready():
 #	pass
 "
 
-[sub_resource type="SpriteFrames" id=2]
+[sub_resource type="SpriteFrames" id=5]
 
 animations = [ {
-"frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ],
+"frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ) ],
 "loop": true,
 "name": "Fire",
 "speed": 5.0
 } ]
 
-[sub_resource type="GDScript" id=3]
+[sub_resource type="GDScript" id=2]
+
+script/source = "extends Area2D
+
+# class member variables go here, for example:
+# var a = 2
+# var b = \"textvar\"
+
+onready var anim = get_node(\"AnimatedSprite\")
+onready var lock_anim = get_node(\"DoorLock\")
+onready var button_anim = get_node(\"Button_Hint\")
+
+var locked = false
+var player_here = false
+
+func _ready():
+	# Called every time the node is added to the scene.
+	# Initialization here
+	pass
+
+func is_locked():
+	return locked
+
+func open_door():
+	anim.play(\"Open\")
+	button_anim.show()
+	button_anim.play(\"default\")
+	pass
+
+func unlock_door():
+	locked = false
+	lock_anim.play(\"Unlocked\")
+	pass
+func lock_door():
+	locked = true
+	lock_anim.play(\"Locked\")
+	pass
+
+func close_door():
+	anim.play(\"Close\")
+	button_anim.hide()
+	pass
+
+func _process(delta):
+
+
+	var interact = Input.is_action_pressed(\"interact\")
+
+	var bodies = get_overlapping_bodies()
+	
+	player_here = false
+
+	for body in bodies:
+		if (body.name == \"Player\"):
+			player_here = true
+	
+	if (player_here == true):
+		open_door()
+	elif (player_here == false):
+		close_door()
+			
+	if (interact == true and player_here == true):
+		pass
+
+	pass
+
+func trigger_bad_ending():
+	
+	pass"
+
+[sub_resource type="RectangleShape2D" id=3]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 61.0761 )
+
+[sub_resource type="SpriteFrames" id=4]
+
+animations = [ {
+"frames": [ ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="GDScript" id=6]
 
 script/source = "extends KinematicBody2D
 
@@ -123,7 +212,7 @@ func _process(delta):
 				pass
 "
 
-[sub_resource type="GDScript" id=4]
+[sub_resource type="GDScript" id=7]
 
 script/source = "extends KinematicBody2D
 
@@ -178,76 +267,75 @@ func _process(delta):
 				pass
 "
 
-[sub_resource type="SpriteFrames" id=5]
+[sub_resource type="SpriteFrames" id=8]
 
 animations = [ {
-"frames": [ ExtResource( 16 ) ],
+"frames": [ ExtResource( 21 ) ],
 "loop": true,
 "name": "still",
 "speed": 5.0
 } ]
-
-[sub_resource type="RectangleShape2D" id=6]
-
-custom_solver_bias = 0.0
-extents = Vector2( 10, 10 )
-
-[sub_resource type="SpriteFrames" id=7]
-
-animations = [ {
-"frames": [ ExtResource( 16 ) ],
-"loop": true,
-"name": "still",
-"speed": 5.0
-} ]
-
-[sub_resource type="RectangleShape2D" id=8]
-
-custom_solver_bias = 0.0
-extents = Vector2( 10, 10 )
 
 [sub_resource type="RectangleShape2D" id=9]
 
 custom_solver_bias = 0.0
-extents = Vector2( 6, 7 )
+extents = Vector2( 10, 10 )
 
 [sub_resource type="SpriteFrames" id=10]
 
 animations = [ {
-"frames": [ ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ) ],
+"frames": [ ExtResource( 21 ) ],
 "loop": true,
-"name": "floating_green",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ) ],
-"loop": true,
-"name": "floating_yellow",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ) ],
-"loop": true,
-"name": "floating_purple",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ) ],
-"loop": true,
-"name": "floating_red",
+"name": "still",
 "speed": 5.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=11]
 
 custom_solver_bias = 0.0
-extents = Vector2( 32, 32 )
+extents = Vector2( 10, 10 )
 
 [sub_resource type="RectangleShape2D" id=12]
 
 custom_solver_bias = 0.0
+extents = Vector2( 6, 7 )
+
+[sub_resource type="SpriteFrames" id=13]
+
+animations = [ {
+"frames": [ ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ) ],
+"loop": true,
+"name": "floating_red",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ) ],
+"loop": true,
+"name": "floating_yellow",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ) ],
+"loop": true,
+"name": "floating_purple",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 36 ), ExtResource( 37 ), ExtResource( 38 ) ],
+"loop": true,
+"name": "floating_green",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=14]
+
+custom_solver_bias = 0.0
+extents = Vector2( 32, 32 )
+
+[sub_resource type="RectangleShape2D" id=15]
+
+custom_solver_bias = 0.0
 extents = Vector2( 39.1793, 39.7635 )
 
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id=16]
 
-resource_name = "Moving"
 length = 2.0
 loop = true
 step = 0.1
@@ -276,43 +364,42 @@ tracks/1/keys = {
 "values": [ true, false, true ]
 }
 
-[sub_resource type="SpriteFrames" id=14]
+[sub_resource type="SpriteFrames" id=17]
 
 animations = [ {
-"frames": [ ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ) ],
+"frames": [ ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ) ],
 "loop": true,
-"name": "floating_green",
+"name": "floating_red",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ) ],
+"frames": [ ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ) ],
 "loop": true,
 "name": "floating_yellow",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ) ],
+"frames": [ ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ) ],
 "loop": true,
 "name": "floating_purple",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ) ],
+"frames": [ ExtResource( 36 ), ExtResource( 37 ), ExtResource( 38 ) ],
 "loop": true,
-"name": "floating_red",
+"name": "floating_green",
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=15]
+[sub_resource type="RectangleShape2D" id=18]
 
 custom_solver_bias = 0.0
 extents = Vector2( 32, 32 )
 
-[sub_resource type="RectangleShape2D" id=16]
+[sub_resource type="RectangleShape2D" id=19]
 
 custom_solver_bias = 0.0
 extents = Vector2( 39.1793, 39.7635 )
 
-[sub_resource type="Animation" id=17]
+[sub_resource type="Animation" id=20]
 
-resource_name = "Moving"
 length = 2.0
 loop = true
 step = 0.1
@@ -341,9 +428,8 @@ tracks/1/keys = {
 "values": [ true, true, true ]
 }
 
-[sub_resource type="Animation" id=18]
+[sub_resource type="Animation" id=21]
 
-resource_name = "Moving"
 length = 2.0
 loop = true
 step = 0.1
@@ -372,9 +458,8 @@ tracks/1/keys = {
 "values": [ false, true, false ]
 }
 
-[sub_resource type="Animation" id=19]
+[sub_resource type="Animation" id=22]
 
-resource_name = "Moving"
 length = 2.0
 loop = true
 step = 0.1
@@ -403,26 +488,30 @@ tracks/1/keys = {
 "values": [ false, true, false ]
 }
 
-[node name="World" type="Node" groups=[
+[node name="World" type="Node" index="0" groups=[
 "enemy_kill_level",
 ]]
 
 script = ExtResource( 1 )
 reset_position = Vector2( 100, 400 )
 
-[node name="level_info" type="Node2D" parent="." index="0"]
+[node name="evil_ending_handler" type="Node2D" parent="." index="0"]
+
+script = ExtResource( 2 )
+
+[node name="level_info" type="Node2D" parent="." index="1"]
 
 script = SubResource( 1 )
 
-[node name="Chests" type="Node2D" parent="." index="1"]
+[node name="Chests" type="Node2D" parent="." index="2"]
 
-[node name="Tiles" type="Node2D" parent="." index="2"]
+[node name="Tiles" type="Node2D" parent="." index="3"]
 
 [node name="Ground" type="TileMap" parent="Tiles" index="0"]
 
 scale = Vector2( 4, 4 )
 mode = 0
-tile_set = ExtResource( 2 )
+tile_set = ExtResource( 3 )
 cell_size = Vector2( 16, 16 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -437,7 +526,7 @@ collision_layer = 3
 collision_mask = 1
 occluder_light_mask = 1
 format = 1
-tile_data = PoolIntArray( -1179650, 13, 0, -1179649, 13, 0, -1245184, 13, 0, -1245183, 13, 0, -1245182, 13, 0, -1245181, 13, 0, -1245180, 13, 0, -1245179, 13, 0, -1245178, 1610612739, 0, -1245177, 1610612739, 0, -1245176, 1610612739, 0, -1245175, 1610612739, 0, -1245174, 1610612739, 0, -1245173, 1610612739, 0, -1245172, 1610612739, 0, -1245171, 1610612739, 0, -1245170, 1610612739, 0, -1245169, 1610612739, 0, -1245168, 13, 0, -1245167, 13, 0, -1245166, 13, 0, -1245165, 13, 0, -1245164, 13, 0, -1245163, 13, 0, -1245162, 13, 0, -1245161, 13, 0, -1245160, 13, 0, -1114114, -1610612733, 0, -1179624, -1073741821, 0, -1048578, -1610612733, 0, -1114088, -1073741821, 0, -983042, -1610612733, 0, -1048552, -1073741821, 0, -917506, -1610612733, 0, -983016, -1073741821, 0, -851969, 13, 0, -917481, 13, 0, -786433, 13, 0, -851945, 13, 0, -786432, 13, 0, -786410, 13, 0, -720896, 13, 0, -720895, 13, 0, -720875, 13, 0, -720874, 13, 0, -655359, 3, 0, -655358, 3, 0, -655357, 3, 0, -655356, 3, 0, -655351, 3, 0, -655350, 3, 0, -655349, 3, 0, -655348, 3, 0, -655347, 3, 0, -655346, 3, 0, -655345, 3, 0, -655343, 3, 0, -655339, 13, 0, -589820, 13, 0, -589818, 13, 0, -589809, 13, 0, -589807, 13, 0, -524283, 3, 0, -524272, 3, 0, -327656, 5, 0, -327655, 5, 0, -327654, 5, 0, -327653, 5, 0, -327652, 5, 0, -327651, 5, 0, -262121, 5, 0, -262120, 5, 0, -262119, 5, 0, -262118, 5, 0, -262117, 5, 0, -262116, 5, 0, -262115, 5, 0, -262114, 5, 0, -196585, 5, 0, -196584, 5, 0, -196580, 5, 0, -196579, 5, 0, -196578, 5, 0, -196577, 4, 0, -196576, 4, 0, -131043, 5, 0, -131042, 5, 0, -131041, 2, 0, -131040, 2, 0, -65507, 5, 0, -65506, 5, 0, -65505, 2, 0, -65504, 2, 0, 29, 5, 0, 30, 5, 0, 31, 2, 0, 32, 2, 0, 65565, 5, 0, 65566, 5, 0, 65567, 2, 0, 65568, 2, 0, 131097, 3, 0, 131098, 3, 0, 131099, 3, 0, 131100, 3, 0, 131101, 2, 0, 131102, 2, 0, 131103, 2, 0, 196631, 4, 0, 196632, 4, 0, 196633, 2, 0, 196634, 2, 0, 196635, 2, 0, 196636, 2, 0, 196637, 2, 0, 196638, 2, 0, 262164, 4, 0, 262165, 4, 0, 262166, 4, 0, 262167, 9, 0, 262168, 9, 0, 262169, 2, 0, 262170, 2, 0, 262171, 2, 0, 262172, 2, 0, 262173, 2, 0, 327695, 4, 0, 327696, 4, 0, 327697, 4, 0, 327698, 4, 0, 327699, 4, 0, 327700, 9, 0, 327701, 9, 0, 327702, 9, 0, 327703, 9, 0, 327704, 9, 0, 327705, 2, 0, 327706, 2, 0, 327707, 2, 0, 327708, 2, 0, 458746, 0, 0, 458747, 0, 0, 458748, 0, 0, 458749, 0, 0, 393227, 0, 0, 393228, 0, 0, 393229, 0, 0, 393230, 0, 0, 393231, 9, 0, 393232, 9, 0, 393233, 9, 0, 393234, 9, 0, 393235, 9, 0, 393236, 9, 0, 393237, 9, 0, 393238, 9, 0, 393239, 9, 0, 393240, 9, 0, 393241, 9, 0, 393242, 9, 0, 393243, 9, 0, 393244, 9, 0, 524282, 1, 0, 524283, 1, 0, 524284, 1, 0, 524285, 1, 0, 524286, 0, 0, 524287, 0, 0, 458752, 0, 0, 458753, 0, 0, 458754, 0, 0, 458755, 0, 0, 458759, 0, 0, 458760, 0, 0, 458761, 0, 0, 458762, 0, 0, 458763, 1, 0, 458764, 1, 0, 458765, 1, 0, 458766, 1, 0, 458767, 9, 0, 458768, 9, 0, 458769, 9, 0, 458770, 9, 0, 458771, 9, 0, 458772, 9, 0, 458773, 9, 0, 458774, 9, 0, 458775, 9, 0, 458776, 9, 0, 458777, 9, 0, 458778, 9, 0, 458779, 9, 0, 458780, 9, 0, 589818, 1, 0, 589819, 1, 0, 589820, 1, 0, 589821, 1, 0, 589822, 1, 0, 589823, 1, 0, 524288, 1, 0, 524289, 1, 0, 524290, 1, 0, 524291, 1, 0, 524295, 1, 0, 524296, 1, 0, 524297, 1, 0, 524298, 1, 0, 524299, 1, 0, 524300, 1, 0, 524301, 1, 0, 524302, 1, 0, 655354, 1, 0, 655355, 1, 0, 655356, 1, 0, 655357, 1, 0, 655358, 1, 0, 655359, 1, 0, 589824, 1, 0, 589825, 1, 0, 589826, 1, 0, 589827, 1, 0, 589831, 1, 0, 589832, 1, 0, 589833, 1, 0, 589834, 1, 0, 589835, 1, 0, 589836, 1, 0, 589837, 1, 0, 589838, 1, 0, 720890, 2, 0, 720891, 2, 0, 720892, 2, 0, 720893, 2, 0, 720894, 2, 0, 720895, 2, 0, 655360, 2, 0, 655361, 2, 0, 655362, 2, 0, 655363, 2, 0, 655364, 2, 0, 655365, 2, 0, 655366, 2, 0, 655367, 2, 0, 655368, 2, 0, 655369, 2, 0, 655370, 2, 0, 655371, 2, 0, 655372, 2, 0, 655373, 2, 0, 655374, 2, 0, 786426, 2, 0, 786427, 2, 0, 786428, 2, 0, 786429, 2, 0, 786430, 2, 0, 786431, 2, 0, 720896, 2, 0, 720897, 2, 0, 720898, 2, 0, 720899, 2, 0, 720900, 2, 0, 720901, 2, 0, 720902, 2, 0, 720903, 2, 0, 720904, 2, 0, 720905, 2, 0, 720906, 2, 0, 720907, 2, 0, 720908, 2, 0, 720909, 2, 0, 720910, 2, 0 )
+tile_data = PoolIntArray( -1179650, 13, 0, -1179649, 13, 0, -1245184, 13, 0, -1245183, 13, 0, -1245182, 13, 0, -1245181, 13, 0, -1245180, 13, 0, -1245179, 13, 0, -1245178, 1610612739, 0, -1245177, 1610612739, 0, -1245176, 1610612739, 0, -1245175, 1610612739, 0, -1245174, 1610612739, 0, -1245173, 1610612739, 0, -1245172, 1610612739, 0, -1245171, 1610612739, 0, -1245170, 1610612739, 0, -1245169, 1610612739, 0, -1245168, 13, 0, -1245167, 13, 0, -1245166, 13, 0, -1245165, 13, 0, -1245164, 13, 0, -1245163, 13, 0, -1245162, 13, 0, -1245161, 13, 0, -1245160, 13, 0, -1114114, -1610612733, 0, -1179624, -1073741821, 0, -1048578, -1610612733, 0, -1114088, -1073741821, 0, -983042, -1610612733, 0, -1048552, -1073741821, 0, -917506, -1610612733, 0, -983016, -1073741821, 0, -851969, 13, 0, -917481, 13, 0, -786433, 13, 0, -851945, 13, 0, -786432, 13, 0, -786410, 13, 0, -720896, 13, 0, -720895, 13, 0, -720875, 13, 0, -720874, 13, 0, -655359, 3, 0, -655358, 3, 0, -655357, 3, 0, -655356, 3, 0, -655351, 3, 0, -655350, 3, 0, -655349, 3, 0, -655348, 3, 0, -655347, 3, 0, -655346, 3, 0, -655345, 3, 0, -655343, 3, 0, -655339, 13, 0, -589820, 13, 0, -589818, 13, 0, -589809, 13, 0, -589807, 13, 0, -524283, 3, 0, -524272, 3, 0, -327656, 5, 0, -327655, 5, 0, -327654, 5, 0, -327653, 5, 0, -327652, 5, 0, -327651, 5, 0, -262121, 5, 0, -262120, 5, 0, -262119, 5, 0, -262118, 5, 0, -262117, 5, 0, -262116, 5, 0, -262115, 5, 0, -262114, 5, 0, -196585, 5, 0, -196584, 5, 0, -196580, 5, 0, -196579, 5, 0, -196578, 5, 0, -196577, 4, 0, -196576, 4, 0, -131043, 5, 0, -131042, 5, 0, -131041, 2, 0, -131040, 2, 0, -65507, 5, 0, -65506, 5, 0, -65505, 2, 0, -65504, 2, 0, 29, 5, 0, 30, 5, 0, 31, 2, 0, 32, 2, 0, 65565, 5, 0, 65566, 5, 0, 65567, 2, 0, 65568, 2, 0, 131097, 3, 0, 131098, 3, 0, 131099, 3, 0, 131100, 3, 0, 131101, 5, 0, 131102, 5, 0, 131103, 2, 0, 196631, 4, 0, 196633, 2, 0, 196634, 2, 0, 196635, 5, 0, 196636, 5, 0, 196637, 5, 0, 196638, 2, 0, 262164, 4, 0, 262165, 4, 0, 262166, 4, 0, 262167, 9, 0, 262169, 2, 0, 262170, 2, 0, 262171, 5, 0, 262172, 5, 0, 262173, 2, 0, 327695, 4, 0, 327696, 4, 0, 327697, 4, 0, 327698, 4, 0, 327699, 4, 0, 327700, 9, 0, 327701, 9, 0, 327702, 9, 0, 327703, 9, 0, 327704, 9, 0, 327705, 2, 0, 327706, 2, 0, 327707, 2, 0, 327708, 2, 0, 458746, 0, 0, 458747, 0, 0, 458748, 0, 0, 458749, 0, 0, 393227, 0, 0, 393228, 0, 0, 393229, 0, 0, 393230, 0, 0, 393231, 9, 0, 393232, 9, 0, 393233, 9, 0, 393234, 9, 0, 393235, 9, 0, 393236, 9, 0, 393237, 9, 0, 393238, 9, 0, 393239, 9, 0, 393240, 9, 0, 393241, 9, 0, 393242, 9, 0, 393243, 9, 0, 393244, 9, 0, 524282, 1, 0, 524283, 1, 0, 524284, 1, 0, 524285, 1, 0, 524286, 0, 0, 524287, 0, 0, 458752, 0, 0, 458753, 0, 0, 458754, 0, 0, 458755, 0, 0, 458759, 0, 0, 458760, 0, 0, 458761, 0, 0, 458762, 0, 0, 458763, 1, 0, 458764, 1, 0, 458765, 1, 0, 458766, 1, 0, 458767, 9, 0, 458768, 9, 0, 458769, 9, 0, 458770, 9, 0, 458771, 9, 0, 458772, 9, 0, 458773, 9, 0, 458774, 9, 0, 458775, 9, 0, 458776, 9, 0, 458777, 9, 0, 458778, 9, 0, 458779, 9, 0, 458780, 9, 0, 589818, 1, 0, 589819, 1, 0, 589820, 1, 0, 589821, 1, 0, 589822, 1, 0, 589823, 1, 0, 524288, 1, 0, 524289, 1, 0, 524290, 1, 0, 524291, 1, 0, 524295, 1, 0, 524296, 1, 0, 524297, 1, 0, 524298, 1, 0, 524299, 1, 0, 524300, 1, 0, 524301, 1, 0, 524302, 1, 0, 655354, 1, 0, 655355, 1, 0, 655356, 1, 0, 655357, 1, 0, 655358, 1, 0, 655359, 1, 0, 589824, 1, 0, 589825, 1, 0, 589826, 1, 0, 589827, 1, 0, 589831, 1, 0, 589832, 1, 0, 589833, 1, 0, 589834, 1, 0, 589835, 1, 0, 589836, 1, 0, 589837, 1, 0, 589838, 1, 0, 720890, 2, 0, 720891, 2, 0, 720892, 2, 0, 720893, 2, 0, 720894, 2, 0, 720895, 2, 0, 655360, 2, 0, 655361, 2, 0, 655362, 2, 0, 655363, 2, 0, 655364, 2, 0, 655365, 2, 0, 655366, 2, 0, 655367, 2, 0, 655368, 2, 0, 655369, 2, 0, 655370, 2, 0, 655371, 2, 0, 655372, 2, 0, 655373, 2, 0, 655374, 2, 0, 786426, 2, 0, 786427, 2, 0, 786428, 2, 0, 786429, 2, 0, 786430, 2, 0, 786431, 2, 0, 720896, 2, 0, 720897, 2, 0, 720898, 2, 0, 720899, 2, 0, 720900, 2, 0, 720901, 2, 0, 720902, 2, 0, 720903, 2, 0, 720904, 2, 0, 720905, 2, 0, 720906, 2, 0, 720907, 2, 0, 720908, 2, 0, 720909, 2, 0, 720910, 2, 0 )
 _sections_unfolded = [ "Cell", "Collision", "Transform" ]
 __meta__ = {
 "_edit_lock_": true
@@ -447,7 +536,7 @@ __meta__ = {
 
 scale = Vector2( 4, 4 )
 mode = 0
-tile_set = ExtResource( 3 )
+tile_set = ExtResource( 4 )
 cell_size = Vector2( 16, 16 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -470,14 +559,15 @@ __meta__ = {
 
 [node name="Village Art" type="Node2D" parent="Tiles" index="2"]
 
-position = Vector2( 160, 0 )
+editor/display_folded = true
+position = Vector2( 162, 0 )
 
 [node name="VillageAsetics" type="TileMap" parent="Tiles/Village Art" index="0"]
 
 position = Vector2( -162.061, 0 )
 scale = Vector2( 4, 4 )
 mode = 0
-tile_set = ExtResource( 2 )
+tile_set = ExtResource( 3 )
 cell_size = Vector2( 16, 16 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -492,7 +582,7 @@ collision_layer = 0
 collision_mask = 0
 occluder_light_mask = 1
 format = 1
-tile_data = PoolIntArray( 196602, 1610612749, 0, 196603, 1610612749, 0, 196604, 9, 0, 196605, 9, 0, 131083, 13, 0, 131084, 13, 0, 131085, 9, 0, 131086, 9, 0, 131101, 5, 0, 262138, 1610612749, 0, 262139, 1610612749, 0, 262140, 1610612749, 0, 262141, 9, 0, 196619, 13, 0, 196620, 13, 0, 196621, 13, 0, 196622, 9, 0, 196634, 5, 0, 196635, 5, 0, 196636, 5, 0, 196637, 5, 0, 327674, -1073741811, 0, 327675, 1610612744, 0, 327676, 1610612744, 0, 327677, -1073741811, 0, 262151, 9, 0, 262152, 9, 0, 262153, 9, 0, 262154, 9, 0, 262155, 13, 0, 262156, 1610612744, 0, 262157, 1610612744, 0, 262158, 13, 0, 262161, 13, 0, 262162, 13, 0, 262163, 13, 0, 262171, 5, 0, 262172, 5, 0, 393210, -1073741811, 0, 393211, 1610612744, 0, 393212, 1610612744, 0, 393213, -1073741811, 0, 327687, 9, 0, 327688, 8, 0, 327689, 8, 0, 327690, 13, 0, 327691, 13, 0, 327692, 1610612744, 0, 327693, 1610612744, 0, 327694, 13, 0, 393216, 13, 0, 393223, 13, 0, 393224, 8, 0, 393225, 8, 0, 393226, 13, 0 )
+tile_data = PoolIntArray( 196602, 1610612749, 0, 196603, 1610612749, 0, 196604, 9, 0, 196605, 9, 0, 131083, 13, 0, 131084, 13, 0, 131085, 9, 0, 131086, 9, 0, 262138, 1610612749, 0, 262139, 1610612749, 0, 262140, 1610612749, 0, 262141, 9, 0, 196619, 13, 0, 196620, 13, 0, 196621, 13, 0, 196622, 9, 0, 327674, -1073741811, 0, 327675, 1610612744, 0, 327676, 1610612744, 0, 327677, -1073741811, 0, 262151, 9, 0, 262152, 9, 0, 262153, 9, 0, 262154, 9, 0, 262155, 13, 0, 262156, 1610612744, 0, 262157, 1610612744, 0, 262158, 13, 0, 262161, 13, 0, 262162, 13, 0, 262163, 13, 0, 393210, -1073741811, 0, 393211, 1610612744, 0, 393212, 1610612744, 0, 393213, -1073741811, 0, 327687, 9, 0, 327688, 8, 0, 327689, 8, 0, 327690, 13, 0, 327691, 13, 0, 327692, 1610612744, 0, 327693, 1610612744, 0, 327694, 13, 0, 393216, 13, 0, 393223, 13, 0, 393224, 8, 0, 393225, 8, 0, 393226, 13, 0 )
 _sections_unfolded = [ "Cell", "Collision", "Transform" ]
 
 [node name="Doors" type="Node2D" parent="Tiles/Village Art" index="1"]
@@ -500,15 +590,15 @@ _sections_unfolded = [ "Cell", "Collision", "Transform" ]
 editor/display_folded = true
 position = Vector2( -160, 0 )
 
-[node name="Door2" parent="Tiles/Village Art/Doors" index="0" instance=ExtResource( 4 )]
+[node name="Door2" parent="Tiles/Village Art/Doors" index="0" instance=ExtResource( 5 )]
 
 position = Vector2( 517, 384 )
 
-[node name="Door5" parent="Tiles/Village Art/Doors" index="1" instance=ExtResource( 4 )]
+[node name="Door5" parent="Tiles/Village Art/Doors" index="1" instance=ExtResource( 5 )]
 
 position = Vector2( 773, 320 )
 
-[node name="Door7" parent="Tiles/Village Art/Doors" index="2" instance=ExtResource( 4 )]
+[node name="Door7" parent="Tiles/Village Art/Doors" index="2" instance=ExtResource( 5 )]
 
 position = Vector2( -320, 320 )
 
@@ -520,7 +610,7 @@ position = Vector2( 640, 384 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Tiles/Village Art/Doors/Door3" index="0"]
 
 scale = Vector2( 8, 8 )
-frames = ExtResource( 5 )
+frames = ExtResource( 6 )
 animation = "Close"
 playing = true
 flip_h = true
@@ -536,7 +626,7 @@ position = Vector2( 896, 320 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Tiles/Village Art/Doors/Door6" index="0"]
 
 scale = Vector2( 8, 8 )
-frames = ExtResource( 5 )
+frames = ExtResource( 6 )
 animation = "Close"
 playing = true
 flip_h = true
@@ -552,7 +642,7 @@ position = Vector2( -197, 320 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Tiles/Village Art/Doors/Door8" index="0"]
 
 scale = Vector2( 8, 8 )
-frames = ExtResource( 5 )
+frames = ExtResource( 6 )
 animation = "Close"
 playing = true
 flip_h = true
@@ -587,7 +677,7 @@ _sections_unfolded = [ "Transform", "Visibility" ]
 "Water",
 ]]
 
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 16, 16 )
 
@@ -619,7 +709,7 @@ _sections_unfolded = [ "Transform", "Visibility" ]
 "Water",
 ]]
 
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 16, 16 )
 
@@ -651,7 +741,7 @@ _sections_unfolded = [ "Transform", "Visibility" ]
 "Water",
 ]]
 
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 16, 16 )
 
@@ -683,7 +773,7 @@ _sections_unfolded = [ "Transform", "Visibility" ]
 "Water",
 ]]
 
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 16, 16 )
 
@@ -715,7 +805,7 @@ _sections_unfolded = [ "Transform", "Visibility" ]
 "Water",
 ]]
 
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 16, 16 )
 
@@ -747,7 +837,7 @@ _sections_unfolded = [ "Transform", "Visibility" ]
 "Water",
 ]]
 
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 16, 16 )
 
@@ -779,7 +869,7 @@ _sections_unfolded = [ "Transform", "Visibility" ]
 "Water",
 ]]
 
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 16, 16 )
 
@@ -811,7 +901,7 @@ _sections_unfolded = [ "Transform", "Visibility" ]
 "Water",
 ]]
 
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 16, 16 )
 
@@ -843,7 +933,7 @@ _sections_unfolded = [ "Transform", "Visibility" ]
 "Water",
 ]]
 
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 16, 16 )
 
@@ -861,6 +951,8 @@ __meta__ = {
 
 [node name="Fire" type="Node2D" parent="Tiles" index="6"]
 
+editor/display_folded = true
+
 [node name="Fire" type="Node2D" parent="Tiles/Fire" index="0"]
 
 editor/display_folded = true
@@ -870,9 +962,9 @@ position = Vector2( -2, 0 )
 
 position = Vector2( 32, 416 )
 scale = Vector2( 4, 4 )
-frames = SubResource( 2 )
+frames = SubResource( 5 )
 animation = "Fire"
-frame = 2
+frame = 1
 playing = true
 _sections_unfolded = [ "Transform" ]
 
@@ -880,9 +972,8 @@ _sections_unfolded = [ "Transform" ]
 
 position = Vector2( -160, 224 )
 scale = Vector2( 4, 4 )
-frames = SubResource( 2 )
+frames = SubResource( 5 )
 animation = "Fire"
-frame = 1
 playing = true
 _sections_unfolded = [ "Transform" ]
 
@@ -890,8 +981,9 @@ _sections_unfolded = [ "Transform" ]
 
 position = Vector2( -224, 160 )
 scale = Vector2( 4, 4 )
-frames = SubResource( 2 )
+frames = SubResource( 5 )
 animation = "Fire"
+frame = 3
 playing = true
 _sections_unfolded = [ "Transform" ]
 
@@ -899,8 +991,9 @@ _sections_unfolded = [ "Transform" ]
 
 position = Vector2( 480, 352 )
 scale = Vector2( 4, 4 )
-frames = SubResource( 2 )
+frames = SubResource( 5 )
 animation = "Fire"
+frame = 3
 playing = true
 _sections_unfolded = [ "Transform" ]
 
@@ -908,9 +1001,9 @@ _sections_unfolded = [ "Transform" ]
 
 position = Vector2( 736, 224 )
 scale = Vector2( 4, 4 )
-frames = SubResource( 2 )
+frames = SubResource( 5 )
 animation = "Fire"
-frame = 3
+frame = 2
 playing = true
 _sections_unfolded = [ "Transform" ]
 
@@ -918,9 +1011,9 @@ _sections_unfolded = [ "Transform" ]
 
 position = Vector2( 1184, 288 )
 scale = Vector2( 4, 4 )
-frames = SubResource( 2 )
+frames = SubResource( 5 )
 animation = "Fire"
-frame = 2
+frame = 1
 playing = true
 _sections_unfolded = [ "Transform" ]
 
@@ -928,9 +1021,9 @@ _sections_unfolded = [ "Transform" ]
 
 position = Vector2( 1568, -160 )
 scale = Vector2( 4, 4 )
-frames = SubResource( 2 )
+frames = SubResource( 5 )
 animation = "Fire"
-frame = 2
+frame = 1
 playing = true
 _sections_unfolded = [ "Transform" ]
 
@@ -938,9 +1031,9 @@ _sections_unfolded = [ "Transform" ]
 
 position = Vector2( 1888, 96 )
 scale = Vector2( 4, 4 )
-frames = SubResource( 2 )
+frames = SubResource( 5 )
 animation = "Fire"
-frame = 2
+frame = 1
 playing = true
 _sections_unfolded = [ "Transform" ]
 
@@ -948,9 +1041,8 @@ _sections_unfolded = [ "Transform" ]
 
 position = Vector2( 1888, -32 )
 scale = Vector2( 4, 4 )
-frames = SubResource( 2 )
+frames = SubResource( 5 )
 animation = "Fire"
-frame = 1
 playing = true
 _sections_unfolded = [ "Transform" ]
 
@@ -958,55 +1050,95 @@ _sections_unfolded = [ "Transform" ]
 
 position = Vector2( 1824, -160 )
 scale = Vector2( 4, 4 )
-frames = SubResource( 2 )
+frames = SubResource( 5 )
 animation = "Fire"
-frame = 1
 playing = true
 _sections_unfolded = [ "Transform" ]
 
-[node name="Gems" type="Node2D" parent="." index="3"]
+[node name="Evil_Door" type="Area2D" parent="." index="4"]
 
-[node name="Coins" type="Node2D" parent="." index="4"]
+position = Vector2( 1541.23, 256.023 )
+scale = Vector2( 0.950882, 1 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = SubResource( 2 )
 
-[node name="Coins_R" type="Node2D" parent="." index="5"]
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Evil_Door" index="0"]
 
-[node name="Signs" type="Node2D" parent="." index="6"]
+scale = Vector2( 8, 8 )
+frames = ExtResource( 6 )
+animation = "Close"
+playing = true
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Evil_Door" index="1"]
+
+position = Vector2( 23.9877, 3.94012 )
+scale = Vector2( 3.26609, 0.969336 )
+shape = SubResource( 3 )
+
+[node name="Button_Hint" type="AnimatedSprite" parent="Evil_Door" index="2"]
+
+visible = false
+position = Vector2( -14.166, -63.563 )
+scale = Vector2( 3, 3 )
+frames = SubResource( 4 )
+animation = "default"
+frame = 3
+playing = true
+_sections_unfolded = [ "Transform" ]
+
+[node name="Gems" type="Node2D" parent="." index="5"]
+
+[node name="Coins" type="Node2D" parent="." index="6"]
+
+[node name="Coins_R" type="Node2D" parent="." index="7"]
+
+[node name="Signs" type="Node2D" parent="." index="8"]
 
 position = Vector2( 97.7842, 416.212 )
 
-[node name="Platforms" type="Node2D" parent="." index="7"]
+[node name="Platforms" type="Node2D" parent="." index="9"]
 
 editor/display_folded = true
 
-[node name="Platform_Reg" parent="Platforms" index="0" instance=ExtResource( 11 )]
+[node name="Platform_Reg" parent="Platforms" index="0" instance=ExtResource( 16 )]
 
 position = Vector2( 1248, -608 )
-script = SubResource( 3 )
+script = SubResource( 6 )
 
-[node name="Platform_Reg2" parent="Platforms" index="1" instance=ExtResource( 11 )]
+[node name="Platform_Reg2" parent="Platforms" index="1" instance=ExtResource( 16 )]
 
 position = Vector2( 480, -608 )
-script = SubResource( 4 )
+script = SubResource( 7 )
 
-[node name="Pickups" type="Node2D" parent="." index="8"]
+[node name="Pickups" type="Node2D" parent="." index="10"]
 
 editor/display_folded = true
 _sections_unfolded = [ "Transform" ]
 
-[node name="Weapon_Pickup" parent="Pickups" index="0" instance=ExtResource( 12 )]
+[node name="Weapon_Pickup" parent="Pickups" index="0" instance=ExtResource( 17 )]
 
 position = Vector2( 352, -544 )
 
-[node name="Weapon_Pickup2" parent="Pickups" index="1" instance=ExtResource( 12 )]
+[node name="Weapon_Pickup2" parent="Pickups" index="1" instance=ExtResource( 17 )]
 
 position = Vector2( 1056, -544 )
-script = ExtResource( 13 )
+script = ExtResource( 18 )
 
-[node name="Door" parent="." index="9" instance=ExtResource( 14 )]
+[node name="Door" parent="." index="11" instance=ExtResource( 19 )]
 
 position = Vector2( 688, -704 )
 
-[node name="NPC" type="Node2D" parent="." index="10"]
+[node name="NPC" type="Node2D" parent="." index="12"]
 
 editor/display_folded = true
 
@@ -1023,13 +1155,13 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-script = ExtResource( 15 )
+script = ExtResource( 20 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="NPC/Rod_NPC" index="0"]
 
 scale = Vector2( 4, 4 )
-frames = SubResource( 5 )
+frames = SubResource( 8 )
 animation = "still"
 playing = true
 _sections_unfolded = [ "Transform" ]
@@ -1040,7 +1172,7 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPC/Rod_NPC" index="1"]
 
 scale = Vector2( 2.5, 2.5 )
-shape = SubResource( 6 )
+shape = SubResource( 9 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
@@ -1066,7 +1198,6 @@ margin_top = 470.0
 margin_right = 976.0
 margin_bottom = 544.0
 rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
@@ -1089,7 +1220,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_fonts/normal_font = ExtResource( 17 )
+custom_fonts/normal_font = ExtResource( 22 )
 bbcode_enabled = false
 bbcode_text = ""
 visible_characters = -1
@@ -1115,13 +1246,13 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-script = ExtResource( 15 )
+script = ExtResource( 20 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="NPC/Rod_NPC2" index="0"]
 
 scale = Vector2( 4, 4 )
-frames = SubResource( 7 )
+frames = SubResource( 10 )
 animation = "still"
 playing = true
 flip_h = true
@@ -1133,7 +1264,7 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPC/Rod_NPC2" index="1"]
 
 scale = Vector2( 2.5, 2.5 )
-shape = SubResource( 8 )
+shape = SubResource( 11 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
@@ -1159,7 +1290,6 @@ margin_top = 470.0
 margin_right = 976.0
 margin_bottom = 544.0
 rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
@@ -1182,7 +1312,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_fonts/normal_font = ExtResource( 17 )
+custom_fonts/normal_font = ExtResource( 22 )
 bbcode_enabled = false
 bbcode_text = ""
 visible_characters = -1
@@ -1207,13 +1337,13 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-script = ExtResource( 15 )
+script = ExtResource( 20 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="NPC/Rod_NPC3" index="0"]
 
 scale = Vector2( 4, 4 )
-frames = SubResource( 7 )
+frames = SubResource( 10 )
 animation = "still"
 playing = true
 flip_h = true
@@ -1225,7 +1355,7 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPC/Rod_NPC3" index="1"]
 
 scale = Vector2( 2.5, 2.5 )
-shape = SubResource( 8 )
+shape = SubResource( 11 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
@@ -1251,7 +1381,6 @@ margin_top = 470.0
 margin_right = 976.0
 margin_bottom = 544.0
 rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
@@ -1274,7 +1403,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_fonts/normal_font = ExtResource( 17 )
+custom_fonts/normal_font = ExtResource( 22 )
 bbcode_enabled = false
 bbcode_text = ""
 visible_characters = -1
@@ -1288,7 +1417,7 @@ selection_enabled = false
 override_selected_font_color = false
 _sections_unfolded = [ "custom_fonts" ]
 
-[node name="Teleporters" type="Node2D" parent="." index="11"]
+[node name="Teleporters" type="Node2D" parent="." index="13"]
 
 editor/display_folded = true
 
@@ -1297,7 +1426,7 @@ editor/display_folded = true
 editor/display_folded = true
 position = Vector2( 0, 148 )
 scale = Vector2( 4, 4 )
-script = ExtResource( 18 )
+script = ExtResource( 23 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="TeleporterOne" type="Area2D" parent="Teleporters/TelePair" index="0"]
@@ -1314,11 +1443,11 @@ audio_bus_name = "Master"
 
 [node name="Sprite" type="Sprite" parent="Teleporters/TelePair/TeleporterOne" index="0"]
 
-texture = ExtResource( 19 )
+texture = ExtResource( 24 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Teleporters/TelePair/TeleporterOne" index="1"]
 
-shape = SubResource( 9 )
+shape = SubResource( 12 )
 
 [node name="TeleporterTwo" type="Area2D" parent="Teleporters/TelePair" index="1"]
 
@@ -1333,13 +1462,13 @@ audio_bus_name = "Master"
 
 [node name="Sprite2" type="Sprite" parent="Teleporters/TelePair/TeleporterTwo" index="0"]
 
-texture = ExtResource( 20 )
+texture = ExtResource( 25 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Teleporters/TelePair/TeleporterTwo" index="1"]
 
-shape = SubResource( 9 )
+shape = SubResource( 12 )
 
-[node name="Enemies" type="Node2D" parent="." index="12"]
+[node name="Enemies" type="Node2D" parent="." index="14"]
 
 position = Vector2( 318.166, 383.563 )
 
@@ -1353,21 +1482,22 @@ input_pickable = false
 collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
-script = ExtResource( 21 )
+script = ExtResource( 26 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Enemies/Demon" index="0"]
 
 scale = Vector2( 4, 4 )
-frames = SubResource( 10 )
+frames = SubResource( 13 )
 animation = "floating_green"
+frame = 2
 playing = true
 flip_h = true
 _sections_unfolded = [ "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/Demon" index="1"]
 
-shape = SubResource( 11 )
+shape = SubResource( 14 )
 
 [node name="Hitbox" type="Area2D" parent="Enemies/Demon" index="2"]
 
@@ -1382,21 +1512,21 @@ audio_bus_name = "Master"
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Enemies/Demon/Hitbox" index="0"]
 
-shape = SubResource( 12 )
+shape = SubResource( 15 )
 
 [node name="Hearts" type="Node2D" parent="Enemies/Demon" index="3"]
 
 editor/display_folded = true
 
-[node name="Heart" parent="Enemies/Demon/Hearts" index="0" instance=ExtResource( 34 )]
+[node name="Heart" parent="Enemies/Demon/Hearts" index="0" instance=ExtResource( 39 )]
 
 position = Vector2( -18.6207, -52.2659 )
 
-[node name="Heart2" parent="Enemies/Demon/Hearts" index="1" instance=ExtResource( 34 )]
+[node name="Heart2" parent="Enemies/Demon/Hearts" index="1" instance=ExtResource( 39 )]
 
 position = Vector2( -0.225445, -52.5579 )
 
-[node name="Heart3" parent="Enemies/Demon/Hearts" index="2" instance=ExtResource( 34 )]
+[node name="Heart3" parent="Enemies/Demon/Hearts" index="2" instance=ExtResource( 39 )]
 
 position = Vector2( 18.7538, -52.5579 )
 
@@ -1407,7 +1537,7 @@ autoplay = "Moving"
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 0.5
-anims/Moving = SubResource( 13 )
+anims/Moving = SubResource( 16 )
 blend_times = [  ]
 _sections_unfolded = [ "Playback Options" ]
 
@@ -1422,22 +1552,22 @@ input_pickable = false
 collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
-script = ExtResource( 21 )
+script = ExtResource( 26 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Enemies/Demon2" index="0"]
 
 scale = Vector2( 4, 4 )
-frames = SubResource( 14 )
+frames = SubResource( 17 )
 animation = "floating_purple"
-frame = 2
+frame = 1
 playing = true
 flip_h = true
 _sections_unfolded = [ "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/Demon2" index="1"]
 
-shape = SubResource( 15 )
+shape = SubResource( 18 )
 
 [node name="Hitbox" type="Area2D" parent="Enemies/Demon2" index="2"]
 
@@ -1452,21 +1582,21 @@ audio_bus_name = "Master"
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Enemies/Demon2/Hitbox" index="0"]
 
-shape = SubResource( 16 )
+shape = SubResource( 19 )
 
 [node name="Hearts" type="Node2D" parent="Enemies/Demon2" index="3"]
 
 editor/display_folded = true
 
-[node name="Heart" parent="Enemies/Demon2/Hearts" index="0" instance=ExtResource( 34 )]
+[node name="Heart" parent="Enemies/Demon2/Hearts" index="0" instance=ExtResource( 39 )]
 
 position = Vector2( -18.6207, -52.2659 )
 
-[node name="Heart2" parent="Enemies/Demon2/Hearts" index="1" instance=ExtResource( 34 )]
+[node name="Heart2" parent="Enemies/Demon2/Hearts" index="1" instance=ExtResource( 39 )]
 
 position = Vector2( -0.225445, -52.5579 )
 
-[node name="Heart3" parent="Enemies/Demon2/Hearts" index="2" instance=ExtResource( 34 )]
+[node name="Heart3" parent="Enemies/Demon2/Hearts" index="2" instance=ExtResource( 39 )]
 
 position = Vector2( 18.7538, -52.5579 )
 
@@ -1477,7 +1607,7 @@ autoplay = "Moving"
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 0.5
-anims/Moving = SubResource( 17 )
+anims/Moving = SubResource( 20 )
 blend_times = [  ]
 _sections_unfolded = [ "Playback Options" ]
 
@@ -1492,21 +1622,20 @@ input_pickable = false
 collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
-script = ExtResource( 21 )
+script = ExtResource( 26 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Enemies/Demon3" index="0"]
 
 scale = Vector2( 4, 4 )
-frames = SubResource( 14 )
+frames = SubResource( 17 )
 animation = "floating_red"
-frame = 1
 playing = true
 _sections_unfolded = [ "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/Demon3" index="1"]
 
-shape = SubResource( 15 )
+shape = SubResource( 18 )
 
 [node name="Hitbox" type="Area2D" parent="Enemies/Demon3" index="2"]
 
@@ -1521,21 +1650,21 @@ audio_bus_name = "Master"
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Enemies/Demon3/Hitbox" index="0"]
 
-shape = SubResource( 16 )
+shape = SubResource( 19 )
 
 [node name="Hearts" type="Node2D" parent="Enemies/Demon3" index="3"]
 
 editor/display_folded = true
 
-[node name="Heart" parent="Enemies/Demon3/Hearts" index="0" instance=ExtResource( 34 )]
+[node name="Heart" parent="Enemies/Demon3/Hearts" index="0" instance=ExtResource( 39 )]
 
 position = Vector2( -18.6207, -52.2659 )
 
-[node name="Heart2" parent="Enemies/Demon3/Hearts" index="1" instance=ExtResource( 34 )]
+[node name="Heart2" parent="Enemies/Demon3/Hearts" index="1" instance=ExtResource( 39 )]
 
 position = Vector2( -0.225445, -52.5579 )
 
-[node name="Heart3" parent="Enemies/Demon3/Hearts" index="2" instance=ExtResource( 34 )]
+[node name="Heart3" parent="Enemies/Demon3/Hearts" index="2" instance=ExtResource( 39 )]
 
 position = Vector2( 18.7538, -52.5579 )
 
@@ -1546,7 +1675,7 @@ autoplay = "Moving"
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 0.7
-anims/Moving = SubResource( 18 )
+anims/Moving = SubResource( 21 )
 blend_times = [  ]
 _sections_unfolded = [ "Playback Options" ]
 
@@ -1561,21 +1690,21 @@ input_pickable = false
 collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
-script = ExtResource( 21 )
+script = ExtResource( 26 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Enemies/Demon4" index="0"]
 
 scale = Vector2( 4, 4 )
-frames = SubResource( 14 )
+frames = SubResource( 17 )
 animation = "floating_yellow"
-frame = 2
+frame = 1
 playing = true
 _sections_unfolded = [ "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/Demon4" index="1"]
 
-shape = SubResource( 15 )
+shape = SubResource( 18 )
 
 [node name="Hitbox" type="Area2D" parent="Enemies/Demon4" index="2"]
 
@@ -1590,21 +1719,21 @@ audio_bus_name = "Master"
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Enemies/Demon4/Hitbox" index="0"]
 
-shape = SubResource( 16 )
+shape = SubResource( 19 )
 
 [node name="Hearts" type="Node2D" parent="Enemies/Demon4" index="3"]
 
 editor/display_folded = true
 
-[node name="Heart" parent="Enemies/Demon4/Hearts" index="0" instance=ExtResource( 34 )]
+[node name="Heart" parent="Enemies/Demon4/Hearts" index="0" instance=ExtResource( 39 )]
 
 position = Vector2( -18.6207, -52.2659 )
 
-[node name="Heart2" parent="Enemies/Demon4/Hearts" index="1" instance=ExtResource( 34 )]
+[node name="Heart2" parent="Enemies/Demon4/Hearts" index="1" instance=ExtResource( 39 )]
 
 position = Vector2( -0.225445, -52.5579 )
 
-[node name="Heart3" parent="Enemies/Demon4/Hearts" index="2" instance=ExtResource( 34 )]
+[node name="Heart3" parent="Enemies/Demon4/Hearts" index="2" instance=ExtResource( 39 )]
 
 position = Vector2( 18.7538, -52.5579 )
 
@@ -1615,18 +1744,18 @@ autoplay = "Moving"
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 0.7
-anims/Moving = SubResource( 19 )
+anims/Moving = SubResource( 22 )
 blend_times = [  ]
 _sections_unfolded = [ "Playback Options" ]
 
-[node name="Enemy_Markers" type="Node2D" parent="." index="13"]
+[node name="Enemy_Markers" type="Node2D" parent="." index="15"]
 
 position = Vector2( 272, 64 )
 
-[node name="Player" parent="." index="14" instance=ExtResource( 35 )]
+[node name="Player" parent="." index="16" instance=ExtResource( 40 )]
 
 position = Vector2( 160, 256 )
 
-[node name="HUD" parent="." index="15" instance=ExtResource( 36 )]
+[node name="HUD" parent="." index="17" instance=ExtResource( 41 )]
 
 
