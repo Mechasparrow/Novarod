@@ -1,12 +1,14 @@
 extends KinematicBody2D
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
 
+# Demon boss script
+
+# Visible animation and hitbox
 onready var anim = get_node("AnimationPlayer")
 onready var hitbox = get_node("Hitbox")
 
+
+# Movement variables
 var velocity = Vector2(0,0)
 
 var WALK_FORCE
@@ -16,13 +18,13 @@ var STOP_FORCE
 var dir
 var hit_marker = false
 
-var enemy_knockback = 1000
-
-
+# AI movement variables
 var ai_movement_timer = 0
 var ai_movement_cooldown = 1
 
+# Combat variables
 var hit = false
+var enemy_knockback = 1000
 var knockback_vel = Vector2(0,0)
 var cooldown_duration = 0.5
 var cooldown_timer = 0
@@ -32,25 +34,23 @@ var knockedback = false
 
 var health = 3
 
+# XP drop
 var xp_drop = true
 var xp = 6
 
 onready var xp_pickup = preload("res://_Prefab/Pickups/XP_Pickup.tscn")
 
-func _ready():
-	# Called every time the node is added to the scene.
-	# Initialization here
-
-	pass
 
 func _physics_process(delta):
 
+	# Get colliding areas and bodies
 	var areas = hitbox.get_overlapping_areas()
 	var bodies = hitbox.get_overlapping_bodies()
 
 	if (len(areas) == 0):
 		hit_marker = false
 
+	# Kill enemy when they hit a hazard
 	for body in bodies:
 		if body.name == "Hazard":
 			die()
@@ -73,6 +73,7 @@ func _physics_process(delta):
 
 	#KNOCKBACK
 
+	# Check for attack by bullet
 	for body in bodies:
 
 		if (body.is_in_group("bullet")):
@@ -86,6 +87,7 @@ func _physics_process(delta):
 
 		pass
 
+	# Check for attacks by weapons and enemy_marker
 	for area in areas:
 		var hit_a_marker = false
 
@@ -118,11 +120,13 @@ func _physics_process(delta):
 	#check health
 	display_health(health)
 
+	# Kill enemy when health = 0
 	if health <= 0:
 		die()
 
 	pass
 
+# Kill enemy
 func die():
 
 	## Spawn Drops
@@ -138,6 +142,7 @@ func die():
 
 	queue_free()
 
+# Handle attacks by player
 func handle_attack(weapon):
 	var dir = weapon.attack_dir
 	var knockback = weapon.knockback_factor
@@ -153,6 +158,7 @@ func handle_attack(weapon):
 	print (str(dir))
 	print ("HIT")
 
+# Displays the enemy health
 func display_health(health):
 
 	var health_display = get_node("Hearts")
