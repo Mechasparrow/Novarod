@@ -11,6 +11,9 @@ func _ready():
 
 func _process(delta):
 
+	# SAME as CoinsHUD.gd
+	# Displays the amnt of red coins the player has collected
+
 	var player_r_coins = get_node("/root/playerinfo").coins_r
 
 	var coins_label = get_node("Label")

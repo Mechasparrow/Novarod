@@ -1,16 +1,17 @@
 extends KinematicBody2D
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
+# Script for the enemy behavior of the bunny boss
 
 const GRAVITY = 700.0
 
+# Enemy hitbox and visible animation
 onready var anim = get_node("AnimatedSprite")
 onready var hitbox = get_node("Hitbox")
 
+#Enemy movement vector
 var velocity = Vector2(200,0)
 
+# Variables regulating enemy movement
 var WALK_FORCE
 var WALK_MIN_SPEED
 var WALK_MAX_SPEED
@@ -18,11 +19,12 @@ var STOP_FORCE
 var dir
 var hit_marker = false
 
-var enemy_knockback = 1000
-
+# Variables for regulating AI
 var ai_movement_timer = 0
 var ai_movement_cooldown = 1
 
+# Enemy combat variables
+var enemy_knockback = 1000
 var hit = false
 var knockback_vel = Vector2(0,0)
 var cooldown_duration = 0.5
@@ -33,6 +35,7 @@ var knockedback = false
 
 var health = 6
 
+# Enemy XP Drop
 var xp_drop = true
 var xp = 25
 
@@ -58,6 +61,7 @@ func _ready():
 	# Called every time the node is added to the scene.
 	# Initialization here
 
+	# Enemy properties
 	WALK_FORCE = 600
 	WALK_MIN_SPEED = 10
 	WALK_MAX_SPEED = 200
@@ -68,7 +72,7 @@ func _ready():
 	pass
 
 func _physics_process(delta):
-
+	
 	var force = Vector2(0, 0)
 
 	var stop = true
@@ -86,7 +90,7 @@ func _physics_process(delta):
 		new_carrot.global_position = global_position
 		
 		var random_dir_value = rand_range(0.0, 1.0)
-		
+		# Shoot in random direction
 		if (random_dir_value < 0.5):
 			shoot_dir = "left"
 		elif (random_dir_value >= 0.5):
@@ -96,6 +100,7 @@ func _physics_process(delta):
 		var random_y_pos = rand_range(0.0,1.0)
 		var real_y_pos = 0
 		
+		# Randomize carrot y position
 		if (random_y_pos < (1.0/3)):
 			real_y_pos = 0
 		elif (random_y_pos >= (1.0/3) and random_y_pos <= ((1.0/3)*2)):
@@ -117,8 +122,9 @@ func _physics_process(delta):
 		
 		can_shoot = false
 		
+		# Randomize carrot projectile shoot cooldown
 		var cooldown_random_factor = rand_range(0.0, 1.0)
-		
+			
 		if (cooldown_random_factor <= (1.0/3)):
 			cooldown_duration = (1.0/3) * shoot_cooldown_max
 		elif (cooldown_random_factor > (1.0/3) and cooldown_random_factor <= ((1.0/3)*2)):
@@ -133,14 +139,13 @@ func _physics_process(delta):
 	
 
 	velocity += force * delta
-	# Integrate velocity into motion and move
-	#velocity = move_and_slide(velocity, Vector2(0, -1))
 
 	if (velocity == Vector2(0,0)):
 		anim.stop()
 		if (anim.is_playing() == false):
 			anim.play("still")
 
+	# Collision Detection
 	var areas = hitbox.get_overlapping_areas()
 	var bodies = hitbox.get_overlapping_bodies()
 
@@ -167,7 +172,7 @@ func _physics_process(delta):
 	if (hit == true and cooldown_timer > cooldown_duration):
 		hit = false
 
-	#KNOCKBACK
+	#KNOCKBACK and Attack handling
 
 	for body in bodies:
 
@@ -185,6 +190,7 @@ func _physics_process(delta):
 
 		pass
 
+	# Checks if hit by either weapon or enemy-marker
 	for area in areas:
 		var hit_a_marker = false
 
@@ -217,11 +223,13 @@ func _physics_process(delta):
 	#check health
 	display_health(health)
 
+	# Kill the enemy if health hits zero
 	if health <= 0:
 		die()
 
 	pass
 
+# Kill the enemy
 func die():
 
 	## Spawn Drops
@@ -237,6 +245,7 @@ func die():
 
 	queue_free()
 
+# Handles an attack from a weapon
 func handle_attack(weapon):
 	var dir = weapon.attack_dir
 	var knockback = weapon.knockback_factor
@@ -252,6 +261,7 @@ func handle_attack(weapon):
 	print (str(dir))
 	print ("HIT")
 
+# Displays the health above the enemies head
 func display_health(health):
 
 	var health_display = get_node("Hearts")
@@ -269,7 +279,3 @@ func display_health(health):
 
 	pass
 
-#func _process(delta):
-#	# Called every frame. Delta is time since last frame.
-#	# Update game logic here.
-#	pass
