@@ -1,9 +1,9 @@
 extends KinematicBody2D
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
+# Exactly the same as Simple_Enemy_AI.gd
+# Main difference is that gravity has been set to 0
 
+# Set gravity to zero, so enemy can fly
 const GRAVITY = 0
 
 onready var anim = get_node("AnimatedSprite")
