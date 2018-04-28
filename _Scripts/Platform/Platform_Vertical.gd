@@ -1,8 +1,11 @@
 extends KinematicBody2D
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
+
+# Almost the same code of the Platform_Horizontal.gd Script
+# Difference is
+ # uses "up" and "down" directions
+ # shifts the position on the y-axis
+ # goes at slower speed than the horizontal moving platform
 
 var speed = 100
 var dir = "up"
@@ -12,10 +15,6 @@ var movement_duration = 2.0
 
 onready var platform_hitbox = get_node("Hitbox")
 
-func _ready():
-	# Called every time the node is added to the scene.
-	# Initialization here
-	pass
 
 func _process(delta):
 
