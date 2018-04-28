@@ -1,16 +1,16 @@
 extends Area2D
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
+# Script for health pickup
 
-# Default amount of health added
+# when picked up players health is increased by 1
+
+# amnt of health added
 var health_added = 1
 
-func _ready():
-	# Called every time the node is added to the scene.
-	# Initialization here
-	pass
+# Checks if the player has collided with the health pickup
+# Check if the player is at max health
+# If not, give the player health and
+# Destroy the health pickup
 
 func _process(delta):
 
@@ -23,9 +23,7 @@ func _process(delta):
 			var player = body
 			var player_info = player.player_info
 
+			# Add the health to the player
 			if (player_info.health < player_info.max_health):
 				player_info.health += 1
 				queue_free()
-
-			# Add the health to the player
-			pass

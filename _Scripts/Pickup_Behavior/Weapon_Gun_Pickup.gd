@@ -1,8 +1,7 @@
 extends Area2D
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
+# Script that is a spin off of Weapon_Pickup.gd
+# Main difference is that the weapon is a gun instead of a sword
 
 var weapon
 var weapon_texture
@@ -10,9 +9,8 @@ var weapon_texture
 onready var animator = get_node("AnimationPlayer")
 
 func _ready():
-	# Called every time the node is added to the scene.
-	# Initialization here
 
+	# Set the weapon pickup to the gun player weapon
 	var gun_prefab = get_node("/root/weapons").weapons[1]
 	var gun = gun_prefab.instance()
 	var gun_texture = gun.get_node("Sprite").texture

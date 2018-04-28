@@ -1,17 +1,11 @@
 extends RigidBody2D
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
-
+# Gets the hitbox for the XP orb
 onready var xp_hitbox = get_node("Hitbox")
 
-func _ready():
-	# Called every time the node is added to the scene.
-	# Initialization here
-
-	pass
-
+# Checks if the player has collided with the XP_Orb
+# If it has, then add the xp to the player_info global variable
+# Destroy the xp orb after it has been collected
 func _physics_process(delta):
 	var bodies = xp_hitbox.get_overlapping_bodies()
 	var areas = xp_hitbox.get_overlapping_areas()
