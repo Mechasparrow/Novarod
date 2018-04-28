@@ -7,7 +7,7 @@ var weapon
 var weapon_texture
 
 # Animator for the weapon bobbing animation
-onready var animator = get_nnode("AnimationPlayer")
+onready var animator = get_node("AnimationPlayer")
 
 func _ready():
 
