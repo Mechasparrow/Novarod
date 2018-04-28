@@ -1,14 +1,12 @@
 extends Node
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
+# Creates a global weapons variable that contains the weapon and sword objects
+# Used by the weapon_pickup system and the player combat system
 
+# Weapons array
 var weapons = []
 
 func _ready():
-	# Called every time the node is added to the scene.
-	# Initialization here
 
 	var sword = load("res://_Prefab/Weapons/Sword.tscn")
 	weapons.append(sword)
@@ -17,8 +15,3 @@ func _ready():
 	weapons.append(gun)
 
 	pass
-
-#func _process(delta):
-#	# Called every frame. Delta is time since last frame.
-#	# Update game logic here.
-#	pass

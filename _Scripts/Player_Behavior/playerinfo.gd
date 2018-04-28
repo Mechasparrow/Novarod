@@ -1,5 +1,7 @@
 extends Node
 
+# Player Properties that are accessed by other nodes
+
 var health
 var max_health
 var coins
@@ -18,21 +20,26 @@ var max_xp
 var xp
 var lvl
 
+# Check if the player has a weapon
 func has_weapon():
 	if get_current_weapon() == null:
 		return false
 	else:
 		return true
 
+# Get the current weapon object
 func get_current_weapon():
 	return current_weapon
 
+# Set the current weapon object
 func set_current_weapon(weapon):
 	current_weapon = weapon
 
+# Set the player respawn point
 func set_checkpoint(pos):
 	spawn_point = pos
 
+# Reset all the player properties
 func reset_player_info():
 	
 	max_health = 3
