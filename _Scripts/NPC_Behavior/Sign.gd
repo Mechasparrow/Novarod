@@ -1,32 +1,20 @@
 extends Area2D
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
+# Very similar to how Birdo.gd functions
 
-func _ready():
-	# Called every time the node is added to the scene.
-	# Initialization here
-	pass
-
-#func _process(delta):
-#	# Called every frame. Delta is time since last frame.
-#	# Update game logic here.
-#	pass
-
+# The popup node for the sign dialogue
 onready var popup = get_node("CanvasLayer/PopupPanel")
 
+# Checks if player has entered the sign's collision area
+# if so, show the dialogue
 func on_body_enter( body ):
 	
 	if (body.name == "Player"):
 		popup.popup()
-	
-	pass # replace with function body
 
-
+# Checks if player has left the sign's collision area
+# if so, hide the dialogue
 func on_body_exit( body ):
 	
 	if (body.name == "Player"):
 		popup.hide()
-		
-	pass # replace with function body

@@ -1,18 +1,10 @@
 extends Node
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
+
+# Simple property script for level_buttons
+# Each button has a custom script attached that specified the specific level it navigates to
+
+# Ex if level= 1 and type = "green" then it redirects to the 1st green level
 
 var level = 1
 var type = "green"
-
-func _ready():
-	# Called every time the node is added to the scene.
-	# Initialization here
-	pass
-
-#func _process(delta):
-#	# Called every frame. Delta is time since last frame.
-#	# Update game logic here.
-#	pass

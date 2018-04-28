@@ -1,9 +1,9 @@
 extends Area2D
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
+# Script for collectible
+# This collectible is the gems
 
+# Boolean for if the gem has been collected
 var collected = false
 
 func _ready():
