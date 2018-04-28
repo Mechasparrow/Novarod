@@ -1,29 +1,15 @@
 extends Area2D
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
-
+# Get the type of powerup
 onready var powerup = get_node("Powerup").get_children()[0].name
 
-
-func _ready():
-	# Called every time the node is added to the scene.
-	# Initialization here
-	
-	print (powerup)
-	
-	pass
-
-#func _process(delta):
-#	# Called every frame. Delta is time since last frame.
-#	# Update game logic here.
-#	pass
-
+# Get the Chest Sprite Animation
 onready var anim = get_node("AnimatedSprite")
 
+# On a collision with a colliding body
 func on_body_enter( body ):
 	
+	# If the body is the player, give the player the powerup and open the chest
 	if (body.name == "Player"):
 		anim.animation = "Open"
 		print ("recieved powerup!")
@@ -31,9 +17,10 @@ func on_body_enter( body ):
 		get_node("/root/playerinfo").power_up = powerup
 		return
 
-
+# On when a colliding body leaves the collision area
 func on_body_exit( body ):
 
+	# If the player leaves the collision area, close the chest
 	if (body.name == "Player"):
 		anim.animation = "Close"
 		return

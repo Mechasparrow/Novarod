@@ -1,15 +1,10 @@
 extends Node2D
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
+# Simple script that just makes sure that the player can exit back to the main menu after reaching the good(or bad) ending
 
+# Loads the menu "level"
 onready var menu = preload("res://_Scenes/Navigation/Menu.tscn")
 
-func _ready():
-	# Called every time the node is added to the scene.
-	# Initialization here
-	pass
 
 func _process(delta):
 

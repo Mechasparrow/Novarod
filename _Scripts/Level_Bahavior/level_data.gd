@@ -1,8 +1,7 @@
 extends Node
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
+# Singleton script that stores all the level navigation data 
+# This makes navigating between levels easier
 
 var levels = {
 	"green": {
@@ -66,10 +65,9 @@ var levels = {
 	}
 }
 
-func _ready():
-	# Called every time the node is added to the scene.
-	# Initialization here
-	pass
+# Using the above level data variable we can generate a path to the level requested
+# We can request level paths by the level's type (i.e green, red, etc) and level #
+# Returns a scene object
 
 func generate_level_path(type, level):
 	

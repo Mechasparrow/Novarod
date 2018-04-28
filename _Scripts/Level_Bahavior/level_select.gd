@@ -4,17 +4,18 @@ extends Node
 # var a = 2
 # var b = "textvar"
 
+# Get all the level selection buttons
 onready var buttons = get_tree().get_nodes_in_group("select_button")
 
+# Get all the levels
 onready var levels = get_node("/root/level_data").levels
-
-func _ready():
-	# Called every time the node is added to the scene.
-	# Initialization here
-	pass
 
 func _process(delta):
 
+	# check if any of the buttons have been pressed
+	# if so find out what level selection button it is
+	# redirect to the corresponding level
+	
 	for button in buttons:
 		if (button.is_pressed() == true):
 			print ("True")
