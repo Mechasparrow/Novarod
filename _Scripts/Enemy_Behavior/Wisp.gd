@@ -1,8 +1,9 @@
 extends KinematicBody2D
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
+# Exactly the same code base as Simple_Enemy_AI.gd
+# It just does not integrate velocity with move_and_slide(velocity)
+# So no knockback
+# It runs on a predetermined path just like the Fishys via the AnimationPlayer node
 
 onready var anim = get_node("AnimationPlayer")
 onready var hitbox = get_node("Hitbox")

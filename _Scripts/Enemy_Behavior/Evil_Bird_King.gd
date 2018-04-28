@@ -1,8 +1,9 @@
 extends KinematicBody2D
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
+# Uses Simple_Enemy_AI.gd as a base
+# No gravity
+
+# Has a shooting mechanism
 
 onready var anim = get_node("AnimationPlayer")
 onready var animated_sprite = get_node("AnimatedSprite")
@@ -62,7 +63,7 @@ func _ready():
 func _physics_process(delta):
 
 
-	# Shooting AI
+	# Shooting AI (MAIN CHANGE)
 
 	if (animated_sprite.flip_h == false):
 		shoot_dir = "right"

@@ -1,8 +1,8 @@
 extends KinematicBody2D
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
+# Takes Simple_Enemy_AI.gd code as base
+# Only difference is that it does not integrate velocity
+# So no knockback, it also runs on a predetermined animation pattern as specified by the AnimationPlayer Node
 
 onready var anim = get_node("AnimationPlayer")
 onready var hitbox = get_node("Hitbox")

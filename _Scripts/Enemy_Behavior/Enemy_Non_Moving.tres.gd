@@ -1,8 +1,7 @@
 extends KinematicBody2D
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
+# Essentially the same as Simple_Enemy_AI.gd
+# Only difference is that movement velocity is not integrated using move_and_slide(velocity)
 
 const GRAVITY = 700.0
 
@@ -227,7 +226,3 @@ func display_health(health):
 
 	pass
 
-#func _process(delta):
-#	# Called every frame. Delta is time since last frame.
-#	# Update game logic here.
-#	pass

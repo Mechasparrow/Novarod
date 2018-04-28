@@ -1,8 +1,7 @@
 extends KinematicBody2D
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
+# Same Code as Firebreathing_Dragon.tres.gd
+# Main difference is that it can only shoot LEFT
 
 const GRAVITY = 0
 
@@ -56,6 +55,7 @@ func _ready():
 	WALK_MAX_SPEED = 200
 	STOP_FORCE = 1300
 
+	# Sets the shooting direction to left
 	dir = "left"
 
 	pass
@@ -85,7 +85,7 @@ func _physics_process(delta):
 	elif (dir == "right"):
 		anim.flip_h = false
 
-	## Shooting Carrots Section
+	## Shooting Fireball Section
 	shoot_dir = dir
 
 	if (can_shoot == false and shoot_timer < shoot_cooldown):

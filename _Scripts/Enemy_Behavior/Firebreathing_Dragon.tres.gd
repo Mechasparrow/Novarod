@@ -1,8 +1,7 @@
 extends KinematicBody2D
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
+# Very similar to Enemy_02.gd
+# Main difference is that they can shoot fireballs
 
 const GRAVITY = 0
 
@@ -108,7 +107,7 @@ func _physics_process(delta):
 			anim.play("move")
 
 	
-	## Shooting Carrots Section
+	## Shooting Fireballs Section
 	shoot_dir = dir
 	
 	if (can_shoot == false and shoot_timer < shoot_cooldown):

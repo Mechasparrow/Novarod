@@ -1,8 +1,7 @@
 extends KinematicBody2D
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
+# Exactly the same code as Shark.gd
+# Just more health bc ya know. Its a BOSS
 
 onready var anim = get_node("AnimationPlayer")
 onready var hitbox = get_node("Hitbox")

@@ -1,8 +1,8 @@
 extends KinematicBody2D
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
+# Uses Enemy_02.gd as a base
+# Main difference is that it can shoot
+# It shoots similar to Bunny_Boss.gd with the additional of random angles
 
 const GRAVITY = 0
 
@@ -108,7 +108,7 @@ func _physics_process(delta):
 			anim.play("move")
 
 
-	## Shooting Carrots Section
+	## Shooting Fireballs Section
 	shoot_dir = dir
 
 	if (can_shoot == false and shoot_timer < shoot_cooldown):
@@ -120,7 +120,7 @@ func _physics_process(delta):
 		var new_fireball = fireball.instance()
 		new_fireball.global_position = global_position
 
-		# Adds an offset so it is not on top of player_gun
+		# Adds an offset so it is not on inside enemy
 		if (shoot_dir == "left"):
 			new_fireball.position.x -= fireball_offset
 		elif (shoot_dir == "right"):
@@ -128,9 +128,12 @@ func _physics_process(delta):
 
 		get_tree().get_root().get_node("World").add_child(new_fireball)
 
+		# Generates a random int from 0-5 to see which angle to shoot in
 		var rand_ang_value = rand_range(0,5)
 		
 		var ang = 0
+		
+		# Will shoot projectile at angles (in radians) -pi/12, -pi/6, 0, pi/6, pi/12 randomly
 		
 		if (rand_ang_value >= 0 and rand_ang_value < 1):
 			ang = -PI/12

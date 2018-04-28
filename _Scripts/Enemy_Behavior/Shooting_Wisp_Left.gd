@@ -1,8 +1,9 @@
 extends KinematicBody2D
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
+# Same code base as Firebreathing_Dragon.tres.gd
+# Altered for the wisp
+# Shoots lightning instead
+# Only shoots in the left direction
 
 const GRAVITY = 0
 
@@ -85,7 +86,7 @@ func _physics_process(delta):
 	elif (dir == "right"):
 		anim.flip_h = false
 
-	## Shooting Carrots Section
+	## Shooting Lightning Ball Section
 	shoot_dir = dir
 
 	if (can_shoot == false and shoot_timer < shoot_cooldown):

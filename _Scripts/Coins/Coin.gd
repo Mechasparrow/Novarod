@@ -18,7 +18,7 @@ func _physics_process(delta):
 	
 	# Runs through all colliding bodies, if it is the player
 	# destroy the coin
-	# Add 1 to the amnt of coins that the player has collected
+	# Adds 1 to the amnt of coins that the player has collected
 	for body in bodies:
 		if body.name == "Player" and collected == false:
 			player_info.coins += 1
