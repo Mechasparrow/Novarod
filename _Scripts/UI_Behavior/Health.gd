@@ -1,5 +1,7 @@
 extends Node2D
 
+# Code that handles displaying player health on the UI
+
 # Variables relating to the player
 var player_string = "player_one"
 
