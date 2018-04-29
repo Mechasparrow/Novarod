@@ -10,7 +10,7 @@ source_file="res://_Assets/Art/Water_Artwork/Enemies/Snake/sprite_4.png"
 source_md5="fd902c3b3e8b1bbeeebc00c98da9f6c4"
 
 dest_files=[ "res://.import/sprite_4.png-f4dd5d6dcd02cd0d1beb4c9650ab6218.stex" ]
-dest_md5="0cccf442fd4958e1ffd08c83fd09ae53"
+dest_md5="372e9a70c0896ff8b332594dfe71a867"
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
@@ -28,5 +28,5 @@ process/premult_alpha=false
 process/HDR_as_SRGB=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0
