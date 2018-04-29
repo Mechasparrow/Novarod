@@ -1,18 +1,22 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://_Scripts/Level_Bahavior/level_script.gd" type="Script" id=1]
 [ext_resource path="res://_Tileset/normal_world.tres" type="TileSet" id=2]
 [ext_resource path="res://_Tileset/hazards.tres" type="TileSet" id=3]
 [ext_resource path="res://_Prefab/gems/gem_green.tscn" type="PackedScene" id=4]
-[ext_resource path="res://_Prefab/Scene_Elements/invisible_checkpoint.tscn" type="PackedScene" id=5]
-[ext_resource path="res://_Prefab/Pickups/Weapon_Pickup.tscn" type="PackedScene" id=6]
-[ext_resource path="res://_Prefab/Doors/Door.tscn" type="PackedScene" id=7]
-[ext_resource path="res://_Prefab/Enemies/Enemy_Bunny_Boss.tscn" type="PackedScene" id=8]
-[ext_resource path="res://_Prefab/Players/Player.tscn" type="PackedScene" id=9]
-[ext_resource path="res://_Prefab/UI/HUD.tscn" type="PackedScene" id=10]
-[ext_resource path="res://_Prefab/Projectiles/Golden_Carrot_Projectile.tscn" type="PackedScene" id=11]
-[ext_resource path="res://_Prefab/Scene_Elements/Cage.tscn" type="PackedScene" id=12]
-[ext_resource path="res://_Scripts/Enemy_Behavior/boss-handler.gd" type="Script" id=13]
+[ext_resource path="res://_Scripts/NPC_Behavior/Birdo.gd" type="Script" id=5]
+[ext_resource path="res://_Assets/Art/NPC/bunny/bunny_0.png" type="Texture" id=6]
+[ext_resource path="res://_Assets/Art/NPC/bunny/bunny_1.png" type="Texture" id=7]
+[ext_resource path="res://_Fonts/imported_fonts/pixel_font.tres" type="DynamicFont" id=8]
+[ext_resource path="res://_Prefab/Scene_Elements/invisible_checkpoint.tscn" type="PackedScene" id=9]
+[ext_resource path="res://_Prefab/Pickups/Weapon_Pickup.tscn" type="PackedScene" id=10]
+[ext_resource path="res://_Prefab/Doors/Door.tscn" type="PackedScene" id=11]
+[ext_resource path="res://_Prefab/Enemies/Enemy_Bunny_Boss.tscn" type="PackedScene" id=12]
+[ext_resource path="res://_Prefab/Players/Player.tscn" type="PackedScene" id=13]
+[ext_resource path="res://_Prefab/UI/HUD.tscn" type="PackedScene" id=14]
+[ext_resource path="res://_Prefab/Projectiles/Golden_Carrot_Projectile.tscn" type="PackedScene" id=15]
+[ext_resource path="res://_Prefab/Scene_Elements/Cage.tscn" type="PackedScene" id=16]
+[ext_resource path="res://_Scripts/Enemy_Behavior/boss-handler.gd" type="Script" id=17]
 
 [sub_resource type="GDScript" id=1]
 
@@ -35,6 +39,25 @@ func _ready():
 #	# Update game logic here.
 #	pass
 "
+
+[sub_resource type="SpriteFrames" id=3]
+
+animations = [ {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "hopping",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=4]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
 
 [sub_resource type="GDScript" id=2]
 
@@ -170,6 +193,8 @@ _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
 [node name="Gems" type="Node2D" parent="." index="3"]
 
+editor/display_folded = true
+
 [node name="gem_green" parent="Gems" index="0" instance=ExtResource( 4 )]
 
 position = Vector2( -288, -112 )
@@ -186,67 +211,158 @@ position = Vector2( 752, -304 )
 
 position = Vector2( 608, -96 )
 
-[node name="Coins" type="Node2D" parent="." index="4"]
+[node name="NPCs" type="Node2D" parent="." index="4"]
 
-[node name="Coins_R" type="Node2D" parent="." index="5"]
+[node name="Bunny-NPC" type="Area2D" parent="NPCs" index="0"]
 
-[node name="Signs" type="Node2D" parent="." index="6"]
+position = Vector2( 480, 160 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 5 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="NPCs/Bunny-NPC" index="0"]
+
+scale = Vector2( 4, 4 )
+frames = SubResource( 3 )
+animation = "hopping"
+playing = true
+flip_h = true
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPCs/Bunny-NPC" index="1"]
+
+scale = Vector2( 2.5, 2.5 )
+shape = SubResource( 4 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="NPCs/Bunny-NPC" index="2"]
+
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+
+[node name="Popup" type="PopupPanel" parent="NPCs/Bunny-NPC/CanvasLayer" index="0"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 62.0
+margin_top = 470.0
+margin_right = 976.0
+margin_bottom = 544.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+popup_exclusive = false
+
+[node name="Label" type="RichTextLabel" parent="NPCs/Bunny-NPC/CanvasLayer/Popup" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 178.0
+margin_top = 26.0
+margin_right = 754.0
+margin_bottom = 58.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/normal_font = ExtResource( 8 )
+bbcode_enabled = false
+bbcode_text = ""
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = "This bunny is really evil. He throws carrots!"
+scroll_active = false
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="Coins" type="Node2D" parent="." index="5"]
+
+[node name="Coins_R" type="Node2D" parent="." index="6"]
+
+[node name="Signs" type="Node2D" parent="." index="7"]
 
 position = Vector2( 97.7842, 416.212 )
 
-[node name="Platforms" type="Node2D" parent="." index="7"]
+[node name="Platforms" type="Node2D" parent="." index="8"]
 
-[node name="Pickups" type="Node2D" parent="." index="8"]
+[node name="Pickups" type="Node2D" parent="." index="9"]
 
 scale = Vector2( 6.5625, 6.5625 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="invisible_checkpoint" parent="Pickups" index="0" instance=ExtResource( 5 )]
+[node name="invisible_checkpoint" parent="Pickups" index="0" instance=ExtResource( 9 )]
 
 position = Vector2( 29.2571, 43.8857 )
 scale = Vector2( 0.152381, 0.152381 )
 
-[node name="Weapon_Pickup" parent="Pickups" index="1" instance=ExtResource( 6 )]
+[node name="Weapon_Pickup" parent="Pickups" index="1" instance=ExtResource( 10 )]
 
 position = Vector2( 17.0667, 53.6381 )
 scale = Vector2( 0.1, 0.1 )
 script = SubResource( 2 )
 
-[node name="Door" parent="." index="9" instance=ExtResource( 7 )]
+[node name="Door" parent="." index="10" instance=ExtResource( 11 )]
 
 position = Vector2( 135, -128 )
 
-[node name="Enemies" type="Node2D" parent="." index="10"]
+[node name="Enemies" type="Node2D" parent="." index="11"]
 
 editor/display_folded = true
 position = Vector2( 318.166, 383.563 )
 
-[node name="Enemy_Bunny_Boss" parent="Enemies" index="0" instance=ExtResource( 8 )]
+[node name="Enemy_Bunny_Boss" parent="Enemies" index="0" instance=ExtResource( 12 )]
 
 position = Vector2( -158.166, -543.563 )
 scale = Vector2( 2, 2 )
 
-[node name="Enemy_Markers" type="Node2D" parent="." index="11"]
+[node name="Enemy_Markers" type="Node2D" parent="." index="12"]
 
 position = Vector2( 272, 64 )
 
-[node name="Player" parent="." index="12" instance=ExtResource( 9 )]
+[node name="Player" parent="." index="13" instance=ExtResource( 13 )]
 
 position = Vector2( 192, 288 )
 
-[node name="HUD" parent="." index="13" instance=ExtResource( 10 )]
+[node name="HUD" parent="." index="14" instance=ExtResource( 14 )]
 
 _sections_unfolded = [ "Visibility", "Z Index" ]
 
-[node name="Killer_Carrot" parent="." index="14" instance=ExtResource( 11 )]
+[node name="Killer_Carrot" parent="." index="15" instance=ExtResource( 15 )]
 
 position = Vector2( 160.985, -500.057 )
 
-[node name="Cage" parent="." index="15" instance=ExtResource( 12 )]
+[node name="Cage" parent="." index="16" instance=ExtResource( 16 )]
 
 position = Vector2( 160, -496 )
 scale = Vector2( 1.25, 1.25 )
-script = ExtResource( 13 )
+script = ExtResource( 17 )
 _sections_unfolded = [ "Transform" ]
 
 

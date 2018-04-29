@@ -1,15 +1,20 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://_Scripts/Level_Bahavior/level_script.gd" type="Script" id=1]
 [ext_resource path="res://_Tileset/normal_world.tres" type="TileSet" id=2]
 [ext_resource path="res://_Tileset/hazards.tres" type="TileSet" id=3]
-[ext_resource path="res://_Prefab/Platforms/Platform_Reg_Vertical.tscn" type="PackedScene" id=4]
-[ext_resource path="res://_Prefab/Doors/Door.tscn" type="PackedScene" id=5]
-[ext_resource path="res://_Prefab/Pickups/Weapon_Pickup.tscn" type="PackedScene" id=6]
-[ext_resource path="res://_Scripts/Pickup_Behavior/Weapon_Gun_Pickup.gd" type="Script" id=7]
-[ext_resource path="res://_Prefab/Enemies/Boss_Lava_Monster.tscn" type="PackedScene" id=8]
-[ext_resource path="res://_Prefab/Players/Player.tscn" type="PackedScene" id=9]
-[ext_resource path="res://_Prefab/UI/HUD.tscn" type="PackedScene" id=10]
+[ext_resource path="res://_Scripts/NPC_Behavior/Birdo.gd" type="Script" id=4]
+[ext_resource path="res://_Assets/Art/Fire Artwork/Good Dragon/sprite_0.png" type="Texture" id=5]
+[ext_resource path="res://_Assets/Art/Fire Artwork/Good Dragon/sprite_2.png" type="Texture" id=6]
+[ext_resource path="res://_Assets/Art/Fire Artwork/Good Dragon/sprite_3.png" type="Texture" id=7]
+[ext_resource path="res://_Fonts/imported_fonts/pixel_font.tres" type="DynamicFont" id=8]
+[ext_resource path="res://_Prefab/Platforms/Platform_Reg_Vertical.tscn" type="PackedScene" id=9]
+[ext_resource path="res://_Prefab/Doors/Door.tscn" type="PackedScene" id=10]
+[ext_resource path="res://_Prefab/Pickups/Weapon_Pickup.tscn" type="PackedScene" id=11]
+[ext_resource path="res://_Scripts/Pickup_Behavior/Weapon_Gun_Pickup.gd" type="Script" id=12]
+[ext_resource path="res://_Prefab/Enemies/Boss_Lava_Monster.tscn" type="PackedScene" id=13]
+[ext_resource path="res://_Prefab/Players/Player.tscn" type="PackedScene" id=14]
+[ext_resource path="res://_Prefab/UI/HUD.tscn" type="PackedScene" id=15]
 
 [sub_resource type="GDScript" id=1]
 
@@ -33,7 +38,26 @@ func _ready():
 #	pass
 "
 
-[sub_resource type="GDScript" id=2]
+[sub_resource type="SpriteFrames" id=3]
+
+animations = [ {
+"frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "hopping",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
+[sub_resource type="GDScript" id=4]
 
 script/source = "extends KinematicBody2D
 
@@ -88,7 +112,7 @@ func _process(delta):
 				pass
 "
 
-[node name="World" type="Node" groups=[
+[node name="World" type="Node" index="0" groups=[
 "enemy_kill_level",
 ]]
 
@@ -102,6 +126,8 @@ script = SubResource( 1 )
 [node name="Chests" type="Node2D" parent="." index="1"]
 
 [node name="Tiles" type="Node2D" parent="." index="2"]
+
+editor/display_folded = true
 
 [node name="Ground" type="TileMap" parent="Tiles" index="0"]
 
@@ -165,57 +191,155 @@ _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
 [node name="Gems" type="Node2D" parent="." index="3"]
 
-[node name="Coins" type="Node2D" parent="." index="4"]
+[node name="NPC" type="Node2D" parent="." index="4"]
 
-[node name="Coins_R" type="Node2D" parent="." index="5"]
+[node name="Dragon-NPC" type="Area2D" parent="NPC" index="0"]
 
-[node name="Signs" type="Node2D" parent="." index="6"]
+position = Vector2( 112, 384 )
+scale = Vector2( 1.5, 1.5 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 4 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="NPC/Dragon-NPC" index="0"]
+
+scale = Vector2( 4, 4 )
+frames = SubResource( 3 )
+animation = "default"
+frame = 1
+playing = true
+flip_h = true
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC/Dragon-NPC" index="1"]
+
+scale = Vector2( 2.5, 2.5 )
+shape = SubResource( 2 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="NPC/Dragon-NPC" index="2"]
+
+editor/display_folded = true
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+
+[node name="Popup" type="PopupPanel" parent="NPC/Dragon-NPC/CanvasLayer" index="0"]
+
+editor/display_folded = true
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 62.0
+margin_top = 470.0
+margin_right = 976.0
+margin_bottom = 544.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+popup_exclusive = false
+
+[node name="Label" type="RichTextLabel" parent="NPC/Dragon-NPC/CanvasLayer/Popup" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 226.0
+margin_top = 26.0
+margin_right = 674.0
+margin_bottom = 58.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/normal_font = ExtResource( 8 )
+bbcode_enabled = false
+bbcode_text = ""
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = "This dragon shoots many fireballs!"
+scroll_active = false
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="Coins" type="Node2D" parent="." index="5"]
+
+[node name="Coins_R" type="Node2D" parent="." index="6"]
+
+[node name="Signs" type="Node2D" parent="." index="7"]
 
 position = Vector2( 97.7842, 416.212 )
 
-[node name="Platforms" type="Node2D" parent="." index="7"]
+[node name="Platforms" type="Node2D" parent="." index="8"]
 
-[node name="Platform_Reg" parent="Platforms" index="0" instance=ExtResource( 4 )]
+editor/display_folded = true
+
+[node name="Platform_Reg" parent="Platforms" index="0" instance=ExtResource( 9 )]
 
 position = Vector2( -384, 416 )
-script = SubResource( 2 )
+script = SubResource( 4 )
 
-[node name="Platform_Reg2" parent="Platforms" index="1" instance=ExtResource( 4 )]
+[node name="Platform_Reg2" parent="Platforms" index="1" instance=ExtResource( 9 )]
 
 position = Vector2( 768, 416 )
-script = SubResource( 2 )
+script = SubResource( 4 )
 
-[node name="Door" parent="." index="8" instance=ExtResource( 5 )]
+[node name="Door" parent="." index="9" instance=ExtResource( 10 )]
 
 position = Vector2( 176, 384 )
 
-[node name="Pickups" type="Node2D" parent="." index="9"]
+[node name="Pickups" type="Node2D" parent="." index="10"]
 
 editor/display_folded = true
 _sections_unfolded = [ "Transform" ]
 
-[node name="Weapon_Pickup" parent="Pickups" index="0" instance=ExtResource( 6 )]
+[node name="Weapon_Pickup" parent="Pickups" index="0" instance=ExtResource( 11 )]
 
 position = Vector2( 288, 400 )
-script = ExtResource( 7 )
+script = ExtResource( 12 )
 
-[node name="Enemies" type="Node2D" parent="." index="10"]
+[node name="Enemies" type="Node2D" parent="." index="11"]
 
 editor/display_folded = true
 position = Vector2( 318.166, 383.563 )
 
-[node name="Boss_Lava_Monster" parent="Enemies" index="0" instance=ExtResource( 8 )]
+[node name="Boss_Lava_Monster" parent="Enemies" index="0" instance=ExtResource( 13 )]
 
 position = Vector2( -126.166, -319.563 )
 
-[node name="Enemy_Markers" type="Node2D" parent="." index="11"]
+[node name="Enemy_Markers" type="Node2D" parent="." index="12"]
 
 position = Vector2( 272, 64 )
 
-[node name="Player" parent="." index="12" instance=ExtResource( 9 )]
+[node name="Player" parent="." index="13" instance=ExtResource( 14 )]
 
 position = Vector2( 192, 288 )
 
-[node name="HUD" parent="." index="13" instance=ExtResource( 10 )]
+[node name="HUD" parent="." index="14" instance=ExtResource( 15 )]
 
 

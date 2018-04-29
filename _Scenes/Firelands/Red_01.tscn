@@ -1,18 +1,23 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://_Scripts/Level_Bahavior/level_script.gd" type="Script" id=1]
-[ext_resource path="res://_Tileset/normal_world.tres" type="TileSet" id=2]
-[ext_resource path="res://_Prefab/Hazard/Fire.tscn" type="PackedScene" id=3]
-[ext_resource path="res://_Tileset/hazards.tres" type="TileSet" id=4]
-[ext_resource path="res://_Prefab/trees/tree1.tscn" type="PackedScene" id=5]
-[ext_resource path="res://_Assets/Art/Burnt_Trees/sprite_1.png" type="Texture" id=6]
-[ext_resource path="res://_Scripts/Platform/Platform_Horizontal.gd" type="Script" id=7]
-[ext_resource path="res://_Assets/Art/Platforms/platform_0.png" type="Texture" id=8]
-[ext_resource path="res://_Assets/Art/Platforms/platform_5.png" type="Texture" id=9]
-[ext_resource path="res://_Assets/Art/Platforms/platform_6.png" type="Texture" id=10]
-[ext_resource path="res://_Prefab/Doors/Door.tscn" type="PackedScene" id=11]
-[ext_resource path="res://_Prefab/Players/Player.tscn" type="PackedScene" id=12]
-[ext_resource path="res://_Prefab/UI/HUD.tscn" type="PackedScene" id=13]
+[ext_resource path="res://_Scripts/NPC_Behavior/Birdo.gd" type="Script" id=2]
+[ext_resource path="res://_Assets/Art/Fire Artwork/Good Dragon/sprite_0.png" type="Texture" id=3]
+[ext_resource path="res://_Assets/Art/Fire Artwork/Good Dragon/sprite_2.png" type="Texture" id=4]
+[ext_resource path="res://_Assets/Art/Fire Artwork/Good Dragon/sprite_3.png" type="Texture" id=5]
+[ext_resource path="res://_Fonts/imported_fonts/pixel_font.tres" type="DynamicFont" id=6]
+[ext_resource path="res://_Tileset/normal_world.tres" type="TileSet" id=7]
+[ext_resource path="res://_Prefab/Hazard/Fire.tscn" type="PackedScene" id=8]
+[ext_resource path="res://_Tileset/hazards.tres" type="TileSet" id=9]
+[ext_resource path="res://_Prefab/trees/tree1.tscn" type="PackedScene" id=10]
+[ext_resource path="res://_Assets/Art/Burnt_Trees/sprite_1.png" type="Texture" id=11]
+[ext_resource path="res://_Scripts/Platform/Platform_Horizontal.gd" type="Script" id=12]
+[ext_resource path="res://_Assets/Art/Platforms/platform_0.png" type="Texture" id=13]
+[ext_resource path="res://_Assets/Art/Platforms/platform_5.png" type="Texture" id=14]
+[ext_resource path="res://_Assets/Art/Platforms/platform_6.png" type="Texture" id=15]
+[ext_resource path="res://_Prefab/Doors/Door.tscn" type="PackedScene" id=16]
+[ext_resource path="res://_Prefab/Players/Player.tscn" type="PackedScene" id=17]
+[ext_resource path="res://_Prefab/UI/HUD.tscn" type="PackedScene" id=18]
 
 [sub_resource type="GDScript" id=1]
 
@@ -36,12 +41,31 @@ func _ready():
 #	pass
 "
 
+[sub_resource type="SpriteFrames" id=3]
+
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "hopping",
+"speed": 5.0
+} ]
+
 [sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
+[sub_resource type="RectangleShape2D" id=4]
 
 custom_solver_bias = 0.0
 extents = Vector2( 9.6, 32 )
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=5]
 
 custom_solver_bias = 0.0
 extents = Vector2( 96, 32 )
@@ -59,15 +83,110 @@ script = SubResource( 1 )
 
 [node name="NPCS" type="Node2D" parent="." index="1"]
 
+[node name="Dragon" type="Area2D" parent="NPCS" index="0"]
+
+editor/display_folded = true
+position = Vector2( 272, 384 )
+scale = Vector2( 1.5, 1.5 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="NPCS/Dragon" index="0"]
+
+scale = Vector2( 4, 4 )
+frames = SubResource( 3 )
+animation = "default"
+frame = 1
+playing = true
+flip_h = true
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPCS/Dragon" index="1"]
+
+scale = Vector2( 2.5, 2.5 )
+shape = SubResource( 2 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="NPCS/Dragon" index="2"]
+
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+
+[node name="Popup" type="PopupPanel" parent="NPCS/Dragon/CanvasLayer" index="0"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 62.0
+margin_top = 470.0
+margin_right = 976.0
+margin_bottom = 544.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+popup_exclusive = false
+
+[node name="Label" type="RichTextLabel" parent="NPCS/Dragon/CanvasLayer/Popup" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 226.0
+margin_top = 26.0
+margin_right = 658.0
+margin_bottom = 58.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/normal_font = ExtResource( 6 )
+bbcode_enabled = false
+bbcode_text = ""
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = "Yeah so we have an evil dragon"
+scroll_active = false
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+_sections_unfolded = [ "custom_fonts" ]
+
 [node name="Chests" type="Node2D" parent="." index="2"]
 
 [node name="Tiles" type="Node2D" parent="." index="3"]
+
+editor/display_folded = true
 
 [node name="Ground" type="TileMap" parent="Tiles" index="0"]
 
 scale = Vector2( 4, 4 )
 mode = 0
-tile_set = ExtResource( 2 )
+tile_set = ExtResource( 7 )
 cell_size = Vector2( 16, 16 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -92,28 +211,28 @@ __meta__ = {
 
 editor/display_folded = true
 
-[node name="Fire" parent="Tiles/Fire" index="0" instance=ExtResource( 3 )]
+[node name="Fire" parent="Tiles/Fire" index="0" instance=ExtResource( 8 )]
 
 modulate = Color( 1, 1, 1, 0.862745 )
 position = Vector2( -32, 480 )
 scale = Vector2( 0.5, 0.5 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
-[node name="Fire2" parent="Tiles/Fire" index="1" instance=ExtResource( 3 )]
+[node name="Fire2" parent="Tiles/Fire" index="1" instance=ExtResource( 8 )]
 
 modulate = Color( 1, 1, 1, 0.862745 )
 position = Vector2( -96, 480 )
 scale = Vector2( 0.5, 0.5 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
-[node name="Fire3" parent="Tiles/Fire" index="2" instance=ExtResource( 3 )]
+[node name="Fire3" parent="Tiles/Fire" index="2" instance=ExtResource( 8 )]
 
 modulate = Color( 1, 1, 1, 0.862745 )
 position = Vector2( -160, 480 )
 scale = Vector2( 0.5, 0.5 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
-[node name="Fire4" parent="Tiles/Fire" index="3" instance=ExtResource( 3 )]
+[node name="Fire4" parent="Tiles/Fire" index="3" instance=ExtResource( 8 )]
 
 modulate = Color( 1, 1, 1, 0.862745 )
 position = Vector2( -224, 480 )
@@ -124,7 +243,7 @@ _sections_unfolded = [ "Transform", "Visibility" ]
 
 scale = Vector2( 4, 4 )
 mode = 0
-tile_set = ExtResource( 4 )
+tile_set = ExtResource( 9 )
 cell_size = Vector2( 16, 16 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -155,10 +274,10 @@ _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
 editor/display_folded = true
 
-[node name="Sprite" parent="Tiles/Trees" index="0" instance=ExtResource( 5 )]
+[node name="Sprite" parent="Tiles/Trees" index="0" instance=ExtResource( 10 )]
 
 position = Vector2( 544, 368 )
-texture = ExtResource( 6 )
+texture = ExtResource( 11 )
 
 [node name="Ice" type="Node2D" parent="Tiles" index="5"]
 
@@ -174,6 +293,8 @@ position = Vector2( 97.7842, 416.212 )
 
 [node name="Platforms" type="Node2D" parent="." index="8"]
 
+editor/display_folded = true
+
 [node name="Platform_Reg" type="KinematicBody2D" parent="Platforms" index="0"]
 
 editor/display_folded = true
@@ -182,32 +303,32 @@ input_pickable = false
 collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
-script = ExtResource( 7 )
+script = ExtResource( 12 )
 
 [node name="Sprite" type="Sprite" parent="Platforms/Platform_Reg" index="0"]
 
 position = Vector2( -64, 0 )
 scale = Vector2( 4, 4 )
-texture = ExtResource( 8 )
+texture = ExtResource( 13 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Sprite2" type="Sprite" parent="Platforms/Platform_Reg" index="1"]
 
 scale = Vector2( 4, 4 )
-texture = ExtResource( 9 )
+texture = ExtResource( 14 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Sprite3" type="Sprite" parent="Platforms/Platform_Reg" index="2"]
 
 position = Vector2( 64, 0 )
 scale = Vector2( 4, 4 )
-texture = ExtResource( 10 )
+texture = ExtResource( 15 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform_Reg" index="3"]
 
 scale = Vector2( 10, 1 )
-shape = SubResource( 2 )
+shape = SubResource( 4 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Hitbox" type="Area2D" parent="Platforms/Platform_Reg" index="4"]
@@ -223,7 +344,7 @@ audio_bus_name = "Master"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform_Reg/Hitbox" index="0"]
 
 scale = Vector2( 1.05, 1.05 )
-shape = SubResource( 3 )
+shape = SubResource( 5 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Pickups" type="Node2D" parent="." index="9"]
@@ -231,11 +352,11 @@ _sections_unfolded = [ "Transform" ]
 scale = Vector2( 6.5625, 6.5625 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Door" parent="." index="10" instance=ExtResource( 11 )]
+[node name="Door" parent="." index="10" instance=ExtResource( 16 )]
 
 position = Vector2( 1600, 0 )
 
-[node name="Player" parent="." index="11" instance=ExtResource( 12 )]
+[node name="Player" parent="." index="11" instance=ExtResource( 17 )]
 
 position = Vector2( 192, 288 )
 
@@ -247,6 +368,6 @@ _sections_unfolded = [ "Transform" ]
 
 position = Vector2( 272, 64 )
 
-[node name="HUD" parent="." index="14" instance=ExtResource( 13 )]
+[node name="HUD" parent="." index="14" instance=ExtResource( 18 )]
 
 
