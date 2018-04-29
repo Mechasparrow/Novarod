@@ -1,8 +1,7 @@
 extends Area2D
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
+# Similar to Gun.gd
+# Its a sword tho
 
 var knockback_factor = 2000
 var attack_dir = null
@@ -22,6 +21,7 @@ func _ready():
 func is_attacking():
 	return attacking
 
+# Plays the sword swing animations while attacking
 func attack(dir):
 	if not attacking:
 
@@ -34,11 +34,14 @@ func attack(dir):
 
 		attacking = true
 
+# Not used
 func update_orientation(dir):
 
 
 	pass
 
+# Depending on whether or not the player is attacking, The sword hitbox is enabled/disabled
+# Sets attacking to false when 
 func _process(delta):
 
 

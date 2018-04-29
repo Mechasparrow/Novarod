@@ -1,30 +1,31 @@
 extends Area2D
 
+# Behavior for the gun weapon
 
-
+# Classic weapon variables for handling attacks
 var attacking = false
 var attacking_duration = 0.2
 var attacking_timer = 0
 
+# Shooting variable
 var can_shoot = false
 var shoot_timer = 0
 var shooting_duration = 0.5
 
+# Projectile offset
 var offset = 7
 
+# Projectile
 onready var bullet = preload("res://_Prefab/Projectiles/Player_Bullet.tscn")
 
-func _ready():
-	# Called every time the node is added to the scene.
-	# Initialization here
-
-	pass
-
+# Returns whether or not the weapon is being used
 func is_attacking():
 	return attacking
 
+# Shoots the gun
 func attack(dir):
 
+	# Attacking delay to prevent spamming
 	attacking = true
 	attacking_timer = 0
 
@@ -53,6 +54,7 @@ func attack(dir):
 		
 	##
 
+# Update the orientation of the gun
 func update_orientation(dir):
 
 	if (dir == "left"):
@@ -60,6 +62,8 @@ func update_orientation(dir):
 	elif (dir == "right"):
 		get_node("Sprite").flip_h = false
 
+# Update the timers for shooting and attacking
+# Also whether or not the weapon should be shown
 func _process(delta):
 
 	if (attacking == true):
