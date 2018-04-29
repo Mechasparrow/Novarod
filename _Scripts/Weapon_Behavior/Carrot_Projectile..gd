@@ -4,6 +4,8 @@ extends RigidBody2D
 # var a = 2
 # var b = "textvar"
 
+# Exactly the same as Player_Bullet.gd
+
 onready var anim_sprite = get_node("Sprite")
 
 var knockback_factor = 400

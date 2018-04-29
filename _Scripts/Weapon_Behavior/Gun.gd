@@ -1,8 +1,6 @@
 extends Area2D
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
+
 
 var attacking = false
 var attacking_duration = 0.2
@@ -35,7 +33,7 @@ func attack(dir):
 	elif (dir == "right"):
 		get_node("Sprite").flip_h = false
 
-	## TODO Add projectile spawning here!
+	## Shoot projectile
 	if (can_shoot == true):
 		
 		var new_bullet = bullet.instance()

@@ -1,21 +1,17 @@
 extends RigidBody2D
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
+# Base code for all projectiles
 
+# Projectile animation
 onready var anim_sprite = get_node("AnimatedSprite")
 
+# Projectile violence variables
 var knockback_factor = 2000
 var damage = 1
 var attack_dir = "null"
 
-func _ready():
-	# Called every time the node is added to the scene.
-	# Initialization here
-	
-	pass
-
+# Function for shooting the projectile
+# Takes in the direction and the speed of the projectile
 func shoot(dir, velx):
 	
 	if (dir == "left"):
@@ -31,6 +27,7 @@ func shoot(dir, velx):
 	
 	pass
 
+# Checks if the projectile hits anything. If so destroy the projectile.
 func _physics_process(delta):
 	
 	var bodies = get_node("Hitbox").get_overlapping_bodies()
@@ -39,7 +36,3 @@ func _physics_process(delta):
 			queue_free()
 	
 	pass
-
-func _process(delta):
-
-	pass	

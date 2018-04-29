@@ -1,8 +1,7 @@
 extends RigidBody2D
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
+# Same as Player_Bullet.gd
+# Except can shoot on diangonal
 
 onready var anim_sprite = get_node("Sprite")
 
@@ -16,6 +15,7 @@ func _ready():
 
 	pass
 
+# able to shoot but on the diagonal
 func shoot_diagonal(dir, velx, vely):
 	shoot(dir, velx)
 	linear_velocity.y = vely

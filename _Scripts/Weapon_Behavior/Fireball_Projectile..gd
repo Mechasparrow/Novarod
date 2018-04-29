@@ -1,21 +1,17 @@
 extends RigidBody2D
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
+# Exactly the same as Player_Bullet.gd
+# Can be cut in half by Sword
 
+# Animated projectile sprite
 onready var anim_sprite = get_node("Sprite")
 
+# Projectile violence variables
 var knockback_factor = 400
 var damage = 1
 var attack_dir = "null"
 
-func _ready():
-	# Called every time the node is added to the scene.
-	# Initialization here
-
-	pass
-
+# Main function for shooting the projectile
 func shoot(dir, velx):
 
 	if (dir == "left"):
@@ -43,9 +39,5 @@ func _physics_process(delta):
 	for area in (areas):
 		if area.is_in_group("weapon"):
 			queue_free();
-
-	pass
-
-func _process(delta):
 
 	pass
