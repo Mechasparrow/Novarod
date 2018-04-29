@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://_Scripts/Level_Bahavior/level_script.gd" type="Script" id=1]
 [ext_resource path="res://_Tileset/normal_world.tres" type="TileSet" id=2]
@@ -8,11 +8,18 @@
 [ext_resource path="res://_Prefab/Water_Env/lily.tscn" type="PackedScene" id=6]
 [ext_resource path="res://_Assets/Art/Water_Artwork/Rod_Water.png" type="Texture" id=7]
 [ext_resource path="res://_Prefab/gems/gem_blue.tscn" type="PackedScene" id=8]
-[ext_resource path="res://_Prefab/Doors/Door.tscn" type="PackedScene" id=9]
-[ext_resource path="res://_Prefab/Players/Player.tscn" type="PackedScene" id=10]
-[ext_resource path="res://_Prefab/UI/HUD.tscn" type="PackedScene" id=11]
+[ext_resource path="res://_Scripts/NPC_Behavior/Birdo.gd" type="Script" id=9]
+[ext_resource path="res://_Assets/Art/Water_Artwork/Enemies/Snake/sprite_2.png" type="Texture" id=10]
+[ext_resource path="res://_Assets/Art/Water_Artwork/Enemies/Snake/sprite_3.png" type="Texture" id=11]
+[ext_resource path="res://_Assets/Art/Water_Artwork/Enemies/Snake/sprite_4.png" type="Texture" id=12]
+[ext_resource path="res://_Assets/Art/Water_Artwork/Enemies/Snake/sprite_5.png" type="Texture" id=13]
+[ext_resource path="res://_Assets/Art/Water_Artwork/Enemies/Snake/sprite_6.png" type="Texture" id=14]
+[ext_resource path="res://_Fonts/imported_fonts/pixel_font.tres" type="DynamicFont" id=15]
+[ext_resource path="res://_Prefab/Doors/Door.tscn" type="PackedScene" id=16]
+[ext_resource path="res://_Prefab/Players/Player.tscn" type="PackedScene" id=17]
+[ext_resource path="res://_Prefab/UI/HUD.tscn" type="PackedScene" id=18]
 
-[sub_resource type="GDScript" id=1]
+[sub_resource type="GDScript" id=4]
 
 script/source = "extends Node2D
 
@@ -34,6 +41,20 @@ func _ready():
 #	pass
 "
 
+[sub_resource type="SpriteFrames" id=3]
+
+animations = [ {
+"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
 [node name="World" type="Node" groups=[
 "gem_collect_level",
 ]]
@@ -43,11 +64,13 @@ reset_position = Vector2( 100, 400 )
 
 [node name="level_info" type="Node2D" parent="." index="0"]
 
-script = SubResource( 1 )
+script = SubResource( 4 )
 
 [node name="Chests" type="Node2D" parent="." index="1"]
 
 [node name="Tiles" type="Node2D" parent="." index="2"]
+
+editor/display_folded = true
 
 [node name="Ground" type="TileMap" parent="Tiles" index="0"]
 
@@ -1907,37 +1930,129 @@ position = Vector2( 1376, 406 )
 
 position = Vector2( 1312, 79 )
 
-[node name="Coins" type="Node2D" parent="." index="4"]
+[node name="NPC" type="Node2D" parent="." index="4"]
 
-[node name="Coins_R" type="Node2D" parent="." index="5"]
+[node name="Snake-NPC" type="Area2D" parent="NPC" index="0"]
 
-[node name="Signs" type="Node2D" parent="." index="6"]
+position = Vector2( 1311.89, 440.436 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 9 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="NPC/Snake-NPC" index="0"]
+
+scale = Vector2( 4, 4 )
+frames = SubResource( 3 )
+animation = "default"
+frame = 1
+playing = true
+flip_h = true
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC/Snake-NPC" index="1"]
+
+scale = Vector2( 2.5, 2.5 )
+shape = SubResource( 2 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="NPC/Snake-NPC" index="2"]
+
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+
+[node name="Popup" type="PopupPanel" parent="NPC/Snake-NPC/CanvasLayer" index="0"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 62.0
+margin_top = 470.0
+margin_right = 976.0
+margin_bottom = 544.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+popup_exclusive = false
+
+[node name="Label" type="RichTextLabel" parent="NPC/Snake-NPC/CanvasLayer/Popup" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 238.0
+margin_top = 25.0
+margin_right = 660.0
+margin_bottom = 57.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/normal_font = ExtResource( 15 )
+bbcode_enabled = false
+bbcode_text = ""
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = "There is a shark that is not nice"
+scroll_active = false
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="Coins" type="Node2D" parent="." index="5"]
+
+[node name="Coins_R" type="Node2D" parent="." index="6"]
+
+[node name="Signs" type="Node2D" parent="." index="7"]
 
 position = Vector2( 97.7842, 416.212 )
 
-[node name="Platforms" type="Node2D" parent="." index="7"]
+[node name="Platforms" type="Node2D" parent="." index="8"]
 
-[node name="Pickups" type="Node2D" parent="." index="8"]
+[node name="Pickups" type="Node2D" parent="." index="9"]
 
 scale = Vector2( 6.5625, 6.5625 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Door" parent="." index="9" instance=ExtResource( 9 )]
+[node name="Door" parent="." index="10" instance=ExtResource( 16 )]
 
 position = Vector2( 1136, 576 )
 
-[node name="Enemies" type="Node2D" parent="." index="10"]
+[node name="Enemies" type="Node2D" parent="." index="11"]
 
 position = Vector2( 318.166, 383.563 )
 
-[node name="Enemy_Markers" type="Node2D" parent="." index="11"]
+[node name="Enemy_Markers" type="Node2D" parent="." index="12"]
 
 position = Vector2( 272, 64 )
 
-[node name="Player" parent="." index="12" instance=ExtResource( 10 )]
+[node name="Player" parent="." index="13" instance=ExtResource( 17 )]
 
 position = Vector2( 192, 288 )
 
-[node name="HUD" parent="." index="13" instance=ExtResource( 11 )]
+[node name="HUD" parent="." index="14" instance=ExtResource( 18 )]
 
 

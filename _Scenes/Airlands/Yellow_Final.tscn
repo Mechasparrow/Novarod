@@ -104,7 +104,7 @@ tracks/1/keys = {
 "values": [ false, true, false, true, false ]
 }
 
-[node name="World" type="Node" index="0" groups=[
+[node name="World" type="Node" groups=[
 "enemy_kill_level",
 ]]
 
@@ -202,7 +202,6 @@ script = ExtResource( 4 )
 scale = Vector2( 4, 4 )
 frames = SubResource( 6 )
 animation = "default"
-frame = 1
 playing = true
 flip_h = true
 _sections_unfolded = [ "Transform" ]
@@ -327,6 +326,7 @@ _sections_unfolded = [ "Transform" ]
 scale = Vector2( 4, 4 )
 frames = SubResource( 2 )
 animation = "moving"
+frame = 2
 playing = true
 _sections_unfolded = [ "Transform" ]
 
