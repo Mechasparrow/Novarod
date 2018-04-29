@@ -1,14 +1,12 @@
 [gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://_Scripts/Pickup_Behavior/gem.gd" type="Script" id=1]
-[ext_resource path="res://_Assets/Art/Pickups/Gems/gem_green/gem_0.png" type="Texture" id=2]
-[ext_resource path="res://_Assets/Art/Pickups/Gems/gem_green/gem_1.png" type="Texture" id=3]
-[ext_resource path="res://_Assets/Art/Pickups/Gems/gem_green/gem_2.png" type="Texture" id=4]
-[ext_resource path="res://_Assets/Art/Pickups/Gems/gem_green/gem_3.png" type="Texture" id=5]
-[ext_resource path="res://_Assets/Art/Pickups/Gems/gem_green/gem_4.png" type="Texture" id=6]
-[ext_resource path="res://_Assets/Art/Pickups/Gems/gem_green/gem_5.png" type="Texture" id=7]
-
-
+[ext_resource path="res://_Assets/Art/Pickups/Gems/gem_green/sprite_0.png" type="Texture" id=2]
+[ext_resource path="res://_Assets/Art/Pickups/Gems/gem_green/sprite_1.png" type="Texture" id=3]
+[ext_resource path="res://_Assets/Art/Pickups/Gems/gem_green/sprite_2.png" type="Texture" id=4]
+[ext_resource path="res://_Assets/Art/Pickups/Gems/gem_green/sprite_3.png" type="Texture" id=5]
+[ext_resource path="res://_Assets/Art/Pickups/Gems/gem_green/sprite_4.png" type="Texture" id=6]
+[ext_resource path="res://_Assets/Art/Pickups/Gems/gem_green/sprite_5.png" type="Texture" id=7]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -28,7 +26,6 @@ extents = Vector2( 10, 10 )
 "gem",
 ]]
 
-editor/display_folded = true
 position = Vector2( -80.8621, 831.243 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -44,7 +41,6 @@ script = ExtResource( 1 )
 scale = Vector2( 4, 4 )
 frames = SubResource( 1 )
 animation = "default"
-frame = 2
 playing = true
 _sections_unfolded = [ "Transform" ]
 
