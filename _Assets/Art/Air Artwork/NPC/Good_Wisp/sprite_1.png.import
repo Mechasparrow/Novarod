@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/sprite_3.png-dd2f72c9ab7e0d4b18f5316531a61e4f.stex"
+path="res://.import/sprite_1.png-5d02c184db27d349f7879d2ca4b2e994.stex"
 
 [deps]
 
-source_file="res://_Assets/Art/Snake/sprite_3.png"
-source_md5="3cb4ab2cd9315e3c82ebab5e4dabd346"
+source_file="res://_Assets/Art/Air Artwork/NPC/Good_Wisp/sprite_1.png"
+source_md5="b6a2d6e88cce183dea903c2be0f54c04"
 
-dest_files=[ "res://.import/sprite_3.png-dd2f72c9ab7e0d4b18f5316531a61e4f.stex" ]
-dest_md5="471794435b2774da691d4f56e1e6310d"
+dest_files=[ "res://.import/sprite_1.png-5d02c184db27d349f7879d2ca4b2e994.stex" ]
+dest_md5="b677a9c73aeced8e64149e33be2c30be"
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
@@ -28,5 +28,5 @@ process/premult_alpha=false
 process/HDR_as_SRGB=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0

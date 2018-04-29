@@ -1,17 +1,21 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://_Scripts/Level_Bahavior/level_script.gd" type="Script" id=1]
-[ext_resource path="res://_Tileset/normal_world.tres" type="TileSet" id=2]
-[ext_resource path="res://_Tileset/hazards.tres" type="TileSet" id=3]
-[ext_resource path="res://_Prefab/Air World/Stick.tscn" type="PackedScene" id=4]
-[ext_resource path="res://_Prefab/Air World/Flag.tscn" type="PackedScene" id=5]
-[ext_resource path="res://_Prefab/Platforms/Platform_Reg.tscn" type="PackedScene" id=6]
-[ext_resource path="res://_Prefab/Platforms/Platform_Reg_Horizontal.tscn" type="PackedScene" id=7]
-[ext_resource path="res://_Prefab/Pickups/Weapon_Pickup.tscn" type="PackedScene" id=8]
-[ext_resource path="res://_Prefab/Doors/Door.tscn" type="PackedScene" id=9]
-[ext_resource path="res://_Prefab/Enemies/Wisp.tscn" type="PackedScene" id=10]
-[ext_resource path="res://_Prefab/Players/Player.tscn" type="PackedScene" id=11]
-[ext_resource path="res://_Prefab/UI/HUD.tscn" type="PackedScene" id=12]
+[ext_resource path="res://_Scripts/NPC_Behavior/Birdo.gd" type="Script" id=2]
+[ext_resource path="res://_Assets/Art/NPC/Rod-Birdo/birdo_0.png" type="Texture" id=3]
+[ext_resource path="res://_Assets/Art/NPC/Rod-Birdo/birdo_1.png" type="Texture" id=4]
+[ext_resource path="res://_Fonts/imported_fonts/pixel_font.tres" type="DynamicFont" id=5]
+[ext_resource path="res://_Tileset/normal_world.tres" type="TileSet" id=6]
+[ext_resource path="res://_Tileset/hazards.tres" type="TileSet" id=7]
+[ext_resource path="res://_Prefab/Air World/Stick.tscn" type="PackedScene" id=8]
+[ext_resource path="res://_Prefab/Air World/Flag.tscn" type="PackedScene" id=9]
+[ext_resource path="res://_Prefab/Platforms/Platform_Reg.tscn" type="PackedScene" id=10]
+[ext_resource path="res://_Prefab/Platforms/Platform_Reg_Horizontal.tscn" type="PackedScene" id=11]
+[ext_resource path="res://_Prefab/Pickups/Weapon_Pickup.tscn" type="PackedScene" id=12]
+[ext_resource path="res://_Prefab/Doors/Door.tscn" type="PackedScene" id=13]
+[ext_resource path="res://_Prefab/Enemies/Wisp.tscn" type="PackedScene" id=14]
+[ext_resource path="res://_Prefab/Players/Player.tscn" type="PackedScene" id=15]
+[ext_resource path="res://_Prefab/UI/HUD.tscn" type="PackedScene" id=16]
 
 [sub_resource type="GDScript" id=1]
 
@@ -34,6 +38,20 @@ func _ready():
 #	# Update game logic here.
 #	pass
 "
+
+[sub_resource type="SpriteFrames" id=3]
+
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=4]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
 
 [sub_resource type="GDScript" id=2]
 
@@ -100,7 +118,101 @@ script = SubResource( 1 )
 
 [node name="Chests" type="Node2D" parent="." index="1"]
 
-[node name="Tiles" type="Node2D" parent="." index="2"]
+[node name="NPC" type="Node2D" parent="." index="2"]
+
+editor/display_folded = true
+
+[node name="Birdo-NPC" type="Area2D" parent="NPC" index="0"]
+
+position = Vector2( 352, 288 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 2 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="NPC/Birdo-NPC" index="0"]
+
+scale = Vector2( 4, 4 )
+frames = SubResource( 3 )
+animation = "default"
+frame = 1
+playing = true
+flip_h = true
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC/Birdo-NPC" index="1"]
+
+scale = Vector2( 2.5, 2.5 )
+shape = SubResource( 4 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="NPC/Birdo-NPC" index="2"]
+
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+
+[node name="Popup" type="PopupPanel" parent="NPC/Birdo-NPC/CanvasLayer" index="0"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 62.0
+margin_top = 470.0
+margin_right = 976.0
+margin_bottom = 544.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+popup_exclusive = false
+
+[node name="Label" type="RichTextLabel" parent="NPC/Birdo-NPC/CanvasLayer/Popup" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 100.0
+margin_top = 24.0
+margin_right = 852.0
+margin_bottom = 56.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/normal_font = ExtResource( 5 )
+bbcode_enabled = false
+bbcode_text = ""
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = "We have an evil bird king we wish that did not rule us."
+scroll_active = false
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="Tiles" type="Node2D" parent="." index="3"]
 
 editor/display_folded = true
 
@@ -108,7 +220,7 @@ editor/display_folded = true
 
 scale = Vector2( 4, 4 )
 mode = 0
-tile_set = ExtResource( 2 )
+tile_set = ExtResource( 6 )
 cell_size = Vector2( 16, 16 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -133,7 +245,7 @@ __meta__ = {
 
 scale = Vector2( 4, 4 )
 mode = 0
-tile_set = ExtResource( 3 )
+tile_set = ExtResource( 7 )
 cell_size = Vector2( 16, 16 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -164,87 +276,87 @@ _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
 [node name="Ice" type="Node2D" parent="Tiles" index="4"]
 
-[node name="Ship_Parts" type="Node2D" parent="." index="3"]
+[node name="Ship_Parts" type="Node2D" parent="." index="4"]
 
 editor/display_folded = true
 
-[node name="Stick" parent="Ship_Parts" index="0" instance=ExtResource( 4 )]
+[node name="Stick" parent="Ship_Parts" index="0" instance=ExtResource( 8 )]
 
 position = Vector2( 190, 350 )
 
-[node name="Stick2" parent="Ship_Parts" index="1" instance=ExtResource( 4 )]
+[node name="Stick2" parent="Ship_Parts" index="1" instance=ExtResource( 8 )]
 
 position = Vector2( 190, 300 )
 
-[node name="Stick3" parent="Ship_Parts" index="2" instance=ExtResource( 4 )]
+[node name="Stick3" parent="Ship_Parts" index="2" instance=ExtResource( 8 )]
 
 position = Vector2( 190, 240 )
 
-[node name="Stick4" parent="Ship_Parts" index="3" instance=ExtResource( 4 )]
+[node name="Stick4" parent="Ship_Parts" index="3" instance=ExtResource( 8 )]
 
 position = Vector2( 190, 180 )
 
-[node name="Flag" parent="Ship_Parts" index="4" instance=ExtResource( 5 )]
+[node name="Flag" parent="Ship_Parts" index="4" instance=ExtResource( 9 )]
 
 position = Vector2( 249, 214 )
 scale = Vector2( 1.28125, 1.4375 )
 
-[node name="Gems" type="Node2D" parent="." index="4"]
+[node name="Gems" type="Node2D" parent="." index="5"]
 
-[node name="Coins" type="Node2D" parent="." index="5"]
+[node name="Coins" type="Node2D" parent="." index="6"]
 
-[node name="Coins_R" type="Node2D" parent="." index="6"]
+[node name="Coins_R" type="Node2D" parent="." index="7"]
 
-[node name="Signs" type="Node2D" parent="." index="7"]
+[node name="Signs" type="Node2D" parent="." index="8"]
 
 position = Vector2( 97.7842, 416.212 )
 
-[node name="Platforms" type="Node2D" parent="." index="8"]
+[node name="Platforms" type="Node2D" parent="." index="9"]
 
 editor/display_folded = true
 
-[node name="Platform_Reg" parent="Platforms" index="0" instance=ExtResource( 6 )]
+[node name="Platform_Reg" parent="Platforms" index="0" instance=ExtResource( 10 )]
 
 position = Vector2( 608, 416 )
 
-[node name="Platform_Reg2" parent="Platforms" index="1" instance=ExtResource( 7 )]
+[node name="Platform_Reg2" parent="Platforms" index="1" instance=ExtResource( 11 )]
 
 position = Vector2( 1104, 416 )
 script = SubResource( 2 )
 
-[node name="Pickups" type="Node2D" parent="." index="9"]
-
-_sections_unfolded = [ "Transform" ]
-
-[node name="Weapon_Pickup" parent="Pickups" index="0" instance=ExtResource( 8 )]
-
-position = Vector2( 656, 336 )
-
-[node name="Door" parent="." index="10" instance=ExtResource( 9 )]
-
-position = Vector2( 1744, 384 )
-
-[node name="Enemies" type="Node2D" parent="." index="11"]
+[node name="Pickups" type="Node2D" parent="." index="10"]
 
 editor/display_folded = true
 _sections_unfolded = [ "Transform" ]
 
+[node name="Weapon_Pickup" parent="Pickups" index="0" instance=ExtResource( 12 )]
+
+position = Vector2( 656, 336 )
+
+[node name="Door" parent="." index="11" instance=ExtResource( 13 )]
+
+position = Vector2( 1744, 384 )
+
+[node name="Enemies" type="Node2D" parent="." index="12"]
+
+_sections_unfolded = [ "Transform" ]
+
 [node name="Wisp_Container" type="Node2D" parent="Enemies" index="0"]
 
-position = Vector2( 1280, 400 )
+position = Vector2( 1264, 400 )
 
-[node name="Wisp" parent="Enemies/Wisp_Container" index="0" instance=ExtResource( 10 )]
+[node name="Wisp" parent="Enemies/Wisp_Container" index="0" instance=ExtResource( 14 )]
 
 position = Vector2( 0, 0 )
 
-[node name="Enemy_Markers" type="Node2D" parent="." index="12"]
+[node name="Enemy_Markers" type="Node2D" parent="." index="13"]
 
 position = Vector2( 272, 64 )
 
-[node name="Player" parent="." index="13" instance=ExtResource( 11 )]
+[node name="Player" parent="." index="14" instance=ExtResource( 15 )]
 
 position = Vector2( 192, 288 )
 
-[node name="HUD" parent="." index="14" instance=ExtResource( 12 )]
+[node name="HUD" parent="." index="15" instance=ExtResource( 16 )]
 
 

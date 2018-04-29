@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/sprite_6.png-5462c1fc28d6e754dffb937dde8192f5.stex"
+path="res://.import/sprite_0.png-686065fc7c9915eeccc7a131dcd9c18d.stex"
 
 [deps]
 
-source_file="res://_Assets/Art/Snake/sprite_6.png"
-source_md5="ba38a3ab171cde223bb7ef868da9641b"
+source_file="res://_Assets/Art/Water_Artwork/Enemies/Snake/sprite_0.png"
+source_md5="96611acc358788cc0271e45f555eb69b"
 
-dest_files=[ "res://.import/sprite_6.png-5462c1fc28d6e754dffb937dde8192f5.stex" ]
-dest_md5="e52c7eb512febcffc467a1b87323e1fc"
+dest_files=[ "res://.import/sprite_0.png-686065fc7c9915eeccc7a131dcd9c18d.stex" ]
+dest_md5="7528e44458df41ca43fbe94246f4092c"
 
 [params]
 
