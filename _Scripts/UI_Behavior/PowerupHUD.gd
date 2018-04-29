@@ -1,14 +1,8 @@
 extends Node2D
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
+# Displays the current equiped powerup to the HUD (UI)
 
-func _ready():
-	# Called every time the node is added to the scene.
-	# Initialization here
-	pass
-
+# Gets the powerup from the player_info and writes the name of it to a UI Label
 func _process(delta):
 		
 	var power_up_label = get_node("Label")

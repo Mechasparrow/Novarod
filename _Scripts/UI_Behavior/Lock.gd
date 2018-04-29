@@ -1,24 +1,20 @@
 extends Node2D
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
+# Script in charge of handling the lock display on the UI
 
+# Player Info
 onready var player_info = get_node("/root/playerinfo")
 
+# Locked and unlocked images
 onready var locked_img = get_node("Locked")
 onready var unlocked_img = get_node("Unlocked")
 
-
+# Did the player pass the level challenge
 var test_passed = false
 
-var gems_collected = false
-
-func _ready():
-	# Called every time the node is added to the scene.
-	# Initialization here
-	pass
-
+# Checks if the player has completed the objective
+# If so, display the unlocked image 
+# If not, display the locked image
 func _process(delta):
 	
 	var world = get_tree().get_root().get_node("World")

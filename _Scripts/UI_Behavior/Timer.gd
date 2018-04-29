@@ -1,13 +1,9 @@
 extends Node2D
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
+# Simple Script that displays the time since the level started
 
-func _ready():
-	# Called every time the node is added to the scene.
-	# Initialization here
-	pass
+# Gets the time since level started from player_props
+# Writes the time to a UI Label
 
 func _process(delta):
 

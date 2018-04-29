@@ -1,22 +1,24 @@
 extends Node2D
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
+# Script that displays the current level of experience achieved
 
+# Get the player info to retrieve the current xp level and xp amnt
 onready var player_info = get_node("/root/playerinfo")
 
-func _ready():
-	# Called every time the node is added to the scene.
-	# Initialization here
-	pass
-
+# For every loop
+# get the current xp
+# Display that experience
 
 func _process(delta):
 
 	var current_xp = player_info.xp
 
 	display_xp(current_xp)
+
+# Display the xp as a progress bar ratio of xp:max_xp
+# if above max_xp, add to the player_info xp level, and clear xp to 0
+# Display similar progress bar to health, but green
+# Also has a label displaying the current xp level
 
 func display_xp(xp):
 
@@ -32,8 +34,3 @@ func display_xp(xp):
 
 	
 	pass
-
-#func _process(delta):
-	# Called every frame. Delta is time since last frame.
-	# Update game logic here.
-#	pass

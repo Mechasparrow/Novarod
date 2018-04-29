@@ -1,27 +1,15 @@
 extends Node
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
+# Main menu script
 
 var level_select = preload("res://_Scenes/Navigation/Level_Select.tscn")
 
-func _ready():
-	# Called every time the node is added to the scene.
-	# Initialization here
-	pass
-
-#func _process(delta):
-#	# Called every frame. Delta is time since last frame.
-#	# Update game logic here.
-#	pass
-
-
-
+# Exits the game
 func exit_btn_press():
 		
 	get_tree().quit()
 
+# Enters the level select screen
 func start_btn_press():
 	
 	get_tree().change_scene_to(level_select)
