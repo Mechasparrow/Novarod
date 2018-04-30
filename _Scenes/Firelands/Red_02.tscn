@@ -24,7 +24,7 @@
 [ext_resource path="res://_Assets/Art/UI/heart_0.png" type="Texture" id=22]
 [ext_resource path="res://_Prefab/UI/HUD.tscn" type="PackedScene" id=23]
 
-[sub_resource type="GDScript" id=4]
+[sub_resource type="GDScript" id=1]
 
 script/source = "extends Node2D
 
@@ -46,7 +46,7 @@ func _ready():
 #	pass
 "
 
-[sub_resource type="SpriteFrames" id=3]
+[sub_resource type="SpriteFrames" id=2]
 
 animations = [ {
 "frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
@@ -60,12 +60,12 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=3]
 
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[sub_resource type="GDScript" id=5]
+[sub_resource type="GDScript" id=4]
 
 script/source = "extends KinematicBody2D
 
@@ -120,7 +120,7 @@ func _process(delta):
 				pass
 "
 
-[sub_resource type="SpriteFrames" id=6]
+[sub_resource type="SpriteFrames" id=5]
 
 animations = [ {
 "frames": [ ExtResource( 18 ) ],
@@ -140,17 +140,17 @@ animations = [ {
 } ]
 _sections_unfolded = [ "Resource" ]
 
-[sub_resource type="RectangleShape2D" id=7]
+[sub_resource type="RectangleShape2D" id=6]
 
 custom_solver_bias = 0.0
 extents = Vector2( 35.6056, 27.4751 )
 
-[sub_resource type="RectangleShape2D" id=8]
+[sub_resource type="RectangleShape2D" id=7]
 
 custom_solver_bias = 0.0
 extents = Vector2( 30.6989, 23.9862 )
 
-[node name="World" type="Node" index="0" groups=[
+[node name="World" type="Node" groups=[
 "gem_collect_level",
 ]]
 
@@ -159,7 +159,7 @@ reset_position = Vector2( 100, 400 )
 
 [node name="level_info" type="Node2D" parent="." index="0"]
 
-script = SubResource( 4 )
+script = SubResource( 1 )
 
 [node name="NPCS" type="Node2D" parent="." index="1"]
 
@@ -182,7 +182,7 @@ _sections_unfolded = [ "Transform" ]
 [node name="AnimatedSprite" type="AnimatedSprite" parent="NPCS/Dragon-NPC" index="0"]
 
 scale = Vector2( 4, 4 )
-frames = SubResource( 3 )
+frames = SubResource( 2 )
 animation = "default"
 frame = 1
 playing = true
@@ -195,7 +195,7 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPCS/Dragon-NPC" index="1"]
 
 scale = Vector2( 2.5, 2.5 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
@@ -221,6 +221,7 @@ margin_top = 470.0
 margin_right = 976.0
 margin_bottom = 544.0
 rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
@@ -418,7 +419,7 @@ editor/display_folded = true
 [node name="Platform_Reg" parent="Platforms" index="0" instance=ExtResource( 13 )]
 
 position = Vector2( 1312, 560 )
-script = SubResource( 5 )
+script = SubResource( 4 )
 
 [node name="Pickups" type="Node2D" parent="." index="9"]
 
@@ -442,8 +443,8 @@ position = Vector2( 192, 288 )
 editor/display_folded = true
 
 [node name="Dragon" type="KinematicBody2D" parent="Enemies" index="0" groups=[
-"flying_enemy",
 "enemy",
+"flying_enemy",
 ]]
 
 position = Vector2( 1744, 576 )
@@ -457,7 +458,7 @@ _sections_unfolded = [ "Transform" ]
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Enemies/Dragon" index="0"]
 
 scale = Vector2( 6, 6 )
-frames = SubResource( 6 )
+frames = SubResource( 5 )
 animation = "move"
 frame = 2
 playing = true
@@ -479,7 +480,7 @@ audio_bus_name = "Master"
 
 position = Vector2( -3.3911, 27.0234 )
 scale = Vector2( 1.09866, 2.01841 )
-shape = SubResource( 7 )
+shape = SubResource( 6 )
 
 [node name="Hearts" type="Node2D" parent="Enemies/Dragon" index="2"]
 
@@ -507,7 +508,7 @@ _sections_unfolded = [ "Transform" ]
 
 position = Vector2( -3.3911, 12.2675 )
 scale = Vector2( 1.09866, 1.51381 )
-shape = SubResource( 8 )
+shape = SubResource( 7 )
 
 [node name="Enemy_Markers" type="Node2D" parent="." index="13"]
 

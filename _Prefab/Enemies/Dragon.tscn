@@ -8,9 +8,6 @@
 [ext_resource path="res://_Prefab/UI/Heart.tscn" type="PackedScene" id=6]
 [ext_resource path="res://_Assets/Art/UI/heart_0.png" type="Texture" id=7]
 
-
-
-
 [sub_resource type="SpriteFrames" id=1]
 
 animations = [ {
@@ -42,8 +39,8 @@ custom_solver_bias = 0.0
 extents = Vector2( 30.6989, 23.9862 )
 
 [node name="Dragon" type="KinematicBody2D" groups=[
-"flying_enemy",
 "enemy",
+"flying_enemy",
 ]]
 
 position = Vector2( 193.834, 448.437 )

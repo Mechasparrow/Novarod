@@ -22,8 +22,6 @@
 [ext_resource path="res://_Prefab/Players/Player.tscn" type="PackedScene" id=20]
 [ext_resource path="res://_Prefab/UI/HUD.tscn" type="PackedScene" id=21]
 
-
-
 [sub_resource type="SpriteFrames" id=1]
 
 animations = [ {
@@ -199,7 +197,7 @@ position = Vector2( 642, 42 )
 scale = Vector2( 3, 3 )
 frames = SubResource( 3 )
 animation = "default"
-frame = 3
+frame = 1
 playing = true
 _sections_unfolded = [ "Transform" ]
 
