@@ -56,7 +56,7 @@ animations = [ {
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[sub_resource type="SpriteFrames" id=6]
+[sub_resource type="SpriteFrames" id=4]
 
 animations = [ {
 "frames": [ ExtResource( 6 ) ],
@@ -70,17 +70,17 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=7]
+[sub_resource type="RectangleShape2D" id=5]
 
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=6]
 
 custom_solver_bias = 0.0
 extents = Vector2( 27.2451, 19.5441 )
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=7]
 
 size = 48
 use_mipmaps = false
@@ -89,7 +89,7 @@ font_data = ExtResource( 16 )
 fallback/0 = ExtResource( 15 )
 _sections_unfolded = [ "Font/fallback", "Settings" ]
 
-[node name="World" type="Node" index="0" groups=[
+[node name="World" type="Node" groups=[
 "coin_collect_level",
 ]]
 
@@ -101,6 +101,8 @@ reset_position = Vector2( 100, 400 )
 script = SubResource( 1 )
 
 [node name="NPCS" type="Node2D" parent="." index="1"]
+
+editor/display_folded = true
 
 [node name="Birdo-NPC" type="Area2D" parent="NPCS" index="0"]
 
@@ -120,6 +122,7 @@ script = ExtResource( 2 )
 scale = Vector2( 4, 4 )
 frames = SubResource( 2 )
 animation = "default"
+frame = 1
 playing = true
 flip_h = true
 _sections_unfolded = [ "Transform" ]
@@ -156,6 +159,7 @@ margin_top = 470.0
 margin_right = 976.0
 margin_bottom = 544.0
 rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
@@ -207,8 +211,9 @@ script = ExtResource( 2 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="NPCS/Bunny-NPC" index="0"]
 
 scale = Vector2( 4, 4 )
-frames = SubResource( 6 )
+frames = SubResource( 4 )
 animation = "hopping"
+frame = 1
 playing = true
 flip_h = true
 _sections_unfolded = [ "Transform" ]
@@ -219,7 +224,7 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPCS/Bunny-NPC" index="1"]
 
 scale = Vector2( 2.5, 2.5 )
-shape = SubResource( 7 )
+shape = SubResource( 5 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
@@ -235,6 +240,7 @@ transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
 [node name="Popup" type="PopupPanel" parent="NPCS/Bunny-NPC/CanvasLayer" index="0"]
 
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -244,6 +250,7 @@ margin_top = 470.0
 margin_right = 976.0
 margin_bottom = 544.0
 rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
@@ -283,8 +290,6 @@ _sections_unfolded = [ "custom_fonts" ]
 [node name="Chests" type="Node2D" parent="." index="2"]
 
 [node name="Tiles" type="Node2D" parent="." index="3"]
-
-editor/display_folded = true
 
 [node name="Ground" type="TileMap" parent="Tiles" index="0"]
 
@@ -406,7 +411,7 @@ _sections_unfolded = [ "Transform" ]
 
 position = Vector2( 0.713486, -12.4823 )
 scale = Vector2( 1, 0.942137 )
-shape = SubResource( 4 )
+shape = SubResource( 6 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Signs/Sign" index="2"]
 
@@ -428,6 +433,7 @@ margin_top = 470.0
 margin_right = 967.0
 margin_bottom = 579.0
 rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
@@ -451,7 +457,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_fonts/normal_font = SubResource( 5 )
+custom_fonts/normal_font = SubResource( 7 )
 bbcode_enabled = false
 bbcode_text = ""
 visible_characters = -1
