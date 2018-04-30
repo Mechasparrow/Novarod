@@ -10,18 +10,12 @@
 [ext_resource path="res://_Assets/Art/Air Artwork/Air_Particles.png" type="Texture" id=8]
 [ext_resource path="res://_Assets/Art/Air Artwork/Wooden Planks.png" type="Texture" id=9]
 
-
-
-
-
-
-
-[sub_resource type="StreamTexture" id=1]
+[sub_resource type="StreamTexture" id=16]
 
 flags = 0
 load_path = "res://.import/Ground_Dirt_1.png-d0ce40c9eb18552f7cc6d3321945ec3c.stex"
 
-[node name="Node" type="Node"]
+[node name="Node" type="Node" index="0"]
 
 [node name="Grass" type="Sprite" parent="." index="0"]
 
@@ -185,10 +179,9 @@ __meta__ = {
 
 [node name="Ground" type="Sprite" parent="." index="5"]
 
-editor/display_folded = true
 position = Vector2( 256, 128 )
 scale = Vector2( 4, 4 )
-texture = SubResource( 1 )
+texture = SubResource( 16 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 16, 16 )
 _sections_unfolded = [ "Animation", "Region", "Transform" ]

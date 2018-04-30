@@ -89,7 +89,7 @@ font_data = ExtResource( 16 )
 fallback/0 = ExtResource( 15 )
 _sections_unfolded = [ "Font/fallback", "Settings" ]
 
-[node name="World" type="Node" groups=[
+[node name="World" type="Node" index="0" groups=[
 "coin_collect_level",
 ]]
 
@@ -101,6 +101,8 @@ reset_position = Vector2( 100, 400 )
 script = SubResource( 1 )
 
 [node name="NPCS" type="Node2D" parent="." index="1"]
+
+editor/display_folded = true
 
 [node name="Birdo-NPC" type="Area2D" parent="NPCS" index="0"]
 
@@ -120,7 +122,6 @@ script = ExtResource( 2 )
 scale = Vector2( 4, 4 )
 frames = SubResource( 2 )
 animation = "default"
-frame = 1
 playing = true
 flip_h = true
 _sections_unfolded = [ "Transform" ]
@@ -211,7 +212,6 @@ script = ExtResource( 2 )
 scale = Vector2( 4, 4 )
 frames = SubResource( 4 )
 animation = "hopping"
-frame = 1
 playing = true
 flip_h = true
 _sections_unfolded = [ "Transform" ]
@@ -288,8 +288,6 @@ _sections_unfolded = [ "custom_fonts" ]
 [node name="Chests" type="Node2D" parent="." index="2"]
 
 [node name="Tiles" type="Node2D" parent="." index="3"]
-
-editor/display_folded = true
 
 [node name="Ground" type="TileMap" parent="Tiles" index="0"]
 
