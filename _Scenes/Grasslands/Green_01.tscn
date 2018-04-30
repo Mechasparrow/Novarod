@@ -89,7 +89,7 @@ font_data = ExtResource( 16 )
 fallback/0 = ExtResource( 15 )
 _sections_unfolded = [ "Font/fallback", "Settings" ]
 
-[node name="World" type="Node" index="0" groups=[
+[node name="World" type="Node" groups=[
 "coin_collect_level",
 ]]
 
@@ -122,6 +122,7 @@ script = ExtResource( 2 )
 scale = Vector2( 4, 4 )
 frames = SubResource( 2 )
 animation = "default"
+frame = 1
 playing = true
 flip_h = true
 _sections_unfolded = [ "Transform" ]
@@ -212,6 +213,7 @@ script = ExtResource( 2 )
 scale = Vector2( 4, 4 )
 frames = SubResource( 4 )
 animation = "hopping"
+frame = 1
 playing = true
 flip_h = true
 _sections_unfolded = [ "Transform" ]
