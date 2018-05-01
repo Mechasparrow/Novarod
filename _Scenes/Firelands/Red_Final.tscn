@@ -38,7 +38,7 @@ func _ready():
 #	pass
 "
 
-[sub_resource type="SpriteFrames" id=3]
+[sub_resource type="SpriteFrames" id=2]
 
 animations = [ {
 "frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
@@ -52,7 +52,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=3]
 
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
@@ -127,8 +127,6 @@ script = SubResource( 1 )
 
 [node name="Tiles" type="Node2D" parent="." index="2"]
 
-editor/display_folded = true
-
 [node name="Ground" type="TileMap" parent="Tiles" index="0"]
 
 scale = Vector2( 4, 4 )
@@ -148,7 +146,7 @@ collision_layer = 3
 collision_mask = 1
 occluder_light_mask = 1
 format = 1
-tile_data = PoolIntArray( 458748, 4, 0, 458749, 4, 0, 458750, 4, 0, 393223, 4, 0, 393224, 4, 0, 393225, 4, 0, 524284, 8, 0, 524285, 8, 0, 524286, 8, 0, 458753, 4, 0, 458754, 4, 0, 458755, 4, 0, 458756, 4, 0, 458759, 8, 0, 458760, 8, 0, 458761, 8, 0 )
+tile_data = PoolIntArray( 458748, 4, 0, 458749, 4, 0, 458750, 4, 0, 393223, 4, 0, 393224, 4, 0, 393225, 4, 0, 524284, 8, 0, 524285, 8, 0, 524286, 8, 0, 458753, 4, 0, 458754, 4, 0, 458755, 4, 0, 458756, 4, 0, 458759, 8, 0, 458760, 8, 0, 458761, 8, 0, 589820, 8, 0, 589821, 8, 0, 589822, 8, 0, 524289, 8, 0, 524290, 8, 0, 524291, 8, 0, 524292, 8, 0, 524295, 8, 0, 524296, 8, 0, 524297, 8, 0, 655356, 8, 0, 655357, 8, 0, 655358, 8, 0, 589825, 8, 0, 589826, 8, 0, 589827, 8, 0, 589828, 8, 0, 589831, 8, 0, 589832, 8, 0, 589833, 8, 0 )
 _sections_unfolded = [ "Cell", "Collision", "Transform" ]
 __meta__ = {
 "_edit_lock_": true
@@ -210,7 +208,7 @@ _sections_unfolded = [ "Transform", "Z Index" ]
 [node name="AnimatedSprite" type="AnimatedSprite" parent="NPC/Dragon-NPC" index="0"]
 
 scale = Vector2( 4, 4 )
-frames = SubResource( 3 )
+frames = SubResource( 2 )
 animation = "default"
 frame = 1
 playing = true
@@ -223,7 +221,7 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPC/Dragon-NPC" index="1"]
 
 scale = Vector2( 2.5, 2.5 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
